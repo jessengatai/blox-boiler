@@ -1,0 +1,29 @@
+{
+  "name": "blox-boiler",
+  "version": "0.0.2",
+  "description": "A function-first front-end boilerplate.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jessengatai/blox-boiler.git"
+  },
+  "author": "Jesse Ngatai <jessengatai@gmail.com> (https://jessengatai.com)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jessengatai/blox-boiler/issues"
+  },
+  "homepage": "https://github.com/jessengatai/blox-boiler#readme",
+  "dependencies": {},
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
+    "del": "^3.0.0",
+    "gulp": "^3.9.1",
+    "gulp-babel": "^7.0.1",
+    "gulp-connect": "^5.2.0",
+    "gulp-sass": "^3.2.1"
+  }
+}

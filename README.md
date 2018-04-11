@@ -1,2 +1,2 @@
 # blox-boiler
-A function-first front-end boilerplate
+A function first front-end boilerplate
