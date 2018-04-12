@@ -1,0 +1,22 @@
+// layout
+.padded {
+  padding: $paddingX $paddingY;
+}
+.margined {
+  margin: $gutterX $gutterY;
+}
+
+// stickies
+.sticky-bottom {
+  position: sticky;
+  bottom: 0;
+  z-index: 111111;
+}
+
+.deboss {
+  box-shadow: 0 3px 7px rgba(0,0,0,.03);
+  border-radius: 6px;
+  border: solid 1px $white-darker-2;
+  padding: $paddingY $paddingX;
+  background: #ffffff;
+}

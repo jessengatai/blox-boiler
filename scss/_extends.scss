@@ -1,0 +1,28 @@
+// widths
+.bx-max-width {
+  max-width: $container-max-width;
+}
+.bx-full-width {
+  width: 100%;
+}
+
+// heights
+.bx-full-height {
+  height: 100vh;
+  max-height: 100vh;
+}
+
+// transform positions
+.bx-transform-center-x {
+  left: 50%;
+  transform: translateX(-50%);
+}
+.bx-transform-center-y {
+  top: 50%;
+  transform: translateY(-50%);
+}
+.bx-transform-center-xy {
+  top: 50%;
+  left: 50%;
+  transform: translate3d(-50%, -50%, 0);
+}

@@ -1,0 +1,12 @@
+/* handle basic inputs */
+input[type="text"],
+textarea {
+  @extend p;
+  -webkit-appearance: none;
+  outline: none;
+  border: none;
+  box-shadow: none;
+  background: none;
+  border-bottom: solid 1px black;
+  margin: 0px;
+}

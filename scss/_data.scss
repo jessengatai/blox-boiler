@@ -1,0 +1,67 @@
+// big boy data
+// this is only added to bx-modal, slider, boxes
+@mixin container-data-attributes($type) {
+
+  // center x
+  &[bx-x-axis="center"] {
+    @extend .bx-max-width;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    @if $type=='modal' {
+      @extend .bx-transform-center-x;
+    }
+  }
+  // center y
+  &[bx-y-axis="center"] {
+    @if $type=='modal' {
+      @extend .bx-transform-center-y;
+    }
+  }
+  // center both
+  &[bx-x-axis="center"][bx-y-axis="center"] {
+    @if $type=='modal' {
+      @extend .bx-transform-center-xy;
+    }
+  }
+
+  // full width
+  &[bx-x-axis="full"] {
+    @extend .bx-full-width;
+  }
+  // full height
+  &[bx-x-axis="full"] {
+    @extend .bx-full-height;
+  }
+
+
+  &[bx-y-axis="100"] {
+  }
+
+
+  // transitions
+  [bx-trans] {
+    &.bx--on {
+      display: block;
+    }
+    &.bx--entering {
+      opacity: 1;
+    }
+    &.bx--exiting {
+      opacity: 0;
+    }
+  }
+
+} // end data attributes
+
+// used for creating :before(s) and :after(s)
+@mixin psuedo {
+  content: "";
+}
+@mixin fixed-fullscreen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
