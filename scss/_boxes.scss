@@ -1,0 +1,19 @@
+[bx-boxes] {
+  @include general-data-attributes('boxes');
+  @include boxes-data-attributes();
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+
+  &:not([bx-boxes-tight]) > [bx-box] {
+    margin-left: calc( #{$gutterX} / 2 );
+    margin-right: calc( #{$gutterX} / 2 );
+    margin-bottom: $gutterY;
+  }
+
+  // simple box clear (if you need forced rows)
+  > [bx-box-clear] {
+    width: 100%;
+  }
+
+}

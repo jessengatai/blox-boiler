@@ -1,6 +1,8 @@
+@import "_boxWidths.scss";
+
 // big boy data
 // this is only added to bx-modal, slider, boxes
-@mixin container-data-attributes($type) {
+@mixin general-data-attributes($type) {
 
   // center x
   &[bx-x-axis="center"] {
@@ -12,32 +14,31 @@
       @extend .bx-transform-center-x;
     }
   }
+  // full x
+  &[bx-x-axis="full"] {
+    @extend .bx-full-width;
+    &.gutter-x,
+    &.gutter {
+      @extend .bx-full-width-gutter-x;
+    }
+  }
   // center y
   &[bx-y-axis="center"] {
     @if $type=='modal' {
       @extend .bx-transform-center-y;
     }
   }
-  // center both
+  // full y
+  &[bx-y-axis="full"] {
+    @extend .bx-full-height;
+  }
+
+  // center xy
   &[bx-x-axis="center"][bx-y-axis="center"] {
     @if $type=='modal' {
       @extend .bx-transform-center-xy;
     }
   }
-
-  // full width
-  &[bx-x-axis="full"] {
-    @extend .bx-full-width;
-  }
-  // full height
-  &[bx-x-axis="full"] {
-    @extend .bx-full-height;
-  }
-
-
-  &[bx-y-axis="100"] {
-  }
-
 
   // transitions
   [bx-trans] {
@@ -53,6 +54,58 @@
   }
 
 } // end data attributes
+
+
+@mixin boxes-data-attributes() {
+
+  &[bx-box-layout="fitRows"] {
+    // fitRows is the default so it's already set
+  }
+
+  &[bx-box-layout="masonry"] {
+    // masonry is defined with js
+    display: block;
+    flex-direction: unset;
+    flex-wrap: unset;
+  }
+
+  &[bx-box-width="columns"] {
+
+    // 12 columns (default)
+    &[bx-box-columns="12"]:not([bx-boxes-tight]) {
+      @include boxes-with-gutter-12();
+    }
+    &[bx-box-columns="12"][bx-boxes-tight] {
+      @include boxes-without-gutter-12();
+    }
+
+    // 24 columns
+    &[bx-box-columns="24"]:not([bx-boxes-tight]) {
+      @include boxes-with-gutter-24();
+    }
+    &[bx-box-columns="24"][bx-boxes-tight] {
+      @include boxes-without-gutter-24();
+    }
+
+  }
+
+  &[bx-box-width="vw"] {
+    // masonry is defined with js
+  }
+
+  &[bx-box-width="%"] {
+    // masonry is defined with js
+  }
+
+} // end data attributes
+
+
+
+
+
+
+
+
 
 // used for creating :before(s) and :after(s)
 @mixin psuedo {

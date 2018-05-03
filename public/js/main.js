@@ -14,6 +14,9 @@ function removeHash() {
   history.pushState("", document.title, window.location.pathname + window.location.search);
 }
 
+console.log('boxes loaded');
+jQuery(document).ready(function ($) {});
+
 console.log('modal loaded');
 jQuery(document).ready(function ($) {
 

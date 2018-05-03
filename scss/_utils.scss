@@ -1,22 +1,69 @@
-// layout
-.padded {
-  padding: $paddingX $paddingY;
+// paddings
+.padding-x {
+  padding-left: $paddingX;
+  padding-right: $paddingX;
 }
-.margined {
-  margin: $gutterX $gutterY;
+.padding-y {
+  padding-top: $paddingY;
+  padding-bottom: $paddingY;
+}
+.padding {
+  padding: $paddingY $paddingX;
+}
+
+// gutters
+.gutter-x {
+  margin-left: calc( #{$gutterX} / 2);
+  margin-right: calc( #{$gutterX} / 2);
+}
+.gutter-y {
+  margin-top: $gutterY;
+  margin-bottom: $gutterY;
+}
+.gutter {
+  margin: $gutterY calc( #{$gutterX} / 2);
+}
+
+// border radius
+.border-radius {
+  border-radius: 4px;
+}
+.border-radius-full {
+  border-radius: 9999px !important;
 }
 
 // stickies
 .sticky-bottom {
   position: sticky;
   bottom: 0;
-  z-index: 111111;
+  z-index: 10;
 }
 
+// styles
 .deboss {
   box-shadow: 0 3px 7px rgba(0,0,0,.03);
   border-radius: 6px;
   border: solid 1px $white-darker-2;
   padding: $paddingY $paddingX;
   background: #ffffff;
+}
+
+.tight {
+  margin: 0px !important;
+}
+
+.bg-red {
+  background: $red;
+}
+.bg-yellow {
+  background: $yellow;
+}
+.bg-blue {
+  background: $blue;
+}
+.bg-purple {
+  background: $purple;
+}
+.bg-green {
+  background: $green;
 }

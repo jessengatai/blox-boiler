@@ -5,7 +5,7 @@
   max-height: 100vh;
   overflow-y: scroll;
   background: $site-background;
-  @include container-data-attributes('modal');
+  @include general-data-attributes('modal');
 
   display: none;
   &.on {

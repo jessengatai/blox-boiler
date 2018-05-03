@@ -5,6 +5,9 @@
 .bx-full-width {
   width: 100%;
 }
+.bx-full-width-gutter-x {
+  width: calc( 100% - #{$gutterX} );
+}
 
 // heights
 .bx-full-height {
