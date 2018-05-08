@@ -35,6 +35,7 @@
   &[bx-x-axis="center"][bx-y-axis="center"] {
     @if $type=='modal' {
       @extend .bx-transform-center-xy;
+      @extend .border-radius;
     }
   }
 

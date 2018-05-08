@@ -78,3 +78,7 @@
   }
 
 }
+
+[bx-container] {
+  @include general-data-attributes('container');
+}

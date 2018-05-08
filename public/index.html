@@ -8,16 +8,14 @@
     <!-- endinject -->
 
   </head>
-  <body bx-modal-hashes class="padding">
+  <body bx-modal-hashes>
 
-    <!--
-    bx-box-layout="fitRows"
-    bx-x-axis="full"
-    -->
-
+      <!-- our boxes ;) -->
+      <div bx-spacer></div>
       <div id="my-cool-boxes"
       bx-boxes
       bx-box-width="%"
+      bx-x-axis="center"
       >
 
         <div class="deboss"
@@ -76,14 +74,19 @@
 
       </div><!-- end box system -->
 
+      <!-- our modal buttons -->
+      <div
+      bx-container
+      bx-x-axis="center"
+      class="padding"
+      >
 
-      <div class="center">
         <h2>Modals</h2>
         <button bx-open-modal="newsletter-modal">Open Modal</button>
-        <div id="newsletter-modal" class="padded"
+        <div id="newsletter-modal" class="padding"
         bx-modal
-        bx-x-axis="full"
-        bx-y-axis="full"
+        bx-x-axis="center"
+        bx-y-axis="center"
         bx-trans="fade"
         >
           <h2 bx-trans-delay="100" bx-trans="slideY">This is a dope modal!</h2>
@@ -91,54 +94,51 @@
           <p bx-trans-delay="200" bx-trans="slideY">This is a dope modal! Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
           <button bx-close-modal="newsletter-modal">Close</button>
         </div>
+
       </div>
 
-
-
-  <div class="padded"></div>
-
-
-      <h2>Sliders</h2>
       <div
-      bx-slider
-      bx-x-align="fullwidth"
-      bx-trans="overX"
+      bx-container
+      bx-x-axis="center"
+      class="padding"
       >
-        <!-- slide 2 -->
+        <h2>Sliders</h2>
         <div
-        bx-slide
-        bx-bg-image="https://img.com/nglserks.jpg"
-        bx-bg-size="cover"
+        bx-slider
+        bx-x-align="fullwidth"
+        bx-trans="overX"
         >
-          <div bx-trans-delay="100" bx-trans="slideX">
-            Slide 1
+          <!-- slide 2 -->
+          <div
+          bx-slide
+          bx-bg-image="https://img.com/nglserks.jpg"
+          bx-bg-size="cover"
+          >
+            <div bx-trans-delay="100" bx-trans="slideX">
+              Slide 1
+            </div>
+            <div bx-trans-delay="150" bx-trans="slideX">
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            </div>
           </div>
-          <div bx-trans-delay="150" bx-trans="slideX">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+          <!-- slide 1 -->
+          <div
+          bx-slide
+          bx-bg-image="https://img.com/nglserks.jpg"
+          bx-bg-size="cover"
+          >
+            <div bx-trans-delay="100" bx-trans="slideX">
+              Slide 1
+            </div>
+            <div bx-trans-delay="150" bx-trans="slideX">
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            </div>
           </div>
-        </div>
-        <!-- slide 1 -->
-        <div
-        bx-slide
-        bx-bg-image="https://img.com/nglserks.jpg"
-        bx-bg-size="cover"
-        >
-          <div bx-trans-delay="100" bx-trans="slideX">
-            Slide 1
-          </div>
-          <div bx-trans-delay="150" bx-trans="slideX">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-          </div>
-        </div>
-        <!-- slider nav -->
-        <div bx-next>Next</div>
-        <div bx-prev>Prev</div>
-      </div><!-- end slider -->
-
-
-
-
-
+          <!-- slider nav -->
+          <div bx-next>Next</div>
+          <div bx-prev>Prev</div>
+        </div><!-- end slider -->
+      </div>
 
       <h2>Forms</h2>
       <div>
@@ -155,7 +155,7 @@
         </select>
       </div><!-- end forms -->
 
-    </div>
+
     <!-- inject:js -->
     <script src="/modules/jquery.min.js"></script>
     <script src="/js/main.js"></script>
