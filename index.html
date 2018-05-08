@@ -9,8 +9,41 @@
   </head>
   <body bx-modal-hashes>
 
+    <div bx-boxes bx-box-width="columns" bx-box-columns="12" bx-x-axis="center">
+
+      <!-- boxes -->
+      <div bx-box bx-width-tny="12">
+
+      </div>
+
+      <!-- modals -->
+      <div bx-box bx-width-tny="12">
+        <h2>Modals</h2>
+      </div>
+      <div bx-box bx-width-tny="6">
+        <button bx-open-modal="standard-modal">Standard Modal</button>
+        <pre data-src="./code/_modal.html"></pre>
+      </div>
+      <div bx-box bx-width-tny="6">
+        <button bx-open-modal="fullscreen-modal">Fullscreen Modal</button>
+        <pre data-src="./code/_modal.html"></pre>
+      </div>
+
+
+      <!-- sliders -->
+      <div bx-box bx-width-tny="12">
+
+      </div>
+
+      <!-- forms -->
+      <div bx-box bx-width-tny="12">
+
+      </div>
+
+    </div>
+
+
       <!-- our boxes ;) -->
-      <div bx-spacer></div>
       <div id="my-cool-boxes"
       bx-boxes
       bx-box-width="%"
@@ -73,33 +106,11 @@
 
       </div><!-- end box system -->
 
-      <!-- our modal buttons -->
-      <div
-      bx-container
-      bx-x-axis="center"
-      class="padding"
-      >
-
-        <h2>Modals</h2>
-        <button bx-open-modal="newsletter-modal">Open Modal</button>
-        <div id="newsletter-modal" class="padding"
-        bx-modal
-        bx-x-axis="center"
-        bx-y-axis="center"
-        bx-trans="fade"
-        >
-          <h2 bx-trans-delay="100" bx-trans="slideY">This is a dope modal!</h2>
-          <h4 bx-trans-delay="150" bx-trans="slideY">This is a dope modal!</h4>
-          <p bx-trans-delay="200" bx-trans="slideY">This is a dope modal! Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-          <button bx-close-modal="newsletter-modal">Close</button>
-        </div>
-
-      </div>
 
       <div
       bx-container
       bx-x-axis="center"
-      class="padding"
+      class="bg-blue"
       >
         <h2>Sliders</h2>
         <div
@@ -139,20 +150,50 @@
         </div><!-- end slider -->
       </div>
 
-      <h2>Forms</h2>
-      <div>
-        <input bx-input type="text" name="" value="" placeholder>
-        <input bx-checkbox type="checkbox" name="" value="">
-        <select
-        bx-select
-        bx-search-select
-        >
-          <option value="1">1</option>
-          <option value="1">2</option>
-          <option value="1">3</option>
-          <option value="1">4</option>
-        </select>
-      </div><!-- end forms -->
+      <div
+      bx-container
+      bx-x-axis="center"
+      class="bg-green"
+      >
+        <h2>Forms</h2>
+        <div>
+          <input bx-input type="text" name="" value="" placeholder>
+          <input bx-checkbox type="checkbox" name="" value="">
+          <select
+          bx-select
+          bx-search-select
+          >
+            <option value="1">1</option>
+            <option value="1">2</option>
+            <option value="1">3</option>
+            <option value="1">4</option>
+          </select>
+        </div><!-- end forms -->
+      </div>
+
+
+      <div id="standard-modal" class="padding"
+      bx-modal
+      bx-x-axis="center"
+      bx-y-axis="center"
+      bx-trans="fade"
+      >
+        <h2 bx-trans-delay="100" bx-trans="slideY">This is a dope modal!</h2>
+        <h4 bx-trans-delay="150" bx-trans="slideY">This is a dope modal!</h4>
+        <p bx-trans-delay="200" bx-trans="slideY">This is a dope modal! Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        <button bx-close-modal="standard-modal">Close</button>
+      </div>
+      <div id="fullscreen-modal" class="padding"
+      bx-modal
+      bx-x-axis="full"
+      bx-y-axis="full"
+      bx-trans="fade"
+      >
+        <h2 bx-trans-delay="100" bx-trans="slideY">This is a dope modal!</h2>
+        <h4 bx-trans-delay="150" bx-trans="slideY">This is a dope modal!</h4>
+        <p bx-trans-delay="200" bx-trans="slideY">This is a dope modal! Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        <button bx-close-modal="fullscreen-modal">Close</button>
+      </div>
 
 
     <!-- inject:js -->

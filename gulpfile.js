@@ -65,8 +65,8 @@ gulp.task('mods:clean', function() {
 gulp.task('mods:copy', function() {
   sources = [
     './node_modules/jquery/dist/jquery.min.js',
-    './node_modules/bootstrap/dist/js/bootstrap.min.js',
-    './node_modules/bootstrap/dist/css/bootstrap.css',
+    './node_modules/prismjs/prism.js',
+    './node_modules/prismjs/themes/prism.css',
   ]
   return gulp.src( sources ).pipe(gulp.dest('./public/modules/'));
 });

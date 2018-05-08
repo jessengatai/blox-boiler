@@ -44,7 +44,7 @@
    */
   &[bx-box-width="columns"] {
 
-    // 12 columns (default)
+    // 12 columns
     &[bx-box-columns="12"]:not([bx-boxes-tight]) {
       @include bx-cols-output(12,false);
     }
