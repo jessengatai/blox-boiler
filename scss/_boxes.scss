@@ -1,17 +1,78 @@
 [bx-boxes] {
   @include general-data-attributes('boxes');
-  @include boxes-data-attributes();
+
+  /*
+  BOX LAYOUT FITROWS (default)
+   */
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
 
+  /*
+  BOX LAYOUT MASONRY
+   */
+  &[bx-box-layout="masonry"] {
+    // masonry is defined with js
+    display: block;
+    flex-direction: unset;
+    flex-wrap: unset;
+  }
+
+  /*
+  BOX MARGINS
+   */
   &:not([bx-boxes-tight]) > [bx-box] {
     margin-left: calc( #{$gutterX} / 2 );
     margin-right: calc( #{$gutterX} / 2 );
     margin-bottom: $gutterY;
   }
 
-  // simple box clear (if you need forced rows)
+  /*
+  BOX WIDTH PERCENTAGES
+   */
+  &[bx-box-width="%"] {
+    &:not([bx-boxes-tight]) {
+      @include bx-percent-output(false);
+    }
+    &[bx-boxes-tight] {
+      @include bx-percent-output(true);
+    }
+  }
+
+  /*
+  BOXES WIDTH COLUMNS
+   */
+  &[bx-box-width="columns"] {
+
+    // 12 columns (default)
+    &[bx-box-columns="12"]:not([bx-boxes-tight]) {
+      @include bx-cols-output(12,false);
+    }
+    &[bx-box-columns="12"][bx-boxes-tight] {
+      @include bx-cols-output(12,true);
+    }
+
+    // 18 columns (default)
+    &[bx-box-columns="18"]:not([bx-boxes-tight]) {
+      @include bx-cols-output(18,false);
+    }
+    &[bx-box-columns="18"][bx-boxes-tight] {
+      @include bx-cols-output(18,true);
+    }
+
+    // 24 columns
+    &[bx-box-columns="24"]:not([bx-boxes-tight]) {
+      @include bx-cols-output(24,false);
+    }
+    &[bx-box-columns="24"][bx-boxes-tight] {
+      @include bx-cols-output(24,true);
+    }
+
+  }
+
+  /*
+  BOX CLEARS
+   */
   > [bx-box-clear] {
     width: 100%;
   }
