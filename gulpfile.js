@@ -45,8 +45,6 @@ gulp.task('js', ['concat'], function() {
       .pipe(gulp.dest('./public/js/'))
 });
 
-// uglify (wrap it all up)
-
 // setup the live reload of public files
 gulp.task('livereload', function (){
   gulp.src('./public/**/*')
