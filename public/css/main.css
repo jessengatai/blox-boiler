@@ -34,15 +34,15 @@ BOX PERCENTAGE OUTPUT
   transform: translate3d(-50%, -50%, 0); }
 
 .padding-x {
-  padding-left: 1.5vh;
-  padding-right: 1.5vh; }
+  padding-left: 2vh;
+  padding-right: 2vh; }
 
 .padding-y {
-  padding-top: 1.5vh;
-  padding-bottom: 1.5vh; }
+  padding-top: 2vh;
+  padding-bottom: 2vh; }
 
 .padding {
-  padding: 1.5vh 1.5vh; }
+  padding: 2vh 2vh; }
 
 .gutter-x {
   margin-left: calc( 2vh / 2);
@@ -55,7 +55,8 @@ BOX PERCENTAGE OUTPUT
 .gutter {
   margin: 2vh calc( 2vh / 2); }
 
-.border-radius, [bx-modal][bx-x-axis="center"][bx-y-axis="center"] {
+.border-radius, button,
+.button, [bx-modal][bx-x-axis="center"][bx-y-axis="center"] {
   border-radius: 4px; }
 
 .border-radius-full {
@@ -70,7 +71,7 @@ BOX PERCENTAGE OUTPUT
   box-shadow: 0 3px 7px rgba(0, 0, 0, 0.03);
   border-radius: 6px;
   border: solid 1px #f2f2f2;
-  padding: 1.5vh 1.5vh;
+  padding: 2vh 2vh;
   background: #ffffff; }
 
 .tight {
@@ -232,14 +233,11 @@ button,
   outline: none !important;
   display: inline-block;
   outline: none;
-  border: none;
   box-shadow: none;
-  border-radius: 5px;
-  height: calc(20px + 1.2vh + 1.2vw);
-  padding-left: calc(2px + 1.2vh + 1.2vw);
-  padding-right: calc(2px + 1.2vh + 1.2vw);
+  padding-left: calc(5px + .6vh + .6vw);
+  padding-right: calc(5px + .6vh + .6vw);
   margin: 0px 0.15vw;
-  line-height: calc(20px + 1.2vh + 1.2vw);
+  line-height: calc(15px + 1vh + 1vw);
   text-align: center;
   text-decoration: none;
   cursor: pointer;
@@ -258,8 +256,8 @@ button,
     color: #ffffff; }
   button.circle,
   .button.circle {
-    height: calc(20px + 1.2vh + 1.2vw);
-    width: calc(20px + 1.2vh + 1.2vw);
+    height: calc(15px + 1vh + 1vw);
+    width: calc(15px + 1vh + 1vw);
     padding: 0px; }
   button:disabled,
   .button:disabled {
@@ -271,10 +269,9 @@ button,
     cursor: default !important; }
   button.small,
   .button.small {
-    height: calc(20px + 0.5vh + 0.5vw);
     line-height: calc(20px + 0.5vh + 0.5vw);
-    padding-left: calc(7px + 0.4vh + 0.4vw);
-    padding-right: calc(7px + 0.4vh + 0.4vw); }
+    padding-left: calc(2px + 0.4vh + 0.4vw);
+    padding-right: calc(2px + 0.4vh + 0.4vw); }
 
 [bx-boxes] {
   /*
@@ -3488,7 +3485,7 @@ hr {
 .bx-window {
   position: relative;
   background: #f9f9f9;
-  margin-bottom: 1.5vh;
+  margin-bottom: 2vh;
   overflow: hidden;
   background-size: cover;
   background-position-x: center;
@@ -3512,10 +3509,10 @@ hr {
     height: calc(2vw + 2vh);
     max-height: 4vh; }
   .bx-window.full-x {
-    margin-left: -1.5vh;
-    margin-right: -1.5vh; }
+    margin-left: -2vh;
+    margin-right: -2vh; }
   .bx-window.full-y {
-    margin-top: -1.5vh; }
+    margin-top: -2vh; }
     .deboss .bx-window.full-y {
       border-top-right-radius: 6px;
       border-top-left-radius: 6px; }

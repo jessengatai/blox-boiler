@@ -1,5 +1,8 @@
-$height: calc(20px + 1.2vh + 1.2vw);
+$height: calc(15px + 1vh + 1vw);
+$button_padding_x: calc(5px + .6vh + .6vw);
+
 $height-small: calc(20px + 0.5vh + 0.5vw);
+$pad: calc(2px + 0.4vh + 0.4vw);
 
 button,
 .button {
@@ -8,12 +11,11 @@ button,
   outline: none !important;
   display: inline-block;
   outline: none;
-  border: none;
   box-shadow: none;
-  border-radius: 5px;
-  height: $height;
-  padding-left: calc(2px + 1.2vh + 1.2vw);
-  padding-right: calc(2px + 1.2vh + 1.2vw);
+
+  @extend .border-radius;
+  padding-left: $button_padding_x;
+  padding-right: $button_padding_x;
   margin: 0px 0.15vw;
   line-height: $height;
   text-align: center;
@@ -48,12 +50,8 @@ button,
   	cursor: default !important;
   }
 
-
-  $pad: calc(7px + 0.4vh + 0.4vw);
-
   &.small {
     @extend small;
-    height: $height-small;
     line-height: $height-small;
     padding-left: $pad;
     padding-right: $pad;
