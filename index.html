@@ -9,103 +9,127 @@
   </head>
   <body bx-modal-hashes>
 
-    <div bx-boxes bx-box-width="columns" bx-box-columns="12" bx-x-axis="center">
+    <div class="boxes boxes-tight padding">
 
-      <!-- boxes -->
-      <div bx-box bx-width-tny="12">
+      <!-- boxes wrap -->
+      <div class="box"
+      data-width-tny="12">
+
+        <!-- inner boxes -->
+        <div class="boxes boxes-tight" data-box-widths="%">
+
+          <div
+          class="box"
+          data-width-tny="12">
+            <h2>Boxes</h2>
+          </div>
+
+          <div
+          class="box deboss"
+          data-width-xl="3"
+          data-width-lrg="4"
+          data-width-med="6"
+          data-width-sml="12"
+          data-width-tny="12">
+            <p class="tight">
+            Debossed Box Lorem ipsum dolor sit amet, consectetur are dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            </p>
+          </div>
+
+          <div
+          class="box deboss"
+          data-box
+          data-width-xl="3"
+          data-width-lrg="4"
+          data-width-med="6"
+          data-width-sml="12"
+          data-width-tny="12">
+            <p class="tight">
+            Debossed Box et, consectetur are dolor in reprehenderit in voluptate velit esse cillum dolore eu
+            </p>
+          </div>
+
+          <div
+          class="box deboss"
+          data-width-xl="3"
+          data-width-lrg="4"
+          data-width-med="6"
+          data-width-sml="12"
+          data-width-tny="12">
+            <p class="tight">
+            Debossed Box consecteturgiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim
+            </p>
+          </div>
+
+          <div
+          class="box deboss"
+          data-width-xl="3"
+          data-width-lrg="12"
+          data-width-med="6"
+          data-width-sml="12"
+          data-width-tny="12">
+            <p class="tight">
+            Debossed Box Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor in culpa qui officia deserunt mollit anim id est laborum.
+            </p>
+          </div>
+
+        </div><!-- end boxes -->
+      </div><!-- end boxes -->
+
+      <!-- buttons -->
+      <div class="box" data-width-tny="12">
+        <h2>Buttons</h2>
+      </div>
+      <div class="box" data-width-tny="6">
+        <button type="button" name="button">&#60;button&#62;</button>
+        <button class="big" type="button" name="button">.big</button>
+        <button class="small" type="button" name="button">.small</button>
+        <button class="circular" type="button" name="button">.circular</button>
+        <button class="full-width" type="button" name="button">.full-width</button>
+      </div>
+      <div class="box" data-width-tny="6">
+        <button class="primary" type="button" name="button">.primary</button>
+        <button class="red" type="button" name="button">.red</button>
+        <button class="orange" type="button" name="button">.orange</button>
+        <button class="yellow" type="button" name="button">.yellow</button>
+        <button class="green" type="button" name="button">.green</button>
+        <button class="blue" type="button" name="button">.blue</button>
+        <button class="purple" type="button" name="button">.purple</button>
 
       </div>
 
       <!-- modals -->
-      <div bx-box bx-width-tny="12">
+      <div class="box" data-width-tny="12">
         <h2>Modals</h2>
       </div>
-      <div bx-box bx-width-tny="4">
-        <button bx-open-modal="standard-modal">Standard Modal</button>
+      <div class="box" data-width-tny="4">
+        <button data-open-modal="standard-modal">Standard</button>
         <pre data-src="./code/_modal.html"></pre>
       </div>
-      <div bx-box bx-width-tny="4">
-        <button bx-open-modal="fullscreen-modal">Fullscreen Modal</button>
+      <div class="box" data-width-tny="4">
+        <button disabled data-open-modal="fullscreen-modal">Fullscreen</button>
         <pre data-src="./code/_modal.html"></pre>
       </div>
-      <div bx-box bx-width-tny="4">
-        <button bx-open-modal="fullscreen-modal">Fullscreen Modal</button>
+      <div class="box" data-width-tny="4">
+        <button data-open-modal="fullscreen-modal">Fullscreen</button>
         <pre data-src="./code/_modal.html"></pre>
       </div>
 
       <!-- sliders -->
-      <div bx-box bx-width-tny="12">
-
+      <div class="box" data-width-tny="12">
+        <h5>Sliders</h5>
       </div>
 
       <!-- forms -->
-      <div bx-box bx-width-tny="12">
-
+      <div class="box" data-width-tny="12">
+        <h5>Forms</h5>
       </div>
 
     </div>
 
 
-      <!-- our boxes ;) -->
-      <div id="my-cool-boxes"
-      bx-boxes
-      bx-box-width="%"
-      bx-x-axis="center"
-      >
 
-        <div bx-box bx-width-tny="100">
-          <h2>Boxes</h2>
-        </div>
 
-        <div class="deboss"
-        bx-box
-        bx-width-xl="25"
-        bx-width-lrg="33"
-        bx-width-med="66"
-        bx-width-sml="100"
-        bx-width-tny="100">
-          <p class="padding tight">
-          Debossed Box Lorem ipsum dolor sit amet, consectetur are dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-          </p>
-        </div>
-
-        <div class="deboss"
-        bx-box
-        bx-width-xl="25"
-        bx-width-lrg="66"
-        bx-width-med="33"
-        bx-width-sml="50"
-        bx-width-tny="50">
-          <p class="padding tight">
-          Debossed Box et, consectetur are dolor in reprehenderit in voluptate velit esse cillum dolore eu
-          </p>
-        </div>
-
-        <div class="deboss"
-        bx-box
-        bx-width-xl="25"
-        bx-width-lrg="66"
-        bx-width-med="66"
-        bx-width-sml="50"
-        bx-width-tny="50">
-          <p class="padding tight">
-          Debossed Box consecteturgiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim
-          </p>
-        </div>
-
-        <div class="deboss"
-        bx-box
-        bx-width-xl="25"
-        bx-width-lrg="33"
-        bx-width-med="33"
-        bx-width-sml="100"
-        bx-width-tny="100">
-          <p class="padding tight">
-          Debossed Box Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor in culpa qui officia deserunt mollit anim id est laborum.
-          </p>
-        </div>
-
-      </div><!-- end box system -->
 
 
       <div

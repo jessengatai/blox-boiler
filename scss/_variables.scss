@@ -3,3 +3,17 @@ $gutterX: 2vh;
 $gutterY: 2vh;
 $paddingX: 2vh;
 $paddingY: 2vh;
+$default_cols: 12;
+
+// width specific
+$media-tny-only: "only screen and (max-width: 599px)";
+$media-sml-only: "only screen and (min-width: 600px) and (max-width: 879px)";
+$media-med-only: "only screen and (min-width: 880px) and (max-width: 1099px)";
+$media-lrg-only: "only screen and (min-width: 1100px) and (max-width: 1499px)";
+$media-xl-only: "only screen and (min-width: 1500px)";
+
+// width up
+$media-sml-up: "only screen and (min-width: 600px)";
+$media-med-up: "only screen and (min-width: 880px)";
+$media-lrg-up: "only screen and (min-width: 1100px)";
+$media-xl-up: "only screen and (min-width: 1500px)";

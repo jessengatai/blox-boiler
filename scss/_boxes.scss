@@ -1,4 +1,112 @@
-[bx-boxes] {
+/*
+BOX COLUMN FUNCTIONS
+*/
+@function bx-cols($cols,$dividerby,$tight){
+  $number: (100% / $dividerby) * $cols;
+  @if $tight == true {
+    @return $number;
+  } @else {
+    @return calc( #{$number} - #{$gutterX} );
+  }
+}
+@mixin bx-cols-output($count,$tight){
+  // tny
+  @for $i from 0 through $count {
+    @if( $i==0 ) {
+      > [data-width-tny="#{$i}"] { display: none; }
+    } @else {
+      > [data-width-tny="#{$i}"] { width: bx-cols($i,$count,$tight); display: block; }
+    }
+  }
+  // sml
+  @media #{$media-sml-up} {
+    @for $i from 0 through $count {
+      @if( $i==0 ) {
+        > [data-width-sml="#{$i}"] { display: none; }
+      } @else {
+        > [data-width-sml="#{$i}"] { width: bx-cols($i,$count,$tight); display: block; }
+      }
+    }
+  }
+  // med
+  @media #{$media-med-up} {
+    @for $i from 0 through $count {
+      @if( $i==0 ) {
+        > [data-width-med="#{$i}"] { display: none; }
+      } @else {
+        > [data-width-med="#{$i}"] { width: bx-cols($i,$count,$tight); display: block; }
+      }
+    }
+  }
+  // lrg
+  @media #{$media-lrg-up} {
+    @for $i from 0 through $count {
+      @if( $i==0 ) {
+        > [data-width-lrg="#{$i}"] { display: none; }
+      } @else {
+        > [data-width-lrg="#{$i}"] { width: bx-cols($i,$count,$tight); display: block; }
+      }
+    }
+  }
+  // xl
+  @media #{$media-xl-up} {
+    @for $i from 0 through $count {
+      @if( $i==0 ) {
+        > [data-width-xl="#{$i}"] { display: none; }
+      } @else {
+        > [data-width-xl="#{$i}"] { width: bx-cols($i,$count,$tight); display: block; }
+      }
+    }
+  }
+}
+
+/*
+BOX % FUNCTIONS
+ */
+@function bx-percent($percent,$tight){
+  @if $percent == 33 { $percent: 33.33; } @elseif $percent == 66 { $percent: 66.66; }
+  $percent: $percent+%;
+  @if $tight == true {
+    @return $percent;
+  } @else {
+    @return calc( #{$percent} - #{$gutterX} );
+  }
+}
+@mixin bx-percent-output($tight) {
+  // tny
+  @for $i from 1 through 100 {
+    > [data-width-tny="#{$i}"] { width: bx-percent($i,$tight); }
+  }
+  // sml
+  @media screen and (min-width: 500px) {
+    @for $i from 1 through 100 {
+      > [data-width-sml="#{$i}"] { width: bx-percent($i,$tight); }
+    }
+  }
+  // med
+  @media screen and (min-width: 800px) {
+    @for $i from 1 through 100 {
+      > [data-width-med="#{$i}"] { width: bx-percent($i,$tight); }
+    }
+  }
+  // lrg
+  @media screen and (min-width: 1100px) {
+    @for $i from 1 through 100 {
+      > [data-width-lrg="#{$i}"] { width: bx-percent($i,$tight); }
+    }
+  }
+  // xl
+  @media screen and (min-width: 1500px) {
+    @for $i from 1 through 100 {
+      > [data-width-xl="#{$i}"] { width: bx-percent($i,$tight); }
+    }
+  }
+}
+
+/*
+BOX COLUMNS
+ */
+.boxes {
   @include general-data-attributes('boxes');
 
   /*
@@ -7,78 +115,46 @@
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+  margin-left: calc( #{$gutterX} / 2 );
+  margin-right: calc( #{$gutterX} / 2 );
 
-  /*
-  BOX LAYOUT MASONRY
-   */
-  &[bx-box-layout="masonry"] {
-    // masonry is defined with js
-    display: block;
-    flex-direction: unset;
-    flex-wrap: unset;
+  &.boxes-tight {
+    margin-left: calc( -#{$gutterX} / 2 );
+    margin-right: calc( -#{$gutterX} / 2 );
   }
 
   /*
   BOX MARGINS
    */
-  &:not([bx-boxes-tight]) > [bx-box] {
+  > .box {
     margin-left: calc( #{$gutterX} / 2 );
     margin-right: calc( #{$gutterX} / 2 );
     margin-bottom: $gutterY;
   }
 
   /*
-  BOX WIDTH PERCENTAGES
+  BOX WIDTH COLUMNS
    */
-  &[bx-box-width="%"] {
-    &:not([bx-boxes-tight]) {
+  @include bx-cols-output( 12, false);
+
+
+  /*
+  BOX % PERCENTAGES
+   */
+  &[data-box-widths="%"] {
+    &:not(.boxes-tight) {
       @include bx-percent-output(false);
     }
-    &[bx-boxes-tight] {
+    .boxes-tight {
       @include bx-percent-output(true);
     }
   }
 
   /*
-  BOXES WIDTH COLUMNS
-   */
-  &[bx-box-width="columns"] {
-
-    // 12 columns
-    &[bx-box-columns="12"]:not([bx-boxes-tight]) {
-      @include bx-cols-output(12,false);
-    }
-    &[bx-box-columns="12"][bx-boxes-tight] {
-      @include bx-cols-output(12,true);
-    }
-
-    // 18 columns (default)
-    &[bx-box-columns="18"]:not([bx-boxes-tight]) {
-      @include bx-cols-output(18,false);
-    }
-    &[bx-box-columns="18"][bx-boxes-tight] {
-      @include bx-cols-output(18,true);
-    }
-
-    // 24 columns
-    &[bx-box-columns="24"]:not([bx-boxes-tight]) {
-      @include bx-cols-output(24,false);
-    }
-    &[bx-box-columns="24"][bx-boxes-tight] {
-      @include bx-cols-output(24,true);
-    }
-
-  }
-
-  /*
   BOX CLEARS
    */
-  > [bx-box-clear] {
+  > .box-clear {
     width: 100%;
   }
 
-}
-
-[bx-container] {
-  @include general-data-attributes('container');
 }

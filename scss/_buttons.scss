@@ -1,60 +1,183 @@
-$height: calc(15px + 1vh + 1vw);
-$button_padding_x: calc(5px + .6vh + .6vw);
+$height: calc(22px + 0.8vh + 0.8vw);
+$height-small: calc(16px + 0.8vh + 0.8vw);
+$height-big: calc(30px + 1.2vh + 1.2vw);
 
-$height-small: calc(20px + 0.5vh + 0.5vw);
-$pad: calc(2px + 0.4vh + 0.4vw);
+$padding: calc(8px + 0.5vh + 0.5vw);
+$padding-small: calc(3px + 0.4vh + 0.4vw);
+$padding-big: calc(10px + 0.8vh + 0.8vw);
+
 
 button,
 .button {
-  @extend p;
   -webkit-appearance: none;
-  outline: none !important;
   display: inline-block;
   outline: none;
   box-shadow: none;
 
-  @extend .border-radius;
-  padding-left: $button_padding_x;
-  padding-right: $button_padding_x;
-  margin: 0px 0.15vw;
+  margin: 0px 0.15vw 3px 0.15vw;
+  padding-left: $padding;
+  padding-right: $padding;
   line-height: $height;
+  height: $height;
+  font-size: 16px;
   text-align: center;
   text-decoration: none;
   cursor: pointer;
-  transition: box-shadow 0.3s ease, background 0.1s ease;
+  transition: box-shadow 0.1s ease, background 0.15s ease, color 0.1s ease;
 
+  border-radius: 4px;
+
+  // BASE BUTTON COLORS
   background: $white;
-  color: $black;
-  border: $white-darker-3 1px solid;
-  box-shadow: 0px 2px 4px rgba(51, 36, 80, 0.1);
+  border: 1px solid $white-darker-3;
+  border-bottom: 2px solid $white-darker-3;
+  color: $black-lighter-4;
 
-  &.active {
-    background: $black;
-    box-shadow: -1px 8px 17px rgba(51, 36, 80, 0.1);
+  // HOVER BUTTON COLORS
+  &:hover,
+  &[active="true"] {
+    background: $white-darker-1;
+    border: 1px solid $white-darker-3;
+    border-bottom: 2px solid $white-darker-3;
+    color: $black;
   }
-  &:hover {
-    background: $black;
-    color: $white;
-  }
-  &.circle {
-    height: $height;
-    width: $height;
-    padding: 0px;
-  }
+
+  // DISABLED STATE
   &:disabled {
-  	opacity: 0.5;
-    text-decoration: line-through;
+  	opacity: 0.3;
   	background-color: inherit !important;
-    box-shadow: none !important;
   	color: inherit !important;
   	cursor: default !important;
   }
 
+  // SMALL BUTTON
   &.small {
-    @extend small;
+    font-size: 13px;
     line-height: $height-small;
-    padding-left: $pad;
-    padding-right: $pad;
+    height: $height-small;
+    padding-left: $padding-small;
+    padding-right: $padding-small;
+  }
+
+  // BIG BUTTON
+  &.big {
+    font-size: $h5-size;
+    line-height: $height-big;
+    height: $height-big;
+    padding-left: $padding-big;
+    padding-right: $padding-big;
+  }
+
+  // PRIMARY BUTTON
+  &.primary {
+    background: $black-lighter-3;
+    border: 1px solid $black-lighter-1;
+    border-bottom: 2px solid $black-lighter-1;
+    color: $white-darker-3;
+    &:hover,
+    &[active="true"] {
+      background: $black-lighter-5;
+      border: 1px solid $black-lighter-4;
+      border-bottom: 2px solid $black-lighter-4;
+      color: $white;
+    }
+  }
+
+  // GREEN BUTTON
+  &.green {
+    background: $green;
+    border: 1px solid $green-darker-1;
+    border-bottom: 2px solid $green-darker-3;
+    color: $green-darker-4;
+    &:hover,
+    &[active="true"] {
+      background: $green-darker-3;
+      border: 1px solid $green-darker-3;
+      border-bottom: 2px solid $green-darker-4;
+      color: $white;
+    }
+  }
+
+  // RED BUTTON
+  &.red {
+    background: $red;
+    border: 1px solid $red-darker-1;
+    border-bottom: 2px solid $red-darker-2;
+    color: $red-darker-4;
+    &:hover,
+    &[active="true"] {
+      background: $red-darker-2;
+      border: 1px solid $red-darker-2;
+      border-bottom: 2px solid $red-darker-3;
+      color: $white;
+    }
+  }
+
+  // ORANGE BUTTON
+  &.orange {
+    background: $orange;
+    border: 1px solid $orange-darker-1;
+    border-bottom: 2px solid $orange-darker-2;
+    color: $orange-darker-4;
+    &:hover,
+    &[active="true"] {
+      background: $orange-lighter-2;
+      border: 1px solid $orange;
+      border-bottom: 2px solid $orange;
+      color: $orange-darker-4;
+    }
+  }
+
+  // YELLOW BUTTON
+  &.yellow {
+    background: $yellow;
+    border: 1px solid $yellow-darker-2;
+    border-bottom: 2px solid $yellow-darker-3;
+    color: $yellow-darker-4;
+    &:hover,
+    &[active="true"] {
+      background: $yellow-lighter-1;
+      border: 1px solid $yellow-darker-1;
+      border-bottom: 2px solid $yellow-darker-1;
+      color: $yellow-darker-4;
+    }
+  }
+
+  // BLUE BUTTON
+  &.blue {
+    background: $blue;
+    border: 1px solid $blue-darker-2;
+    border-bottom: 2px solid $blue-darker-3;
+    color: $white;
+    &:hover,
+    &[active="true"] {
+      background: $blue-lighter-1;
+      border: 1px solid $blue-darker-1;
+      border-bottom: 2px solid $blue-darker-1;
+      color: $white;
+    }
+  }
+
+  // PURPLE BUTTON
+  &.purple {
+    background: $purple;
+    border: 1px solid $purple-darker-2;
+    border-bottom: 2px solid $purple-darker-3;
+    color: $white;
+    &:hover,
+    &[active="true"] {
+      background: $purple-lighter-1;
+      border: 1px solid $purple-darker-1;
+      border-bottom: 2px solid $purple-darker-1;
+      color: $white;
+    }
+  }
+
+  // ICONS IN BUTTONS
+  span.icon {
+    display: inline-block;
+    margin: 0 5px;
+    line-height: inherit;
   }
 
 }

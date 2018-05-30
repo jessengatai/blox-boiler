@@ -14,17 +14,14 @@
 @import "_boxes";
 @import "_modal";
 
-
-
 // move this into a "_tags" file
 hr {
   border-bottom: solid 1px $white-darker-2;
 }
 
-
-
-
-
+// .width-container {
+//   @include general-data-attributes('container');
+// }
 
 // box windows wtf is this?
 .bx-window {

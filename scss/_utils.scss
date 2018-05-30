@@ -1,3 +1,35 @@
+// widths
+.max-width {
+  max-width: $container-max-width;
+}
+.full-width {
+  width: 100%;
+}
+.full-width-gutter-x {
+  width: calc( 100% - #{$gutterX} );
+}
+
+// heights
+.full-height {
+  height: 100vh;
+  max-height: 100vh;
+}
+
+// transform positions
+.transform-center-x {
+  left: 50%;
+  transform: translateX(-50%);
+}
+.transform-center-y {
+  top: 50%;
+  transform: translateY(-50%);
+}
+.transform-center-xy {
+  top: 50%;
+  left: 50%;
+  transform: translate3d(-50%, -50%, 0);
+}
+
 // paddings
 .padding-x {
   padding-left: $paddingX;
@@ -25,11 +57,11 @@
 }
 
 // border radius
-.border-radius {
-  border-radius: 4px;
+.rounded {
+  border-radius: 6px;
 }
-.border-radius-full {
-  border-radius: 9999px !important;
+.circular {
+  border-radius: 999px !important;
 }
 
 // stickies

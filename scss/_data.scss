@@ -3,44 +3,43 @@
 @mixin general-data-attributes($type) {
 
   // center x
-  &[bx-x-axis="center"] {
-    @extend .bx-max-width;
+  &[data-x-axis="center"] {
+    max-width: $container-max-width;
     width: 100%;
     margin-left: auto;
     margin-right: auto;
     @if $type=='modal' {
-      @extend .bx-transform-center-x;
+      @extend .transform-center-x;
     }
   }
   // full x
-  &[bx-x-axis="full"] {
-    @extend .bx-full-width;
+  &[data-x-axis="full"] {
+    @extend .full-width;
     &.gutter-x,
     &.gutter {
-      @extend .bx-full-width-gutter-x;
+      @extend .full-width-gutter-x;
     }
   }
   // center y
-  &[bx-y-axis="center"] {
+  &[data-y-axis="center"] {
     @if $type=='modal' {
-      @extend .bx-transform-center-y;
+      @extend .transform-center-y;
     }
   }
   // full y
-  &[bx-y-axis="full"] {
-    @extend .bx-full-height;
+  &[data-y-axis="full"] {
+    @extend .full-height;
   }
 
   // center xy
-  &[bx-x-axis="center"][bx-y-axis="center"] {
+  &[data-x-axis="center"][bx-y-axis="center"] {
     @if $type=='modal' {
-      @extend .bx-transform-center-xy;
-      @extend .border-radius;
+      @extend .transform-center-xy;
     }
   }
 
   // transitions
-  [bx-trans] {
+  [data-trans] {
     &.bx--on {
       display: block;
     }
