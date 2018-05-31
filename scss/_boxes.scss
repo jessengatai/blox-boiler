@@ -106,8 +106,7 @@ BOX % FUNCTIONS
 /*
 BOX COLUMNS
  */
-.boxes {
-  @include general-data-attributes('boxes');
+.bx-boxes {
 
   /*
   BOX LAYOUT FITROWS (default)

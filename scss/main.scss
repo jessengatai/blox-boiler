@@ -19,9 +19,16 @@ hr {
   border-bottom: solid 1px $white-darker-2;
 }
 
-// .width-container {
-//   @include general-data-attributes('container');
-// }
+// main bx elements that have data-attributes
+.bx-container {
+  @include general-data-attributes('container');
+}
+.bx-boxes {
+  @include general-data-attributes('boxes');
+}
+.bx-modal {
+  @include general-data-attributes('modal');
+}
 
 // box windows wtf is this?
 .bx-window {

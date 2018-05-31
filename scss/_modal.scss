@@ -1,11 +1,10 @@
-[bx-modal] {
+.bx-modal {
   position: absolute;
   top: 0;
   left: 0;
   max-height: 100vh;
   overflow-y: scroll;
   background: $site-background;
-  @include general-data-attributes('modal');
 
   display: none;
   &.on {
@@ -14,7 +13,7 @@
   }
 }
 
-[bx-modal-bg] {
+.bx-modal-bg {
   @include background-opacity($black);
   @include fixed-fullscreen;
 
