@@ -61,10 +61,27 @@ BOX PERCENTAGE OUTPUT
 .circular {
   border-radius: 999px !important; }
 
+.sticky-top {
+  position: sticky;
+  top: 0;
+  z-index: 10; }
+
 .sticky-bottom {
   position: sticky;
   bottom: 0;
   z-index: 10; }
+
+.offset-top {
+  top: 2vh; }
+
+.offset-bottom {
+  bottom: 2vh; }
+
+.offset-left {
+  left: 2vh; }
+
+.offset-right {
+  right: 2vh; }
 
 .deboss {
   box-shadow: 0 3px 7px rgba(0, 0, 0, 0.03);
@@ -75,6 +92,9 @@ BOX PERCENTAGE OUTPUT
 
 .tight {
   margin: 0px !important; }
+
+.bg-white {
+  background: #ffffff; }
 
 .bg-red {
   background: #ff1929; }
