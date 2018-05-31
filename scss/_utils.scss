@@ -43,6 +43,31 @@
   padding: $paddingY $paddingX;
 }
 
+// margins
+.margin-top {
+  margin-top: $gutterY;
+}
+.margin-bottom {
+  margin-bottom: $gutterY;
+}
+.margin-left {
+  margin-left: $gutterX;
+}
+.margin-right {
+  margin-right: $gutterX;
+}
+.margin-x {
+  margin-left: $gutterX;
+  margin-right: $gutterX;
+}
+.margin-y {
+  margin-top: $gutterY;
+  margin-bottom: $gutterY;
+}
+.margin {
+  margin: $gutterY $gutterX;
+}
+
 // gutters
 .gutter-x {
   margin-left: calc( #{$gutterX} / 2);

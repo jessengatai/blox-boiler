@@ -44,6 +44,29 @@ BOX PERCENTAGE OUTPUT
 .padding {
   padding: 2vh 2vh; }
 
+.margin-top {
+  margin-top: 2vh; }
+
+.margin-bottom {
+  margin-bottom: 2vh; }
+
+.margin-left {
+  margin-left: 2vh; }
+
+.margin-right {
+  margin-right: 2vh; }
+
+.margin-x {
+  margin-left: 2vh;
+  margin-right: 2vh; }
+
+.margin-y {
+  margin-top: 2vh;
+  margin-bottom: 2vh; }
+
+.margin {
+  margin: 2vh 2vh; }
+
 .gutter-x {
   margin-left: calc( 2vh / 2);
   margin-right: calc( 2vh / 2); }
@@ -2688,7 +2711,11 @@ BOX COLUMNS
     z-index: 99; }
 
 hr {
-  border-bottom: solid 1px #f2f2f2; }
+  border-bottom: solid 1px #17191f;
+  display: block;
+  height: 1px;
+  width: 100%;
+  background: red; }
 
 .bx-container[data-x-axis="center"] {
   max-width: 1200px;

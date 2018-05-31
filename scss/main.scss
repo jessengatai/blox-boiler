@@ -14,9 +14,15 @@
 @import "_boxes";
 @import "_modal";
 
+
+
 // move this into a "_tags" file
 hr {
-  border-bottom: solid 1px $white-darker-2;
+  border-bottom: solid 1px $black;
+  display: block;
+  height: 1px;
+  width: 100%;
+  background: red;
 }
 
 // main bx elements that have data-attributes
@@ -29,6 +35,7 @@ hr {
 .bx-modal {
   @include general-data-attributes('modal');
 }
+
 
 // box windows wtf is this?
 .bx-window {
