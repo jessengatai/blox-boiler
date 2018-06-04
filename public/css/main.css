@@ -23,6 +23,10 @@ BOX PERCENTAGE OUTPUT
   height: 100vh;
   max-height: 100vh; }
 
+.center-align {
+  margin-left: auto;
+  margin-right: auto; }
+
 .transform-center-x, .bx-modal[data-x-axis="center"] {
   left: 50%;
   transform: translateX(-50%); }
@@ -2704,27 +2708,18 @@ BOX COLUMNS
   position: fixed;
   top: 0;
   left: 0;
-  max-height: 100vh;
-  background: #ffffff;
-  display: none; }
-  .bx-modal.on {
-    display: block;
-    z-index: 100; }
-
-.bx-modal-bg {
+  right: 0;
+  bottom: 0;
   background: #17191f;
   /* The Fallback */
   background: rgba(23, 25, 31, 0.7);
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  display: none; }
-  .bx-modal-bg.on {
+  display: none;
+  overflow: scroll; }
+  .bx-modal.on {
     display: block;
-    pointer-events: all;
-    z-index: 99; }
+    z-index: 100; }
+  .bx-modal .bx-modal-inner {
+    background-color: #ffffff; }
 
 hr {
   border-bottom: solid 1px #17191f;

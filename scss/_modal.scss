@@ -1,25 +1,16 @@
 .bx-modal {
-  position: fixed;
-  top: 0;
-  left: 0;
-  max-height: 100vh;
-  background: $site-background;
-
+  @include fixed-fullscreen;
+  @include background-opacity($black);
   display: none;
+  overflow: scroll;
+
   &.on {
     display: block;
     z-index: 100;
   }
-}
 
-.bx-modal-bg {
-  @include background-opacity($black);
-  @include fixed-fullscreen;
-
-  display: none;
-  &.on {
-    display: block;
-    pointer-events: all;
-    z-index: 99;
+  .bx-modal-inner {
+    background-color: $site-background;
   }
+
 }

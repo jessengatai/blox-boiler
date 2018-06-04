@@ -18,7 +18,11 @@
   max-height: 100vh;
 }
 
-// transform positions
+// positioning
+.center-align {
+  margin-left: auto;
+  margin-right: auto;
+}
 .transform-center-x {
   left: 50%;
   transform: translateX(-50%);

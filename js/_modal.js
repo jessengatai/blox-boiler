@@ -11,7 +11,6 @@ jQuery(document).ready(function($){
     let modalId = modal.attr('id');
     // add modal open classes
     modal.addClass('on');
-    $(`.bx-modal-bg`).addClass('on');
     // turn off window scrolling
     $('html,body').css('overflow','hidden');
     // notify
@@ -28,7 +27,8 @@ jQuery(document).ready(function($){
     let modalId = modal.attr('id');
     // add modal open classes
     modal.removeClass('on');
-    $(`.bx-modal-bg`).removeClass('on');
+    // turn on window scrolling
+    $('html,body').css('overflow','');
     // notify
     return $(window).trigger(`modal-closed:${modalId}`);
   }
@@ -38,14 +38,14 @@ jQuery(document).ready(function($){
    */
   const setupModalMarkup = () => {
     let modals = $('.bx-modal');
-    $.each(modals,function(index, modal){
-      // wrap the modal with an inner wrapper
-      $(this).wrapInner('<div class="bx-modal-inner"></div>');
-      // setup vars
-      let wrapper = $(this).find('.bx-modal-inner');
-      let classes = $(this).attr('class').replace('bx-modal','')
-      console.log(classes);
-    });
+    // $.each(modals,function(index, modal){
+    //   // wrap the modal with an inner wrapper
+    //   $(this).wrapInner('<div class="bx-modal-inner"></div>');
+    //   // setup vars
+    //   let wrapper = $(this).find('.bx-modal-inner');
+    //   let classes = $(this).attr('class').replace('bx-modal','')
+    //   console.log(classes);
+    // });
   }
 
   // setup the modal markup
@@ -59,7 +59,6 @@ jQuery(document).ready(function($){
   // });
 
   // add the modal background dynamically
-  $('body').append('<div class="bx-modal-bg"></div>');
 
   // open a modal via hash (on document ready)
   // if( $.inArray( window.location.hash, hashes ) > -1 ) {
