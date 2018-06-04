@@ -1,0 +1,29 @@
+
+hr {
+  border-bottom: solid 1px $black;
+  display: block;
+  height: 1px;
+  width: 100%;
+  background: red;
+}
+
+table {
+  td,
+  th {
+    border-radius: 2px;
+    text-align: left;
+    background-color: $white-darker-1;
+    padding: calc(#{$paddingY} / 2) calc(#{$paddingX} / 2);
+  }
+  thead {
+    th {
+      background-color: $white-darker-3;
+    }
+  }
+  tfoot {
+    td {
+      background-color: $white;
+      border: solid 1px $white-darker-2;
+    }
+  }
+}

@@ -41,6 +41,9 @@ h1 {
   &.x2-margin-bottom {
     margin-bottom: $h1-size-double;
   }
+  &:last-child {
+    margin-bottom: 0px;
+  }
 }
 h2 {
   margin-bottom: $h2-size;
@@ -49,6 +52,9 @@ h2 {
   line-height: 1.2;
   &.x2-margin-bottom {
     margin-bottom: $h2-size-double;
+  }
+  &:last-child {
+    margin-bottom: 0px;
   }
 }
 h3 {
@@ -59,6 +65,9 @@ h3 {
   &.x2-margin-bottom {
     margin-bottom: $h3-size-double;
   }
+  &:last-child {
+    margin-bottom: 0px;
+  }
 }
 h4 {
   margin-bottom: $h4-size;
@@ -68,6 +77,9 @@ h4 {
   &.x2-margin-bottom {
     margin-bottom: $h4-size-double;
   }
+  &:last-child {
+    margin-bottom: 0px;
+  }
 }
 h5 {
   margin-bottom: $h5-size;
@@ -75,6 +87,9 @@ h5 {
   font-weight: 500;
   &.x2-margin-bottom {
     margin-bottom: $h5-size-double;
+  }
+  &:last-child {
+    margin-bottom: 0px;
   }
 }
 h6 {
@@ -86,6 +101,9 @@ h6 {
   &.x2-margin-bottom {
     margin-bottom: $h6-size-double;
   }
+  &:last-child {
+    margin-bottom: 0px;
+  }
 }
 p {
   margin-bottom: $h4-size;
@@ -93,6 +111,9 @@ p {
   font-weight: 400;
   &.x2-margin-bottom {
     margin-bottom: $h4-size-double;
+  }
+  &:last-child {
+    margin-bottom: 0px;
   }
 }
 small {
@@ -120,8 +141,6 @@ small {
 .weight-heaviest {
   font-weight: 800;
 }
-
-
 
 .underline {
   position: relative;

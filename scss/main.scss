@@ -1,6 +1,6 @@
 // cool functional stuff!
-@import "_variables";
 @import "_colors";
+@import "_variables";
 @import "_mixins";
 @import "_extends";
 @import "_utils";
@@ -13,17 +13,7 @@
 @import "_buttons";
 @import "_boxes";
 @import "_modal";
-
-
-
-// move this into a "_tags" file
-hr {
-  border-bottom: solid 1px $black;
-  display: block;
-  height: 1px;
-  width: 100%;
-  background: red;
-}
+@import "_tags";
 
 // main bx elements that have data-attributes
 .bx-container {
@@ -35,7 +25,6 @@ hr {
 .bx-modal {
   @include general-data-attributes('modal');
 }
-
 
 // box windows wtf is this?
 .bx-window {

@@ -9,20 +9,17 @@
   </head>
   <body bx-modal-hashes>
     <div class="bx-container" data-x-axis="center">
-      <div class="bx-boxes margin-y">
+      <div class="bx-boxes">
 
         <!-- welcome -->
         <div class="box margin-top" data-width-tny="12">
-          <h1 class="tight">Blox Boiler</h1>
+          <h1>Blox Boiler</h1>
           <h4 class="weight-lighter">{a light-weight, utility-first, front-end boiler}</h4>
-        </div>
-        <div class="box" data-width-tny="12">
           <p>Shheesh, that's a lotta' hyphens. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
         </div>
 
-
         <!-- boxes -->
-        <div class="box" data-width-tny="12">
+        <div class="box margin-top" data-width-tny="12">
           <h3 class="tight">Boxes</h3>
         </div>
         <div class="box deboss"
@@ -31,9 +28,7 @@
         data-width-med="6"
         data-width-sml="12"
         data-width-tny="12">
-          <p class="tight">
-          Debossed Box Lorem ipsum dolor sit amet, consectetur are dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-          </p>
+          <p>Debossed Box Lorem ipsum dolor sit amet, consectetur are dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
         </div>
         <div class="box deboss"
         data-box
@@ -42,9 +37,7 @@
         data-width-med="6"
         data-width-sml="12"
         data-width-tny="12">
-          <p class="tight">
-          Debossed Box et, consectetur are dolor in reprehenderit in voluptate velit esse cillum dolore eu
-          </p>
+          <p>Debossed Box et, consectetur are dolor in reprehenderit in voluptate velit esse cillum dolore eu</p>
         </div>
         <div class="box deboss"
         data-width-xl="3"
@@ -52,9 +45,7 @@
         data-width-med="6"
         data-width-sml="12"
         data-width-tny="12">
-          <p class="tight">
-          Debossed Box consecteturgiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim
-          </p>
+          <p>Debossed Box consecteturgiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim</p>
         </div>
         <div class="box deboss"
         data-width-xl="3"
@@ -62,9 +53,7 @@
         data-width-med="6"
         data-width-sml="12"
         data-width-tny="12">
-          <p class="tight">
-          Debossed Box Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor in culpa qui officia deserunt mollit anim id est laborum.
-          </p>
+          <p>Debossed Box Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor in culpa qui officia deserunt mollit anim id est laborum.</p>
         </div>
 
         <!-- stickies -->
@@ -118,6 +107,46 @@
           <pre data-src="./code/_modal.html"></pre>
         </div>
 
+        <!-- data -->
+        <div class="box margin-top" data-width-tny="12">
+          <h3>Data Attributes</h3>
+        </div>
+        <div class="box" data-width-tny="12">
+          <table>
+            <thead>
+              <tr>
+                <th>One</th>
+                <th>Two</th>
+                <th>Three</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>asdfs asdf asdf </td>
+                <td>3</td>
+                <td>asdf asdf </td>
+              </tr>
+              <tr>
+                <td>James</td>
+                <td>1 ssf</td>
+                <td>asdf asdf </td>
+              </tr>
+              <tr>
+                <td>Corey</td>
+                <td>Rouge One A Star Wars Movie</td>
+                <td>Cool as</td>
+              </tr>
+            </tbody>
+            <tfoot>
+              <tr>
+                <td>one</td>
+                <td>Two</td>
+                <td>Three</td>
+              </tr>
+            </tfoot>
+          </table>
+        </div>
+
         <!-- sliders -->
         <div class="box margin-top" data-width-tny="12">
           <h3 class="tight">Sliders</h3>
@@ -128,54 +157,51 @@
           <h3 class="tight">Forms</h3>
         </div>
 
-      </div>
-    </div>
+      </div><!-- end .bx-boxes -->
+    </div><!-- end .bx-container -->
 
-
-
-
+    <div
+    bx-container
+    bx-x-axis="center"
+    class="bg-blue"
+    >
+      <h3>Sliders</h3>
       <div
-      bx-container
-      bx-x-axis="center"
-      class="bg-blue"
+      bx-slider
+      bx-x-align="fullwidth"
+      bx-trans="overX"
       >
-        <h3>Sliders</h3>
+        <!-- slide 2 -->
         <div
-        bx-slider
-        bx-x-align="fullwidth"
-        bx-trans="overX"
+        bx-slide
+        bx-bg-image="https://img.com/nglserks.jpg"
+        bx-bg-size="cover"
         >
-          <!-- slide 2 -->
-          <div
-          bx-slide
-          bx-bg-image="https://img.com/nglserks.jpg"
-          bx-bg-size="cover"
-          >
-            <div bx-trans-delay="100" bx-trans="slideX">
-              Slide 1
-            </div>
-            <div bx-trans-delay="150" bx-trans="slideX">
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-            </div>
+          <div bx-trans-delay="100" bx-trans="slideX">
+            Slide 1
           </div>
-          <!-- slide 1 -->
-          <div
-          bx-slide
-          bx-bg-image="https://img.com/nglserks.jpg"
-          bx-bg-size="cover"
-          >
-            <div bx-trans-delay="100" bx-trans="slideX">
-              Slide 1
-            </div>
-            <div bx-trans-delay="150" bx-trans="slideX">
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-            </div>
+          <div bx-trans-delay="150" bx-trans="slideX">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
           </div>
-          <!-- slider nav -->
-          <div bx-next>Next</div>
-          <div bx-prev>Prev</div>
-        </div><!-- end slider -->
-      </div>
+        </div>
+        <!-- slide 1 -->
+        <div
+        bx-slide
+        bx-bg-image="https://img.com/nglserks.jpg"
+        bx-bg-size="cover"
+        >
+          <div bx-trans-delay="100" bx-trans="slideX">
+            Slide 1
+          </div>
+          <div bx-trans-delay="150" bx-trans="slideX">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+          </div>
+        </div>
+        <!-- slider nav -->
+        <div bx-next>Next</div>
+        <div bx-prev>Prev</div>
+      </div><!-- end slider -->
+    </div>
 
       <div
       bx-container
@@ -198,28 +224,28 @@
         </div><!-- end forms -->
       </div>
 
-
-      <div id="standard-modal" class="padding"
-      bx-modal
-      bx-x-axis="center"
-      bx-y-axis="center"
-      bx-trans="fade"
+      <!-- modals -->
+      <div id="standard-modal" class="bx-modal max-width-thin padding rounded offset-top"
+      data-x-axis="center"
+      data-y-axis="center"
+      data-trans="fade"
       >
-        <h2 bx-trans-delay="100" bx-trans="slideY">This is a dope modal!</h2>
-        <h4 bx-trans-delay="150" bx-trans="slideY">This is a dope modal!</h4>
-        <p bx-trans-delay="200" bx-trans="slideY">This is a dope modal! Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-        <button bx-close-modal="standard-modal">Close</button>
+        <h2 data-trans-delay="100" data-trans="slideY">Standard Modal</h2>
+        <h4 data-trans-delay="150" data-trans="slideY">This is a dope modal!</h4>
+        <p data-trans-delay="200" data-trans="slideY">This is a dope modal! Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        </p>
+        <button data-close-modal="standard-modal">Close</button>
       </div>
-      <div id="fullscreen-modal" class="padding"
-      bx-modal
-      bx-x-axis="full"
-      bx-y-axis="full"
-      bx-trans="fade"
+
+      <div id="fullscreen-modal" class="bx-modal padding"
+      data-x-axis="full"
+      data-y-axis="full"
+      data-trans="fade"
       >
-        <h2 bx-trans-delay="100" bx-trans="slideY">This is a dope modal!</h2>
-        <h4 bx-trans-delay="150" bx-trans="slideY">This is a dope modal!</h4>
-        <p bx-trans-delay="200" bx-trans="slideY">This is a dope modal! Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-        <button bx-close-modal="fullscreen-modal">Close</button>
+        <h2 data-trans-delay="100" data-trans="slideY">Fullscreen modal</h2>
+        <h4 data-trans-delay="150" data-trans="slideY">This is a dope modal!</h4>
+        <p data-trans-delay="200" data-trans="slideY">This is a dope modal! Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        <button data-close-modal="fullscreen-modal">Close</button>
       </div>
 
 

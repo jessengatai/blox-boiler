@@ -32,9 +32,10 @@
   }
 
   // center xy
-  &[data-x-axis="center"][bx-y-axis="center"] {
+  &[data-x-axis="center"][data-y-axis="center"] {
     @if $type=='modal' {
       @extend .transform-center-xy;
+      background-position: red !important;
     }
   }
 

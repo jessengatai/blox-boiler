@@ -2,6 +2,9 @@
 .max-width {
   max-width: $container-max-width;
 }
+.max-width-thin {
+  max-width: $container-max-width-thin !important;
+}
 .full-width {
   width: 100%;
 }

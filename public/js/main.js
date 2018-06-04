@@ -10,10 +10,6 @@ var setBloxId = function setBloxId(el) {
   el.attr('bx-id', Math.random().toString(36).substr(2, 16));
 };
 
-function removeHash() {
-  history.pushState("", document.title, window.location.pathname + window.location.search);
-}
-
 console.log('boxes loaded');
 jQuery(document).ready(function ($) {});
 
@@ -30,9 +26,9 @@ jQuery(document).ready(function ($) {
     var modalId = modal.attr('id');
     // add modal open classes
     modal.addClass('on');
-    $('[bx-modal-bg]').addClass('on');
-    // update the url hash
-    window.location.hash = '#' + modalId;
+    $('.bx-modal-bg').addClass('on');
+    // turn off window scrolling
+    $('html,body').css('overflow', 'hidden');
     // notify
     return $(window).trigger('modal-opened:' + modalId);
   };
@@ -47,41 +43,53 @@ jQuery(document).ready(function ($) {
     var modalId = modal.attr('id');
     // add modal open classes
     modal.removeClass('on');
-    $('[bx-modal-bg]').removeClass('on');
-    // update the url hash
-    removeHash();
+    $('.bx-modal-bg').removeClass('on');
     // notify
     return $(window).trigger('modal-closed:' + modalId);
   };
 
-  // setup modals
-  var modals = $('[bx-modal]');
-  var hashes = [];
+  /**
+   * Add the correct modal markup for each modal
+   */
+  var setupModalMarkup = function setupModalMarkup() {
+    var modals = $('.bx-modal');
+    $.each(modals, function (index, modal) {
+      // wrap the modal with an inner wrapper
+      $(this).wrapInner('<div class="bx-modal-inner"></div>');
+      // setup vars
+      var wrapper = $(this).find('.bx-modal-inner');
+      var classes = $(this).attr('class').replace('bx-modal', '');
+      console.log(classes);
+    });
+  };
+
+  // setup the modal markup
+  setupModalMarkup();
 
   // give the modals unique ids & setup hashes
-  modals.each(function () {
-    setBloxId($(this));
-    var id = $(this).attr('id');
-    hashes.push('#' + id);
-  });
+  // modals.each(function(){
+  //   setBloxId( $(this) );
+  //   let id = $(this).attr('id');
+  //   hashes.push(`#${id}`);
+  // });
 
   // add the modal background dynamically
-  $('body').append('<div bx-modal-bg></div>');
+  $('body').append('<div class="bx-modal-bg"></div>');
 
   // open a modal via hash (on document ready)
-  if ($.inArray(window.location.hash, hashes) > -1) {
-    openModal($(window.location.hash));
-  }
+  // if( $.inArray( window.location.hash, hashes ) > -1 ) {
+  //   openModal($(window.location.hash));
+  // }
 
   // open a modal via click
-  $(document).on('click', '[bx-open-modal]', function () {
-    var id = $(this).attr('bx-open-modal');
+  $(document).on('click', '[data-open-modal]', function () {
+    var id = $(this).attr('data-open-modal');
     openModal($('#' + id));
   });
 
   // close a modal via click
-  $(document).on('click', '[bx-close-modal]', function () {
-    var id = $(this).attr('bx-close-modal');
+  $(document).on('click', '[data-close-modal]', function () {
+    var id = $(this).attr('data-close-modal');
     closeModal($('#' + id));
   });
 });

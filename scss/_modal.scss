@@ -1,9 +1,8 @@
 .bx-modal {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   max-height: 100vh;
-  overflow-y: scroll;
   background: $site-background;
 
   display: none;
