@@ -6,7 +6,8 @@
   max-width: $container-max-width-thin !important;
 }
 .full-width {
-  width: 100%;
+  max-width: 100%;
+  min-width: 100%;
 }
 .full-width-gutter-x {
   width: calc( 100% - #{$gutterX} );
@@ -14,15 +15,23 @@
 
 // heights
 .full-height {
-  height: 100vh;
-  max-height: 100vh;
+  max-height: none;
+  min-height: 100%;
 }
 
-// positioning
-.center-align {
+// plain css positions
+.align-center {
   margin-left: auto;
   margin-right: auto;
 }
+.float-left {
+  float: left;
+}
+.float-right {
+  float: right;
+}
+
+// transform positions
 .transform-center-x {
   left: 50%;
   transform: translateX(-50%);
@@ -49,8 +58,14 @@
 .padding {
   padding: $paddingY $paddingX;
 }
+.padding-x2 {
+  padding: ($paddingY * 2) ($paddingX * 2);
+}
 
 // margins
+.tight {
+  margin: 0px !important;
+}
 .margin-top {
   margin-top: $gutterY;
 }
@@ -122,7 +137,7 @@
   right: $gutterX;
 }
 
-// styles
+// shadows and cards
 .deboss {
   box-shadow: 0 3px 7px rgba(0,0,0,.03);
   border-radius: 6px;
@@ -130,13 +145,22 @@
   padding: $paddingY $paddingX;
   background: #ffffff;
 }
-
-.tight {
-  margin: 0px !important;
+.shadow {
+  box-shadow: 0 5px 10px rgba(0,0,0,.08);
+}
+.shadow-lrg {
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.18);
+}
+.shadow-sml {
+  box-shadow: 0 3px 7px rgba(0,0,0,.03);
 }
 
+// backgrounds
 .bg-white {
   background: $white;
+}
+.bg-black {
+  background: $black;
 }
 .bg-red {
   background: $red;
@@ -152,4 +176,72 @@
 }
 .bg-green {
   background: $green;
+}
+
+// font weights
+.weight-lighter {
+  font-weight: 300;
+}
+.weight-normal {
+  font-weight: 400;
+}
+.weight-heavier {
+  font-weight: 600;
+}
+.weight-heaviest {
+  font-weight: 800;
+}
+
+// text colors
+.color-white {
+  color: $white;
+}
+.color-black {
+  color: $black;
+}
+
+// text alignment
+.text-align-center {
+  text-align: center;
+}
+.text-align-left {
+  text-align: left;
+}
+.text-align-right {
+  text-align: right;
+}
+.text-align-justify {
+  text-align: justify;
+}
+
+// text decorations
+.underline {
+  position: relative;
+  &:after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: calc(-1px - .1vw);
+    height: 2px;
+    background-color: $blue-lighter-1;
+    width: 100%;
+  }
+}
+
+a.inline-link {
+  color: $blue;
+  display: inline-block;
+  text-decoration: none;
+  @extend .underline;
+
+  &:hover {
+    color: $black;
+  }
+  &.invert {
+    color: $black;
+    &:hover {
+      color: $blue;
+    }
+  }
 }

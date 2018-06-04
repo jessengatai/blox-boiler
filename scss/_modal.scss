@@ -1,6 +1,6 @@
 .bx-modal {
   @include fixed-fullscreen;
-  @include background-opacity($black);
+  @include background-opacity($white, 0.9);
   display: none;
   overflow: scroll;
 
@@ -9,8 +9,9 @@
     z-index: 100;
   }
 
+  // the inner modal
   .bx-modal-inner {
-    background-color: $site-background;
+
   }
 
 }

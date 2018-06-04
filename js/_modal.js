@@ -38,14 +38,9 @@ jQuery(document).ready(function($){
    */
   const setupModalMarkup = () => {
     let modals = $('.bx-modal');
-    // $.each(modals,function(index, modal){
-    //   // wrap the modal with an inner wrapper
-    //   $(this).wrapInner('<div class="bx-modal-inner"></div>');
-    //   // setup vars
-    //   let wrapper = $(this).find('.bx-modal-inner');
-    //   let classes = $(this).attr('class').replace('bx-modal','')
-    //   console.log(classes);
-    // });
+    $.each(modals,function(index, modal){
+      // $(this).prepend('<div class="bx-modal-bg"></div>');
+    });
   }
 
   // setup the modal markup
@@ -75,6 +70,20 @@ jQuery(document).ready(function($){
   $(document).on('click', '[data-close-modal]', function(){
     let id = $(this).attr('data-close-modal');
     closeModal( $(`#${id}`) );
+  });
+  $(document).on('click', '.bx-modal.on', function(){
+    if ( !jQuery(event.target).is('.bx-modal.on *') ) {
+      let id = $(this).attr('id');
+      closeModal( $(`#${id}`) );
+    }
+  });
+
+  // close a modal via esc key
+  $(document).on('keyup', function(e){
+    if (e.keyCode == 27 && $('.bx-modal.on').length ) {
+      let id = $('.bx-modal.on').attr('id');
+      closeModal( $(`#${id}`) );
+    }
   });
 
 });
