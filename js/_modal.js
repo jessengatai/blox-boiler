@@ -46,20 +46,6 @@ jQuery(document).ready(function($){
   // setup the modal markup
   setupModalMarkup();
 
-  // give the modals unique ids & setup hashes
-  // modals.each(function(){
-  //   setBloxId( $(this) );
-  //   let id = $(this).attr('id');
-  //   hashes.push(`#${id}`);
-  // });
-
-  // add the modal background dynamically
-
-  // open a modal via hash (on document ready)
-  // if( $.inArray( window.location.hash, hashes ) > -1 ) {
-  //   openModal($(window.location.hash));
-  // }
-
   // open a modal via click
   $(document).on('click', '[data-open-modal]', function(){
     let id = $(this).attr('data-open-modal');
