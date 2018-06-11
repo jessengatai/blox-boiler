@@ -123,19 +123,9 @@ BOX COLUMNS
   }
 
   /*
-  BOX MARGINS
-   */
-  > .box {
-    margin-left: calc( #{$gutterX} / 2 );
-    margin-right: calc( #{$gutterX} / 2 );
-    margin-bottom: $gutterY;
-  }
-
-  /*
   BOX WIDTH COLUMNS
    */
   @include bx-cols-output( 12, false);
-
 
   /*
   BOX % PERCENTAGES
@@ -156,4 +146,13 @@ BOX COLUMNS
     width: 100%;
   }
 
+}
+
+/*
+BOX ITEMS
+ */
+.box {
+  margin-left: calc( #{$gutterX} / 2 );
+  margin-right: calc( #{$gutterX} / 2 );
+  margin-bottom: $gutterY;
 }

@@ -58,7 +58,7 @@
 .padding {
   padding: $paddingY $paddingX;
 }
-.padding-x2 {
+.padding--x2 {
   padding: ($paddingY * 2) ($paddingX * 2);
 }
 
@@ -69,25 +69,48 @@
 .margin-top {
   margin-top: $gutterY;
 }
+.margin-top--x2 {
+  margin-top: ($gutterY * 2);
+}
 .margin-bottom {
   margin-bottom: $gutterY;
+}
+.margin-bottom--x2 {
+  margin-bottom: ($gutterY * 2);
 }
 .margin-left {
   margin-left: $gutterX;
 }
+.margin-left--x2 {
+  margin-left: ($gutterX * 2);
+}
 .margin-right {
   margin-right: $gutterX;
+}
+.margin-right--x2 {
+  margin-right: ($gutterX * 2);
 }
 .margin-x {
   margin-left: $gutterX;
   margin-right: $gutterX;
 }
+.margin-x--x2 {
+  margin-left: ($gutterX * 2);
+  margin-right: ($gutterX * 2);
+}
 .margin-y {
   margin-top: $gutterY;
   margin-bottom: $gutterY;
 }
+.margin-y--x2 {
+  margin-top: ($gutterY * 2);
+  margin-bottom: ($gutterY * 2);
+}
 .margin {
   margin: $gutterY $gutterX;
+}
+.margin--x2 {
+  margin: ($gutterY * 2) ($gutterX * 2);
 }
 
 // gutters
@@ -116,11 +139,15 @@
   position: sticky;
   top: 0;
   z-index: 10;
+  // incase this is a flexbox item
+  align-self: flex-start;
 }
 .sticky-bottom {
   position: sticky;
   bottom: 0;
   z-index: 10;
+  // incase this is a flexbox item
+  align-self: flex-end;
 }
 
 // offsets

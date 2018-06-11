@@ -1,6 +1,6 @@
 .bx-modal {
   @include fixed-fullscreen;
-  @include background-opacity($white, 0.9);
+  @include background-opacity($black, 0.9);
   display: none;
   overflow: scroll;
 

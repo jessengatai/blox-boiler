@@ -2,11 +2,9 @@
 @import "_colors";
 @import "_variables";
 @import "_mixins";
-@import "_extends";
-@import "_utils";
-@import "_reset";
 
 // import base level styles!
+@import "_reset";
 @import "_data";
 @import "_text";
 @import "_forms";
@@ -14,6 +12,7 @@
 @import "_boxes";
 @import "_modal";
 @import "_tags";
+@import "_utils";
 
 // main bx elements that have data-attributes
 .bx-container {
