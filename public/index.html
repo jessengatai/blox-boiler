@@ -2,85 +2,117 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title>Blox Boiler - A Function First Front-end Boilerplate</title>
+    <title>Blox Boiler - A Functionality First Front-end Boilerplate</title>
     <!-- inject:css -->
     <link rel="stylesheet" href="/modules/prism.css">
     <link rel="stylesheet" href="/css/main.css">
     <!-- endinject -->
 
+    <!-- prism stylesheet overrides (just for this demo ofcourse) -->
+    <style media="screen">
+      :not(pre) > code[class*="language-"], pre[class*="language-"] {
+        background-color: transparent !important;
+      }
+    </style>
+
   </head>
-  <body bx-modal-hashes>
+  <body class="bg-white color-black" bx-modal-hashes>
     <div class="bx-container" data-x-axis="center">
       <div class="bx-boxes">
 
         <!-- welcome -->
         <div id="header"
-        class="box margin-y--x2"
+        class="box padding-y--x3"
         data-width-tny="12">
-          <h1>Blox Boiler</h1>
-          <h4 class="weight-lighter">{a light-weight, utility-first, front-end boiler}</h4>
+          <h1 class="x2-size">Blox Boiler</h1>
+          <h4 class="weight-lighter">A Functionality First Front-end Boilerplate</h4>
           <p>Shheesh, that's a lotta' hyphens. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+          <button type="button" class="circular big">👨🏽‍💻 GitHub</button>
+          <button type="button" class="circular big">👩🏼‍💻 NPM</button>
+          <button type="button" class="circular big">🐨 Me</button>
         </div>
 
         <!-- table of contents -->
         <div id="contents"
-        class="box sticky-top offset-top"
+        class="box sticky-top--med-up offset-top"
+        data-hash-onstick="#buttons"
         data-class-onstick="deboss bg-black color-white"
         data-width-tny="12"
-        data-width-sml="2">
-          <h5>Contents</h5>
-          <ul>
-            <li><a href="#boxes">Boxes</a></li>
-            <li><a href="#stickies">Stickies</a></li>
-            <li><a href="#buttons">Buttons</a></li>
-            <li><a href="#modals">Modals</a></li>
-          </ul>
+        data-width-lrg="2"
+        data-width-sml="3">
+          <h3>Index</h3>
+          <p class="weight-600">Functionality</p>
+          <nav class="margin-bottom">
+            <ul>
+              <li><a class="button off full-width text-left" href="#setup">Setup</a></li>
+              <li><a class="button off full-width text-left" href="#boxes">Boxes</a></li>
+              <li><a class="button off full-width text-left" href="#stickies">Stickies</a></li>
+              <li><a class="button off full-width text-left" href="#buttons">Buttons</a></li>
+              <li><a class="button off full-width text-left" href="#modals">Modals</a></li>
+            </ul>
+          </nav>
+          <p class="weight-600">Utilitiy</p>
+          <nav class="margin-bottom">
+            <ul>
+              <li><a class="button off full-width text-left" href="#boxes">Boxes</a></li>
+              <li><a class="button off full-width text-left" href="#stickies">Stickies</a></li>
+              <li><a class="button off full-width text-left" href="#buttons">Buttons</a></li>
+              <li><a class="button off full-width text-left" href="#modals">Modals</a></li>
+            </ul>
+          </nav>
         </div>
 
         <!-- content wrap -->
         <div id="content"
         class="box"
         data-width-tny="12"
-        data-width-sml="10">
+        data-width-lrg="10"
+        data-width-sml="9">
           <div class="bx-boxes">
 
             <!-- boxes -->
             <div class="box" data-width-tny="12">
-              <h3 class="tight">Boxes</h3>
-            </div>
-            <div class="box deboss"
-            data-width-xl="3"
-            data-width-lrg="4"
-            data-width-med="6"
-            data-width-sml="12"
-            data-width-tny="12">
-              <p>Debossed Box Lorem ipsum dolor sit amet, consectetur are dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-            </div>
-            <div class="box deboss"
-            data-box
-            data-width-xl="3"
-            data-width-lrg="4"
-            data-width-med="6"
-            data-width-sml="12"
-            data-width-tny="12">
-              <p>Debossed Box et, consectetur are dolor in reprehenderit in voluptate velit esse cillum dolore eu</p>
-            </div>
-            <div class="box deboss"
-            data-width-xl="3"
-            data-width-lrg="4"
-            data-width-med="6"
-            data-width-sml="12"
-            data-width-tny="12">
-              <p>Debossed Box consecteturgiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim</p>
-            </div>
-            <div class="box deboss"
-            data-width-xl="3"
-            data-width-lrg="12"
-            data-width-med="6"
-            data-width-sml="12"
-            data-width-tny="12">
-              <p>Debossed Box Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor in culpa qui officia deserunt mollit anim id est laborum.</p>
-            </div>
+              <h3>Boxes</h3>
+              <p>Rowless columns? Kinda. Blox's "boxes" allows for some pretty awesome out of the box' layouts. Give a parent div a class of 'bx-boxes' and it's direct children classes of 'box' then apply widths via data-attributes - pretty simple.</p>
+              <p>Give the window a resize to see it in action. The default column count is 12, which is changeable with a single line of code in the variables.scss file.</p>
+              <p class="deboss border-left--green"><strong>NOTE:</strong> These data-attributes run from the bottom up. Meaning if you <strong>ONLY</strong> set `data-width-tny="6"` the box will be 6/12 on all screen sizes from tiny up.</p>
+
+              <div class="bx-boxes boxes-tight">
+                <div class="box deboss--purple tight--padding"
+                data-width-xl="12"
+                data-width-lrg="3"
+                data-width-med="6"
+                data-width-sml="4"
+                data-width-tny="12">
+                  <pre data-src="./code/_boxes1.html"></pre>
+                </div>
+                <div class="box deboss--red tight--padding"
+                data-width-xl="4"
+                data-width-lrg="3"
+                data-width-med="6"
+                data-width-sml="4"
+                data-width-tny="12">
+                  <pre data-src="./code/_boxes2.html"></pre>
+                </div>
+                <div class="box deboss--blue tight--padding"
+                data-width-xl="4"
+                data-width-lrg="3"
+                data-width-med="6"
+                data-width-sml="4"
+                data-width-tny="12">
+                  <pre data-src="./code/_boxes2.html"></pre>
+                </div>
+                <div class="box deboss--orange tight--padding"
+                data-width-xl="4"
+                data-width-lrg="3"
+                data-width-med="6"
+                data-width-sml="12"
+                data-width-tny="12">
+                  <pre data-src="./code/_boxes3.html"></pre>
+                </div>
+              </div>
+
+            </div><!-- end .boxes -->
 
             <!-- stickies -->
             <div class="box margin-top" data-width-tny="12">
@@ -122,73 +154,21 @@
               <p>The basic requirments to setup a modal is a button and a div with an ID.</p>
               <p>note: It's recommended to place the modal div outside all divs right before the closing body tag.</p>
             </div>
-            <div class="box" data-width-tny="4">
+            <div class="box" data-width-tny="12" data-width-med="6">
               <button data-open-modal="standard-modal">Standard</button>
               <pre data-src="./code/_modal.html"></pre>
             </div>
-            <div class="box" data-width-tny="4">
-              <button disabled data-open-modal="fullscreen-modal">Fullscreen</button>
-              <pre data-src="./code/_modal.html"></pre>
-            </div>
-            <div class="box" data-width-tny="4">
+            <div class="box" data-width-tny="12" data-width-med="6">
               <button data-open-modal="fullscreen-modal">Fullscreen</button>
               <pre data-src="./code/_modal.html"></pre>
-            </div>
-            <div class="box" data-width-tny="12">
-              <h5>Options</h5>
-              <table>
-                <tbody>
-                  <tr>
-                    <td>trigger</td>
-                    <td>modal-opened:standard-modal</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-
-            <!-- data -->
-            <div class="box margin-top" data-width-tny="12">
-              <h3>Data Attributes</h3>
-            </div>
-            <div class="box" data-width-tny="12">
-              <table>
-                <thead>
-                  <tr>
-                    <th>One</th>
-                    <th>Two</th>
-                    <th>Three</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>asdfs asdf asdf </td>
-                    <td>3</td>
-                    <td>asdf asdf </td>
-                  </tr>
-                  <tr>
-                    <td>James</td>
-                    <td>1 ssf</td>
-                    <td>asdf asdf </td>
-                  </tr>
-                  <tr>
-                    <td>Corey</td>
-                    <td>Rouge One A Star Wars Movie</td>
-                    <td>Cool as</td>
-                  </tr>
-                </tbody>
-                <tfoot>
-                  <tr>
-                    <td>one</td>
-                    <td>Two</td>
-                    <td>Three</td>
-                  </tr>
-                </tfoot>
-              </table>
             </div>
 
             <!-- forms -->
             <div class="box margin-top" data-width-tny="12">
               <h3 class="tight">Forms</h3>
+              <input type="text" name="" value="100">
+              <input type="text" name="" value="300">
+              <input type="text" name="" value="500">
             </div>
 
           </div><!-- end .bx-boxes -->

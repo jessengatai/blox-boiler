@@ -1,10 +1,20 @@
-
+a {
+  color: $link-color;
+  text-decoration: $link-decoration;
+  &:hover {
+    color: $link-hover-color;
+    text-decoration: $link-hover-decoration;
+  }
+  // little override for links that are buttons
+  &.button {
+    text-decoration: inherit;
+  }
+}
 hr {
-  border-bottom: solid 1px $black;
+  border-bottom: solid 2px $white-darker-2;
   display: block;
   height: 1px;
   width: 100%;
-  background: red;
 }
 
 table {

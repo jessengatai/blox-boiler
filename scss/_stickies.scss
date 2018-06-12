@@ -1,0 +1,103 @@
+// sticky mixins
+@mixin sticky-top {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  align-self: flex-start; // incase this is a flexbox item
+}
+@mixin sticky-bottom {
+  position: sticky;
+  bottom: 0;
+  z-index: 10;
+  align-self: flex-end; // incase this is a flexbox item
+}
+
+// sticky top rules
+.sticky-top {
+  @include sticky-top;
+}
+@media #{$media-sml-up} {
+  .sticky-top--sml-up {
+    @include sticky-top;
+  }
+}
+@media #{$media-med-up} {
+  .sticky-top--med-up {
+    @include sticky-top;
+  }
+}
+@media #{$media-lrg-up} {
+  .sticky-top--lrg-up {
+    @include sticky-top;
+  }
+}
+@media #{$media-xl-up} {
+  .sticky-top--xl-up {
+    @include sticky-top;
+  }
+}
+@media #{$media-sml-only} {
+  .sticky-top--sml-only {
+    @include sticky-top;
+  }
+}
+@media #{$media-med-only} {
+  .sticky-top--med-only {
+    @include sticky-top;
+  }
+}
+@media #{$media-lrg-only} {
+  .sticky-top--lrg-only {
+    @include sticky-top;
+  }
+}
+@media #{$media-xl-only} {
+  .sticky-top--xl-only {
+    @include sticky-top;
+  }
+}
+
+// sticky bottom rules
+.sticky-bottom {
+  @include sticky-bottom;
+}
+@media #{$media-sml-up} {
+  .sticky-bottom--sml-up {
+    @include sticky-bottom;
+  }
+}
+@media #{$media-med-up} {
+  .sticky-bottom--med-up {
+    @include sticky-bottom;
+  }
+}
+@media #{$media-lrg-up} {
+  .sticky-bottom--lrg-up {
+    @include sticky-bottom;
+  }
+}
+@media #{$media-xl-up} {
+  .sticky-bottom--xl-up {
+    @include sticky-bottom;
+  }
+}
+@media #{$media-sml-only} {
+  .sticky-bottom--sml-only {
+    @include sticky-bottom;
+  }
+}
+@media #{$media-med-only} {
+  .sticky-bottom--med-only {
+    @include sticky-bottom;
+  }
+}
+@media #{$media-lrg-only} {
+  .sticky-bottom--lrg-only {
+    @include sticky-bottom;
+  }
+}
+@media #{$media-xl-only} {
+  .sticky-bottom--xl-only {
+    @include sticky-bottom;
+  }
+}

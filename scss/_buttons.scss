@@ -24,7 +24,6 @@ button,
   text-decoration: none;
   cursor: pointer;
   transition: box-shadow 0.1s ease, background 0.15s ease, color 0.1s ease;
-
   border-radius: 4px;
 
   // BASE BUTTON COLORS
@@ -33,13 +32,26 @@ button,
   border-bottom: 2px solid $white-darker-3;
   color: $black-lighter-4;
 
+  // off (but not disabled, purely stylistic)
+  &.off {
+    border-color: transparent;
+    background-color: transparent;
+    box-shadow: none;
+  }
+
   // HOVER BUTTON COLORS
-  &:hover,
-  &[active="true"] {
+  &:hover {
     background: $white-darker-1;
     border: 1px solid $white-darker-3;
     border-bottom: 2px solid $white-darker-3;
     color: $black;
+  }
+
+  // active state
+  &.active,
+  &:focus,
+  &[active="true"] {
+    // @extend .purple;
   }
 
   // DISABLED STATE
