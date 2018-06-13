@@ -16,15 +16,53 @@ jQuery(document).ready(function ($) {});
 console.log('hashes loaded');
 jQuery(document).ready(function ($) {
 
-  // listen for hash changes
-  $(window).on;
+  /**
+   * Check wether a value is set
+   * @param {mixed} value Can be anything from a string to an array
+   * @return {bool}
+   */
+  var isset = function isset(value) {
+    return typeof value != 'undefined' && value ? true : false;
+  };
 
-  return $(window).trigger('modal-closed:' + modalId);
+  var runHashes = function runHashes() {
 
-  $(document).on('click', function () {
+    // setup some big scope variable daddy's
+    var hash = window.location.hash;
+    var objectsAll = $('[data-hash]');
 
-    $('[data-hash="#foo"]').css('background', 'red');
+    // run through hash bound elements
+    if (objectsAll.length) {
+      $.each(objectsAll, function (index, object) {
+        var hashBound = $(object).attr('data-hash');
+        var hashClassesOn = $(object).attr('data-classes-onhash');
+        var hashClassesOff = $(object).attr('data-classes-offhash');
+
+        // clean up the hashes
+        $(object).removeClass(hashClassesOn).removeClass(hashClassesOff);
+
+        // hash unmatched
+        if (hash !== hashBound && isset(hashClassesOff)) {
+          $(object).addClass(hashClassesOff);
+        }
+
+        // hash matched
+        if (hash === hashBound && isset(hashClassesOn)) {
+          $(object).addClass(hashClassesOn);
+        }
+      });
+    }
+  };
+
+  /**
+   * Handle hash changes
+   * @param  {object} e the event
+   */
+  $(window).on('hashchange', function (e) {
+    runHashes();
   });
+
+  runHashes();
 
   // data-hash="#foo"
   // data-classes-onhash="purple"
