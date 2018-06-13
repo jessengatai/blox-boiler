@@ -323,11 +323,7 @@
     }
   }
 }
-@include borderColours($keys, $values);
-
-
-
-
+@include borderColours($colorKeys, $colorValues);
 
 
 // background colours
@@ -337,121 +333,83 @@
 @mixin bgColours($colors, $values){
   @for $i from 1 through length($colors) {
     .bg-#{nth($colors, $i)} {
-      border-top-color: #{nth($values, $i)}
+      background-color: #{nth($values, $i)}
+    }
+    .bg-#{nth($colors, $i)}--darker-1 {
+      background-color: darken( nth($values, $i), 10%);
+    }
+    .bg-#{nth($colors, $i)}--darker-2 {
+      background-color: darken( nth($values, $i), 20%);
+    }
+    .bg-#{nth($colors, $i)}--darker-3 {
+      background-color: darken( nth($values, $i), 30%);
+    }
+    .bg-#{nth($colors, $i)}--darker-4 {
+      background-color: darken( nth($values, $i), 40%);
+    }
+    .bg-#{nth($colors, $i)}--lighter-1 {
+      background-color: lighten( nth($values, $i), 10%);
+    }
+    .bg-#{nth($colors, $i)}--lighter-2 {
+      background-color: lighten( nth($values, $i), 20%);
+    }
+    .bg-#{nth($colors, $i)}--lighter-3 {
+      background-color: lighten( nth($values, $i), 30%);
+    }
+    .bg-#{nth($colors, $i)}--lighter-4 {
+      background-color: lighten( nth($values, $i), 40%);
     }
   }
 }
-@include bgColours($keys, $values);
-
-
-.bg-white {
-  background: $white;
-}
-.bg-black {
-  background: $black;
-}
-.bg-red {
-  background: $red;
-}
-.bg-yellow {
-  background: $yellow;
-}
-.bg-blue {
-  background: $blue;
-}
-.bg-purple {
-  background: $purple;
-}
-.bg-green {
-  background: $green;
-}
-
-// font weights (alpha)
-.weight-lighter {
-  font-weight: 300;
-}
-.weight-normal {
-  font-weight: 400;
-}
-.weight-heavier {
-  font-weight: 600;
-}
-.weight-heaviest {
-  font-weight: 800;
-}
-
-// font weights (numeric)
-.weight-100 {
-  font-weight: 100;
-}
-.weight-200 {
-  font-weight: 200;
-}
-.weight-300 {
-  font-weight: 300;
-}
-.weight-400 {
-  font-weight: 400;
-}
-.weight-500 {
-  font-weight: 500;
-}
-.weight-600 {
-  font-weight: 600;
-}
-.weight-700 {
-  font-weight: 700;
-}
-.weight-800 {
-  font-weight: 800;
-}
-.weight-900 {
-  font-weight: 900;
-}
+@include bgColours($colorKeys, $colorValues);
 
 // text colors
-.color-white {
-  color: $white;
+[class*="color-"] {
+  color: inherit;
 }
-.color-black {
-  color: $black;
+@mixin colors($colors, $values){
+  @for $i from 1 through length($colors) {
+    .color-#{nth($colors, $i)} {
+      color: #{nth($values, $i)}
+    }
+    .color-#{nth($colors, $i)}--darker-1 {
+      color: darken( nth($values, $i), 10%);
+    }
+    .color-#{nth($colors, $i)}--darker-2 {
+      color: darken( nth($values, $i), 20%);
+    }
+    .color-#{nth($colors, $i)}--darker-3 {
+      color: darken( nth($values, $i), 30%);
+    }
+    .color-#{nth($colors, $i)}--darker-4 {
+      color: darken( nth($values, $i), 40%);
+    }
+    .color-#{nth($colors, $i)}--lighter-1 {
+      color: lighten( nth($values, $i), 10%);
+    }
+    .color-#{nth($colors, $i)}--lighter-2 {
+      color: lighten( nth($values, $i), 20%);
+    }
+    .color-#{nth($colors, $i)}--lighter-3 {
+      color: lighten( nth($values, $i), 30%);
+    }
+    .color-#{nth($colors, $i)}--lighter-4 {
+      color: lighten( nth($values, $i), 40%);
+    }
+  }
 }
-.color-orange {
-  color: $orange;
+@include colors($colorKeys, $colorValues);
+
+
+// font weights (numeric)
+@mixin weights{
+  @for $i from 1 through 9 {
+    .weight-#{$i}00 {
+      font-weight: ($i * 100);
+    }
+  }
 }
-.color-orange--dark {
-  color: $orange-darker-4;
-}
-.color-orange--light {
-  color: $orange-lighter-4;
-}
-.color-red {
-  color: $red;
-}
-.color-red--dark {
-  color: $red-darker-4;
-}
-.color-red--light {
-  color: $red-lighter-4;
-}
-.color-purple {
-  color: $purple;
-}
-.color-purple--dark {
-  color: $purple-darker-4;
-}
-.color-purple--light {
-  color: $purple-lighter-4;
-}
-.color-blue {
-  color: $blue;
-}
-.color-blue--dark {
-  color: $blue-darker-4;
-}
-.color-blue--light {
-  color: $blue-lighter-4;
-}
+@include weights;
 
 // text alignment
 .text-center {

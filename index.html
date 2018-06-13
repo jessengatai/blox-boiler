@@ -11,10 +11,17 @@
       :not(pre) > code[class*="language-"], pre[class*="language-"] {
         background-color: transparent !important;
       }
+      .attr-list li {
+        background: #f7f7f7;
+        margin-bottom: 2px;
+        padding: 2px 10px;
+        float: left;
+        clear: both;
+      }
     </style>
 
   </head>
-  <body class="bg-white color-black" bx-modal-hashes>
+  <body bx-modal-hashes>
     <div class="bx-container" data-x-axis="center">
       <div class="bx-boxes">
 
@@ -23,7 +30,7 @@
         class="box padding-y--x3"
         data-width-tny="12">
           <h1 class="x2-size">Blox Boiler</h1>
-          <h4 class="weight-lighter">A Functionality First Front-end Boilerplate</h4>
+          <h4>A Functionality First Front-end Boilerplate</h4>
           <p>Shheesh, that's a lotta' hyphens. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
           <button type="button" class="circular big">👨🏽‍💻 GitHub</button>
           <button type="button" class="circular big">👩🏼‍💻 NPM</button>
@@ -38,24 +45,27 @@
         data-width-tny="12"
         data-width-lrg="2"
         data-width-sml="3">
-          <h3>Index</h3>
           <p class="weight-600">Functionality</p>
           <nav class="margin-bottom">
             <ul>
-              <li><a class="button off full-width text-left" href="#setup">Setup</a></li>
-              <li><a class="button off full-width text-left" href="#boxes">Boxes</a></li>
-              <li><a class="button off full-width text-left" href="#stickies">Stickies</a></li>
-              <li><a class="button off full-width text-left" href="#buttons">Buttons</a></li>
-              <li><a class="button off full-width text-left" href="#modals">Modals</a></li>
+              <li><a data-hash="setup"    data-classes-onhash="active" class="button off full-width text-left" href="#setup">Setup</a></li>
+              <li><a data-hash="data"     data-classes-onhash="active" class="button off full-width text-left" href="#data">Data States</a></li>
+              <li><a data-hash="boxes"    data-classes-onhash="active" class="button off full-width text-left" href="#boxes">Boxes</a></li>
+              <li><a data-hash="stickies" data-classes-onhash="active" class="button off full-width text-left" href="#stickies">Stickies</a></li>
+              <li><a data-hash="buttons"  data-classes-onhash="active" class="button off full-width text-left" href="#buttons">Buttons</a></li>
+              <li><a data-hash="modals"   data-classes-onhash="active" class="button off full-width text-left" href="#modals">Modals</a></li>
+              <li><a data-hash="forms"    data-classes-onhash="active" class="button off full-width text-left" href="#forms">Forms</a></li>
             </ul>
           </nav>
-          <p class="weight-600">Utilitiy</p>
+          <p class="weight-600">Utilitiy Classes</p>
           <nav class="margin-bottom">
             <ul>
-              <li><a class="button off full-width text-left" href="#boxes">Boxes</a></li>
-              <li><a class="button off full-width text-left" href="#stickies">Stickies</a></li>
-              <li><a class="button off full-width text-left" href="#buttons">Buttons</a></li>
-              <li><a class="button off full-width text-left" href="#modals">Modals</a></li>
+              <li><a data-hash="setup" class="button off full-width text-left" href="#layout">Layout</a></li>
+              <li><a data-hash="setup" class="button off full-width text-left" href="#colors">Colors</a></li>
+              <li><a data-hash="setup" class="button off full-width text-left" href="#deboss">Deboss</a></li>
+              <li><a data-hash="setup" class="button off full-width text-left" href="#shadows">Shadows</a></li>
+              <li><a data-hash="setup" class="button off full-width text-left" href="#borders">Borders</a></li>
+              <li><a data-hash="setup" class="button off full-width text-left" href="#text">Text</a></li>
             </ul>
           </nav>
         </div>
@@ -68,9 +78,79 @@
         data-width-sml="9">
           <div class="bx-boxes">
 
-            <!-- boxes -->
-            <div class="box" data-width-tny="12">
-              <h3>Boxes</h3>
+            <!-- SETUP -->
+            <div id="setup" class="box margin-bottom--x2" data-width-tny="12">
+              <h2>Setup</h2>
+              <h5>Method 1</h5>
+              <p>You can either install the depenency with npm i blox-boiler</p>
+              <h5>Method 2</h5>
+              <p>You can either install the depenency with npm i blox-boiler</p>
+              <hr>
+            </div>
+
+            <!-- DATA -->
+            <div id="data" class="box margin-bottom--x2" data-width-tny="12">
+              <h2>Data States</h2>
+              <p>Data attributes play a big role in blox and we will cover the more specific ones in their appropriate section. Here though we will cover the "on" and "off" data attributes that allow us to better handle page or element "states".</p>
+
+                <!-- hashes -->
+                <h5>Hash States</h5>
+                <p>Hashes are great for single page static functionality. For example if you have an anchor tag that links to the "#foo" element on the page (and updates the URL hash in the process) and when that hash is active we want to add a class to our button or some other element on the page like so.</p>
+
+                <div class="bx-boxes boxes-tight margin-bottom--x2">
+                  <div class="box" data-width-tny="6">
+                    <a href="#foo"
+                    data-hash="#foo"
+                    data-classes-onhash="purple"
+                    class="button">Foo On</a>
+                    <a href="#bar" class="button">Bar On</a>
+                    <p data-hash="#foo"
+                    data-classes-onhash="deboss--red color-red--darker-4"
+                    data-classes-offhash="deboss--blue color-blue--darker-4"
+                    >
+                      Listens for changes to #foo hash by setting data-hash="#foo".<br><br>
+                      Toggles classes on #foo hash with data-classes-onhash="new class names"<br><br>
+                      Toggles classes off #foo hash with data-classes-offhash="new class names"
+                    </p>
+                  </div>
+                  <div class="box" data-width-tny="6">
+                    <pre class="tight--padding" data-src="./code/_hashes.html"></pre>
+                  </div>
+                </div>
+
+                <p>Below are all the hash related data attributes</p>
+                <table class="full-width">
+                  <tr>
+                    <td>classes while hash is active</td>
+                    <td>data-classes-onhash</td>
+                  </tr>
+                  <tr>
+                    <td>classes while hash is not active</td>
+                    <td>data-classes-offhash</td>
+                  </tr>
+                </table>
+
+
+                <!-- stickies -->
+                <h5>Sticky States</h5>
+                <p>You can also use <span>data-classes-onstick="additional classes"</span> for elements that use the .sticky-top and .sticky-bottom classes.</p>
+                <table class="full-width">
+                  <tr>
+                    <td>classes while stuck</td>
+                    <td>data-classes-onstick</td>
+                  </tr>
+                  <tr>
+                    <td>classes while unstuck</td>
+                    <td>data-classes-offstick</td>
+                  </tr>
+                </table>
+
+              <hr>
+            </div>
+
+            <!-- BOXES -->
+            <div id="boxes" class="box" data-width-tny="12">
+              <h2>Boxes</h2>
               <p>Rowless columns? Kinda. Blox's "boxes" allows for some pretty awesome out of the box' layouts. Give a parent div a class of 'bx-boxes' and it's direct children classes of 'box' then apply widths via data-attributes - pretty simple.</p>
               <p>Give the window a resize to see it in action. The default column count is 12, which is changeable with a single line of code in the variables.scss file.</p>
               <p class="deboss border-left--green"><strong>NOTE:</strong> These data-attributes run from the bottom up. Meaning if you <strong>ONLY</strong> set `data-width-tny="6"` the box will be 6/12 on all screen sizes from tiny up.</p>
