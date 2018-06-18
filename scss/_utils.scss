@@ -107,51 +107,51 @@ MARGINS
  */
 @mixin margins {
   .margin-top {
-    padding-top: $paddingY;
+    margin-top: $paddingY;
   }
   .margin-bottom {
-    padding-bottom: $paddingY;
+    margin-bottom: $paddingY;
   }
   .margin-left {
-    padding-left: $paddingX;
+    margin-left: $paddingX;
   }
   .margin-right {
-    padding-right: $paddingX;
+    margin-right: $paddingX;
   }
   .margin-x {
-    padding-left: $paddingX;
-    padding-right: $paddingX;
+    margin-left: $paddingX;
+    margin-right: $paddingX;
   }
   .margin-y {
-    padding-top: $paddingY;
-    padding-bottom: $paddingY;
+    margin-top: $paddingY;
+    margin-bottom: $paddingY;
   }
   .margin {
-    padding: $paddingY $paddingX;
+    margin: $paddingY $paddingX;
   }
   @for $i from 2 through 4 {
     .margin-top--x#{$i} {
-      padding-top: ($gutterY * $i);
+      margin-top: ($gutterY * $i);
     }
     .margin-bottom--x#{$i} {
-      padding-bottom: ($gutterY * $i);
+      margin-bottom: ($gutterY * $i);
     }
     .margin-left--x#{$i} {
-      padding-left: ($gutterX * $i);
+      margin-left: ($gutterX * $i);
     }
     .margin-right--x#{$i} {
-      padding-right: ($gutterX * $i);
+      margin-right: ($gutterX * $i);
     }
     .margin-x--x#{$i} {
-      padding-left: ($gutterX * $i);
-      padding-right: ($gutterX * $i);
+      margin-left: ($gutterX * $i);
+      margin-right: ($gutterX * $i);
     }
     .margin-y--x#{$i} {
-      padding-top: ($gutterY * $i);
-      padding-bottom: ($gutterY * $i);
+      margin-top: ($gutterY * $i);
+      margin-bottom: ($gutterY * $i);
     }
     .margin--x#{$i} {
-      padding: ($gutterY * $i) ($gutterY * $i);
+      margin: ($gutterY * $i) ($gutterY * $i);
     }
   }
 }
@@ -203,44 +203,30 @@ MARGINS
   right: $gutterX;
 }
 
-// shadows and cards
-@mixin deboss {
+/*
+DEBOSS
+ */
+[class*="deboss"] {
   box-shadow: 0 3px 7px rgba(0,0,0,.03);
   border-radius: 6px;
-  border: solid 1px $white-darker-2;
+  border: solid 1px darken($white,10);
   padding: $paddingY $paddingX;
   background: #ffffff;
 }
-.deboss {
-  @include deboss;
+@mixin debossColors($colors, $values){
+  @for $i from 1 through length($colors) {
+    .deboss--#{nth($colors, $i)} {
+      background-color: lighten( nth($values, $i), 40);
+      border-color: lighten( nth($values, $i), 30);
+    }
+  }
 }
-.deboss--orange {
-  @include deboss;
-  background-color: $orange-lighter-4;
-  border-color: $orange-lighter-3;
-}
-.deboss--red {
-  @include deboss;
-  background-color: $red-lighter-4;
-  border-color: $red-lighter-3;
-}
-.deboss--purple {
-  @include deboss;
-  background-color: $purple-lighter-4;
-  border-color: $purple-lighter-3;
-}
-.deboss--blue {
-  @include deboss;
-  background-color: $blue-lighter-4;
-  border-color: $blue-lighter-3;
-}
-.deboss--green {
-  @include deboss;
-  background-color: $green-lighter-4;
-  border-color: $green-lighter-3;
-}
+@include debossColors($colorKeys, $colorValues);
 
-// shadows
+
+/*
+SHADOWS
+ */
 .shadow {
   box-shadow: 0 5px 10px rgba(0,0,0,.08);
 }
@@ -250,6 +236,9 @@ MARGINS
 .shadow-sml {
   box-shadow: 0 3px 7px rgba(0,0,0,.03);
 }
+
+
+
 
 // borders
 [class*="border--"] {
@@ -304,28 +293,64 @@ MARGINS
       background-color: #{nth($values, $i)}
     }
     .bg-#{nth($colors, $i)}--darker-1 {
-      background-color: darken( nth($values, $i), 10%);
+      background-color: darken( nth($values, $i), 5%);
     }
     .bg-#{nth($colors, $i)}--darker-2 {
-      background-color: darken( nth($values, $i), 20%);
+      background-color: darken( nth($values, $i), 10%);
     }
     .bg-#{nth($colors, $i)}--darker-3 {
-      background-color: darken( nth($values, $i), 30%);
+      background-color: darken( nth($values, $i), 15%);
     }
     .bg-#{nth($colors, $i)}--darker-4 {
+      background-color: darken( nth($values, $i), 20%);
+    }
+    .bg-#{nth($colors, $i)}--darker-5 {
+      background-color: darken( nth($values, $i), 25%);
+    }
+    .bg-#{nth($colors, $i)}--darker-6 {
+      background-color: darken( nth($values, $i), 30%);
+    }
+    .bg-#{nth($colors, $i)}--darker-7 {
+      background-color: darken( nth($values, $i), 35%);
+    }
+    .bg-#{nth($colors, $i)}--darker-8 {
       background-color: darken( nth($values, $i), 40%);
     }
+    .bg-#{nth($colors, $i)}--darker-9 {
+      background-color: darken( nth($values, $i), 45%);
+    }
+    .bg-#{nth($colors, $i)}--darker-10 {
+      background-color: darken( nth($values, $i), 50%);
+    }
     .bg-#{nth($colors, $i)}--lighter-1 {
-      background-color: lighten( nth($values, $i), 10%);
+      background-color: lighten( nth($values, $i), 5%);
     }
     .bg-#{nth($colors, $i)}--lighter-2 {
-      background-color: lighten( nth($values, $i), 20%);
+      background-color: lighten( nth($values, $i), 10%);
     }
     .bg-#{nth($colors, $i)}--lighter-3 {
-      background-color: lighten( nth($values, $i), 30%);
+      background-color: lighten( nth($values, $i), 15%);
     }
     .bg-#{nth($colors, $i)}--lighter-4 {
+      background-color: lighten( nth($values, $i), 20%);
+    }
+    .bg-#{nth($colors, $i)}--lighter-5 {
+      background-color: lighten( nth($values, $i), 25%);
+    }
+    .bg-#{nth($colors, $i)}--lighter-6 {
+      background-color: lighten( nth($values, $i), 30%);
+    }
+    .bg-#{nth($colors, $i)}--lighter-7 {
+      background-color: lighten( nth($values, $i), 35%);
+    }
+    .bg-#{nth($colors, $i)}--lighter-8 {
       background-color: lighten( nth($values, $i), 40%);
+    }
+    .bg-#{nth($colors, $i)}--lighter-9 {
+      background-color: lighten( nth($values, $i), 45%);
+    }
+    .bg-#{nth($colors, $i)}--lighter-10 {
+      background-color: lighten( nth($values, $i), 50%);
     }
   }
 }
@@ -341,28 +366,64 @@ MARGINS
       color: #{nth($values, $i)}
     }
     .color-#{nth($colors, $i)}--darker-1 {
-      color: darken( nth($values, $i), 10%);
+      color: darken( nth($values, $i), 5%);
     }
     .color-#{nth($colors, $i)}--darker-2 {
-      color: darken( nth($values, $i), 20%);
+      color: darken( nth($values, $i), 10%);
     }
     .color-#{nth($colors, $i)}--darker-3 {
-      color: darken( nth($values, $i), 30%);
+      color: darken( nth($values, $i), 15%);
     }
     .color-#{nth($colors, $i)}--darker-4 {
+      color: darken( nth($values, $i), 20%);
+    }
+    .color-#{nth($colors, $i)}--darker-5 {
+      color: darken( nth($values, $i), 25%);
+    }
+    .color-#{nth($colors, $i)}--darker-6 {
+      color: darken( nth($values, $i), 30%);
+    }
+    .color-#{nth($colors, $i)}--darker-7 {
+      color: darken( nth($values, $i), 35%);
+    }
+    .color-#{nth($colors, $i)}--darker-8 {
       color: darken( nth($values, $i), 40%);
     }
+    .color-#{nth($colors, $i)}--darker-9 {
+      color: darken( nth($values, $i), 45%);
+    }
+    .color-#{nth($colors, $i)}--darker-10 {
+      color: darken( nth($values, $i), 50%);
+    }
     .color-#{nth($colors, $i)}--lighter-1 {
-      color: lighten( nth($values, $i), 10%);
+      color: lighten( nth($values, $i), 5%);
     }
     .color-#{nth($colors, $i)}--lighter-2 {
-      color: lighten( nth($values, $i), 20%);
+      color: lighten( nth($values, $i), 10%);
     }
     .color-#{nth($colors, $i)}--lighter-3 {
-      color: lighten( nth($values, $i), 30%);
+      color: lighten( nth($values, $i), 15%);
     }
     .color-#{nth($colors, $i)}--lighter-4 {
+      color: lighten( nth($values, $i), 20%);
+    }
+    .color-#{nth($colors, $i)}--lighter-5 {
+      color: lighten( nth($values, $i), 25%);
+    }
+    .color-#{nth($colors, $i)}--lighter-6 {
+      color: lighten( nth($values, $i), 30%);
+    }
+    .color-#{nth($colors, $i)}--lighter-7 {
+      color: lighten( nth($values, $i), 35%);
+    }
+    .color-#{nth($colors, $i)}--lighter-8 {
       color: lighten( nth($values, $i), 40%);
+    }
+    .color-#{nth($colors, $i)}--lighter-9 {
+      color: lighten( nth($values, $i), 45%);
+    }
+    .color-#{nth($colors, $i)}--lighter-10 {
+      color: lighten( nth($values, $i), 50%);
     }
   }
 }
@@ -404,7 +465,7 @@ MARGINS
     bottom: 0;
     height: 2px;
     transform: translateY(3px);
-    background-color: $white-darker-3;
+    background-color: darken($white,30);
     width: 100%;
   }
 }

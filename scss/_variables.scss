@@ -1,3 +1,13 @@
+// colors
+$red: #ff1929;
+$orange: orange;
+$purple: #771dff;
+$blue: #1f21ff;
+$green: #65ff97;
+$yellow: #ffeb4d;
+$black: #17191f;
+$white: #ffffff;
+
 // containers
 $container-max-width: 1400px;
 $container-max-width-thin: 900px;
@@ -14,7 +24,7 @@ $site-background: $white;
 $site-primary: $red;
 $site-accent: $blue;
 $site-text-headers: $black;
-$site-text-body: $black-lighter-4;
+$site-text-body: lighten($black,20);
 
 // link styling
 $link-color: $black ;
@@ -38,10 +48,6 @@ $media-med-up: "only screen and (min-width: 880px)";
 $media-lrg-up: "only screen and (min-width: 1100px)";
 $media-xl-up: "only screen and (min-width: 1500px)";
 
-// color arrays
-$colorKeys: white, black, red, orange, yellow, green, blue, purple;
-$colorValues: $white, $black, $red, $orange, $yellow, $green, $blue, $purple;
-
 // font sizes
 $h1-size: calc(28px + .8vh + .8vw) ;
 $h1-size-double: calc(56px + 1.6vh + 1.6vw) ;
@@ -59,3 +65,7 @@ $p-size: calc(12px + .15vh + .15vw) ;
 $p-size-double: calc(24px + .3vh + .3vw) ;
 $s-size: calc(10px + .1vh + .1vw) ;
 $s-size-double: calc(20px + .2vh + .2vw) ;
+
+// color arrays (DO NOT TOUCH!)
+$colorKeys: white, black, red, orange, yellow, green, blue, purple;
+$colorValues: $white, $black, $red, $orange, $yellow, $green, $blue, $purple;

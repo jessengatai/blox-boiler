@@ -28,9 +28,9 @@ button,
 
   // BASE BUTTON COLORS
   background: $white;
-  border: 1px solid $white-darker-3;
-  border-bottom: 2px solid $white-darker-3;
-  color: $black-lighter-4;
+  border: 1px solid darken($white,10);
+  border-bottom: 2px solid darken($white,20);
+  color: lighten($black,40);
 
   // off (but not disabled, purely stylistic)
   &.off {
@@ -41,9 +41,9 @@ button,
 
   // HOVER BUTTON COLORS
   &:hover {
-    background: $white-darker-1;
-    border: 1px solid $white-darker-3;
-    border-bottom: 2px solid $white-darker-3;
+    background: darken($white,5);
+    border: 1px solid darken($white,30);
+    border-bottom: 2px solid darken($white,30);
     color: $black;
   }
 
@@ -82,15 +82,15 @@ button,
 
   // PRIMARY BUTTON
   &.primary {
-    background: $black-lighter-3;
-    border: 1px solid $black-lighter-1;
-    border-bottom: 2px solid $black-lighter-1;
-    color: $white-darker-3;
+    background: lighten($black,30);
+    border: 1px solid lighten($black,10);
+    border-bottom: 2px solid lighten($black,10);
+    color: darken($white,30);
     &:hover,
     &[active="true"] {
-      background: $black-lighter-5;
-      border: 1px solid $black-lighter-4;
-      border-bottom: 2px solid $black-lighter-4;
+      background: lighten($black,50);
+      border: 1px solid lighten($black,40);
+      border-bottom: 2px solid lighten($black,40);
       color: $white;
     }
   }
@@ -98,14 +98,14 @@ button,
   // GREEN BUTTON
   &.green {
     background: $green;
-    border: 1px solid $green-darker-1;
-    border-bottom: 2px solid $green-darker-3;
-    color: $green-darker-4;
+    border: 1px solid darken($green,10);
+    border-bottom: 2px solid darken($green,30);
+    color: darken($green,40);
     &:hover,
     &[active="true"] {
-      background: $green-darker-3;
-      border: 1px solid $green-darker-3;
-      border-bottom: 2px solid $green-darker-4;
+      background: darken($green,30);
+      border: 1px solid darken($green,30);
+      border-bottom: 2px solid darken($green,40);
       color: $white;
     }
   }
@@ -113,14 +113,14 @@ button,
   // RED BUTTON
   &.red {
     background: $red;
-    border: 1px solid $red-darker-1;
-    border-bottom: 2px solid $red-darker-2;
-    color: $red-darker-4;
+    border: 1px solid darken($red,10);
+    border-bottom: 2px solid darken($red,20);
+    color: darken($red,40);
     &:hover,
     &[active="true"] {
-      background: $red-darker-2;
-      border: 1px solid $red-darker-2;
-      border-bottom: 2px solid $red-darker-3;
+      background: darken($red,20);
+      border: 1px solid darken($red,20);
+      border-bottom: 2px solid darken($red,30);
       color: $white;
     }
   }
@@ -128,44 +128,44 @@ button,
   // ORANGE BUTTON
   &.orange {
     background: $orange;
-    border: 1px solid $orange-darker-1;
-    border-bottom: 2px solid $orange-darker-2;
-    color: $orange-darker-4;
+    border: 1px solid darken($orange,10);
+    border-bottom: 2px solid darken($orange,20);
+    color: darken($orange,40);
     &:hover,
     &[active="true"] {
-      background: $orange-lighter-2;
+      background: lighten($orange,20);
       border: 1px solid $orange;
       border-bottom: 2px solid $orange;
-      color: $orange-darker-4;
+      color: darken($orange,40);;
     }
   }
 
   // YELLOW BUTTON
   &.yellow {
     background: $yellow;
-    border: 1px solid $yellow-darker-2;
-    border-bottom: 2px solid $yellow-darker-3;
-    color: $yellow-darker-4;
+    border: 1px solid darken($yellow,20);
+    border-bottom: 2px solid darken($yellow,30);
+    color: darken($yellow,40);
     &:hover,
     &[active="true"] {
-      background: $yellow-lighter-1;
-      border: 1px solid $yellow-darker-1;
-      border-bottom: 2px solid $yellow-darker-1;
-      color: $yellow-darker-4;
+      background: darken($yellow,10);
+      border: 1px solid darken($yellow,10);
+      border-bottom: 2px solid darken($yellow,10);
+      color: darken($yellow,40);
     }
   }
 
   // BLUE BUTTON
   &.blue {
     background: $blue;
-    border: 1px solid $blue-darker-2;
-    border-bottom: 2px solid $blue-darker-3;
+    border: 1px solid darken($yellow,20);
+    border-bottom: 2px solid darken($yellow,30);
     color: $white;
     &:hover,
     &[active="true"] {
-      background: $blue-lighter-1;
-      border: 1px solid $blue-darker-1;
-      border-bottom: 2px solid $blue-darker-1;
+      background: lighten($blue,10);
+      border: 1px solid darken($blue,10);
+      border-bottom: 2px solid dark($blue,10);
       color: $white;
     }
   }
@@ -173,14 +173,14 @@ button,
   // PURPLE BUTTON
   &.purple {
     background: $purple;
-    border: 1px solid $purple-darker-2;
-    border-bottom: 2px solid $purple-darker-3;
+    border: 1px solid darken($purple,10);
+    border-bottom: 2px solid darken($purple,30);
     color: $white;
     &:hover,
     &[active="true"] {
-      background: $purple-lighter-1;
-      border: 1px solid $purple-darker-1;
-      border-bottom: 2px solid $purple-darker-1;
+      background: lighten($purple,10);
+      border: 1px solid darken($purple,10);
+      border-bottom: 2px solid darken($purple,10);
       color: $white;
     }
   }
