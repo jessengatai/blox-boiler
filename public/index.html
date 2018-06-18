@@ -21,8 +21,17 @@
       }
     </style>
 
+    <script type="text/javascript">
+      const myFuncOn = (element) => {
+        console.log('myFuncOn just fired');
+      }
+      const myFuncOff = (element) => {
+        console.log('myFuncOff just fired');
+      }
+    </script>
+
   </head>
-  <body bx-modal-hashes>
+  <body>
     <div class="bx-container" data-x-axis="center">
       <div class="bx-boxes">
 
@@ -50,7 +59,7 @@
           <nav class="margin-bottom">
             <ul>
               <li><a data-hash="setup"    data-classes-onhash="active" class="button off full-width text-left" href="#setup">Setup</a></li>
-              <li><a data-hash="data"     data-classes-onhash="active" class="button off full-width text-left" href="#data">Data States</a></li>
+              <li><a data-hash="hash"     data-classes-onhash="active" class="button off full-width text-left" href="#hash">Hash States</a></li>
               <li><a data-hash="boxes"    data-classes-onhash="active" class="button off full-width text-left" href="#boxes">Boxes</a></li>
               <li><a data-hash="stickies" data-classes-onhash="active" class="button off full-width text-left" href="#stickies">Stickies</a></li>
               <li><a data-hash="buttons"  data-classes-onhash="active" class="button off full-width text-left" href="#buttons">Buttons</a></li>
@@ -82,77 +91,66 @@
             <!-- SETUP -->
             <div id="setup" class="box margin-bottom--x2" data-width-tny="12">
               <h2>Setup</h2>
-              <h5>Method 1</h5>
-              <p>You can either install the depenency with npm i blox-boiler</p>
-              <h5>Method 2</h5>
-              <p>You can either install the depenency with npm i blox-boiler</p>
+              <h5>Via NPM</h5>
+              <p>You can install via node packet manager with <code>npm i blox-boiler</code></p>
+              <h5>Sass Include</h5>
+              <p>Download and include the <code>bloxBoiler.scss</code> and <code>bloxBoiler.js</code> files which will allow you to alter the default variables at the top of the file. Remember to call the JS after jQuery.</p>
+              <h5>CSS</h5>
+              <p>Or simply include the <code>bloxBoiler.min.css</code> and <code>bloxBoiler.min.js</code> files. Remember to call the JS after jQuery.</p>
               <hr>
             </div>
 
             <!-- DATA -->
-            <div id="data" class="box margin-bottom--x2" data-width-tny="12">
-              <h2>Data States</h2>
-              <p>Data attributes play a big role in blox and we wont be able to cover them all in a single section. For now let's cover the primary "on" and "off" data attributes that allow us to better handle page and element "states".</p>
-
-                <!-- hashes -->
-                <h5># Hash States</h5>
-                <p>If you have an anchor tag that links to #foo and either moves to the matching element or simply updates the hash in the URL, when that hash is active we might want to add a class to our button or some other element on the page. We can achieve this using hash data attributes.</p>
-
-                <div class="bx-boxes boxes-tight">
-                  <div class="box" data-width-tny="6">
-                    <a href="#foo"
-                    data-hash="#foo"
-                    data-classes-onhash="purple"
-                    class="button">#foo on</a>
-                    <a href="#bar" class="button">#bar on</a>
-                    <p data-hash="#foo"
-                    data-classes-onhash="deboss--red color-red--darker-4"
-                    data-classes-offhash="deboss--blue color-blue--darker-4"
-                    >
-                      Binds the #foo hash by setting data-hash="#foo".<br><br>
-                      Adds classes when #foo is active with data-classes-onhash="..."<br><br>
-                      Adds classes when #foo is inactive with data-classes-offhash="..."
-                    </p>
-                  </div>
-                  <div class="box" data-width-tny="6">
-                    <pre data-src="./code/_hashes.html"></pre>
-                  </div>
+            <div id="hash" class="box margin-bottom--x2" data-width-tny="12">
+              <h2># URL Hash States</h2>
+              <p>If you have an anchor tag that links to #foo and either moves to the matching element or simply updates the hash in the URL, when that hash is active we might want to add a class to our button or some other element on the page. We can achieve this using hash data attributes.</p>
+              <div class="bx-boxes boxes-tight">
+                <div class="box" data-width-tny="6">
+                  <a href="#foo"
+                  data-hash="#foo"
+                  data-classes-onhash="purple"
+                  class="button">#foo on</a>
+                  <a href="#bar" class="button">#bar on</a>
+                  <p data-hash="#foo"
+                  data-callback-onhash="myFuncOn"
+                  data-callback-offhash="myFuncOff"
+                  data-classes-onhash="deboss--red color-red--darker-4"
+                  data-classes-offhash="deboss--blue color-blue--darker-4"
+                  class="margin-top"
+                  >
+                    Binds the #foo hash by setting data-hash="#foo".<br><br>
+                    Adds classes when #foo is active with data-classes-onhash="..."<br><br>
+                    Adds classes when #foo is inactive with data-classes-offhash="..."
+                  </p>
                 </div>
-
-                <p>A noteable downside to managing element states via the URL hash is that you can only have one state for the entire page. However, being able to change the state of elements via the browsers native forwards and back buttons make up for it, especially for simple static HTML sites.</p>
-
-                <p>Below are all the hash related data attributes</p>
-
-                <table class="full-width">
-                  <tr>
-                    <td>Bind an element to a hash</td>
-                    <td>data-hash="#hashname"</td>
-                  </tr>
-                  <tr>
-                    <td>classes while hash is active</td>
-                    <td>data-classes-onhash="..."</td>
-                  </tr>
-                  <tr>
-                    <td>classes while hash is not active</td>
-                    <td>data-classes-offhash="..."</td>
-                  </tr>
-                </table>
-
-
-                <!-- stickies -->
-                <h5>Sticky States</h5>
-                <p>You can also use <span>data-classes-onstick="additional classes"</span> for elements that use the .sticky-top and .sticky-bottom classes.</p>
-                <table class="full-width">
-                  <tr>
-                    <td>classes while stuck</td>
-                    <td>data-classes-onstick</td>
-                  </tr>
-                  <tr>
-                    <td>classes while unstuck</td>
-                    <td>data-classes-offstick</td>
-                  </tr>
-                </table>
-
+                <div class="box" data-width-tny="6">
+                  <pre data-src="./code/_hashes.html"></pre>
+                </div>
+              </div>
+              <p>A noteable downside to managing element states via the URL hash is that you can only have one state for the entire page. However, being able to change the state of elements via the browsers native forwards and back buttons make up for it, especially for simple static HTML sites.</p>
+              <p>Below are all the hash related data attributes</p>
+              <table class="full-width">
+                <tr>
+                  <td>Bind an element to a hash. <br> Don't forget the # symbol!</td>
+                  <td>data-hash="#hashname"</td>
+                </tr>
+                <tr>
+                  <td>Classes while hash is active.</td>
+                  <td>data-classes-onhash="..."</td>
+                </tr>
+                <tr>
+                  <td>Classes while hash is not active.</td>
+                  <td>data-classes-offhash="..."</td>
+                </tr>
+                <tr>
+                  <td>Callback to run when hash is made active. <br>The current element will be passed as the only parameter.</td>
+                  <td>data-callback-onhash="functionName"</td>
+                </tr>
+                <tr>
+                  <td>Callback to run when hash is made inactive. <br>The current element will be passed as the only parameter.</td>
+                  <td>data-callback-offhash="functionName"</td>
+                </tr>
+              </table>
               <hr>
             </div>
 
@@ -204,6 +202,17 @@
             <div class="box margin-top" data-width-tny="12">
               <h3>Stickies</h3>
               <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+              <p>You can also use <span>data-classes-onstick="additional classes"</span> for elements that use the .sticky-top and .sticky-bottom classes.</p>
+              <table class="full-width">
+                <tr>
+                  <td>classes while stuck</td>
+                  <td>data-classes-onstick</td>
+                </tr>
+                <tr>
+                  <td>classes while unstuck</td>
+                  <td>data-classes-offstick</td>
+                </tr>
+              </table>
             </div>
             <div class="box sticky-top deboss" data-width-tny="6">
               <p class="tight">.sticky-top</p>

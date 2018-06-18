@@ -38,3 +38,12 @@ table {
     }
   }
 }
+
+code {
+  background: $white-darker-1;
+  color: $red;
+  padding: 2px 7px;
+  border-radius: 4px;
+  border: solid 1px $white-darker-3;
+  font-size: $s-size;
+}
