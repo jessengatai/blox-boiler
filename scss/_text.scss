@@ -104,4 +104,7 @@ small {
   &.x2-margin {
     margin-bottom: $s-size-double;
   }
+  &:last-child {
+    margin-bottom: 0px;
+  }
 }

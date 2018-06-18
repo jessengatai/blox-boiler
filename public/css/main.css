@@ -36,9 +36,9 @@ table {
   text-align: left;
   border-collapse: collapse; }
   table thead {
-    border-bottom: solid 2px #cccccc; }
+    border-bottom: solid 2px #e6e6e6; }
   table tfoot {
-    border-top: solid 2px #cccccc; }
+    border-top: solid 2px #e6e6e6; }
   table tr:not(:last-child) {
     border-bottom: solid 1px #f2f2f2; }
   table tr:last-child td {
@@ -48,14 +48,6 @@ table {
   table td {
     padding-top: 1vh;
     padding-bottom: 1vh; }
-
-code {
-  background: #f9f9f9;
-  color: #ff1929;
-  padding: 2px 7px;
-  border-radius: 4px;
-  border: solid 1px #e6e6e6;
-  font-size: calc(10px + .1vh + .1vw); }
 
 html {
   -webkit-font-smoothing: antialiased;
@@ -146,6 +138,8 @@ small {
   display: inline-block; }
   small.x2-margin {
     margin-bottom: calc(20px + .2vh + .2vw); }
+  small:last-child {
+    margin-bottom: 0px; }
 
 input[type="text"],
 input[type="email"],
