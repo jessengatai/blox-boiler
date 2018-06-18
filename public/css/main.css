@@ -32,18 +32,22 @@ hr {
   width: 100%; }
 
 table {
-  margin-bottom: 2vh; }
-  table td,
+  margin-bottom: 2vh;
+  text-align: left;
+  border-collapse: collapse; }
+  table thead {
+    border-bottom: solid 2px #cccccc; }
+  table tfoot {
+    border-top: solid 2px #cccccc; }
+  table tr:not(:last-child) {
+    border-bottom: solid 1px #f2f2f2; }
+  table tr:last-child td {
+    padding-bottom: 0px; }
   table th {
-    border-radius: 2px;
-    text-align: left;
-    background-color: #f9f9f9;
-    padding: calc(2vh / 2) calc(2vh / 2); }
-  table thead th {
-    background-color: #e6e6e6; }
-  table tfoot td {
-    background-color: #ffffff;
-    border: solid 1px #f2f2f2; }
+    padding-bottom: 1vh; }
+  table td {
+    padding-top: 1vh;
+    padding-bottom: 1vh; }
 
 code {
   background: #f9f9f9;

@@ -19,23 +19,31 @@ hr {
 
 table {
   margin-bottom: $gutterY;
-  td,
-  th {
-    border-radius: 2px;
-    text-align: left;
-    background-color: $white-darker-1;
-    padding: calc(#{$paddingY} / 2) calc(#{$paddingX} / 2);
-  }
+  text-align: left;
+  border-collapse:collapse;
+
   thead {
-    th {
-      background-color: $white-darker-3;
-    }
+    border-bottom: solid 2px $white-darker-4;
   }
   tfoot {
-    td {
-      background-color: $white;
-      border: solid 1px $white-darker-2;
+    border-top: solid 2px $white-darker-4;
+  }
+  tr {
+    &:not(:last-child) {
+      border-bottom: solid 1px $white-darker-2;
     }
+    &:last-child {
+      td {
+        padding-bottom: 0px;
+      }
+    }
+  }
+  th {
+    padding-bottom: ($paddingY / 2);
+  }
+  td {
+    padding-top: ($paddingY / 2);
+    padding-bottom: ($paddingY / 2);
   }
 }
 

@@ -58,13 +58,13 @@
           <p class="weight-600">Functionality</p>
           <nav class="margin-bottom">
             <ul>
-              <li><a data-hash="setup"    data-classes-onhash="active" class="button off full-width text-left" href="#setup">Setup</a></li>
-              <li><a data-hash="hash"     data-classes-onhash="active" class="button off full-width text-left" href="#hash">Hash States</a></li>
-              <li><a data-hash="boxes"    data-classes-onhash="active" class="button off full-width text-left" href="#boxes">Boxes</a></li>
-              <li><a data-hash="stickies" data-classes-onhash="active" class="button off full-width text-left" href="#stickies">Stickies</a></li>
-              <li><a data-hash="buttons"  data-classes-onhash="active" class="button off full-width text-left" href="#buttons">Buttons</a></li>
-              <li><a data-hash="modals"   data-classes-onhash="active" class="button off full-width text-left" href="#modals">Modals</a></li>
-              <li><a data-hash="forms"    data-classes-onhash="active" class="button off full-width text-left" href="#forms">Forms</a></li>
+              <li><a data-hash="#setup"    data-classes-onhash="purple" class="button off full-width text-left" href="#setup">Setup</a></li>
+              <li><a data-hash="#hash"     data-classes-onhash="purple" class="button off full-width text-left" href="#hash">Hash States</a></li>
+              <li><a data-hash="#boxes"    data-classes-onhash="purple" class="button off full-width text-left" href="#boxes">Boxes</a></li>
+              <li><a data-hash="#stickies" data-classes-onhash="purple" class="button off full-width text-left" href="#stickies">Stickies</a></li>
+              <li><a data-hash="#buttons"  data-classes-onhash="purple" class="button off full-width text-left" href="#buttons">Buttons</a></li>
+              <li><a data-hash="#modals"   data-classes-onhash="purple" class="button off full-width text-left" href="#modals">Modals</a></li>
+              <li><a data-hash="#forms"    data-classes-onhash="purple" class="button off full-width text-left" href="#forms">Forms</a></li>
             </ul>
           </nav>
           <p class="weight-600">Utilitiy Classes</p>
@@ -129,28 +129,40 @@
               </div>
               <p>A noteable downside to managing element states via the URL hash is that you can only have one state for the entire page. However, being able to change the state of elements via the browsers native forwards and back buttons make up for it, especially for simple static HTML sites.</p>
               <p>Below are all the hash related data attributes</p>
-              <table class="full-width">
-                <tr>
-                  <td>Bind an element to a hash. <br> Don't forget the # symbol!</td>
-                  <td>data-hash="#hashname"</td>
-                </tr>
-                <tr>
-                  <td>Classes while hash is active.</td>
-                  <td>data-classes-onhash="..."</td>
-                </tr>
-                <tr>
-                  <td>Classes while hash is not active.</td>
-                  <td>data-classes-offhash="..."</td>
-                </tr>
-                <tr>
-                  <td>Callback to run when hash is made active. <br>The current element will be passed as the only parameter.</td>
-                  <td>data-callback-onhash="functionName"</td>
-                </tr>
-                <tr>
-                  <td>Callback to run when hash is made inactive. <br>The current element will be passed as the only parameter.</td>
-                  <td>data-callback-offhash="functionName"</td>
-                </tr>
-              </table>
+              <div class="deboss border-left--purple">
+                <table class="full-width">
+                  <thead>
+                    <th>Description</th>
+                    <th>Attribute</th>
+                  </thead>
+                  <tr>
+                    <td>Bind an element to a hash. <br>
+                      <small class="color-red--lighter-1">Don't forget the # symbol!</small>
+                    </td>
+                    <td>data-hash="#hashname"</td>
+                  </tr>
+                  <tr>
+                    <td>Classes while hash is active.</td>
+                    <td>data-classes-onhash="..."</td>
+                  </tr>
+                  <tr>
+                    <td>Classes while hash is not active.</td>
+                    <td>data-classes-offhash="..."</td>
+                  </tr>
+                  <tr>
+                    <td>Callback to run when hash is made active. <br>
+                      <small class="color-red--lighter-1">The current element will be passed as the only parameter.</small>
+                    </td>
+                    <td>data-callback-onhash="functionName"</td>
+                  </tr>
+                  <tr>
+                    <td>Callback to run when hash is made inactive. <br>
+                      <small class="color-red--lighter-1">The current element will be passed as the only parameter.</small>
+                    </td>
+                    <td>data-callback-offhash="functionName"</td>
+                  </tr>
+                </table>
+              </div>
               <hr>
             </div>
 
@@ -199,7 +211,7 @@
             </div><!-- end .boxes -->
 
             <!-- stickies -->
-            <div class="box margin-top" data-width-tny="12">
+            <div id="stickies" class="box margin-top" data-width-tny="12">
               <h3>Stickies</h3>
               <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
               <p>You can also use <span>data-classes-onstick="additional classes"</span> for elements that use the .sticky-top and .sticky-bottom classes.</p>
