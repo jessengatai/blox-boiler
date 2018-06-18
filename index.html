@@ -211,16 +211,28 @@
               <h3>Stickies</h3>
               <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
               <p>You can also use <span>data-classes-onstick="additional classes"</span> for elements that use the .sticky-top and .sticky-bottom classes.</p>
-              <table class="full-width">
-                <tr>
-                  <td>classes while stuck</td>
-                  <td>data-classes-onstick</td>
-                </tr>
-                <tr>
-                  <td>classes while unstuck</td>
-                  <td>data-classes-offstick</td>
-                </tr>
-              </table>
+              <div class="deboss border-left--purple">
+                <table class="full-width">
+                  <thead>
+                    <th>Description</th>
+                    <th>Data Attribute</th>
+                  </thead>
+                  <tr>
+                    <td>Classes while element is stuck.</td>
+                    <td>data-classes-onstick</td>
+                  </tr>
+                  <tr>
+                    <td>Classes while element is unstuck.</td>
+                    <td>data-classes-offstick</td>
+                  </tr>
+                  <tr>
+                    <td>Callback to run when hash is made inactive. <br>
+                      <small class="color-red">The current element will be passed as the only parameter.</small>
+                    </td>
+                    <td>data-classes-offstick</td>
+                  </tr>
+                </table>
+              </div>
             </div>
             <div class="box sticky-top deboss" data-width-tny="6">
               <p class="tight">.sticky-top</p>
