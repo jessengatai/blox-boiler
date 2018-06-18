@@ -46,150 +46,118 @@
   transform: translate3d(-50%, -50%, 0);
 }
 
-// padding top
-.padding-top {
-  padding-top: $paddingY;
+/*
+PADDINGS
+ */
+@mixin paddings {
+  .padding-top {
+    padding-top: $paddingY;
+  }
+  .padding-bottom {
+    padding-bottom: $paddingY;
+  }
+  .padding-left {
+    padding-left: $paddingX;
+  }
+  .padding-right {
+    padding-right: $paddingX;
+  }
+  .padding-x {
+    padding-left: $paddingX;
+    padding-right: $paddingX;
+  }
+  .padding-y {
+    padding-top: $paddingY;
+    padding-bottom: $paddingY;
+  }
+  .padding {
+    padding: $paddingY $paddingX;
+  }
+  @for $i from 2 through 4 {
+    .padding-top--x#{$i} {
+      padding-top: ($paddingY * $i);
+    }
+    .padding-bottom--x#{$i} {
+      padding-bottom: ($paddingY * $i);
+    }
+    .padding-left--x#{$i} {
+      padding-left: ($paddingX * $i);
+    }
+    .padding-right--x#{$i} {
+      padding-right: ($paddingX * $i);
+    }
+    .padding-x--x#{$i} {
+      padding-left: ($paddingX * $i);
+      padding-right: ($paddingX * $i);
+    }
+    .padding-y--x#{$i} {
+      padding-top: ($paddingY * $i);
+      padding-bottom: ($paddingY * $i);
+    }
+    .padding--x#{$i} {
+      padding: ($paddingY * $i) ($paddingX * $i);
+    }
+  }
 }
-.padding-top--x2 {
-  padding-top: ($paddingY * 2);
-}
-.padding-top--x3 {
-  padding-top: ($paddingY * 3);
-}
-
-// padding bottom
-.padding-bottom {
-  padding-bottom: $paddingY;
-}
-.padding-bottom--x2 {
-  padding-bottom: ($paddingY * 2);
-}
-.padding-bottom--x3 {
-  padding-bottom: ($paddingY * 3);
-}
-
-// padding x axis
-.padding-x {
-  padding-left: $paddingX;
-  padding-right: $paddingX;
-}
-.padding-x--x2 {
-  padding-left: ($paddingX * 2);
-  padding-right: ($paddingX * 2);
-}
-.padding-x--x3 {
-  padding-left: ($paddingX * 3);
-  padding-right: ($paddingX * 3);
-}
-
-// padding y axis
-.padding-y {
-  padding-top: $paddingY;
-  padding-bottom: $paddingY;
-}
-.padding-y--x2 {
-  padding-top: ($paddingY * 2);
-  padding-bottom: ($paddingY * 2);
-}
-.padding-y--x3 {
-  padding-top: ($paddingY * 3);
-  padding-bottom: ($paddingY * 3);
-}
-
-// padding global
-.padding {
-  padding: $paddingY $paddingX;
-}
-.padding--x2 {
-  padding: ($paddingY * 2) ($paddingX * 2);
-}
-.padding--x3 {
-  padding: ($paddingY * 3) ($paddingX * 3);
-}
+@include paddings;
 
 
-// margin top
-.margin-top {
-  margin-top: $gutterY;
+/*
+MARGINS
+ */
+@mixin margins {
+  .margin-top {
+    padding-top: $paddingY;
+  }
+  .margin-bottom {
+    padding-bottom: $paddingY;
+  }
+  .margin-left {
+    padding-left: $paddingX;
+  }
+  .margin-right {
+    padding-right: $paddingX;
+  }
+  .margin-x {
+    padding-left: $paddingX;
+    padding-right: $paddingX;
+  }
+  .margin-y {
+    padding-top: $paddingY;
+    padding-bottom: $paddingY;
+  }
+  .margin {
+    padding: $paddingY $paddingX;
+  }
+  @for $i from 2 through 4 {
+    .margin-top--x#{$i} {
+      padding-top: ($gutterY * $i);
+    }
+    .margin-bottom--x#{$i} {
+      padding-bottom: ($gutterY * $i);
+    }
+    .margin-left--x#{$i} {
+      padding-left: ($gutterX * $i);
+    }
+    .margin-right--x#{$i} {
+      padding-right: ($gutterX * $i);
+    }
+    .margin-x--x#{$i} {
+      padding-left: ($gutterX * $i);
+      padding-right: ($gutterX * $i);
+    }
+    .margin-y--x#{$i} {
+      padding-top: ($gutterY * $i);
+      padding-bottom: ($gutterY * $i);
+    }
+    .margin--x#{$i} {
+      padding: ($gutterY * $i) ($gutterY * $i);
+    }
+  }
 }
-.margin-top--x2 {
-  margin-top: ($gutterY * 2);
-}
-.margin-top--x3 {
-  margin-top: ($gutterY * 3);
-}
+@include margins;
 
-// margin bottom
-.margin-bottom {
-  margin-bottom: $gutterY;
-}
-.margin-bottom--x2 {
-  margin-bottom: ($gutterY * 2);
-}
-.margin-bottom--x3 {
-  margin-bottom: ($gutterY * 3);
-}
 
-// margin left
-.margin-left {
-  margin-left: $gutterX;
-}
-.margin-left--x2 {
-  margin-left: ($gutterX * 2);
-}
-.margin-left--x3 {
-  margin-left: ($gutterX * 3);
-}
-
-// margin right
-.margin-right {
-  margin-right: $gutterX;
-}
-.margin-right--x2 {
-  margin-right: ($gutterX * 2);
-}
-.margin-right--x3 {
-  margin-right: ($gutterX * 3);
-}
-
-// margin x axis
-.margin-x {
-  margin-left: $gutterX;
-  margin-right: $gutterX;
-}
-.margin-x--x2 {
-  margin-left: ($gutterX * 2);
-  margin-right: ($gutterX * 2);
-}
-.margin-x--x3 {
-  margin-left: ($gutterX * 3);
-  margin-right: ($gutterX * 3);
-}
-
-// margin y axis
-.margin-y {
-  margin-top: $gutterY;
-  margin-bottom: $gutterY;
-}
-.margin-y--x2 {
-  margin-top: ($gutterY * 2);
-  margin-bottom: ($gutterY * 2);
-}
-.margin-y--x3 {
-  margin-top: ($gutterY * 3);
-  margin-bottom: ($gutterY * 3);
-}
-
-// margin global
-.margin {
-  margin: $gutterY $gutterX;
-}
-.margin--x2 {
-  margin: ($gutterY * 2) ($gutterX * 2);
-}
-.margin--x3 {
-  margin: ($gutterY * 3) ($gutterX * 3);
-}
 
 // tight
 .tight {

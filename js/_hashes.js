@@ -2,33 +2,6 @@ console.log('hashes loaded');
 jQuery(document).ready(function($){
 
   /**
-   * Check wether a value is set
-   * @param {mixed} value Can be anything from a string to an array
-   * @return {bool}
-   */
-  const isset = (value) => {
-    return (typeof value != 'undefined' && value) ? true : false ;
-  }
-
-  /**
-   * Sanitize a string
-   * @param  {string} string The string of text to clean
-   * @return {string}        The shiny new clean string
-   */
-  const sanitarize = (string) => {
-    const map = {
-        '&': '&amp;',
-        '<': '&lt;',
-        '>': '&gt;',
-        '"': '&quot;',
-        "'": '&#x27;',
-        "/": '&#x2F;',
-    };
-    const reg = /[&<>"'/]/ig;
-    return string.replace(reg, (match)=>(map[match]));
-  }
-
-  /**
    * run through the hash functionalty when url hash changes
    */
   const runHashes = () => {
@@ -59,10 +32,10 @@ jQuery(document).ready(function($){
         HASH CLASSES
          */
         // hash unmatched and classes off
-        if( hash!==hashBound && isset(hashClassesOff) ) {
+        if( hash!==hashBound && bloxIsset(hashClassesOff) ) {
           $(object).addClass(hashClassesOff);
         // hash matched and classes on
-        } else if ( hash===hashBound && isset(hashClassesOn) ) {
+        } else if ( hash===hashBound && bloxIsset(hashClassesOn) ) {
           $(object).addClass(hashClassesOn);
         }
 
@@ -70,18 +43,18 @@ jQuery(document).ready(function($){
         HASH CALLBACKS
          */
         // has unmatched and function callback off
-        if( hash!==hashBound && isset(hashCallbackOff) ) {
+        if( hash!==hashBound && bloxIsset(hashCallbackOff) ) {
           // conver the variable into a function
-          hashCallbackOff = eval( sanitarize(hashCallbackOff) );
+          hashCallbackOff = eval( bloxSanitize(hashCallbackOff) );
           // if the function exists, run it
           if( typeof hashCallbackOff === "function" ) {
             hashCallbackOff( $(object) );
           }
 
         // has matched and function callback on
-        } else if( hash===hashBound && isset(hashCallbackOn) ) {
+        } else if( hash===hashBound && bloxIsset(hashCallbackOn) ) {
           // conver the variable into a function
-          hashCallbackOn = eval( sanitarize(hashCallbackOn) );
+          hashCallbackOn = eval( bloxSanitize(hashCallbackOn) );
           // if the function exists, run it
           if( typeof hashCallbackOn === "function" ) {
             hashCallbackOn( $(object) );
