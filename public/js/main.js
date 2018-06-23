@@ -97,7 +97,7 @@ jQuery(document).ready(function ($) {
 
           // has matched and function callback on
         } else if (hash === hashBound && bloxIsset(hashCallbackOn)) {
-          // conver the variable into a function
+          // convert the variable into a function
           hashCallbackOn = eval(bloxSanitize(hashCallbackOn));
           // if the function exists, run it
           if (typeof hashCallbackOn === "function") {
@@ -198,12 +198,14 @@ console.log('slider loaded');
 console.log('stickies loaded');
 jQuery(document).ready(function ($) {
 
+  // Props and thanks for this functionalty goes to Eric Bidelman
+  // https://developers.google.com/web/updates/2017/09/sticky-headers
+
   /**
   * Sets up an intersection observer to notify when elements with the class
   * `.sticky_sentinel--top` become visible/invisible at the top of the container.
   * @param {!Element} container
   */
-  // The observer is configured with threshold: [0] so its callback fires as soon as the sentinel becomes visible.
   function observeHeaders(container) {
     var observer = new IntersectionObserver(function (records, observer) {
       var _iteratorNormalCompletion = true;
@@ -214,29 +216,43 @@ jQuery(document).ready(function ($) {
         for (var _iterator = records[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
           var record = _step.value;
 
-          var targetInfo = record.boundingClientRect;
-          var stickyTarget = record.target.parentElement.querySelector('[data-sticky]');
-          var rootBoundsInfo = record.rootBounds;
+          var sentinel = record.boundingClientRect;
+          var sticky = record.target.parentElement.querySelector('[data-sticky]');
+          var viewport = record.rootBounds;
 
-          // make sure we are positioning the top correctly
-          var offset = -getOffset(stickyTarget) - getMargin(stickyTarget, 'top') - 1;
-          record.target.style.top = offset + 'px';
+          /*
+          STICKY BOTTOM
+           */
+          if (sticky.classList.contains('sticky-bottom')) {
 
-          // Started sticking.
-          if (targetInfo.bottom < rootBoundsInfo.top) {
-            if (stickyTarget.classList.contains('sticky-top')) {
-              fireEvent(true, stickyTarget);
-            } else {
-              fireEvent(false, stickyTarget);
+            // position sentinal
+            var offset = getHeight(sticky) + getOffset(sticky, 'bottom') + 1;
+            record.target.style.top = offset + 'px';
+            // started sticking.
+            if (sentinel.top < viewport.bottom && !isInViewport(record.target.nextElementSibling) // check that the bottom sentinel isn't visible
+            ) {
+                fireEvent(true, sticky);
+              }
+            // stopped sticking.
+            if (sentinel.top > viewport.bottom) {
+              fireEvent(false, sticky);
             }
-          }
 
-          // Stopped sticking.
-          if (targetInfo.bottom >= rootBoundsInfo.top && targetInfo.bottom < rootBoundsInfo.bottom) {
-            if (stickyTarget.classList.contains('sticky-top')) {
-              fireEvent(false, stickyTarget);
-            } else {
-              fireEvent(true, stickyTarget);
+            /*
+            STICKY TOP
+             */
+          } else {
+
+            // position sentinal
+            var _offset = -getOffset(sticky, 'top') - getMargin(sticky, 'top') - 1;
+            record.target.style.top = _offset + 'px';
+            // started sticking.
+            if (sentinel.bottom < viewport.top) {
+              fireEvent(true, sticky);
+            }
+            // stopped sticking.
+            if (sentinel.bottom >= viewport.top && sentinel.bottom < viewport.bottom) {
+              fireEvent(false, sticky);
             }
           }
         }
@@ -254,7 +270,7 @@ jQuery(document).ready(function ($) {
           }
         }
       }
-    }, { threshold: [0] });
+    }, { threshold: [0] }); // will fire when any part of the senitel comes into view
 
     // Add the top sentinels to each section and attach an observer.
     var sentinels = addSentinels(container, 'sticky_sentinel--top');
@@ -269,7 +285,6 @@ jQuery(document).ready(function ($) {
    * container.
    * @param {!Element} container
    */
-  // The observer is configured with threshold: [1] so its callback fires when the entire node is within view.
   function observeFooters(container) {
     var observer = new IntersectionObserver(function (records, observer) {
       var _iteratorNormalCompletion2 = true;
@@ -280,32 +295,44 @@ jQuery(document).ready(function ($) {
         for (var _iterator2 = records[Symbol.iterator](), _step2; !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {
           var record = _step2.value;
 
-          var targetInfo = record.boundingClientRect;
-          var stickyTarget = record.target.parentElement.querySelector('[data-sticky]');
-          var rootBoundsInfo = record.rootBounds;
-          var ratio = record.intersectionRatio;
+          var sentinel = record.boundingClientRect;
+          var sticky = record.target.parentElement.querySelector('[data-sticky]');
+          var viewport = record.rootBounds;
 
-          console.log(stickyTarget);
+          /*
+          STICKY BOTTOM
+           */
+          if (sticky.classList.contains('sticky-bottom')) {
 
-          // make sure we are positioning the bottom correctly
-          var offset = getHeight(stickyTarget) + getOffset(stickyTarget) + getMargin(stickyTarget, 'bottom') + 1;
-          record.target.style.bottom = offset + 'px';
-
-          // started sticking
-          if (targetInfo.bottom > rootBoundsInfo.top && !isInViewport(record.target.previousElementSibling) // check that the top sentinel isn't visible
-          && ratio === 1) {
-            if (stickyTarget.classList.contains('sticky-top')) {
-              fireEvent(true, stickyTarget);
-            } else {
-              fireEvent(false, stickyTarget);
+            // position sentinal
+            var offset = -getOffset(sticky, 'bottom') + getMargin(sticky, 'bottom') - 1;
+            record.target.style.bottom = offset + 'px';
+            // started sticking
+            if (sentinel.top > viewport.bottom) {
+              fireEvent(true, sticky);
             }
-          }
-          // stopped sticking
-          if (targetInfo.top < rootBoundsInfo.top && targetInfo.bottom < rootBoundsInfo.bottom) {
-            if (stickyTarget.classList.contains('sticky-top')) {
-              fireEvent(false, stickyTarget);
-            } else {
-              fireEvent(true, stickyTarget);
+            // stopped sticking
+            if (sentinel.top < viewport.bottom) {
+              fireEvent(false, sticky);
+            }
+
+            /*
+            STICKY TOP
+             */
+          } else {
+
+            // position sentinal
+            var _offset2 = getHeight(sticky) + getOffset(sticky, 'top') + getMargin(sticky, 'bottom') + 1;
+            record.target.style.bottom = _offset2 + 'px';
+
+            // started sticking
+            if (sentinel.top > viewport.top && !isInViewport(record.target.previousElementSibling) // check that the top sentinel isn't visible
+            ) {
+                fireEvent(true, sticky);
+              }
+            // stopped sticking
+            if (sentinel.top < viewport.top && sentinel.bottom < viewport.bottom) {
+              fireEvent(false, sticky);
             }
           }
         }
@@ -323,7 +350,7 @@ jQuery(document).ready(function ($) {
           }
         }
       }
-    }, { threshold: [1] });
+    }, { threshold: [0] }); // will fire when any part of the senitel comes into view
 
     // Add the bottom sentinels to each section and attach an observer.
     var sentinels = addSentinels(container, 'sticky_sentinel--bottom');
@@ -380,9 +407,13 @@ jQuery(document).ready(function ($) {
    * @param  {element} target the node to get the height of
    * @return {integer}        the height of the node
    */
-  function getOffset(target) {
+  function getOffset(target, direction) {
     var style = window.getComputedStyle(target);
-    return parseInt(style.top);
+    if (direction === 'top') {
+      return parseInt(style.top);
+    } else {
+      return parseInt(style.bottom);
+    }
   }
 
   /**
@@ -432,15 +463,13 @@ jQuery(document).ready(function ($) {
   }
   observeStickyHeaderChanges();
 
-  // huge thanks for this functionalty goes to Eric Bidelman
-  // https://developers.google.com/web/updates/2017/09/sticky-headers
   document.addEventListener('sticky-change', function (e) {
     var header = e.detail.target; // header became sticky or stopped sticking.
     var sticking = e.detail.stuck; // true when header is sticky.
     // add classes on stick / unstick
     stickyClasses(header, sticking);
     // fire function on stick / unstick
-    stickyFunctions(header, sticking);
+    stickyCallback(header, sticking);
     // add hash on stick / unstick
     stickyHashes(header, sticking);
   });
@@ -474,7 +503,27 @@ jQuery(document).ready(function ($) {
       }
     }
   };
-  var stickyFunctions = function stickyFunctions(header, sticking) {};
+
+  /**
+   * Fire functions when sticking
+   * @param  {element} object   The sticky header elements
+   * @param  {bool} sticking    True or false representation of the sticky states
+   */
+  var stickyCallback = function stickyCallback(object, sticking) {
+
+    // setup sticky classes
+    var stickyCallback = $(object).attr('data-callback-onstick');
+
+    // header is sticking
+    if (sticking === true && bloxIsset(stickyCallback)) {
+      // convert the variable into a function
+      stickyCallback = eval(bloxSanitize(stickyCallback));
+      // if the function exists, run it
+      if (typeof stickyCallback === "function") {
+        stickyCallback($(object));
+      }
+    }
+  };
   var stickyHashes = function stickyHashes(header, sticking) {};
 });
 

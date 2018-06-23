@@ -108,6 +108,7 @@
   position: absolute;
   left: 0;
   right: 0;
+  visibility: hidden;
 }
 .sticky_sentinel--top {
   top: 0; /* top set via js (needs to be height of sticky element) */

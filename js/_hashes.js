@@ -53,7 +53,7 @@ jQuery(document).ready(function($){
 
         // has matched and function callback on
         } else if( hash===hashBound && bloxIsset(hashCallbackOn) ) {
-          // conver the variable into a function
+          // convert the variable into a function
           hashCallbackOn = eval( bloxSanitize(hashCallbackOn) );
           // if the function exists, run it
           if( typeof hashCallbackOn === "function" ) {

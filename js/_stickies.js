@@ -1,43 +1,61 @@
 console.log('stickies loaded');
 jQuery(document).ready(function($){
 
+  // Props and thanks for this functionalty goes to Eric Bidelman
+  // https://developers.google.com/web/updates/2017/09/sticky-headers
+
   /**
   * Sets up an intersection observer to notify when elements with the class
   * `.sticky_sentinel--top` become visible/invisible at the top of the container.
   * @param {!Element} container
   */
-  // The observer is configured with threshold: [0] so its callback fires as soon as the sentinel becomes visible.
   function observeHeaders(container) {
     const observer = new IntersectionObserver((records, observer) => {
       for (const record of records) {
-        const targetInfo = record.boundingClientRect;
-        const stickyTarget = record.target.parentElement.querySelector('[data-sticky]');
-        const rootBoundsInfo = record.rootBounds;
+        const sentinel = record.boundingClientRect;
+        const sticky = record.target.parentElement.querySelector('[data-sticky]');
+        const viewport = record.rootBounds;
 
-        // make sure we are positioning the top correctly
-        let offset = (- getOffset(stickyTarget) - getMargin(stickyTarget,'top') - 1)
-        record.target.style.top = offset+'px';
+        /*
+        STICKY BOTTOM
+         */
+        if ( sticky.classList.contains('sticky-bottom') ) {
 
-        // Started sticking.
-        if (targetInfo.bottom < rootBoundsInfo.top) {
-          if ( stickyTarget.classList.contains('sticky-top') ) {
-            fireEvent(true, stickyTarget);
-          } else {
-            fireEvent(false, stickyTarget);
+          // position sentinal
+          let offset = (getHeight(sticky) + getOffset(sticky,'bottom') + 1)
+          record.target.style.top = offset+'px';
+          // started sticking.
+          if (sentinel.top < viewport.bottom
+            && !isInViewport( record.target.nextElementSibling ) // check that the bottom sentinel isn't visible
+          ) {
+            fireEvent(true, sticky);
           }
+          // stopped sticking.
+          if (sentinel.top > viewport.bottom) {
+            fireEvent(false, sticky);
+          }
+
+        /*
+        STICKY TOP
+         */
+        } else {
+
+          // position sentinal
+          let offset = (- getOffset(sticky,'top') - getMargin(sticky,'top') - 1)
+          record.target.style.top = offset+'px';
+          // started sticking.
+          if (sentinel.bottom < viewport.top) {
+            fireEvent(true, sticky);
+          }
+          // stopped sticking.
+          if (sentinel.bottom >= viewport.top && sentinel.bottom < viewport.bottom) {
+            fireEvent(false, sticky);
+          }
+
         }
 
-        // Stopped sticking.
-        if (targetInfo.bottom >= rootBoundsInfo.top &&
-            targetInfo.bottom < rootBoundsInfo.bottom) {
-              if ( stickyTarget.classList.contains('sticky-top') ) {
-                fireEvent(false, stickyTarget);
-              } else {
-                fireEvent(true, stickyTarget);
-              }
-        }
       }
-    }, {threshold: [0] });
+    }, { threshold: [0] }); // will fire when any part of the senitel comes into view
 
     // Add the top sentinels to each section and attach an observer.
     const sentinels = addSentinels( container, 'sticky_sentinel--top');
@@ -50,44 +68,54 @@ jQuery(document).ready(function($){
    * container.
    * @param {!Element} container
    */
-  // The observer is configured with threshold: [1] so its callback fires when the entire node is within view.
   function observeFooters(container) {
     const observer = new IntersectionObserver((records, observer) => {
       for (const record of records) {
-        const targetInfo = record.boundingClientRect;
-        const stickyTarget = record.target.parentElement.querySelector('[data-sticky]');
-        const rootBoundsInfo = record.rootBounds;
-        const ratio = record.intersectionRatio;
+        const sentinel = record.boundingClientRect;
+        const sticky = record.target.parentElement.querySelector('[data-sticky]');
+        const viewport = record.rootBounds;
 
-        console.log(stickyTarget);
+        /*
+        STICKY BOTTOM
+         */
+        if ( sticky.classList.contains('sticky-bottom') ) {
 
-        // make sure we are positioning the bottom correctly
-        let offset = (getHeight(stickyTarget) + getOffset(stickyTarget) + getMargin(stickyTarget,'bottom') + 1)
-        record.target.style.bottom = offset+'px';
-
-        // started sticking
-        if (
-          targetInfo.bottom > rootBoundsInfo.top
-          && !isInViewport( record.target.previousElementSibling ) // check that the top sentinel isn't visible
-          && ratio === 1
-        ) {
-          if ( stickyTarget.classList.contains('sticky-top') ) {
-            fireEvent(true, stickyTarget);
-          } else {
-            fireEvent(false, stickyTarget);
+          // position sentinal
+          let offset = (- getOffset(sticky,'bottom') + getMargin(sticky,'bottom') - 1)
+          record.target.style.bottom = offset+'px';
+          // started sticking
+          if ( sentinel.top > viewport.bottom ) {
+            fireEvent(true, sticky);
           }
-        }
-        // stopped sticking
-        if (targetInfo.top < rootBoundsInfo.top && targetInfo.bottom < rootBoundsInfo.bottom) {
-          if ( stickyTarget.classList.contains('sticky-top') ) {
-            fireEvent(false, stickyTarget);
-          } else {
-            fireEvent(true, stickyTarget);
+          // stopped sticking
+          if (sentinel.top < viewport.bottom) {
+            fireEvent(false, sticky);
           }
+
+        /*
+        STICKY TOP
+         */
+        } else {
+
+          // position sentinal
+          let offset = (getHeight(sticky) + getOffset(sticky,'top') + getMargin(sticky,'bottom') + 1)
+          record.target.style.bottom = offset+'px';
+
+          // started sticking
+          if ( sentinel.top > viewport.top
+            && !isInViewport( record.target.previousElementSibling ) // check that the top sentinel isn't visible
+          ) {
+            fireEvent(true, sticky);
+          }
+          // stopped sticking
+          if (sentinel.top < viewport.top && sentinel.bottom < viewport.bottom) {
+            fireEvent(false, sticky);
+          }
+
         }
 
       }
-    }, { threshold: [1] });
+    }, { threshold: [0] }); // will fire when any part of the senitel comes into view
 
     // Add the bottom sentinels to each section and attach an observer.
     const sentinels = addSentinels( container, 'sticky_sentinel--bottom');
@@ -142,9 +170,13 @@ jQuery(document).ready(function($){
    * @param  {element} target the node to get the height of
    * @return {integer}        the height of the node
    */
-  function getOffset(target) {
+  function getOffset(target, direction) {
     const style = window.getComputedStyle(target);
-    return parseInt(style.top)
+    if (direction==='top') {
+      return parseInt(style.top)
+    } else {
+      return parseInt(style.bottom)
+    }
   }
 
   /**
@@ -201,15 +233,14 @@ jQuery(document).ready(function($){
   }
   observeStickyHeaderChanges();
 
-  // huge thanks for this functionalty goes to Eric Bidelman
-  // https://developers.google.com/web/updates/2017/09/sticky-headers
+
   document.addEventListener('sticky-change', e => {
     const header = e.detail.target;  // header became sticky or stopped sticking.
     const sticking = e.detail.stuck; // true when header is sticky.
     // add classes on stick / unstick
     stickyClasses(header,sticking);
     // fire function on stick / unstick
-    stickyFunctions(header,sticking);
+    stickyCallback(header,sticking);
     // add hash on stick / unstick
     stickyHashes(header,sticking);
   });
@@ -244,7 +275,26 @@ jQuery(document).ready(function($){
     }
 
   }
-  const stickyFunctions = (header,sticking) => {
+
+  /**
+   * Fire functions when sticking
+   * @param  {element} object   The sticky header elements
+   * @param  {bool} sticking    True or false representation of the sticky states
+   */
+  const stickyCallback = (object,sticking) => {
+
+    // setup sticky classes
+    let stickyCallback = $(object).attr('data-callback-onstick');
+
+    // header is sticking
+    if( sticking===true && bloxIsset(stickyCallback) ) {
+      // convert the variable into a function
+      stickyCallback = eval( bloxSanitize(stickyCallback) );
+      // if the function exists, run it
+      if( typeof stickyCallback === "function" ) {
+        stickyCallback( $(object) );
+      }
+    }
 
   }
   const stickyHashes = (header,sticking) => {

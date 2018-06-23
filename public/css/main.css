@@ -2716,7 +2716,8 @@ BOX ITEMS
 .sticky_sentinel {
   position: absolute;
   left: 0;
-  right: 0; }
+  right: 0;
+  visibility: hidden; }
 
 .sticky_sentinel--top {
   top: 0;
@@ -3104,23 +3105,23 @@ SHADOWS
   box-shadow: 0 3px 7px rgba(0, 0, 0, 0.03); }
 
 [class*="border--"] {
-  border-width: 5px !important;
+  border-width: 2px !important;
   border-style: solid; }
 
 [class*="border-top"] {
-  border-top-width: 5px !important;
+  border-top-width: 2px !important;
   border-top-style: solid; }
 
 [class*="border-bottom"] {
-  border-bottom-width: 5px !important;
+  border-bottom-width: 2px !important;
   border-bottom-style: solid; }
 
 [class*="border-left"] {
-  border-left-width: 5px !important;
+  border-left-width: 2px !important;
   border-left-style: solid; }
 
 [class*="border-right"] {
-  border-right-width: 5px !important;
+  border-right-width: 2px !important;
   border-right-style: solid; }
 
 .border--white {
