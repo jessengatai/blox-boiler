@@ -209,22 +209,28 @@
               <div class="deboss">
                 <table class="full-width">
                   <thead>
-                    <th>Description</th>
                     <th>Attribute</th>
+                    <th>Description</th>
                   </thead>
                   <tr>
-                    <td>Classes while element is stuck.</td>
                     <td>data-classes-onstick</td>
+                    <td>Classes while element is stuck.</td>
                   </tr>
                   <tr>
-                    <td>Classes while element is unstuck.</td>
                     <td>data-classes-offstick</td>
+                    <td>Classes while element is unstuck.</td>
                   </tr>
                   <tr>
+                    <td>data-callback-onstick="..."</td>
                     <td>Callback to run when element becomes stuck. <br>
                       <small class="color-red--lighter-1">The current element will be passed as the only parameter.</small>
                     </td>
-                    <td>data-callback-onstick="functionName"</td>
+                  </tr>
+                  <tr>
+                    <td>data-callback-offstick="..."</td>
+                    <td>Callback to run when element stops being stuck. <br>
+                      <small class="color-red--lighter-1">The current element will be passed as the only parameter.</small>
+                    </td>
                   </tr>
                 </table>
               </div>

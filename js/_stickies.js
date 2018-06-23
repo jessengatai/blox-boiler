@@ -270,15 +270,26 @@ jQuery(document).ready(function($){
   const stickyCallback = (object,sticking) => {
 
     // setup sticky classes
-    let stickyCallback = $(object).attr('data-callback-onstick');
+    let stickyCallbackOn = $(object).attr('data-callback-onstick');
+    let stickyCallbackOff = $(object).attr('data-callback-offstick');
 
-    // header is sticking
-    if( sticking===true && bloxIsset(stickyCallback) ) {
+    // callcback to run when sticking
+    if( sticking===true && bloxIsset(stickyCallbackOn) ) {
       // convert the variable into a function
-      stickyCallback = eval( bloxSanitize(stickyCallback) );
+      stickyCallbackOn = eval( bloxSanitize(stickyCallbackOn) );
       // if the function exists, run it
-      if( typeof stickyCallback === "function" ) {
-        stickyCallback( $(object) );
+      if( typeof stickyCallbackOn === "function" ) {
+        stickyCallbackOn( $(object) );
+      }
+    }
+
+    // callcback to run when not sticking
+    if( sticking===false && bloxIsset(stickyCallbackOff) ) {
+      // convert the variable into a function
+      stickyCallbackOff = eval( bloxSanitize(stickyCallbackOff) );
+      // if the function exists, run it
+      if( typeof stickyCallbackOff === "function" ) {
+        stickyCallbackOff( $(object) );
       }
     }
 
