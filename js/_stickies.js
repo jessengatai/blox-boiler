@@ -9,7 +9,7 @@ jQuery(document).ready(function($){
   * `.sticky_sentinel--top` become visible/invisible at the top of the container.
   * @param {!Element} container
   */
-  function observeHeaders(container) {
+  const observeHeaders = (container) => {
     const observer = new IntersectionObserver((records, observer) => {
       for (const record of records) {
         const sentinel = record.boundingClientRect;
@@ -68,7 +68,7 @@ jQuery(document).ready(function($){
    * container.
    * @param {!Element} container
    */
-  function observeFooters(container) {
+  const observeFooters = (container) => {
     const observer = new IntersectionObserver((records, observer) => {
       for (const record of records) {
         const sentinel = record.boundingClientRect;
@@ -126,7 +126,7 @@ jQuery(document).ready(function($){
    * @param {!Element} container
    * @param {string} className
    */
-  function addSentinels(container, className) {
+  const addSentinels = (container, className) => {
     return Array.from(container.querySelectorAll('[data-sticky]')).map(el => {
       const sentinel = document.createElement('div');
       sentinel.classList.add('sticky_sentinel', className);
@@ -139,7 +139,7 @@ jQuery(document).ready(function($){
    * @param {boolean} stuck True if `target` is sticky.
    * @param {!Element} target Element to fire the event on.
    */
-  function fireEvent(stuck, target) {
+  const fireEvent = (stuck, target) => {
     const e = new CustomEvent('sticky-change', {detail: {stuck, target}});
     document.dispatchEvent(e);
   }
@@ -149,7 +149,7 @@ jQuery(document).ready(function($){
    * @param  {Array} arrArg the array to filter
    * @return {Array}        the filters array
    */
-  function uniqueArray (arrArg) {
+  const uniqueArray = (arrArg) => {
     return arrArg.filter(function(elem, pos,arr) {
       return arr.indexOf(elem) == pos;
     });
@@ -160,7 +160,7 @@ jQuery(document).ready(function($){
    * @param  {element} target the node to get the height of
    * @return {integer}        the height of the node
    */
-  function getHeight(target) {
+  const getHeight = (target) => {
     const style = window.getComputedStyle(target);
     return parseInt(style.height)
   }
@@ -170,7 +170,7 @@ jQuery(document).ready(function($){
    * @param  {element} target the node to get the height of
    * @return {integer}        the height of the node
    */
-  function getOffset(target, direction) {
+  const getOffset = (target, direction) => {
     const style = window.getComputedStyle(target);
     if (direction==='top') {
       return parseInt(style.top)
@@ -184,7 +184,7 @@ jQuery(document).ready(function($){
    * @param  {element} target the node to get the height of
    * @return {integer}        the height of the node
    */
-  function getMargin(target, direction) {
+  const getMargin = (target, direction) => {
     const style = window.getComputedStyle(target);
     if (direction==='top') {
       return parseInt(style.marginTop)
@@ -193,27 +193,25 @@ jQuery(document).ready(function($){
     }
   }
 
-
-
   /**
    * Check if an element is within the viewport
    * @param  {[type]} elem [description]
    * @return {[type]}      [description]
    */
-  var isInViewport = function (elem) {
-      var bounding = elem.getBoundingClientRect();
-      return (
-          bounding.top >= 0 &&
-          bounding.left >= 0 &&
-          bounding.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
-          bounding.right <= (window.innerWidth || document.documentElement.clientWidth)
-      );
+  const isInViewport = function (elem) {
+    const bounding = elem.getBoundingClientRect();
+    return (
+      bounding.top >= 0 &&
+      bounding.left >= 0 &&
+      bounding.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+      bounding.right <= (window.innerWidth || document.documentElement.clientWidth)
+    );
   };
 
   /**
    * Notifies when elements w/ the `sticky` class begin to stick or stop sticking.
    */
-  function observeStickyHeaderChanges() {
+  const observeStickyHeaderChanges = () => {
     let stickies = document.querySelectorAll('[data-sticky]');
     let containers = [];
     // loop through each sticky and push the parent element to the containers array
@@ -232,18 +230,6 @@ jQuery(document).ready(function($){
     }
   }
   observeStickyHeaderChanges();
-
-
-  document.addEventListener('sticky-change', e => {
-    const header = e.detail.target;  // header became sticky or stopped sticking.
-    const sticking = e.detail.stuck; // true when header is sticky.
-    // add classes on stick / unstick
-    stickyClasses(header,sticking);
-    // fire function on stick / unstick
-    stickyCallback(header,sticking);
-    // add hash on stick / unstick
-    stickyHashes(header,sticking);
-  });
 
   /**
    * Toggle the sticky classes on and off based on state
@@ -297,8 +283,20 @@ jQuery(document).ready(function($){
     }
 
   }
-  const stickyHashes = (header,sticking) => {
 
-  }
+  /**
+   * Listen for our custom event that fires when a sticky changes its state
+   * @type {event}
+   */
+  document.addEventListener('sticky-change', e => {
+    // header became sticky or stopped sticking.
+    const header = e.detail.target;
+    // true when header is sticky.
+    const sticking = e.detail.stuck;
+    // add classes on stick / unstick
+    stickyClasses(header,sticking);
+    // fire function on stick / unstick
+    stickyCallback(header,sticking);
+  });
 
 });
