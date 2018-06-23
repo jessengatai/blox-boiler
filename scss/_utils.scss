@@ -190,18 +190,48 @@ MARGINS
 }
 
 // offsets
-.offset-top {
-  top: $gutterY;
+@mixin offsets {
+  .offset-top {
+    top: $gutterY;
+  }
+  .offset-bottom {
+    bottom: $gutterY;
+  }
+  .offset-left {
+    left: $gutterX;
+  }
+  .offset-right {
+    right: $gutterX;
+  }
+  @for $i from 2 through 4 {
+    .offset-top--x#{$i} {
+      top: ($gutterY * $i);
+    }
+    .offset-bottom--x#{$i} {
+      bottom: ($gutterY * $i);
+    }
+    .offset-left--x#{$i} {
+      left: ($gutterX * $i);
+    }
+    .offset-right--x#{$i} {
+      right: ($gutterX * $i);
+    }
+  }
 }
-.offset-bottom {
-  bottom: $gutterY;
-}
-.offset-left {
-  left: $gutterX;
-}
-.offset-right {
-  right: $gutterX;
-}
+@include offsets;
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /*
 DEBOSS
@@ -216,8 +246,8 @@ DEBOSS
 @mixin debossColors($colors, $values){
   @for $i from 1 through length($colors) {
     .deboss--#{nth($colors, $i)} {
-      background-color: lighten( nth($values, $i), 40);
-      border-color: lighten( nth($values, $i), 30);
+      background-color: lighten( nth($values, $i), 25);
+      border-color: lighten( nth($values, $i), 15);
     }
   }
 }

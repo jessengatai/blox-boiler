@@ -33,10 +33,10 @@
   </head>
   <body>
 
-    <div class="bg-black--darker-3 color-white">
+    <div id="header" class="bg-black--darker-3 color-white">
       <div class="bx-container padding-y--x4 margin-bottom--x2" data-x-axis="center">
         <div class="bx-boxes">
-          <div id="header" class="box" data-width-tny="12">
+          <div class="box" data-width-tny="12">
             <h1 class="x2-size">Blox Boiler</h1>
             <h4>A functionality-first boiler, perfect for static pages.</h4>
             <button type="button" class="circular primary">👨🏽‍💻 GitHub</button>
@@ -129,7 +129,7 @@
               </div>
               <p>A noteable downside to managing element states via the URL hash is that you can only have one state for the entire page. However, being able to change the state of elements via the browsers native forwards and back buttons make up for it, especially for simple static HTML sites.</p>
               <p>Below are all the hash related data attributes</p>
-              <div class="deboss border-left--purple">
+              <div class="deboss">
                 <table class="full-width">
                   <thead>
                     <th>Description</th>
@@ -166,24 +166,48 @@
             </div>
 
             <!-- stickies -->
-            <div id="stickies" class="box margin-bottom--x3" data-width-tny="12">
+            <div id="stickies" class="box margin-bottom--x4" data-width-tny="12">
               <h3>Stickies</h3>
-              <p>CSS position: stciky; is SUPER awesome but unforunately lacks the native support to triggere events on stick. Blox solves this problem with a number of data-attributes. Check out the functionality of the below divs, they work much the same as boxes.</p>
+              <p>CSS <code>position: sticky;</code> is epic, however it lacks the native support to trigger events when our element is "stuck". Blox attempts to solve this issue using javascripts <code>IntersectionObserver</code> in combination with plain old HTML <code>data</code> attributes. This let's us quickly toggle CSS classes or fire our own custom functions when our sticky element changes it's sticky status.</p>
+
+              <h5>Requirments</h5>
+              <ol type="1" class="margin-bottom--x2">
+                <li>You need to add the attribute <code>data-sticky</code> to the sticky element.</li>
+                <li>You can NOT have more than 1 sticky element in the same parent.<br>
+                    <small class="color-red">If you do, the events will only trigger on the first sticky element.</small>
+                </li>
+                <li>Don't forget to add a sticky utility class (eg: <code>.sticky-top</code>).<br>
+                    <small class="color-red">This will work for responsive sticky classes as well.</small>
+                </li>
+              </ol>
+
+              <p>That's it! Now the fun can start.</p>
 
               <div class="bx-boxes boxes-tight">
-                <div class="box sticky-top deboss" data-width-tny="6">
-                  <p class="tight">.sticky-top</p>
+                <div class="box border-top--purple border-bottom--purple" data-width-tny="4">
+                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                  <p class="sticky-bottom deboss offset-bottom--x3"
+                  data-sticky
+                  data-classes-onstick="shadow deboss--blue"
+                  >.sticky-top + margin-bottom--x3</p>
                 </div>
-                <div class="box sticky-top deboss offset-top" data-width-tny="6">
-                  <p class="tight">.sticky-top + .offset-top</p>
+                <div class="box border-top--purple border-bottom--purple" data-width-tny="4">
+                  <p class="sticky-top deboss offset-top"
+                  data-sticky
+                  data-classes-onstick="shadow deboss--green"
+                  >.sticky-top + .offset-top</p>
+                  <p class="margin-top--x3">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
                 </div>
-                <div class="box" data-width-tny="12">
-                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                <div class="box border-top--purple border-bottom--purple" data-width-tny="4">
+                  <p class="sticky-top deboss tight offset-top--x2"
+                  data-sticky
+                  data-classes-onstick="shadow deboss--red"
+                  >.sticky-top + .offset-top--x2 + tight</p>
+                  <p class="margin-top--x3">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
                 </div>
               </div>
 
-              <div class="deboss border-left--purple">
+              <div class="deboss">
                 <table class="full-width">
                   <thead>
                     <th>Description</th>

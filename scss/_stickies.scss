@@ -101,3 +101,23 @@
     @include sticky-bottom;
   }
 }
+
+
+/* js classes */
+.sticky_sentinel {
+  position: absolute;
+  left: 0;
+  right: 0;
+}
+.sticky_sentinel--top {
+  top: 0; /* top set via js (needs to be height of sticky element) */
+  height: 1px;
+}
+.sticky_sentinel--bottom {
+  bottom: 0; /* bottom set via js (needs to be height of sticky element) */
+  height: 1px;
+}
+.sticky_parent { /* class is applied via js */
+  position: relative;
+  margin-bottom: 60px;
+}

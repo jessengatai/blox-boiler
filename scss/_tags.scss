@@ -1,3 +1,4 @@
+/* LINKS */
 a {
   color: $link-color;
   text-decoration: $link-decoration;
@@ -10,6 +11,8 @@ a {
     text-decoration: inherit;
   }
 }
+
+/* HORIZONTAL LINE */
 hr {
   border-bottom: solid 2px darken($white,20);
   display: block;
@@ -17,6 +20,7 @@ hr {
   width: 100%;
 }
 
+/* TABLES */
 table {
   text-align: left;
   border-collapse:collapse;
@@ -43,5 +47,14 @@ table {
   td {
     padding-top: ($paddingY / 2);
     padding-bottom: ($paddingY / 2);
+  }
+}
+
+/* LISTS */
+ol {
+  margin-left: $p-size;
+  text-indent: $p-size;
+  li {
+    margin-bottom: $p-size;
   }
 }
