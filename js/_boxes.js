@@ -22,27 +22,29 @@ jQuery(document).ready(function($){
         const classesXl = $(object).attr(`data-classes-xl`);
         const allClasses = [classesTny, classesSml, classesMed, classesLrg, classesXl].join(' ');
 
+        console.log(allClasses);
+
         // clean up all the classes
         $(object).removeClass(allClasses)
 
         // tny classes on
-        if( ww <= 599 && classesTny.length ) {
+        if( ww <= 599 && classesTny!=='' ) {
           $(object).addClass( $(object).attr('data-classes-tny') );
         }
         // sml classes on
-        else if( (ww >= 600 && ww <= 879) && classesSml.length ) {
+        else if( (ww >= 600 && ww <= 879) && classesSml!=='' ) {
           $(object).addClass( $(object).attr('data-classes-sml') );
         }
         // med classes on
-        else if( (ww >= 880 && ww <= 1099) && classesMed.length ) {
+        else if( (ww >= 880 && ww <= 1099) && classesMed!=='' ) {
           $(object).addClass( $(object).attr('data-classes-med') );
         }
         // lrg classes on
-        else if( (ww >= 1100 && ww <= 1499) && classesLrg.length ) {
+        else if( (ww >= 1100 && ww <= 1499) && classesLrg!=='' ) {
           $(object).addClass( $(object).attr('data-classes-lrg') );
         }
         // xl classes on
-        else if( ww > 1500 && classesXl.length ) {
+        else if( ww > 1500 && classesXl!=='' ) {
           $(object).addClass( $(object).attr('data-classes-xl') );
         }
 
