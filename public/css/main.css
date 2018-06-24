@@ -55,8 +55,7 @@ table {
 
 /* LISTS */
 ol {
-  margin-left: calc(12px + .15vh + .15vw);
-  text-indent: calc(12px + .15vh + .15vw); }
+  margin-left: calc(12px + .15vh + .15vw); }
   ol li {
     margin-bottom: calc(12px + .15vh + .15vw); }
 

@@ -53,8 +53,8 @@
         <!-- table of contents -->
         <div id="contents"
         class="box sticky-top--sml-up offset-top"
-        data-hash-onstick="#buttons"
-        data-class-onstick="deboss bg-black color-white"
+        data-sticky
+        data-classes-onstick="bg-black color-white"
         data-width-tny="12"
         data-width-lrg="2"
         data-width-sml="3">
@@ -179,6 +179,11 @@
                 <li>Don't forget to add a sticky utility class (eg: <code>.sticky-top</code>).<br>
                     <small class="color-red">This will work for responsive sticky classes as well.</small>
                 </li>
+              </ol>
+
+              <h5>Recommendations</h5>
+              <ol type="1" class="margin-bottom--x2">
+                <li>Adding padding or changing the sticky height will result in some touchy functionalty. This is because the IntersectionObserver watches for hidden divs entering and leaving the viewport, these divs are positioned based on the sticky elements height, margins and offsets.</li>
               </ol>
 
               <p>That's it! Now the fun can start.</p>
@@ -332,7 +337,6 @@
 
       </div><!-- end .bx-boxes -->
     </div><!-- end .bx-container -->
-
 
     <!-- standard modal -->
     <div id="standard-modal" class="bx-modal padding--x2">
