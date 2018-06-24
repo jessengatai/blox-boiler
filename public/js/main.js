@@ -20,6 +20,22 @@ var bloxIsset = function bloxIsset(value) {
 };
 
 /**
+ * Check if an element has any of the classes passed (via array)
+ * @param  {object} element The element to check the class array against
+ * @param  {array} array    The array of classes to check for
+ * @return {bool}           A boolean of true or false if classes were / were not found
+ */
+var bloxHasClass = function bloxHasClass(element, array) {
+  var bool = false;
+  array.every(function (c) {
+    if (element.classList.contains(c)) {
+      bool = true;
+    }
+  });
+  return bool;
+};
+
+/**
  * Sanitize a string
  * @param  {string} string The string of text to clean
  * @return {string}        The shiny new clean string
@@ -201,6 +217,8 @@ jQuery(document).ready(function ($) {
   // Props and thanks for this functionalty goes to Eric Bidelman
   // https://developers.google.com/web/updates/2017/09/sticky-headers
 
+  var bottomClasses = ['sticky-bottom', 'sticky-bottom--sml-up', 'sticky-bottom--med-up', 'sticky-bottom--lrg-up', 'sticky-bottom--xl-up', 'sticky-bottom--tny-only', 'sticky-bottom--sml-only', 'sticky-bottom--med-only', 'sticky-bottom--lrg-only', 'sticky-bottom--xl-only'];
+
   /**
   * Sets up an intersection observer to notify when elements with the class
   * `.sticky_sentinel--top` become visible/invisible at the top of the container.
@@ -223,7 +241,8 @@ jQuery(document).ready(function ($) {
           /*
           STICKY BOTTOM
            */
-          if (sticky.classList.contains('sticky-bottom')) {
+          if (bloxHasClass(sticky, bottomClasses)) {
+            console.log('has classlist');
 
             // position sentinal
             var offset = getHeight(sticky) + getOffset(sticky, 'bottom') + 1;
@@ -255,6 +274,8 @@ jQuery(document).ready(function ($) {
               fireEvent(false, sticky);
             }
           }
+
+          console.log('sss');
         }
       } catch (err) {
         _didIteratorError = true;
@@ -302,7 +323,7 @@ jQuery(document).ready(function ($) {
           /*
           STICKY BOTTOM
            */
-          if (sticky.classList.contains('sticky-bottom')) {
+          if (bloxHasClass(sticky, bottomClasses)) {
 
             // position sentinal
             var offset = -getOffset(sticky, 'bottom') + getMargin(sticky, 'bottom') - 1;
@@ -441,29 +462,6 @@ jQuery(document).ready(function ($) {
   };
 
   /**
-   * Notifies when elements w/ the `sticky` class begin to stick or stop sticking.
-   */
-  var observeStickyHeaderChanges = function observeStickyHeaderChanges() {
-    var stickies = document.querySelectorAll('[data-sticky]');
-    var containers = [];
-    // loop through each sticky and push the parent element to the containers array
-    for (var i = 0; i < stickies.length; i++) {
-      containers.push(stickies[i].parentElement);
-    }
-    // make the container array unique
-    containers = uniqueArray(containers);
-    // create and observe the sentinals for all sticky contains on the page
-    for (var i = 0; i < containers.length; i++) {
-      // add sticky parent class
-      containers[i].classList.add('sticky_parent');
-      // add sentinels and setup observers
-      observeHeaders(containers[i]);
-      observeFooters(containers[i]);
-    }
-  };
-  observeStickyHeaderChanges();
-
-  /**
    * Toggle the sticky classes on and off based on state
    * @param  {element} object   The sticky header elements
    * @param  {bool} sticking    True or false representation of the sticky states
@@ -524,6 +522,30 @@ jQuery(document).ready(function ($) {
       }
     }
   };
+
+  /**
+   * Notifies when elements w/ the `sticky` class begin to stick or stop sticking.
+   */
+  var observeStickyHeaderChanges = function observeStickyHeaderChanges() {
+    var stickies = document.querySelectorAll('[data-sticky]');
+    var containers = [];
+    // loop through each sticky and push the parent element to the containers array
+    for (var i = 0; i < stickies.length; i++) {
+      containers.push(stickies[i].parentElement);
+    }
+    // make the container array unique
+    containers = uniqueArray(containers);
+    // create and observe the sentinals for all sticky contains on the page
+    for (var i = 0; i < containers.length; i++) {
+      // add sticky parent class
+      containers[i].classList.add('sticky_parent');
+      // add sentinels and setup observers
+      observeHeaders(containers[i]);
+      observeFooters(containers[i]);
+    }
+  };
+  // observe on document ready
+  observeStickyHeaderChanges();
 
   /**
    * Listen for our custom event that fires when a sticky changes its state

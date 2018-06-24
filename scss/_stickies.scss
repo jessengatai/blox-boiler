@@ -36,6 +36,11 @@
     @include sticky-top;
   }
 }
+@media #{$media-tny-only} {
+  .sticky-top--tny-only {
+    @include sticky-top;
+  }
+}
 @media #{$media-sml-only} {
   .sticky-top--sml-only {
     @include sticky-top;
@@ -78,6 +83,11 @@
 }
 @media #{$media-xl-up} {
   .sticky-bottom--xl-up {
+    @include sticky-bottom;
+  }
+}
+@media #{$media-tny-only} {
+  .sticky-bottom--tny-only {
     @include sticky-bottom;
   }
 }

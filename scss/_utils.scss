@@ -220,23 +220,16 @@ MARGINS
 }
 @include offsets;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 /*
 DEBOSS
  */
-[class*="deboss"] {
+.invisible-deboss {
+ border-radius: 6px;
+ border: solid 1px transparent;
+ padding: $paddingY $paddingX;
+}
+.deboss,
+[class*="deboss-"] {
   box-shadow: 0 3px 7px rgba(0,0,0,.03);
   border-radius: 6px;
   border: solid 1px darken($white,10);
@@ -253,7 +246,6 @@ DEBOSS
 }
 @include debossColors($colorKeys, $colorValues);
 
-
 /*
 SHADOWS
  */
@@ -267,10 +259,9 @@ SHADOWS
   box-shadow: 0 3px 7px rgba(0,0,0,.03);
 }
 
-
-
-
-// borders
+/*
+BORDERS
+*/
 [class*="border--"] {
   border-width: $border-weight !important;
   border-style: solid;
@@ -518,4 +509,12 @@ a.inline-link {
       color: $blue;
     }
   }
+}
+
+
+.transition-all {
+  transition: all 0.3s ease;
+}
+.transition-bg {
+  transition: background 0.3s ease;
 }
