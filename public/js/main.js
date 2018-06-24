@@ -242,7 +242,6 @@ jQuery(document).ready(function ($) {
           STICKY BOTTOM
            */
           if (bloxHasClass(sticky, bottomClasses)) {
-            console.log('has classlist');
 
             // position sentinal
             var offset = getHeight(sticky) + getOffset(sticky, 'bottom') + 1;
@@ -274,8 +273,6 @@ jQuery(document).ready(function ($) {
               fireEvent(false, sticky);
             }
           }
-
-          console.log('sss');
         }
       } catch (err) {
         _didIteratorError = true;

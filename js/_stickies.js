@@ -33,7 +33,6 @@ jQuery(document).ready(function($){
         STICKY BOTTOM
          */
         if ( bloxHasClass(sticky, bottomClasses) ) {
-          console.log('has classlist');
 
           // position sentinal
           let offset = (getHeight(sticky) + getOffset(sticky,'bottom') + 1)
@@ -68,7 +67,6 @@ jQuery(document).ready(function($){
 
         }
 
-      console.log('sss');
       }
     }, { threshold: [0] }); // will fire when any part of the senitel comes into view
 
