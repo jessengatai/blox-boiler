@@ -18,7 +18,7 @@
 .bx-container {
   @include general-data-attributes('container');
 }
-.bx-boxes {
+.boxes {
   @include general-data-attributes('boxes');
 }
 .bx-modal {

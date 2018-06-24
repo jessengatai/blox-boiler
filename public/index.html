@@ -41,7 +41,7 @@
     data-bg-bottom=""
     >
       <div class="bx-container padding-y--x4 margin-bottom--x2" data-x-axis="center">
-        <div class="bx-boxes">
+        <div class="boxes">
           <div class="box" data-width-tny="12">
             <h1 class="x2-size">Blox Boiler</h1>
             <h4>A functionality-first boiler, perfect for static pages.</h4>
@@ -54,7 +54,7 @@
     </div>
 
     <div class="bx-container" data-x-axis="center">
-      <div class="bx-boxes">
+      <div class="boxes">
 
         <!-- table of contents -->
         <div id="contents"
@@ -97,7 +97,7 @@
         data-width-sml="9"
         data-width-lrg="9"
         data-width-xl="10">
-          <div class="bx-boxes">
+          <div class="boxes">
 
             <!-- SETUP -->
             <div id="setup" class="box margin-bottom--x4" data-width-tny="12">
@@ -114,7 +114,7 @@
             <div id="hash" class="box margin-bottom--x4" data-width-tny="12">
               <h2># URL Hash States</h2>
               <p>If you have an anchor tag that links to #foo and either moves to the matching element or simply updates the hash in the URL, when that hash is active we might want to add a class to our button or some other element on the page. We can achieve this using hash data attributes.</p>
-              <div class="bx-boxes boxes-tight">
+              <div class="boxes boxes-tight">
                 <div class="box" data-width-tny="6">
                   <a href="#foo"
                   data-hash="#foo"
@@ -196,7 +196,7 @@
 
               <p>That's it! Now the fun can start.</p>
 
-              <div class="bx-boxes boxes-tight">
+              <div class="boxes boxes-tight">
                 <div class="box border-top--purple border-bottom--purple" data-width-tny="4">
                   <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
                   <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
@@ -254,42 +254,55 @@
             <!-- BOXES -->
             <div id="boxes" class="box" data-width-tny="12">
               <h2>Boxes</h2>
-              <p>Rowless columns? Kinda. Blox's "boxes" allows for some pretty awesome out of the box' layouts. Give a parent div a class of 'bx-boxes' and it's direct children classes of 'box' then apply widths via data-attributes - pretty simple.</p>
-              <p>Give the window a resize to see it in action. The default column count is 12, which is changeable with a single line of code in the variables.scss file.</p>
-              <p class="deboss border-left--green"><strong>NOTE:</strong> These data-attributes run from the bottom up. Meaning if you <strong>ONLY</strong> set `data-width-tny="6"` the box will be 6/12 on all screen sizes from tiny up.</p>
+              <p>Blox uses flexbox to create something akin to rowless columns. All that's needed is for a parent element to have a class of <code>.boxes</code> and it's direct children to have classes of <code>.box</code>. Then we simply apply widths via data-attributes for each box.</p>
 
-              <div class="bx-boxes boxes-tight">
-                <div class="box deboss--purple tight--padding"
+              <h5>Data Widths</h5>
+              <p>The default column count is 12, which is changeable via the variables.scss file. Also, these data-attributes run from the bottom up, meaning if you <strong>only</strong> set <code>data-width-med="6"</code> the box will be 6/12 on all screen sizes from medium up and 12/12 for everything below.</p>
+
+              <div class="boxes boxes-tight">
+                <div class="box bg-white--darker-1 rounded"
                 data-width-xl="12"
                 data-width-lrg="3"
                 data-width-med="6"
-                data-width-sml="4"
-                data-width-tny="12">
+                data-width-sml="4">
                   <pre data-src="./code/_boxes1.html"></pre>
                 </div>
-                <div class="box deboss--red tight--padding"
+                <div class="box bg-white--darker-1 rounded"
                 data-width-xl="4"
                 data-width-lrg="3"
                 data-width-med="6"
-                data-width-sml="4"
-                data-width-tny="12">
+                data-width-sml="4">
                   <pre data-src="./code/_boxes2.html"></pre>
                 </div>
-                <div class="box deboss--blue tight--padding"
+                <div class="box bg-white--darker-1 rounded"
                 data-width-xl="4"
                 data-width-lrg="3"
                 data-width-med="6"
-                data-width-sml="4"
-                data-width-tny="12">
+                data-width-sml="4">
                   <pre data-src="./code/_boxes2.html"></pre>
                 </div>
-                <div class="box deboss--orange tight--padding"
+                <div class="box bg-white--darker-1 rounded"
                 data-width-xl="4"
                 data-width-lrg="3"
-                data-width-med="6"
-                data-width-sml="12"
-                data-width-tny="12">
+                data-width-med="6">
                   <pre data-src="./code/_boxes3.html"></pre>
+                </div>
+              </div>
+
+              <h5>Data Classes</h5>
+              <p>Like other blox componenents, we can apply classes for specific widths on boxes using data attributes.</p>
+              <div class="boxes boxes-tight">
+                <div class="box rounded padding"
+                data-width-lrg="6"
+                data-classes-tny="bg-blue--lighter-3 color-white"
+                data-classes-sml="bg-orange"
+                data-classes-med="bg-purple color-white"
+                data-classes-lrg="bg-red--lighter-2 color-white"
+                data-classes-xl="bg-green color-green--darker-10">
+                  <p>Hey, give the window a resize and watch the classes on this box change</p>
+                </div>
+                <div class="box deboss tight--padding" data-width-lrg="6">
+                  <pre data-src="./code/_boxes4.html"></pre>
                 </div>
               </div>
 
@@ -340,10 +353,10 @@
               <input type="text" name="" value="500">
             </div>
 
-          </div><!-- end .bx-boxes -->
+          </div><!-- end .boxes -->
         </div><!-- end #content -->
 
-      </div><!-- end .bx-boxes -->
+      </div><!-- end .boxes -->
     </div><!-- end .bx-container -->
 
     <!-- standard modal -->

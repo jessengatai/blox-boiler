@@ -13,18 +13,18 @@ BOX COLUMN FUNCTIONS
   // tny
   @for $i from 0 through $count {
     @if( $i==0 ) {
-      > [data-width-tny="#{$i}"] { display: none; }
+      > .box[data-width-tny="#{$i}"] { display: none; }
     } @else {
-      > [data-width-tny="#{$i}"] { width: bx-cols($i,$count,$tight); display: block; }
+      > .box[data-width-tny="#{$i}"] { width: bx-cols($i,$count,$tight); display: block; }
     }
   }
   // sml
   @media #{$media-sml-up} {
     @for $i from 0 through $count {
       @if( $i==0 ) {
-        > [data-width-sml="#{$i}"] { display: none; }
+        > .box[data-width-sml="#{$i}"] { display: none; }
       } @else {
-        > [data-width-sml="#{$i}"] { width: bx-cols($i,$count,$tight); display: block; }
+        > .box[data-width-sml="#{$i}"] { width: bx-cols($i,$count,$tight); display: block; }
       }
     }
   }
@@ -32,9 +32,9 @@ BOX COLUMN FUNCTIONS
   @media #{$media-med-up} {
     @for $i from 0 through $count {
       @if( $i==0 ) {
-        > [data-width-med="#{$i}"] { display: none; }
+        > .box[data-width-med="#{$i}"] { display: none; }
       } @else {
-        > [data-width-med="#{$i}"] { width: bx-cols($i,$count,$tight); display: block; }
+        > .box[data-width-med="#{$i}"] { width: bx-cols($i,$count,$tight); display: block; }
       }
     }
   }
@@ -42,9 +42,9 @@ BOX COLUMN FUNCTIONS
   @media #{$media-lrg-up} {
     @for $i from 0 through $count {
       @if( $i==0 ) {
-        > [data-width-lrg="#{$i}"] { display: none; }
+        > .box[data-width-lrg="#{$i}"] { display: none; }
       } @else {
-        > [data-width-lrg="#{$i}"] { width: bx-cols($i,$count,$tight); display: block; }
+        > .box[data-width-lrg="#{$i}"] { width: bx-cols($i,$count,$tight); display: block; }
       }
     }
   }
@@ -52,9 +52,9 @@ BOX COLUMN FUNCTIONS
   @media #{$media-xl-up} {
     @for $i from 0 through $count {
       @if( $i==0 ) {
-        > [data-width-xl="#{$i}"] { display: none; }
+        > .box[data-width-xl="#{$i}"] { display: none; }
       } @else {
-        > [data-width-xl="#{$i}"] { width: bx-cols($i,$count,$tight); display: block; }
+        > .box[data-width-xl="#{$i}"] { width: bx-cols($i,$count,$tight); display: block; }
       }
     }
   }
@@ -75,30 +75,30 @@ BOX % FUNCTIONS
 @mixin bx-percent-output($tight) {
   // tny
   @for $i from 1 through 100 {
-    > [data-width-tny="#{$i}"] { width: bx-percent($i,$tight); }
+    > .box[data-width-tny="#{$i}"] { width: bx-percent($i,$tight); }
   }
   // sml
   @media screen and (min-width: 500px) {
     @for $i from 1 through 100 {
-      > [data-width-sml="#{$i}"] { width: bx-percent($i,$tight); }
+      > .box[data-width-sml="#{$i}"] { width: bx-percent($i,$tight); }
     }
   }
   // med
   @media screen and (min-width: 800px) {
     @for $i from 1 through 100 {
-      > [data-width-med="#{$i}"] { width: bx-percent($i,$tight); }
+      > .box[data-width-med="#{$i}"] { width: bx-percent($i,$tight); }
     }
   }
   // lrg
   @media screen and (min-width: 1100px) {
     @for $i from 1 through 100 {
-      > [data-width-lrg="#{$i}"] { width: bx-percent($i,$tight); }
+      > .box[data-width-lrg="#{$i}"] { width: bx-percent($i,$tight); }
     }
   }
   // xl
   @media screen and (min-width: 1500px) {
     @for $i from 1 through 100 {
-      > [data-width-xl="#{$i}"] { width: bx-percent($i,$tight); }
+      > .box[data-width-xl="#{$i}"] { width: bx-percent($i,$tight); }
     }
   }
 }
@@ -106,7 +106,7 @@ BOX % FUNCTIONS
 /*
 BOX COLUMNS
  */
-.bx-boxes {
+.boxes {
 
   /*
   BOX LAYOUT FITROWS (default)
@@ -125,6 +125,12 @@ BOX COLUMNS
   /*
   BOX WIDTH COLUMNS
    */
+   &:not(.boxes-tight) > .box {
+     width: bx-cols(12, 12, false);
+   }
+   &.boxes-tight > .box {
+     width: bx-cols(12, 12, true);
+   }
   @include bx-cols-output( 12, false);
 
   /*

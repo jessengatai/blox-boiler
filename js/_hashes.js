@@ -6,7 +6,7 @@ jQuery(document).ready(function($){
    */
   const runHashes = () => {
 
-    // setup some big scope variable daddy's
+    // setup some big scope variables
     let hash = window.location.hash;
     let objectsAll = $(`[data-hash]`);
 
@@ -70,7 +70,7 @@ jQuery(document).ready(function($){
    * @param  {object} e the event
    */
   $(window).on('hashchange', function(e) {
-    runHashes()
+    runHashes();
   });
   runHashes();
 
