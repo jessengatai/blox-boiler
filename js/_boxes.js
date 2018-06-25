@@ -22,8 +22,6 @@ jQuery(document).ready(function($){
         const classesXl = $(object).attr(`data-classes-xl`);
         const allClasses = [classesTny, classesSml, classesMed, classesLrg, classesXl].join(' ');
 
-        console.log(allClasses);
-
         // clean up all the classes
         $(object).removeClass(allClasses)
 
