@@ -13,7 +13,7 @@ $container-max-width: calc(1000px + 20%);
 $container-max-width-thin: 900px;
 
 // margins and padding
-$gutterX: 2vh;
+$gutterX: 3vh;
 $gutterY: 2vh;
 $paddingX: 2vh;
 $paddingY: 2vh;
@@ -32,8 +32,9 @@ $link-decoration: underline ;
 $link-hover-color: $blue ;
 $link-hover-decoration: underline ;
 
-// base border stylings
-$border-weight: 2px ;
+// default border stylings
+$border-weight: 1px ;
+$border-color: darken($white,10) ;
 
 // responsive only's
 $media-tny-only: "only screen and (max-width: 599px)";

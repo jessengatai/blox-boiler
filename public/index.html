@@ -14,11 +14,11 @@
         background-color: transparent;
       }
       *:not(pre) > code {
-        background: #f2f2f2;
-        color: #ff1929;
+        background: #f9f9f9;
+        color: #771dff;
         padding: 2px 7px;
         border-radius: 4px;
-        border: solid 1px #cccccc;
+        border: solid 1px #f0f0f0;
         font-size: 13px;
       }
       .attr-list li {
@@ -70,8 +70,9 @@
             <ul>
               <li><a data-hash="#setup"    data-classes-onhash="purple" class="button off small full-width text-left" href="#setup">Setup</a></li>
               <li><a data-hash="#hash"     data-classes-onhash="purple" class="button off small full-width text-left" href="#hash">Hash States</a></li>
-              <li><a data-hash="#boxes"    data-classes-onhash="purple" class="button off small full-width text-left" href="#boxes">Boxes</a></li>
               <li><a data-hash="#stickies" data-classes-onhash="purple" class="button off small full-width text-left" href="#stickies">Stickies</a></li>
+              <li><a data-hash="#boxes"    data-classes-onhash="purple" class="button off small full-width text-left" href="#boxes">Boxes</a></li>
+              <li><a data-hash="#classes"  data-classes-onhash="purple" class="button off small full-width text-left" href="#classes">Responsive Classes</a></li>
               <li><a data-hash="#buttons"  data-classes-onhash="purple" class="button off small full-width text-left" href="#buttons">Buttons</a></li>
               <li><a data-hash="#modals"   data-classes-onhash="purple" class="button off small full-width text-left" href="#modals">Modals</a></li>
               <li><a data-hash="#forms"    data-classes-onhash="purple" class="button off small full-width text-left" href="#forms">Forms</a></li>
@@ -100,7 +101,7 @@
           <div class="boxes">
 
             <!-- SETUP -->
-            <div id="setup" class="box margin-bottom--x4" data-width-tny="12">
+            <div id="setup" class="box margin-bottom--x4">
               <h2>Setup</h2>
               <h5>Via NPM</h5>
               <p>You can install via node packet manager with <code>npm i blox-boiler</code></p>
@@ -111,7 +112,7 @@
             </div>
 
             <!-- DATA -->
-            <div id="hash" class="box margin-bottom--x4" data-width-tny="12">
+            <div id="hash" class="box margin-bottom--x4">
               <h2># URL Hash States</h2>
               <p>If you have an anchor tag that links to #foo and either moves to the matching element or simply updates the hash in the URL, when that hash is active we might want to add a class to our button or some other element on the page. We can achieve this using hash data attributes.</p>
               <div class="boxes boxes-tight">
@@ -174,7 +175,7 @@
             </div>
 
             <!-- stickies -->
-            <div id="stickies" class="box margin-bottom--x4" data-width-tny="12">
+            <div id="stickies" class="box margin-bottom--x4">
               <h3>Stickies</h3>
               <p>CSS <code>position: sticky;</code> is epic, however it lacks the native support to trigger events when our element is "stuck". Blox attempts to solve this issue using javascripts <code>IntersectionObserver</code> in combination with HTML <code>data</code> attributes. This let's us quickly toggle CSS classes or fire our own custom functions when our sticky elements are stuck.</p>
 
@@ -198,8 +199,8 @@
 
               <div class="boxes boxes-tight">
                 <div class="box border-top--purple border-bottom--purple" data-width-tny="4">
-                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                  <p class="color-white--darker-3">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                  <p class="color-white--darker-3">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
                   <div class="sticky-bottom deboss"
                   data-sticky
                   data-classes-onstick="shadow-lrg color-white deboss--black"
@@ -210,14 +211,14 @@
                   data-sticky
                   data-classes-onstick="shadow-lrg color-white deboss--black"
                   ><small>.sticky-top + .offset-top</small></div>
-                  <p class="margin-top">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                  <p class="margin-top color-white--darker-3">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
                 </div>
                 <div class="box border-top--purple border-bottom--purple" data-width-tny="4">
                   <div class="sticky-top deboss offset-top--x2 margin-bottom"
                   data-sticky
                   data-classes-onstick="shadow-lrg color-white deboss--black"
                   ><small>.sticky-top + .offset-top--x2 + margin-bottom</small></div>
-                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                  <p class="color-white--darker-3">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
                 </div>
               </div>
 
@@ -252,44 +253,61 @@
             </div>
 
             <!-- BOXES -->
-            <div id="boxes" class="box" data-width-tny="12">
+            <div id="boxes" class="box margin-bottom--x4">
               <h2>Boxes</h2>
-              <p>Blox uses flexbox to create something akin to rowless columns. All that's needed is for a parent element to have a class of <code>.boxes</code> and it's direct children to have classes of <code>.box</code>. Then we simply apply widths via data-attributes for each box.</p>
+              <p>Blox uses flexbox to create layouts quickly. All that's needed is for a parent element to have a class of <code>.boxes</code> and it's direct children to have classes of <code>.box</code>. Then we simply apply widths and heights via data-attributes for each box.</p>
 
               <h5>Data Widths</h5>
-              <p>The default column count is 12, which is changeable via the variables.scss file. Also, these data-attributes run from the bottom up, meaning if you <strong>only</strong> set <code>data-width-med="6"</code> the box will be 6/12 on all screen sizes from medium up and 12/12 for everything below.</p>
-
+              <p>The default direction for boxes is left to right (columns) and the default column count is 12, which is changeable via the variables.scss file. Also, these data-attributes run from the bottom up, meaning if you <strong>only</strong> set <code>data-width-med="6"</code> the box will be 6/12 on all screen sizes from medium up and 12/12 for everything below.</p>
+              <p>tip: <code>data-width-lrg="fill"</code> will automatically grow a box to fill the empty space in a row, even between other boxes.</p>
               <div class="boxes boxes-tight">
                 <div class="box bg-white--darker-1 rounded"
-                data-width-xl="12"
-                data-width-lrg="3"
-                data-width-med="6"
-                data-width-sml="4">
+                data-width-xl="12" data-width-lrg="3" data-width-med="6" data-width-sml="4">
                   <pre data-src="./code/_boxes1.html"></pre>
                 </div>
                 <div class="box bg-white--darker-1 rounded"
-                data-width-xl="4"
-                data-width-lrg="3"
-                data-width-med="6"
-                data-width-sml="4">
+                data-width-xl="4" data-width-lrg="3" data-width-med="6" data-width-sml="4">
                   <pre data-src="./code/_boxes2.html"></pre>
                 </div>
                 <div class="box bg-white--darker-1 rounded"
-                data-width-xl="4"
-                data-width-lrg="3"
-                data-width-med="6"
-                data-width-sml="4">
+                data-width-xl="4" data-width-lrg="3" data-width-med="6" data-width-sml="4">
                   <pre data-src="./code/_boxes2.html"></pre>
                 </div>
                 <div class="box bg-white--darker-1 rounded"
-                data-width-xl="4"
-                data-width-lrg="3"
-                data-width-med="6">
+                data-width-xl="4" data-width-lrg="3" data-width-med="6">
                   <pre data-src="./code/_boxes3.html"></pre>
                 </div>
               </div>
 
-              <h5>Responsive Classes</h5>
+              <h5>Data Heights</h5>
+              <p>If you want to run your boxes from top to bottom, add <code>data-direction="vertical"</code> to the parent <code>.boxes</code> element. From there, we can apply our <code>data-height-tny="12"</code> attributes for each box.</p>
+              <p>tip: <code>data-height-lrg="fill"</code> will work the same as it does with widths.</p>
+              <div class="boxes boxes-tight">
+                <div class="box" data-width-tny="8">
+                  <div class="boxes boxes-tight border-all rounded shadow" data-direction="vertical">
+                    <div class="box padding border-bottom tight">
+                      <h5>Header <small class="color-white--darker-8">no height set</small></h5>
+                    </div>
+                    <div class="box padding tight"
+                    data-height-tny="fill">
+                      <p class="color-white--darker-10">This area will grow to fill the space between the header and the footer using <code>data-height-tny="fill"</code> </p>
+                    </div>
+                    <div class="box padding border-top tight">
+                      <h5>Footer <small class="color-white--darker-8">no height set</small></h5>
+                    </div>
+                  </div>
+                </div>
+                <div class="box" data-width-tny="4">
+                  <p>Hey, don't forget to set some kind of a height for your boxes container, otherwise you will be let down!</p>
+                  <p class="color-white--darker-3">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Consectetur adipisicing elit, sed do eiusmod tempor incididunt ut.</p>
+                </div>
+              </div><!-- end vertical box section -->
+
+            </div><!-- end boxes section -->
+
+            <!-- RESPONSIVE CLASSES -->
+            <div id="classes" class="box margin-bottom--x4">
+              <h3>Responsive Classes</h3>
               <p>We can also apply classes for specific viewport widths on elements using data attributes. This isn't limited to just boxed elements, you can use <code>data-classes-sml="..."</code> on any element. However, it's much more performant to use standard media query classes wherever possible.</p>
               <div class="boxes boxes-tight">
                 <div class="box rounded padding"
@@ -305,8 +323,7 @@
                   <pre data-src="./code/_boxes4.html"></pre>
                 </div>
               </div>
-
-            </div><!-- end .boxes -->
+            </div>
 
             <!-- buttons -->
             <div class="box margin-top--x4" data-width-tny="12">
@@ -364,7 +381,7 @@
       <div class="bx-modal-inner bg-white padding--x2 rounded shadow-lrg max-width-thin align-center">
         <h2 data-trans-delay="100" data-trans="slideY">Standard Modal</h2>
         <h4 data-trans-delay="150" data-trans="slideY">This is a dope modal!</h4>
-        <p data-trans-delay="200" data-trans="slideY">This is Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        <p data-trans-delay="200" data-trans="slideY" class="color-white--darker-3">This is Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
         <button data-close-modal="standard-modal" class="purple">Close</button>
       </div>
     </div>
@@ -377,7 +394,7 @@
     >
       <h2 data-trans-delay="100" data-trans="slideY">Fullscreen modal</h2>
       <h4 data-trans-delay="150" data-trans="slideY">This is a dope modal!</h4>
-      <p data-trans-delay="200" data-trans="slideY">This is a dope modal! Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+      <p data-trans-delay="200" data-trans="slideY" class="color-white--darker-3">This is a dope modal! Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
       <button data-close-modal="fullscreen-modal">Close</button>
     </div>
 

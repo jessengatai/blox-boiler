@@ -11,35 +11,48 @@ BOX COLUMN FUNCTIONS
 }
 @mixin bx-cols-output($count,$tight){
   // tny
+  > .box[data-width-tny="fill"] { flex-grow: 1; }
+  > .box[data-height-tny="fill"] { flex-grow: 1; }
   @for $i from 0 through $count {
     @if( $i==0 ) {
       > .box[data-width-tny="#{$i}"] { display: none; }
+      > .box[data-height-tny="#{$i}"] { display: none; }
     } @else {
       > .box[data-width-tny="#{$i}"] { width: bx-cols($i,$count,$tight); display: block; }
+      > .box[data-height-tny="#{$i}"] { height: bx-cols($i,$count,$tight); display: block; }
     }
   }
   // sml
   @media #{$media-sml-up} {
+    > .box[data-width-sml="fill"] { flex-grow: 1; }
+    > .box[data-height-sml="fill"] { flex-grow: 1; }
     @for $i from 0 through $count {
       @if( $i==0 ) {
         > .box[data-width-sml="#{$i}"] { display: none; }
+        > .box[data-height-sml="#{$i}"] { display: none; }
       } @else {
         > .box[data-width-sml="#{$i}"] { width: bx-cols($i,$count,$tight); display: block; }
+        > .box[data-height-sml="#{$i}"] { height: bx-cols($i,$count,$tight); display: block; }
       }
     }
   }
   // med
   @media #{$media-med-up} {
+    > .box[data-width-med="fill"] { flex-grow: 1; }
+    > .box[data-height-med="fill"] { flex-grow: 1; }
     @for $i from 0 through $count {
       @if( $i==0 ) {
         > .box[data-width-med="#{$i}"] { display: none; }
+        > .box[data-height-med="#{$i}"] { display: none; }
       } @else {
         > .box[data-width-med="#{$i}"] { width: bx-cols($i,$count,$tight); display: block; }
+        > .box[data-height-med="#{$i}"] { height: bx-cols($i,$count,$tight); display: block; }
       }
     }
   }
   // lrg
   @media #{$media-lrg-up} {
+    > .box[data-width-lrg="fill"] { flex-grow: 1; }
     @for $i from 0 through $count {
       @if( $i==0 ) {
         > .box[data-width-lrg="#{$i}"] { display: none; }
@@ -50,6 +63,7 @@ BOX COLUMN FUNCTIONS
   }
   // xl
   @media #{$media-xl-up} {
+    > .box[data-width-xl="fill"] { flex-grow: 1; }
     @for $i from 0 through $count {
       @if( $i==0 ) {
         > .box[data-width-xl="#{$i}"] { display: none; }
@@ -108,34 +122,53 @@ BOX COLUMNS
  */
 .boxes {
 
-  /*
-  BOX LAYOUT FITROWS (default)
-   */
+  // horizontal layout (default)
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   margin-left: calc( #{$gutterX} / 2 );
   margin-right: calc( #{$gutterX} / 2 );
 
+  // tight
   &.boxes-tight {
     margin-left: calc( -#{$gutterX} / 2 );
     margin-right: calc( -#{$gutterX} / 2 );
   }
 
-  /*
-  BOX WIDTH COLUMNS
-   */
-   &:not(.boxes-tight) > .box {
-     width: bx-cols(12, 12, false);
-   }
-   &.boxes-tight > .box {
-     width: bx-cols(12, 12, true);
-   }
+  // box widths
+  &:not(.boxes-tight) > .box {
+    width: bx-cols(12, 12, false);
+  }
+  &.boxes-tight > .box {
+    width: bx-cols(12, 12, true);
+  }
+
+  // vertical layout (data-direction="vertical")
+  &[data-direction="vertical"] {
+    height: 100%;
+    flex-direction: column;
+
+    // tight
+    &.boxes-tight {
+      margin-left: 0px;
+      margin-right: 0px;
+    }
+    // the box
+    .box {
+      margin-left: 0px;
+      margin-right: 0px;
+      margin-bottom: $gutterY;
+      width: auto;
+    }
+
+  }
+
+  // widths and heights
   @include bx-cols-output( 12, false);
 
   /*
   BOX % PERCENTAGES
-   */
+
   &[data-box-widths="%"] {
     &:not(.boxes-tight) {
       @include bx-percent-output(false);
@@ -144,19 +177,11 @@ BOX COLUMNS
       @include bx-percent-output(true);
     }
   }
-
-  /*
-  BOX CLEARS
-   */
-  > .box-clear {
-    width: 100%;
-  }
+  */
 
 }
 
-/*
-BOX ITEMS
- */
+// the box (outside above .boxes so it's easy to override with util classes)
 .box {
   margin-left: calc( #{$gutterX} / 2 );
   margin-right: calc( #{$gutterX} / 2 );

@@ -262,29 +262,34 @@ SHADOWS
 /*
 BORDERS
 */
-[class*="border--"] {
+[class*="border-all"] {
   border-width: $border-weight !important;
   border-style: solid;
+  border-color: $border-color;
 }
 [class*="border-top"] {
   border-top-width: $border-weight !important;
   border-top-style: solid;
+  border-color: $border-color;
 }
 [class*="border-bottom"] {
   border-bottom-width: $border-weight !important;
   border-bottom-style: solid;
+  border-color: $border-color;
 }
 [class*="border-left"] {
   border-left-width: $border-weight !important;
   border-left-style: solid;
+  border-color: $border-color;
 }
 [class*="border-right"] {
   border-right-width: $border-weight !important;
   border-right-style: solid;
+  border-color: $border-color;
 }
 @mixin borderColours($colors, $values){
   @for $i from 1 through length($colors) {
-    .border--#{nth($colors, $i)} {
+    .border-all--#{nth($colors, $i)} {
       border-color: #{nth($values, $i)}
     }
     .border-top--#{nth($colors, $i)} {
