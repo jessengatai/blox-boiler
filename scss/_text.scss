@@ -10,100 +10,101 @@ html {
 
 /* text */
 h1 {
-  margin-bottom: $h1-size;
+  margin-bottom: $h2-size;
   font-size: $h1-size;
   font-weight: 700;
-  line-height: 1.2;
-  &.x2-size {
+  line-height: 1.1;
+  &.size--x2 {
     font-size: $h1-size-double;
   }
   &.x2-margin {
     margin-bottom: $h1-size-double;
   }
-  &:last-child {
-    margin-bottom: 0px;
-  }
 }
 h2 {
-  margin-bottom: $h2-size;
+  margin-bottom: $h3-size;
   font-size: $h2-size;
   font-weight: 600;
-  line-height: 1.2;
+  line-height: 1.1;
+  &.size--x2 {
+    font-size: $h2-size-double;
+  }
   &.x2-margin {
     margin-bottom: $h2-size-double;
   }
-  &:last-child {
-    margin-bottom: 0px;
-  }
 }
 h3 {
-  margin-bottom: $h3-size;
+  margin-top: $h4-size;
+  margin-bottom: $h4-size;
   font-size: $h3-size;
   font-weight: 600;
   line-height: 1.2;
+  &.size--x2 {
+    font-size: $h3-size-double;
+  }
   &.x2-margin {
     margin-bottom: $h3-size-double;
   }
-  &:last-child {
-    margin-bottom: 0px;
-  }
 }
 h4 {
-  margin-bottom: $h4-size;
+  margin-top: $h5-size;
+  margin-bottom: $h5-size;
   font-size: $h4-size;
   font-weight: 500;
   line-height: 1.3;
+  &.size--x2 {
+    font-size: $h4-size-double;
+  }
   &.x2-margin {
     margin-bottom: $h4-size-double;
-  }
-  &:last-child {
-    margin-bottom: 0px;
   }
 }
 h5 {
-  margin-bottom: $h5-size;
+  margin-bottom: $h6-size;
   font-size: $h5-size;
   font-weight: 500;
+  line-height: 1.4;
+  &.size--x2 {
+    font-size: $h5-size-double;
+  }
   &.x2-margin {
     margin-bottom: $h5-size-double;
   }
-  &:last-child {
-    margin-bottom: 0px;
-  }
 }
 h6 {
-  margin-bottom: $h6-size;
+  margin-bottom: $p-size;
   font-size: $h6-size;
   font-weight: 600;
-  letter-spacing: .2vw;
-  text-transform: uppercase;
+  line-height: 1.5;
+  &.size--x2 {
+    font-size: $h6-size-double;
+  }
   &.x2-margin {
     margin-bottom: $h6-size-double;
   }
-  &:last-child {
-    margin-bottom: 0px;
-  }
 }
 p {
-  margin-bottom: $h4-size;
+  margin-bottom: $p-size-double;
   font-size: $p-size;
   font-weight: 400;
+  &.size--x2 {
+    font-size: $p-size-double;
+  }
   &.x2-margin {
     margin-bottom: $h4-size-double;
   }
-  &:last-child {
-    margin-bottom: 0px;
-  }
 }
 small {
-  margin-bottom: $s-size;
   font-size: $s-size;
   font-weight: 500;
-  line-height: 1.6;
   display: inline-block;
   &.x2-margin {
     margin-bottom: $s-size-double;
   }
+}
+
+// first and last children margins
+h1, h2, h3, h4, h5, h6, p, small {
   &:last-child {
     margin-bottom: 0px;
   }

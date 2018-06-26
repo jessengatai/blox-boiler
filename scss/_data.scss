@@ -5,7 +5,8 @@
   // center x
   &[data-x-axis="center"] {
     max-width: $container-max-width;
-    width: 100%;
+    min-width: $container-min-width;
+    width: $container-width;
     margin-left: auto;
     margin-right: auto;
     @if $type=='modal' {

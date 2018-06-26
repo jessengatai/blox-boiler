@@ -9,14 +9,16 @@ $black: #17191f;
 $white: #ffffff;
 
 // containers
-$container-max-width: calc(1000px + 20%);
+$container-width: 90vw;
+$container-min-width: 500px;
+$container-max-width: 1400px;
 $container-max-width-thin: 900px;
 
 // margins and padding
-$gutterX: 3vh;
-$gutterY: 2vh;
-$paddingX: 2vh;
-$paddingY: 2vh;
+$gutterX: 30px;
+$gutterY: 30px;
+$paddingX: 20px;
+$paddingY: 20px;
 $default_cols: 12;
 
 // site colours

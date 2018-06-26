@@ -12,41 +12,32 @@ BOX COLUMN FUNCTIONS
 @mixin bx-cols-output($count,$tight){
   // tny
   > .box[data-width-tny="fill"] { flex-grow: 1; }
-  > .box[data-height-tny="fill"] { flex-grow: 1; }
   @for $i from 0 through $count {
     @if( $i==0 ) {
       > .box[data-width-tny="#{$i}"] { display: none; }
-      > .box[data-height-tny="#{$i}"] { display: none; }
     } @else {
-      > .box[data-width-tny="#{$i}"] { width: bx-cols($i,$count,$tight); display: block; }
-      > .box[data-height-tny="#{$i}"] { height: bx-cols($i,$count,$tight); display: block; }
+      > .box[data-width-tny="#{$i}"] { width: bx-cols($i,$count,$tight); display: block; flex-grow: 0; }
     }
   }
   // sml
   @media #{$media-sml-up} {
     > .box[data-width-sml="fill"] { flex-grow: 1; }
-    > .box[data-height-sml="fill"] { flex-grow: 1; }
     @for $i from 0 through $count {
       @if( $i==0 ) {
         > .box[data-width-sml="#{$i}"] { display: none; }
-        > .box[data-height-sml="#{$i}"] { display: none; }
       } @else {
-        > .box[data-width-sml="#{$i}"] { width: bx-cols($i,$count,$tight); display: block; }
-        > .box[data-height-sml="#{$i}"] { height: bx-cols($i,$count,$tight); display: block; }
+        > .box[data-width-sml="#{$i}"] { width: bx-cols($i,$count,$tight); display: block; flex-grow: 0; }
       }
     }
   }
   // med
   @media #{$media-med-up} {
     > .box[data-width-med="fill"] { flex-grow: 1; }
-    > .box[data-height-med="fill"] { flex-grow: 1; }
     @for $i from 0 through $count {
       @if( $i==0 ) {
         > .box[data-width-med="#{$i}"] { display: none; }
-        > .box[data-height-med="#{$i}"] { display: none; }
       } @else {
-        > .box[data-width-med="#{$i}"] { width: bx-cols($i,$count,$tight); display: block; }
-        > .box[data-height-med="#{$i}"] { height: bx-cols($i,$count,$tight); display: block; }
+        > .box[data-width-med="#{$i}"] { width: bx-cols($i,$count,$tight); display: block; flex-grow: 0; }
       }
     }
   }
@@ -57,7 +48,7 @@ BOX COLUMN FUNCTIONS
       @if( $i==0 ) {
         > .box[data-width-lrg="#{$i}"] { display: none; }
       } @else {
-        > .box[data-width-lrg="#{$i}"] { width: bx-cols($i,$count,$tight); display: block; }
+        > .box[data-width-lrg="#{$i}"] { width: bx-cols($i,$count,$tight); display: block; flex-grow: 0; }
       }
     }
   }
@@ -68,7 +59,66 @@ BOX COLUMN FUNCTIONS
       @if( $i==0 ) {
         > .box[data-width-xl="#{$i}"] { display: none; }
       } @else {
-        > .box[data-width-xl="#{$i}"] { width: bx-cols($i,$count,$tight); display: block; }
+        > .box[data-width-xl="#{$i}"] { width: bx-cols($i,$count,$tight); display: block; flex-grow: 0; }
+      }
+    }
+  }
+}
+
+/*
+BOX ROWS
+ */
+@mixin bx-rows-output($count,$tight){
+  // tny
+  > .box[data-height-tny="fill"] { flex-grow: 1; }
+  @for $i from 0 through $count {
+    @if( $i==0 ) {
+      > .box[data-height-tny="#{$i}"] { display: none; }
+    } @else {
+      > .box[data-height-tny="#{$i}"] { height: bx-cols($i,$count,$tight); display: block; flex-grow: 0; }
+    }
+  }
+  // sml
+  @media #{$media-sml-up} {
+    > .box[data-height-sml="fill"] { flex-grow: 1; }
+    @for $i from 0 through $count {
+      @if( $i==0 ) {
+        > .box[data-height-sml="#{$i}"] { display: none; }
+      } @else {
+        > .box[data-height-sml="#{$i}"] { height: bx-cols($i,$count,$tight); display: block; flex-grow: 0; }
+      }
+    }
+  }
+  // med
+  @media #{$media-med-up} {
+    > .box[data-height-med="fill"] { flex-grow: 1; }
+    @for $i from 0 through $count {
+      @if( $i==0 ) {
+        > .box[data-height-med="#{$i}"] { display: none; }
+      } @else {
+        > .box[data-height-med="#{$i}"] { height: bx-cols($i,$count,$tight); display: block; flex-grow: 0; }
+      }
+    }
+  }
+  // lrg
+  @media #{$media-lrg-up} {
+    > .box[data-height-lrg="fill"] { flex-grow: 1; }
+    @for $i from 0 through $count {
+      @if( $i==0 ) {
+        > .box[data-height-lrg="#{$i}"] { display: none; }
+      } @else {
+        > .box[data-height-lrg="#{$i}"] { height: bx-cols($i,$count,$tight); display: block; flex-grow: 0; }
+      }
+    }
+  }
+  // xl
+  @media #{$media-xl-up} {
+    > .box[data-height-xl="fill"] { flex-grow: 1; }
+    @for $i from 0 through $count {
+      @if( $i==0 ) {
+        > .box[data-height-xl="#{$i}"] { display: none; }
+      } @else {
+        > .box[data-height-xl="#{$i}"] { height: bx-cols($i,$count,$tight); display: block; flex-grow: 0; }
       }
     }
   }
@@ -134,14 +184,15 @@ BOX COLUMNS
     margin-left: calc( -#{$gutterX} / 2 );
     margin-right: calc( -#{$gutterX} / 2 );
   }
-
-  // box widths
+  // box width defaults
   &:not(.boxes-tight) > .box {
-    width: bx-cols(12, 12, false);
+    width: bx-cols($default_cols, $default_cols, false);
   }
   &.boxes-tight > .box {
-    width: bx-cols(12, 12, true);
+    width: bx-cols($default_cols, $default_cols, true);
   }
+  // widths
+  @include bx-cols-output( $default_cols, false);
 
   // vertical layout (data-direction="vertical")
   &[data-direction="vertical"] {
@@ -157,14 +208,15 @@ BOX COLUMNS
     .box {
       margin-left: 0px;
       margin-right: 0px;
-      margin-bottom: $gutterY;
+      margin-bottom: 0px;
       width: auto;
+      &:last-child {
+        margin-bottom: 0px;
+      }
     }
-
+    // heights
+    @include bx-rows-output( $default_cols, true);
   }
-
-  // widths and heights
-  @include bx-cols-output( 12, false);
 
   /*
   BOX % PERCENTAGES
