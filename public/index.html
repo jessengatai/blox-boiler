@@ -54,7 +54,7 @@
     </div>
 
     <div class="bx-container" data-x-axis="center">
-      <div class="boxes boxes-tight">
+      <div class="boxes boxes-nested">
 
         <!-- table of contents -->
         <div id="contents"
@@ -114,7 +114,7 @@
               <h2 class="size--x2">Stickies</h2>
               <p>CSS <code>position: sticky;</code> is epic, however it lacks the native support to trigger events when our element is "stuck". Blox attempts to solve this issue using javascripts <code>IntersectionObserver</code> in combination with HTML <code>data</code> attributes. This let's us quickly toggle CSS classes or fire our own custom functions when our sticky elements are stuck.</p>
 
-              <div class="boxes boxes-tight">
+              <div class="boxes boxes-nested">
                 <div class="box" data-width-med="6">
                   <h5>Requirments</h5>
                   <ol type="1" class="margin-bottom--x2">
@@ -135,7 +135,7 @@
                 </div>
               </div>
 
-              <div class="boxes boxes-tight">
+              <div class="boxes boxes-nested">
                 <div class="box border-top--purple border-bottom--purple" data-width-tny="4">
                   <p class="color-white--darker-3">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
                   <p class="color-white--darker-3">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
@@ -197,7 +197,7 @@
 
               <h3>Horizontal</h3>
               <p>The default direction for boxes is left to right and the default column count is 12 (changeable via variables.scss). Also, these data-attributes run from the bottom up, meaning if you <strong>only</strong> set <code>data-width-med="6"</code> the box will be 6/12 on all screen sizes from medium up and 12/12 for everything below.</p>
-              <div class="boxes boxes-tight">
+              <div class="boxes bg-red">
                 <div class="box deboss tight--padding"
                 data-width-xl="12" data-width-lrg="3" data-width-med="6" data-width-sml="4">
                   <pre data-src="./code/_boxes1.html"></pre>
@@ -218,15 +218,15 @@
 
               <h3>Vertical</h3>
               <p>If you want to run your boxes from top to bottom, add <code>data-direction="vertical"</code> to the parent <code>.boxes</code> element. From there, we can apply our <code>data-height-med="6"</code> attributes for each box.</p>
-              <div class="boxes boxes-tight border-all rounded shadow" style="height: calc(100px + 30vh);" data-direction="vertical">
-                <div class="box padding">
+              <div class="boxes bg-red" style="height: calc(100px + 30vh);" data-direction="vertical">
+                <div class="box bg-blue" data-width-tny="2">
                   <h5>Header <small class="color-white--darker-8">no height set</small></h5>
                 </div>
-                <div class="box padding border-top border-bottom" data-height-tny="fill">
+                <div class="box bg-blue" data-width-tny="fill">
                   <h5>Body</h5>
                   <p>This area will grow to fill the space between the header and the footer using <code>data-height-tny="fill"</code> </p>
                 </div>
-                <div class="box padding">
+                <div class="box bg-blue" data-width-tny="2">
                   <h5>Footer <small class="color-white--darker-8">no height set</small></h5>
                 </div>
               </div><!-- end vertical box section -->
@@ -238,7 +238,7 @@
             <div id="hash" class="box margin-bottom--x4">
               <h2># URL Hash States</h2>
               <p>If you have an anchor tag that links to #foo and either moves to the matching element or simply updates the hash in the URL, when that hash is active we might want to add a class to our button or some other element on the page. We can achieve this using hash data attributes.</p>
-              <div class="boxes boxes-tight">
+              <div class="boxes boxes-nested">
                 <div class="box" data-width-tny="6">
                   <a href="#foo"
                   data-hash="#foo"
@@ -317,7 +317,7 @@
             <div id="classes" class="box margin-bottom--x4">
               <h3>Responsive Classes</h3>
               <p>We can also apply classes for specific viewport widths on elements using data attributes. This isn't limited to just boxed elements, you can use <code>data-classes-sml="..."</code> on any element. However, it's much more performant to use standard media query classes wherever possible.</p>
-              <div class="boxes boxes-tight">
+              <div class="boxes boxes-nested">
                 <div class="box rounded padding"
                 data-width-lrg="6"
                 data-classes-tny="bg-blue--lighter-3 color-white"
