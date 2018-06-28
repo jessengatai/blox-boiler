@@ -170,6 +170,21 @@ button,
     }
   }
 
+  // PINK BUTTON
+  &.pink {
+    background: $pink;
+    border: 1px solid darken($pink,5);
+    border-bottom: 2px solid darken($pink,15);
+    color: darken($pink,70);
+    &:hover,
+    &[active="true"] {
+      background: lighten($pink,5);
+      border: 1px solid darken($pink,10);
+      border-bottom: 2px solid darken($pink,10);
+      color: darken($pink,50);
+    }
+  }
+
   // PURPLE BUTTON
   &.purple {
     background: $purple;

@@ -1,0 +1,41 @@
+*[class*="show-"] {
+  display: none;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+@media #{$media-tny-only} {
+  .show-tny {
+    display: inherit;
+    visibility: visible;
+    pointer-events: inherit;
+  }
+}
+@media #{$media-sml-only} {
+  .show-sml {
+    display: inherit;
+    visibility: visible;
+    pointer-events: inherit;
+  }
+}
+@media #{$media-med-only} {
+  .show-med {
+    display: inherit;
+    visibility: visible;
+    pointer-events: inherit;
+  }
+}
+@media #{$media-lrg-only} {
+  .show-lrg {
+    display: inherit;
+    visibility: visible;
+    pointer-events: inherit;
+  }
+}
+@media #{$media-xl-only} {
+  .show-xl {
+    display: inherit;
+    visibility: visible;
+    pointer-events: inherit;
+  }
+}

@@ -1,16 +1,16 @@
 // colors
 $red: #ff1929;
 $orange: orange;
+$yellow: #ffeb4d;
+$pink: pink;
 $purple: #771dff;
 $blue: #1f21ff;
 $green: #65ff97;
-$yellow: #ffeb4d;
 $black: #17191f;
 $white: #ffffff;
 
 // containers
 $container-width: 90vw;
-$container-min-width: 500px;
 $container-max-width: 1400px;
 $container-max-width-thin: 900px;
 
@@ -62,13 +62,13 @@ $h4-size: calc(14px + .5vh + .5vw) ;
 $h4-size-double: calc(28px + 1vh + 1vw) ;
 $h5-size: calc(12px + .4vh + .4vw) ;
 $h5-size-double: calc(24px + .8vh + .8vw) ;
-$h6-size: calc(11px + .1vh + .1vw) ;
-$h6-size-double: calc(22px + .2vh + .2vw) ;
+$h6-size: calc(12px + .2vh + .2vw) ;
+$h6-size-double: calc(24px + .4vh + .4vw) ;
 $p-size: calc(12px + .15vh + .15vw) ;
 $p-size-double: calc(24px + .3vh + .3vw) ;
 $s-size: calc(10px + .1vh + .1vw) ;
 $s-size-double: calc(20px + .2vh + .2vw) ;
 
 // color arrays (DO NOT TOUCH!)
-$colorKeys: white, black, red, orange, yellow, green, blue, purple;
-$colorValues: $white, $black, $red, $orange, $yellow, $green, $blue, $purple;
+$colorKeys: white, black, red, orange, yellow, pink, green, blue, purple;
+$colorValues: $white, $black, $red, $orange, $yellow, $pink, $green, $blue, $purple;

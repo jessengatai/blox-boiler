@@ -32,37 +32,37 @@
   <body class="">
 
     <div id="header"
-    class="bg-purple--darker-9 color-white"
+    class="bg-white--darker-1 color-blue--darker-9 padding-y--x4 margin-bottom--x4"
     data-bg-gradient
     data-bg-direction=""
     data-bg-top=""
     data-bg-bottom=""
     >
-      <div class="bx-container padding-y--x4 margin-bottom--x2" data-x-axis="center">
+      <div class="bx-container" data-x-axis="center">
         <div class="boxes">
-          <div class="box" data-width-tny="12">
+          <div class="box" data-span-tny="12">
             <h1 class="size--x2">Blox.</h1>
-            <h4>A functionality-first front-end boiler <br><span class="weight-200">{ whatever that means }</span></h4>
-            <button type="button" class="circular purple">👨🏽‍💻 GitHub</button>
-            <button type="button" class="circular purple">👩🏼‍💻 NPM</button>
-            <button type="button" class="circular purple">🐨 Me</button>
+            <h4>A functionality-first front-end boiler <br><span class="weight-200">{ the stuff you wish was native but isn't cause' bad practice }</span></h4>
+            <button type="button" class="big circular">👨🏽‍💻 GitHub</button>
+            <button type="button" class="big circular">👩🏼‍💻 NPM</button>
+            <button type="button" class="big circular">🐨 Me</button>
           </div>
         </div>
       </div>
     </div>
 
     <div class="bx-container" data-x-axis="center">
-      <div class="boxes boxes-nested">
+      <div class="boxes" data-gutters="nested">
 
         <!-- table of contents -->
         <div id="contents"
         class="box sticky-top--med-up offset-top padding rounded transition-bg"
         data-sticky
         data-classes-onstick="bg-white--darker-1"
-        data-width-tny="0"
-        data-width-med="3"
-        data-width-xl="2">
-          <p class="weight-600">Functionality</p>
+        data-span-tny="0"
+        data-span-med="3"
+        data-span-xl="2">
+          <h6 class="margin-left">Functionality</h6>
           <nav class="margin-bottom">
             <ul>
               <li><a data-hash="#setup"    data-classes-onhash="purple" class="button off small full-width text-left" href="#setup">Setup</a></li>
@@ -75,7 +75,7 @@
               <li><a data-hash="#forms"    data-classes-onhash="purple" class="button off small full-width text-left" href="#forms">Forms</a></li>
             </ul>
           </nav>
-          <p class="weight-600">Utilitiy Classes</p>
+          <h6 class="margin-left">Utilitiy Classes</h6>
           <nav class="margin-bottom">
             <ul>
               <li><a data-hash="setup" class="button off small full-width text-left" href="#layout">Layout</a></li>
@@ -91,9 +91,9 @@
         <!-- content wrap -->
         <div id="content"
         class="box"
-        data-width-sml="12"
-        data-width-med="9"
-        data-width-xl="10">
+        data-span-sml="12"
+        data-span-med="9"
+        data-span-xl="10">
           <div class="boxes">
 
             <!-- SETUP -->
@@ -112,8 +112,8 @@
               <h2 class="size--x2">Stickies</h2>
               <p>CSS <code>position: sticky;</code> is epic, however it lacks the native support to trigger events when our element is "stuck". Blox attempts to solve this issue using javascripts <code>IntersectionObserver</code> in combination with HTML <code>data</code> attributes. This let's us quickly toggle CSS classes or fire our own custom functions when our sticky elements are stuck.</p>
 
-              <div class="boxes boxes-nested">
-                <div class="box" data-width-med="6">
+              <div class="boxes" data-gutters="nested">
+                <div class="box" data-span-med="6">
                   <h5>Requirments</h5>
                   <ol type="1" class="margin-bottom--x2">
                     <li>You need to add the attribute <code>data-sticky</code> to the sticky element.</li>
@@ -125,7 +125,7 @@
                     </li>
                   </ol>
                 </div>
-                <div class="box" data-width-med="6">
+                <div class="box" data-span-med="6">
                   <h5>Recommendations</h5>
                   <ol type="1" class="margin-bottom--x2">
                     <li>Adding padding or changing the sticky height will result in some touchy functionalty. This is because the IntersectionObserver watches for hidden divs entering and leaving the viewport, these divs are positioned based on the sticky elements height, margins and offsets.</li>
@@ -133,8 +133,8 @@
                 </div>
               </div>
 
-              <div class="boxes boxes-nested">
-                <div class="box border-top--purple border-bottom--purple" data-width-tny="4">
+              <div class="boxes" data-gutters="nested">
+                <div class="box border-top--purple border-bottom--purple" data-span-tny="4">
                   <p class="color-white--darker-3">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
                   <p class="color-white--darker-3">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
                   <div class="sticky-bottom deboss"
@@ -142,14 +142,14 @@
                   data-classes-onstick="shadow-lrg color-white deboss--black"
                   ><small>.sticky-bottom</small></div>
                 </div>
-                <div class="box border-top--purple border-bottom--purple" data-width-tny="4">
+                <div class="box border-top--purple border-bottom--purple" data-span-tny="4">
                   <div class="sticky-top deboss offset-top"
                   data-sticky
                   data-classes-onstick="shadow-lrg color-white deboss--black"
                   ><small>.sticky-top + .offset-top</small></div>
                   <p class="margin-top color-white--darker-3">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
                 </div>
-                <div class="box border-top--purple border-bottom--purple" data-width-tny="4">
+                <div class="box border-top--purple border-bottom--purple" data-span-tny="4">
                   <div class="sticky-top deboss offset-top--x2 margin-bottom"
                   data-sticky
                   data-classes-onstick="shadow-lrg color-white deboss--black"
@@ -191,41 +191,95 @@
             <!-- BOXES -->
             <div id="boxes" class="box margin-bottom--x4">
               <h2 class="size--x2">Boxes</h2>
-              <p>Blox uses flexbox to create layouts quickly. All that's needed is for a parent element to have a class of <code>.boxes</code> and it's direct children to have classes of <code>.box</code>. Then we simply apply widths and heights via data-attributes for each box.</p>
+              <p class="margin-bottom--x3">Blox uses flexbox to create layouts quickly. All that's needed is for a parent element to have a class of <code>.boxes</code> and it's direct children to have classes of <code>.box</code>. Then we simply apply widths and heights via data-attributes for each box.</p>
 
               <h3>Horizontal</h3>
-              <p>The default direction for boxes is left to right and the default column count is 12 (changeable via variables.scss). Also, these data-attributes run from the bottom up, meaning if you <strong>only</strong> set <code>data-width-med="6"</code> the box will be 6/12 on all screen sizes from medium up and 12/12 for everything below.</p>
-              <div class="boxes bg-red">
-                <div class="box deboss tight--padding"
-                data-width-xl="12" data-width-lrg="3" data-width-med="6" data-width-sml="4">
-                  <pre data-src="./code/_boxes1.html"></pre>
+              <p>The default direction for boxes is left to right and the default column count is 12 (changeable via variables.scss). Also, these data-attributes run from the bottom up, meaning if you <strong>only</strong> set <code>data-span-med="6"</code> the box will be 6/12 on all screen sizes from medium up and 12/12 for everything below.</p>
+
+              <div class="boxes margin-bottom--x3" data-gutters="nested">
+
+                <!-- box 1 -->
+                <div class="box deboss"
+                data-span-xl="auto"
+                data-span-lrg="4"
+                data-span-med="8"
+                data-span-sml="6"
+                data-span-tny="12">
+                  <h6 class="tight show-xl">data-span-xl="auto"</h6>
+                  <h6 class="tight show-lrg">data-span-lrg="4"</h6>
+                  <h6 class="tight show-med">data-span-med="8"</h6>
+                  <h6 class="tight show-sml">data-span-sml="6"</h6>
+                  <h6 class="tight show-tny">data-span-tny="12"</h6>
                 </div>
-                <div class="box deboss tight--padding"
-                data-width-xl="4" data-width-lrg="3" data-width-med="6" data-width-sml="4">
-                  <pre data-src="./code/_boxes2.html"></pre>
+
+                <!-- box 2 -->
+                <div class="box deboss"
+                data-span-xl="3"
+                data-span-lrg="8"
+                data-span-med="4"
+                data-span-sml="6"
+                data-span-tny="12">
+                  <h6 class="tight show-xl">data-span-xl="3"</h6>
+                  <h6 class="tight show-lrg">data-span-lrg="8"</h6>
+                  <h6 class="tight show-med">data-span-med="4"</h6>
+                  <h6 class="tight show-sml">data-span-sml="6"</h6>
+                  <h6 class="tight show-tny">data-span-tny="12"</h6>
                 </div>
-                <div class="box deboss tight--padding"
-                data-width-xl="4" data-width-lrg="3" data-width-med="6" data-width-sml="4">
-                  <pre data-src="./code/_boxes2.html"></pre>
+
+                <!-- box 3 -->
+                <div class="box deboss"
+                data-span-xl="fill"
+                data-span-lrg="auto"
+                data-span-med="fill"
+                data-span-sml="fill"
+                data-span-tny="12">
+                  <h6 class="tight show-xl">data-span-xl="fill"</h6>
+                  <h6 class="tight show-lrg">data-span-lrg="auto"</h6>
+                  <h6 class="tight show-med">data-span-med="fill"</h6>
+                  <h6 class="tight show-sml">data-span-sml="fill"</h6>
+                  <h6 class="tight show-tny">data-span-tny="12"</h6>
                 </div>
-                <div class="box deboss tight--padding"
-                data-width-xl="4" data-width-lrg="3" data-width-med="6">
-                  <pre data-src="./code/_boxes3.html"></pre>
+
+                <!-- box 4 -->
+                <div class="box deboss"
+                data-span-xl="8"
+                data-span-lrg="fill"
+                data-span-med="fill"
+                data-span-sml="auto"
+                data-span-tny="0">
+                  <h6 class="tight show-xl">data-span-xl="8"</h6>
+                  <h6 class="tight show-lrg">data-span-lrg="fill"</h6>
+                  <h6 class="tight show-med">data-span-med="fill"</h6>
+                  <h6 class="tight show-sml">data-span-sml="auto"</h6>
                 </div>
+
+                <!-- box 5 -->
+                <div class="box deboss"
+                data-span-xl="4"
+                data-span-lrg="12"
+                data-span-med="fill"
+                data-span-tny="12">
+                  <h6 class="tight show-xl">data-span-xl="4"</h6>
+                  <h6 class="tight show-lrg">data-span-lrg="12"</h6>
+                  <h6 class="tight show-med">data-span-med="fill"</h6>
+                  <h6 class="tight show-sml">SML Inheriting From TNY (which spans 12)</h6>
+                  <h6 class="tight show-tny">data-span-tny="12"</h6>
+                </div>
+
               </div>
 
               <h3>Vertical</h3>
-              <p>If you want to run your boxes from top to bottom, add <code>data-direction="vertical"</code> to the parent <code>.boxes</code> element. From there, we can apply our <code>data-height-med="6"</code> attributes for each box.</p>
-              <div class="boxes bg-red" style="height: calc(100px + 30vh);" data-direction="vertical">
-                <div class="box bg-blue" data-width-tny="2">
-                  <h5>Header <small class="color-white--darker-8">no height set</small></h5>
+              <p>If you want to run your boxes from top to bottom, add <code>data-direction="vertical"</code> to the parent <code>.boxes</code> element. From there, we can apply our <code>data-span-med="6"</code> attributes for each box.</p>
+              <div class="boxes" data-gutters="nested" data-direction="vertical" style="min-height: 66vh;">
+                <div class="box deboss" data-span-tny="auto">
+                  <h5>Header</h5>
                 </div>
-                <div class="box bg-blue" data-width-tny="fill">
+                <div class="box deboss" data-span-tny="fill">
                   <h5>Body</h5>
-                  <p>This area will grow to fill the space between the header and the footer using <code>data-height-tny="fill"</code> </p>
+                  <p>This area will fill the height between the header and footer. Don't forget to add some kind of min-height to the parent .boxes element. If you don't these inner div's will just stack plain as day.</p>
                 </div>
-                <div class="box bg-blue" data-width-tny="2">
-                  <h5>Footer <small class="color-white--darker-8">no height set</small></h5>
+                <div class="box deboss" data-span-tny="auto">
+                  <h5>Footer</h5>
                 </div>
               </div><!-- end vertical box section -->
 
@@ -236,8 +290,8 @@
             <div id="hash" class="box margin-bottom--x4">
               <h2># URL Hash States</h2>
               <p>If you have an anchor tag that links to #foo and either moves to the matching element or simply updates the hash in the URL, when that hash is active we might want to add a class to our button or some other element on the page. We can achieve this using hash data attributes.</p>
-              <div class="boxes boxes-nested">
-                <div class="box" data-width-tny="6">
+              <div class="boxes" data-gutters="nested">
+                <div class="box" data-span-tny="6">
                   <a href="#foo"
                   data-hash="#foo"
                   data-classes-onhash="purple"
@@ -253,7 +307,7 @@
                     Adds classes when #foo is inactive with data-classes-offhash="..."
                   </p>
                 </div>
-                <div class="box" data-width-tny="6">
+                <div class="box" data-span-tny="6">
                   <pre data-src="./code/_hashes.html"></pre>
                 </div>
               </div>
@@ -297,16 +351,16 @@
 
 
             <!-- modals -->
-            <div class="box margin-top" data-width-tny="12">
+            <div class="box margin-top" data-span-tny="12">
               <h3>Modals</h3>
               <p>The basic requirments to setup a modal is a button and a div with an ID.</p>
               <p>note: It's recommended to place the modal div outside all divs right before the closing body tag.</p>
             </div>
-            <div class="box" data-width-tny="12" data-width-med="6">
+            <div class="box" data-span-tny="12" data-span-med="6">
               <button data-open-modal="standard-modal">Standard</button>
               <pre data-src="./code/_modal.html"></pre>
             </div>
-            <div class="box" data-width-tny="12" data-width-med="6">
+            <div class="box" data-span-tny="12" data-span-med="6">
               <button data-open-modal="fullscreen-modal">Fullscreen</button>
               <pre data-src="./code/_modal.html"></pre>
             </div>
@@ -315,9 +369,9 @@
             <div id="classes" class="box margin-bottom--x4">
               <h3>Responsive Classes</h3>
               <p>We can also apply classes for specific viewport widths on elements using data attributes. This isn't limited to just boxed elements, you can use <code>data-classes-sml="..."</code> on any element. However, it's much more performant to use standard media query classes wherever possible.</p>
-              <div class="boxes boxes-nested">
+              <div class="boxes" data-gutters="nested">
                 <div class="box rounded padding"
-                data-width-lrg="6"
+                data-span-lrg="6"
                 data-classes-tny="bg-blue--lighter-3 color-white"
                 data-classes-sml="bg-orange"
                 data-classes-med="bg-purple color-white"
@@ -325,17 +379,17 @@
                 data-classes-xl="bg-green color-green--darker-10">
                   <p>Hey, give the window a resize and watch the classes on this box change</p>
                 </div>
-                <div class="box deboss tight--padding" data-width-lrg="6">
+                <div class="box deboss tight--padding" data-span-lrg="6">
                   <pre data-src="./code/_boxes4.html"></pre>
                 </div>
               </div>
             </div>
 
             <!-- buttons -->
-            <div class="box margin-top--x4" data-width-tny="12">
+            <div class="box margin-top--x4" data-span-tny="12">
               <h3 class="tight">Buttons</h3>
             </div>
-            <div class="box" data-width-tny="6">
+            <div class="box" data-span-tny="6">
               <button class="full-width" type="button" name="button">.full-width</button>
               <button type="button" name="button">&#60;button&#62;</button>
               <button class="big" type="button" name="button">.big</button>
@@ -343,7 +397,7 @@
               <button class="circular" type="button" name="button">.circular</button>
               <button class="" type="button" name="button">.icon child</button>
             </div>
-            <div class="box" data-width-tny="6">
+            <div class="box" data-span-tny="6">
               <button class="primary full-width" type="button" name="button">.primary</button>
               <button class="red" type="button" name="button">.red</button>
               <button class="orange" type="button" name="button">.orange</button>
