@@ -192,13 +192,18 @@
 
             <!-- BOXES -->
             <div id="boxes" class="box margin-bottom--x4">
-              <h2 class="size--x2">Boxes</h2>
-              <p class="margin-bottom--x3">Blox uses flexbox to create layouts quickly. All that's needed is for a parent element to have a class of <code>.boxes</code> and it's direct children to have classes of <code>.box</code>. Then we simply apply widths and heights via data-attributes for each box.</p>
+              <h2 class="bg-white padding-top padding-bottom--half sticky-top"
+              data-sticky
+              data-classes-onstick="border-bottom shadow--bottom"
+              data-classes-offstick=""
+              >Boxes</h2>
+              <p>Blox uses flexbox to create layouts quickly. All that's needed is for a parent element to have a class of <code>.boxes</code> and it's direct children to have classes of <code>.box</code>. Then we simply apply widths and heights via data-attributes for each box.</p>
 
               <h3>Horizontal</h3>
-              <p>The default direction for boxes is left to right and the default column count is 12 (changeable via variables.scss). Also, these data-attributes run from the bottom up, meaning if you <strong>only</strong> set <code>data-span-med="6"</code> the box will be 6/12 on all screen sizes from medium up and 12/12 for everything below.</p>
+              <p>The default direction for boxes is left to right and the default column count is 12 (changeable via variables.scss). Also, these data-attributes run from the bottom up, meaning if you <strong>only</strong> set <code>data-span-med="x"</code> the box will be 6/12 on all screen sizes from medium up and 12/12 for everything below.</p>
 
-              <div class="boxes margin-bottom--x3" data-gutters="nested">
+              <!-- horizontal boxes -->
+              <div class="boxes" data-gutters="nested">
 
                 <!-- box 1 -->
                 <div class="box deboss"
@@ -267,25 +272,58 @@
                   <h6 class="tight show-sml">SML Inheriting From TNY (which spans 12)</h6>
                   <h6 class="tight show-tny">data-span-tny="12"</h6>
                 </div>
-
               </div>
 
               <h3>Vertical</h3>
-              <p>If you want to run your boxes from top to bottom, add <code>data-direction="vertical"</code> to the parent <code>.boxes</code> element. From there, we can apply our <code>data-span-med="6"</code> attributes for each box.</p>
-              <div class="boxes" data-gutters="nested" data-direction="vertical" style="min-height: 66vh;">
-                <div class="box deboss" data-span-tny="auto">
+              <p>If you want to run your boxes from top to bottom, add <code>data-direction="vertical"</code> to the parent <code>.boxes</code> element. From there, we can apply our <code>data-span-med="x"</code> attributes for each box.</p>
+
+              <!-- vertical boxes -->
+              <div class="boxes" data-gutters="nested" data-direction="vertical" style="min-height: calc(100px + 40vh);">
+                <div class="box deboss">
                   <h5>Header</h5>
                 </div>
                 <div class="box deboss" data-span-tny="fill">
                   <h5>Body</h5>
                   <p>This area will fill the height between the header and footer. Don't forget to add some kind of min-height to the parent .boxes element. If you don't these inner div's will just stack plain as day.</p>
                 </div>
-                <div class="box deboss" data-span-tny="auto">
+                <div class="box deboss">
                   <h5>Footer</h5>
                 </div>
               </div><!-- end vertical box section -->
 
-            </div><!-- end boxes section -->
+              <h3>Gutters</h3>
+              <p>There are 3 <code>data-gutters</code> values to select from.</p>
+
+              <h6>Nested <code>data-gutters="nested"</code></h6>
+              <div class="boxes" data-gutters="nested">
+                <div class="box rounded padding bg-white--darker-2" data-span-tny="6">
+                  <p>Boxes will sit flush with parent div.</p>
+                </div>
+                <div class="box rounded padding bg-white--darker-3" data-span-tny="6">
+                </div>
+              </div>
+
+              <h6>Tight <code>data-gutters="tight"</code></h6>
+              <div class="boxes rounded overflow-hidden margin-bottom" data-gutters="tight">
+                <div class="box padding bg-white--darker-2" data-span-tny="6">
+                  <p>Boxes will sit flush with the parent div without gutters.</p>
+                </div>
+                <div class="box padding bg-white--darker-3" data-span-tny="6">
+                </div>
+              </div>
+
+              <h6>Default <code>no attribute</code></h6>
+              <div class="boxes">
+                <div class="box rounded padding bg-white--darker-2" data-span-tny="6">
+                  <p>Boxes will sit un-nested and have gutters.</p>
+                </div>
+                <div class="box rounded padding bg-white--darker-3" data-span-tny="6">
+                </div>
+              </div>
+
+
+
+            </div><!-- end BOXES section -->
 
 
             <!-- HASH -->

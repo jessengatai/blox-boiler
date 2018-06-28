@@ -101,6 +101,12 @@ PADDINGS
 }
 @include paddings;
 
+.padding-top--half {
+  padding-top: ($paddingY / 2);
+}
+.padding-bottom--half {
+  padding-bottom: ($paddingY / 2);
+}
 
 /*
 MARGINS
@@ -257,6 +263,9 @@ SHADOWS
 }
 .shadow-sml {
   box-shadow: 0 3px 7px rgba(0,0,0,.03);
+}
+.shadow--bottom {
+  box-shadow: 0 15px 10px -10px rgba(0,0,0,.03);
 }
 
 /*
@@ -529,4 +538,7 @@ a.inline-link {
 .scroll-y {
   overflow-y: scroll;
   height: 100%;
+}
+.overflow-hidden {
+  overflow: hidden;
 }

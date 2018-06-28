@@ -136,7 +136,8 @@ BOX COLUMNS
 
   // tight margin overrides
   &[data-gutters="tight"] {
-    margin: 0px;
+    margin-left: 0px;
+    margin-right: 0px;
     > .box {
       margin: 0px;
     }
@@ -150,6 +151,7 @@ BOX COLUMNS
   // vertical layout
   &[data-direction="vertical"] {
     flex-direction: column;
+    align-items: center;
     @include bx-span-output( $default_cols, 'height' );
 
     // force box widths @ 100% for tight verticals
