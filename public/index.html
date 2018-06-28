@@ -192,18 +192,14 @@
 
             <!-- BOXES -->
             <div id="boxes" class="box margin-bottom--x4">
-              <h2 class="bg-white padding-top padding-bottom--half sticky-top"
-              data-sticky
-              data-classes-onstick="border-bottom shadow--bottom"
-              data-classes-offstick=""
-              >Boxes</h2>
+              <h2 class="size--x2">Boxes</h2>
               <p>Blox uses flexbox to create layouts quickly. All that's needed is for a parent element to have a class of <code>.boxes</code> and it's direct children to have classes of <code>.box</code>. Then we simply apply widths and heights via data-attributes for each box.</p>
 
               <h3>Horizontal</h3>
               <p>The default direction for boxes is left to right and the default column count is 12 (changeable via variables.scss). Also, these data-attributes run from the bottom up, meaning if you <strong>only</strong> set <code>data-span-med="x"</code> the box will be 6/12 on all screen sizes from medium up and 12/12 for everything below.</p>
 
               <!-- horizontal boxes -->
-              <div class="boxes" data-gutters="nested">
+              <div class="boxes color-white--darker-8" data-gutters="nested">
 
                 <!-- box 1 -->
                 <div class="box deboss"
@@ -212,25 +208,11 @@
                 data-span-med="8"
                 data-span-sml="6"
                 data-span-tny="12">
-                  <h6 class="tight show-xl">data-span-xl="auto"</h6>
-                  <h6 class="tight show-lrg">data-span-lrg="4"</h6>
-                  <h6 class="tight show-med">data-span-med="8"</h6>
-                  <h6 class="tight show-sml">data-span-sml="6"</h6>
-                  <h6 class="tight show-tny">data-span-tny="12"</h6>
-                </div>
-
-                <!-- box 2 -->
-                <div class="box deboss"
-                data-span-xl="3"
-                data-span-lrg="8"
-                data-span-med="4"
-                data-span-sml="6"
-                data-span-tny="12">
-                  <h6 class="tight show-xl">data-span-xl="3"</h6>
-                  <h6 class="tight show-lrg">data-span-lrg="8"</h6>
-                  <h6 class="tight show-med">data-span-med="4"</h6>
-                  <h6 class="tight show-sml">data-span-sml="6"</h6>
-                  <h6 class="tight show-tny">data-span-tny="12"</h6>
+                  <p class="tight show-xl">data-span-xl="auto"</p>
+                  <p class="tight show-lrg">data-span-lrg="4"</p>
+                  <p class="tight show-med">data-span-med="8"</p>
+                  <p class="tight show-sml">data-span-sml="6"</p>
+                  <p class="tight show-tny">data-span-tny="12"</p>
                 </div>
 
                 <!-- box 3 -->
@@ -240,11 +222,11 @@
                 data-span-med="fill"
                 data-span-sml="fill"
                 data-span-tny="12">
-                  <h6 class="tight show-xl">data-span-xl="fill"</h6>
-                  <h6 class="tight show-lrg">data-span-lrg="auto"</h6>
-                  <h6 class="tight show-med">data-span-med="fill"</h6>
-                  <h6 class="tight show-sml">data-span-sml="fill"</h6>
-                  <h6 class="tight show-tny">data-span-tny="12"</h6>
+                  <p class="tight show-xl">data-span-xl="fill"</p>
+                  <p class="tight show-lrg">data-span-lrg="auto"</p>
+                  <p class="tight show-med">data-span-med="fill"</p>
+                  <p class="tight show-sml">data-span-sml="fill"</p>
+                  <p class="tight show-tny">data-span-tny="12"</p>
                 </div>
 
                 <!-- box 4 -->
@@ -254,10 +236,10 @@
                 data-span-med="fill"
                 data-span-sml="auto"
                 data-span-tny="0">
-                  <h6 class="tight show-xl">data-span-xl="8"</h6>
-                  <h6 class="tight show-lrg">data-span-lrg="fill"</h6>
-                  <h6 class="tight show-med">data-span-med="fill"</h6>
-                  <h6 class="tight show-sml">data-span-sml="auto"</h6>
+                  <p class="tight show-xl">data-span-xl="8"</p>
+                  <p class="tight show-lrg">data-span-lrg="fill"</p>
+                  <p class="tight show-med">data-span-med="fill"</p>
+                  <p class="tight show-sml">data-span-sml="auto"</p>
                 </div>
 
                 <!-- box 5 -->
@@ -266,11 +248,11 @@
                 data-span-lrg="12"
                 data-span-med="fill"
                 data-span-tny="12">
-                  <h6 class="tight show-xl">data-span-xl="4"</h6>
-                  <h6 class="tight show-lrg">data-span-lrg="12"</h6>
-                  <h6 class="tight show-med">data-span-med="fill"</h6>
-                  <h6 class="tight show-sml">SML Inheriting From TNY (which spans 12)</h6>
-                  <h6 class="tight show-tny">data-span-tny="12"</h6>
+                  <p class="tight show-xl">data-span-xl="4"</p>
+                  <p class="tight show-lrg">data-span-lrg="12"</p>
+                  <p class="tight show-med">data-span-med="fill"</p>
+                  <p class="tight show-sml">SML Inheriting From TNY (which spans 12)</p>
+                  <p class="tight show-tny">data-span-tny="12"</p>
                 </div>
               </div>
 
@@ -278,16 +260,16 @@
               <p>If you want to run your boxes from top to bottom, add <code>data-direction="vertical"</code> to the parent <code>.boxes</code> element. From there, we can apply our <code>data-span-med="x"</code> attributes for each box.</p>
 
               <!-- vertical boxes -->
-              <div class="boxes" data-gutters="nested" data-direction="vertical" style="min-height: calc(100px + 40vh);">
+              <div class="boxes color-white--darker-8" data-gutters="nested" data-direction="vertical" style="min-height: calc(100px + 35vh);">
                 <div class="box deboss">
-                  <h5>Header</h5>
+                  <p>Header (no spans set)</p>
                 </div>
                 <div class="box deboss" data-span-tny="fill">
-                  <h5>Body</h5>
-                  <p>This area will fill the height between the header and footer. Don't forget to add some kind of min-height to the parent .boxes element. If you don't these inner div's will just stack plain as day.</p>
+                  <p>Body (data-span-tny="fill")</p>
+                  <p>This area will fill the height between the header and footer. Don't forget to add some kind of min-height to the parent .boxes element. If you don't these inner divs will simply stack.</p>
                 </div>
                 <div class="box deboss">
-                  <h5>Footer</h5>
+                  <p>Footer (no spans set)</p>
                 </div>
               </div><!-- end vertical box section -->
 
@@ -313,7 +295,7 @@
               </div>
 
               <h6>Default <code>no attribute</code></h6>
-              <div class="boxes">
+              <div class="boxes margin-bottom">
                 <div class="box rounded padding bg-white--darker-2" data-span-tny="6">
                   <p>Boxes will sit un-nested and have gutters.</p>
                 </div>
@@ -321,6 +303,37 @@
                 </div>
               </div>
 
+              <div class="deboss">
+                <table class="full-width">
+                  <thead>
+                    <th>For Element</th>
+                    <th>Attribute</th>
+                    <th>Description</th>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><code>.boxes</code></td>
+                      <td>data-gutters="X"</td>
+                      <td>X being <code>nested</code> or <code>tight</code> <br><small class="color-red">Attribute is optional</small></td>
+                    </tr>
+                    <tr>
+                      <td><code>.boxes</code></td>
+                      <td>data-direction="X"</td>
+                      <td>X being <code>vertical</code> or <code>horizontal</code> <br><small class="color-red">Attribute is optional and will default to horizontal</small></td>
+                    </tr>
+                    <tr>
+                      <td><code>.box</code></td>
+                      <td>data-span-X="..."</td>
+                      <td>X being <code>tny</code>, <code>sml</code>, <code>med</code>, <code>lrg</code>, <code>xl</code> screen sizes <br><small class="color-red">Resolution breakpoints are changeable in variables.scss</small></td>
+                    </tr>
+                    <tr>
+                      <td><code>.box</code></td>
+                      <td>data-span-tny="X"</td>
+                      <td>X being <code>auto</code>, <code>fill</code> and columns <code>1</code> through <code>12</code> <br><small class="color-red">Column count is changeable in variables.scss</small></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
 
 
             </div><!-- end BOXES section -->
@@ -328,7 +341,7 @@
 
             <!-- HASH -->
             <div id="hash" class="box margin-bottom--x4">
-              <h2># URL Hash States</h2>
+              <h2 class="size--x2"># States</h2>
               <p>If you have an anchor tag that links to #foo and either moves to the matching element or simply updates the hash in the URL, when that hash is active we might want to add a class to our button or some other element on the page. We can achieve this using hash data attributes.</p>
               <div class="boxes" data-gutters="nested">
                 <div class="box" data-span-tny="6">

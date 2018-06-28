@@ -59,17 +59,45 @@ console.log('boxes loaded');
 jQuery(document).ready(function ($) {
 
   /**
-   * run through the hash functionalty when url hash changes
+   * run through the boxes and apply viewport classes
    */
-  var runBoxes = function runBoxes() {
+  var runBoxRowClasses = function runBoxRowClasses() {
 
     // setup some big scope variables
     var ww = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
-    var objects = $('[data-classes-tny], [data-classes-sml], [data-classes-med], [data-classes-lrg], [data-classes-xl]');
+    var boxes = $('.boxes');
 
     // run through each element that uses responsive classes
-    if (objects.length) {
-      $.each(objects, function (index, object) {
+    if (boxes.length) {
+      $.each(boxes, function (index, object) {});
+    }
+  };
+
+  /**
+   * Handle responsive changes
+   * @param  {object} e the event
+   */
+  $(window).on('resize', function (e) {
+    runBoxRowClasses();
+  });
+  runBoxRowClasses();
+});
+
+console.log('classes loaded');
+jQuery(document).ready(function ($) {
+
+  /**
+   * run through the boxes and apply viewport classes
+   */
+  var runResponsiveClasses = function runResponsiveClasses() {
+
+    // setup some big scope variables
+    var ww = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
+    var responsiveClasses = $('[data-classes-tny], [data-classes-sml], [data-classes-med], [data-classes-lrg], [data-classes-xl]');
+
+    // run through each element that uses responsive classes
+    if (responsiveClasses.length) {
+      $.each(responsiveClasses, function (index, object) {
 
         // get all the classes this element has
         var classesTny = $(object).attr('data-classes-tny');
@@ -107,13 +135,13 @@ jQuery(document).ready(function ($) {
   };
 
   /**
-   * Handle hash changes
+   * Handle responsive changes
    * @param  {object} e the event
    */
   $(window).on('resize', function (e) {
-    runBoxes();
+    runResponsiveClasses();
   });
-  runBoxes();
+  runResponsiveClasses();
 });
 
 console.log('hashes loaded');
