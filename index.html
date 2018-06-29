@@ -26,6 +26,26 @@
         float: left;
         clear: both;
       }
+
+      .on-row-classes .row-1 {
+        background: red;
+      }
+      .on-row-classes .row-2 {
+        background: orange;
+      }
+      .on-row-classes .row-3 {
+        background: green;
+      }
+      .on-row-classes .row-4 {
+        background: blue;
+      }
+      .on-row-classes .row-5 {
+        background: purple;
+      }
+      .on-row-classes .row-5 {
+        background: black;
+      }
+
     </style>
 
   </head>
@@ -196,19 +216,25 @@
               <h3>Horizontal</h3>
               <p>The default direction for boxes is left to right and the default column count is 12 (changeable via variables.scss). Also, these data-attributes run from the bottom up, meaning if you <strong>only</strong> set <code>data-span-med="6"</code> the box will be 6/12 on all screen sizes from medium up and 12/12 for everything below.</p>
 
+              <h6>Hints</h6>
+              <ol>
+                <li>If you're using <code>fill</code>, the column will expand to a new row if your content is too long.</li>
+                <li>Columns start at <code>0</code>, so if you set <code>data-span-med="0"</code>, that box will be hidden on medium sized screens.</li>
+              </ol>
+
               <!-- horizontal boxes -->
-              <div id="testing" class="boxes color-white--darker-8" data-rowclasses data-gutters="nested">
+              <div class="boxes color-white--darker-8" data-rowclasses data-gutters="nested">
 
                 <!-- box 1 -->
                 <div class="box deboss"
-                data-span-xl="4"
-                data-span-lrg="4"
-                data-span-med="8"
+                data-span-xl="auto"
+                data-span-lrg="6"
+                data-span-med="auto"
                 data-span-sml="6"
                 data-span-tny="12">
-                  <p class="tight show-xl">data-span-xl="4"</p>
-                  <p class="tight show-lrg">data-span-lrg="4"</p>
-                  <p class="tight show-med">data-span-med="8"</p>
+                  <p class="tight show-xl">data-span-xl="auto"</p>
+                  <p class="tight show-lrg">data-span-lrg="6"</p>
+                  <p class="tight show-med">data-span-med="auto"</p>
                   <p class="tight show-sml">data-span-sml="6"</p>
                   <p class="tight show-tny">data-span-tny="12"</p>
                 </div>
@@ -216,12 +242,39 @@
                 <!-- box 2 -->
                 <div class="box deboss"
                 data-span-xl="fill"
-                data-span-lrg="auto"
+                data-span-lrg="6"
+                data-span-med="fill"
+                data-span-sml="6"
+                data-span-tny="12">
+                  <p class="tight show-xl">data-span-xl="fill"</p>
+                  <p class="tight show-lrg">data-span-lrg="6"</p>
+                  <p class="tight show-med">data-span-med="fill"</p>
+                  <p class="tight show-sml">data-span-sml="6"</p>
+                  <p class="tight show-tny">data-span-tny="12"</p>
+                </div>
+
+                <!-- box 3 -->
+                <div class="box deboss"
+                data-span-xl="8"
+                data-span-lrg="fill"
+                data-span-med="fill"
+                data-span-sml="auto"
+                data-span-tny="0">
+                  <p class="tight show-xl">data-span-xl="8"</p>
+                  <p class="tight show-lrg">data-span-lrg="fill"</p>
+                  <p class="tight show-med">data-span-med="fill"</p>
+                  <p class="tight show-sml">data-span-sml="auto"</p>
+                </div>
+
+                <!-- box 4 -->
+                <div class="box deboss"
+                data-span-xl="4"
+                data-span-lrg="5"
                 data-span-med="fill"
                 data-span-sml="fill"
                 data-span-tny="12">
-                  <p class="tight show-xl">data-span-xl="auto" Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                  <p class="tight show-lrg">data-span-lrg="auto"</p>
+                  <p class="tight show-xl">data-span-xl="4"</p>
+                  <p class="tight show-lrg">data-span-lrg="5"</p>
                   <p class="tight show-med">data-span-med="fill"</p>
                   <p class="tight show-sml">data-span-sml="fill"</p>
                   <p class="tight show-tny">data-span-tny="12"</p>
@@ -229,38 +282,18 @@
 
                 <!-- box 5 -->
                 <div class="box deboss"
-                data-span-xl="4">
-                  <p>data-span-***="4"</p>
-                </div>
-                <div class="box deboss"
-                data-span-xl="4">
-                  <p>data-span-***="4"</p>
-                </div>
-                <div class="box deboss"
-                data-span-xl="4">
-                  <p>data-span-***="4"</p>
-                </div>
-
-
-                <!-- box 5 -->
-                <div class="box deboss"
                 data-span-xl="12"
                 data-span-lrg="12"
                 data-span-med="fill"
                 data-span-tny="12">
-                  <p class="tight show-xl">data-span-xl="4"</p>
+                  <p class="tight show-xl">data-span-xl="12"</p>
                   <p class="tight show-lrg">data-span-lrg="12"</p>
                   <p class="tight show-med">data-span-med="fill"</p>
                   <p class="tight show-sml">SML Inheriting From TNY (which spans 12)</p>
                   <p class="tight show-tny">data-span-tny="12"</p>
                 </div>
 
-
-
               </div>
-
-              <h6>Recommendations</h6>
-              <p>If you're using fill, it's much better experience if you're only using it on boxes that have 1 row of columns.</p>
 
               <h3>Vertical</h3>
               <p>If you want to run your boxes from top to bottom, add <code>data-direction="vertical"</code> to the parent <code>.boxes</code> element. From there, we can apply our <code>data-span-med="x"</code> attributes for each box.</p>
@@ -280,32 +313,32 @@
               </div><!-- end vertical box section -->
 
               <h3>Gutters</h3>
-              <p>There are 3 <code>data-gutters</code> values to select from.</p>
+              <p>There are three <code>data-gutters</code> values to choose from.</p>
 
               <h6>Nested <code>data-gutters="nested"</code></h6>
               <div class="boxes" data-gutters="nested">
-                <div class="box rounded padding bg-white--darker-2" data-span-tny="6">
+                <div class="box rounded padding bg-white--darker-1" data-span-tny="6">
                   <p>Boxes will sit flush with parent div.</p>
                 </div>
-                <div class="box rounded padding bg-white--darker-3" data-span-tny="6">
+                <div class="box rounded padding bg-white--darker-1" data-span-tny="6">
                 </div>
               </div>
 
               <h6>Tight <code>data-gutters="tight"</code></h6>
               <div class="boxes rounded overflow-hidden margin-bottom" data-gutters="tight">
-                <div class="box padding bg-white--darker-2" data-span-tny="6">
-                  <p>Boxes will sit flush with the parent div without gutters.</p>
+                <div class="box padding bg-white--darker-1 border-right" data-span-tny="6">
+                  <p>Boxes will sit flush with the parent div and without internal gutters.</p>
                 </div>
-                <div class="box padding bg-white--darker-3" data-span-tny="6">
+                <div class="box padding bg-white--darker-1" data-span-tny="6">
                 </div>
               </div>
 
               <h6>Default <code>no attribute</code></h6>
               <div class="boxes margin-bottom">
-                <div class="box rounded padding bg-white--darker-2" data-span-tny="6">
-                  <p>Boxes will sit un-nested and have gutters.</p>
+                <div class="box rounded padding bg-white--darker-1" data-span-tny="6">
+                  <p>Boxes will sit unnest and have internal gutters.</p>
                 </div>
-                <div class="box rounded padding bg-white--darker-3" data-span-tny="6">
+                <div class="box rounded padding bg-white--darker-1" data-span-tny="6">
                 </div>
               </div>
 

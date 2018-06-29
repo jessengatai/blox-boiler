@@ -117,67 +117,6 @@ jQuery(document).ready(function ($) {
   runBoxRowClasses();
 });
 
-console.log('classes loaded');
-jQuery(document).ready(function ($) {
-
-  /**
-   * run through the boxes and apply viewport classes
-   */
-  var runResponsiveClasses = function runResponsiveClasses() {
-
-    // setup some big scope variables
-    var ww = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
-    var responsiveClasses = $('[data-classes-tny], [data-classes-sml], [data-classes-med], [data-classes-lrg], [data-classes-xl]');
-
-    // run through each element that uses responsive classes
-    if (responsiveClasses.length) {
-      $.each(responsiveClasses, function (index, object) {
-
-        // get all the classes this element has
-        var classesTny = $(object).attr('data-classes-tny');
-        var classesSml = $(object).attr('data-classes-sml');
-        var classesMed = $(object).attr('data-classes-med');
-        var classesLrg = $(object).attr('data-classes-lrg');
-        var classesXl = $(object).attr('data-classes-xl');
-        var allClasses = [classesTny, classesSml, classesMed, classesLrg, classesXl].join(' ');
-
-        // clean up all the classes
-        $(object).removeClass(allClasses);
-
-        // tny classes on
-        if (ww <= 599 && classesTny !== '') {
-          $(object).addClass($(object).attr('data-classes-tny'));
-        }
-        // sml classes on
-        else if (ww >= 600 && ww <= 879 && classesSml !== '') {
-            $(object).addClass($(object).attr('data-classes-sml'));
-          }
-          // med classes on
-          else if (ww >= 880 && ww <= 1099 && classesMed !== '') {
-              $(object).addClass($(object).attr('data-classes-med'));
-            }
-            // lrg classes on
-            else if (ww >= 1100 && ww <= 1499 && classesLrg !== '') {
-                $(object).addClass($(object).attr('data-classes-lrg'));
-              }
-              // xl classes on
-              else if (ww > 1500 && classesXl !== '') {
-                  $(object).addClass($(object).attr('data-classes-xl'));
-                }
-      });
-    }
-  };
-
-  /**
-   * Handle responsive changes
-   * @param  {object} e the event
-   */
-  $(window).on('resize', function (e) {
-    runResponsiveClasses();
-  });
-  runResponsiveClasses();
-});
-
 console.log('hashes loaded');
 jQuery(document).ready(function ($) {
 
@@ -681,3 +620,64 @@ jQuery(document).ready(function ($) {
 });
 
 console.log('main loaded');
+
+console.log('responsive loaded');
+jQuery(document).ready(function ($) {
+
+  /**
+   * run through the boxes and apply viewport classes
+   */
+  var runResponsiveClasses = function runResponsiveClasses() {
+
+    // setup some big scope variables
+    var ww = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
+    var responsiveClasses = $('[data-classes-tny], [data-classes-sml], [data-classes-med], [data-classes-lrg], [data-classes-xl]');
+
+    // run through each element that uses responsive classes
+    if (responsiveClasses.length) {
+      $.each(responsiveClasses, function (index, object) {
+
+        // get all the classes this element has
+        var classesTny = $(object).attr('data-classes-tny');
+        var classesSml = $(object).attr('data-classes-sml');
+        var classesMed = $(object).attr('data-classes-med');
+        var classesLrg = $(object).attr('data-classes-lrg');
+        var classesXl = $(object).attr('data-classes-xl');
+        var allClasses = [classesTny, classesSml, classesMed, classesLrg, classesXl].join(' ');
+
+        // clean up all the classes
+        $(object).removeClass(allClasses);
+
+        // tny classes on
+        if (ww <= 599 && classesTny !== '') {
+          $(object).addClass($(object).attr('data-classes-tny'));
+        }
+        // sml classes on
+        else if (ww >= 600 && ww <= 879 && classesSml !== '') {
+            $(object).addClass($(object).attr('data-classes-sml'));
+          }
+          // med classes on
+          else if (ww >= 880 && ww <= 1099 && classesMed !== '') {
+              $(object).addClass($(object).attr('data-classes-med'));
+            }
+            // lrg classes on
+            else if (ww >= 1100 && ww <= 1499 && classesLrg !== '') {
+                $(object).addClass($(object).attr('data-classes-lrg'));
+              }
+              // xl classes on
+              else if (ww > 1500 && classesXl !== '') {
+                  $(object).addClass($(object).attr('data-classes-xl'));
+                }
+      });
+    }
+  };
+
+  /**
+   * Handle responsive changes
+   * @param  {object} e the event
+   */
+  $(window).on('resize', function (e) {
+    runResponsiveClasses();
+  });
+  runResponsiveClasses();
+});

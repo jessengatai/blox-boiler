@@ -12,7 +12,6 @@ BOX COLUMN FUNCTIONS
 
 /* BOX SIZE OUTPUTS */
 @mixin span-output-single($s, $count, $attr) {
-
   // spans
   @for $i from 0 through $count {
     @if( $i==0 ) {
@@ -30,7 +29,6 @@ BOX COLUMN FUNCTIONS
       }
     }
   }
-
   // fill
   > .box[data-span-#{$s}="fill"],
   &[data-gutters="tight"] > .box[data-span-#{$s}="fill"] {
@@ -38,7 +36,6 @@ BOX COLUMN FUNCTIONS
     #{$attr}: auto;
     display: block;
   }
-
   // auto
   > .box[data-span-#{$s}="auto"],
   &[data-gutters="tight"] > .box[data-span-#{$s}="auto"] {
@@ -46,7 +43,6 @@ BOX COLUMN FUNCTIONS
     #{$attr}: auto;
     display: block;
   }
-
 }
 
 /*
@@ -70,49 +66,6 @@ BOX ROWS
   // xl
   @media #{$media-xl-up} {
     @include span-output-single('xl', $count, $attr);
-  }
-}
-
-/*
-BOX % FUNCTIONS
- */
-@function bx-percent($percent,$tight){
-  @if $percent == 33 { $percent: 33.33; } @elseif $percent == 66 { $percent: 66.66; }
-  $percent: $percent+%;
-  @if $tight == true {
-    @return $percent;
-  } @else {
-    @return calc( #{$percent} - #{$gutterX} );
-  }
-}
-@mixin bx-percent-output($tight) {
-  // tny
-  @for $i from 1 through 100 {
-    > .box[data-width-tny="#{$i}"] { width: bx-percent($i,$tight); }
-  }
-  // sml
-  @media screen and (min-width: 500px) {
-    @for $i from 1 through 100 {
-      > .box[data-width-sml="#{$i}"] { width: bx-percent($i,$tight); }
-    }
-  }
-  // med
-  @media screen and (min-width: 800px) {
-    @for $i from 1 through 100 {
-      > .box[data-width-med="#{$i}"] { width: bx-percent($i,$tight); }
-    }
-  }
-  // lrg
-  @media screen and (min-width: 1100px) {
-    @for $i from 1 through 100 {
-      > .box[data-width-lrg="#{$i}"] { width: bx-percent($i,$tight); }
-    }
-  }
-  // xl
-  @media screen and (min-width: 1500px) {
-    @for $i from 1 through 100 {
-      > .box[data-width-xl="#{$i}"] { width: bx-percent($i,$tight); }
-    }
   }
 }
 
@@ -143,7 +96,7 @@ BOX COLUMNS
     }
   }
 
-  // horizontal layout
+  // horizontal layout (default)
   &:not([data-direction*="vertical"]) {
     @include bx-span-output( $default_cols, 'width' );
   }
@@ -161,12 +114,10 @@ BOX COLUMNS
         max-width: 100%;
       }
     }
-
   }
 
 }
 
-// the box
 // outside the above scope to make style overrides easier
 .box {
   margin-left: calc( #{$gutterX} / 2 );
@@ -175,37 +126,3 @@ BOX COLUMNS
   width: calc( 100% - #{$gutterX} );
   max-width: calc( 100% - #{$gutterX} );
 }
-
-
-.row-1 {
-  background: lighten($red, 15) !important;
-}
-.row-2 {
-  background: lighten($orange, 15) !important;
-}
-.row-3 {
-  background: lighten($green, 15) !important;
-}
-.row-4 {
-  background: lighten($blue, 15) !important;
-}
-.row-5 {
-  background: lighten($purple, 15) !important;
-}
-.row-5 {
-  background: lighten($black, 15) !important;
-}
-
-
-/*
-BOX % PERCENTAGES
-
-&[data-box-widths="%"] {
-  &:not(.boxes-nested) {
-    @include bx-percent-output(false);
-  }
-  .boxes-nested {
-    @include bx-percent-output(true);
-  }
-}
-*/

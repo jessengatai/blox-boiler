@@ -49,9 +49,10 @@ table {
 
 /* LISTS */
 ol {
-  margin-left: calc(13px + .15vh + .15vw); }
+  margin-left: calc(25px + .3vh + .3vw);
+  margin-bottom: calc(25px + .3vh + .3vw); }
   ol li {
-    margin-bottom: calc(13px + .15vh + .15vw); }
+    margin-bottom: 5px; }
 
 html {
   -webkit-font-smoothing: antialiased;
@@ -359,9 +360,6 @@ BOX COLUMN FUNCTIONS
 /* BOX SIZE OUTPUTS */
 /*
 BOX ROWS
- */
-/*
-BOX % FUNCTIONS
  */
 /*
 BOX COLUMNS
@@ -1482,36 +1480,6 @@ BOX COLUMNS
   width: calc( 100% - 24px);
   max-width: calc( 100% - 24px); }
 
-.row-1 {
-  background: #ff6670 !important; }
-
-.row-2 {
-  background: #ffc04d !important; }
-
-.row-3 {
-  background: #b2ffcb !important; }
-
-.row-4 {
-  background: #6c6dff !important; }
-
-.row-5 {
-  background: #a56aff !important; }
-
-.row-5 {
-  background: #383c4b !important; }
-
-/*
-BOX % PERCENTAGES
-
-&[data-box-widths="%"] {
-  &:not(.boxes-nested) {
-    @include bx-percent-output(false);
-  }
-  .boxes-nested {
-    @include bx-percent-output(true);
-  }
-}
-*/
 .sticky-top {
   position: sticky;
   top: 0;

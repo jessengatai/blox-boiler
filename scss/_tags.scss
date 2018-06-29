@@ -48,8 +48,9 @@ table {
 
 /* LISTS */
 ol {
-  margin-left: $p-size;
+  margin-left: $p-size-double;
+  margin-bottom: $p-size-double;
   li {
-    margin-bottom: $p-size;
+    margin-bottom: 5px;
   }
 }

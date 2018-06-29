@@ -1,4 +1,4 @@
-console.log('classes loaded');
+console.log('responsive loaded');
 jQuery(document).ready(function($){
 
   /**
