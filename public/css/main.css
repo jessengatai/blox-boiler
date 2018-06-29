@@ -1483,10 +1483,22 @@ BOX COLUMNS
   max-width: calc( 100% - 24px); }
 
 .row-1 {
-  background: red; }
+  background: #ff6670 !important; }
 
 .row-2 {
-  background: blue; }
+  background: #ffc04d !important; }
+
+.row-3 {
+  background: #b2ffcb !important; }
+
+.row-4 {
+  background: #6c6dff !important; }
+
+.row-5 {
+  background: #a56aff !important; }
+
+.row-5 {
+  background: #383c4b !important; }
 
 /*
 BOX % PERCENTAGES

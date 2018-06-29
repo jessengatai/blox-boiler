@@ -194,55 +194,57 @@
               <p>Blox uses flexbox to create layouts quickly. All that's needed is for a parent element to have a class of <code>.boxes</code> and it's direct children to have classes of <code>.box</code>. Then we simply apply widths and heights via data-attributes for each box.</p>
 
               <h3>Horizontal</h3>
-              <p>The default direction for boxes is left to right and the default column count is 12 (changeable via variables.scss). Also, these data-attributes run from the bottom up, meaning if you <strong>only</strong> set <code>data-span-med="x"</code> the box will be 6/12 on all screen sizes from medium up and 12/12 for everything below.</p>
+              <p>The default direction for boxes is left to right and the default column count is 12 (changeable via variables.scss). Also, these data-attributes run from the bottom up, meaning if you <strong>only</strong> set <code>data-span-med="6"</code> the box will be 6/12 on all screen sizes from medium up and 12/12 for everything below.</p>
 
               <!-- horizontal boxes -->
-              <div class="boxes color-white--darker-8" data-gutters="nested">
+              <div id="testing" class="boxes color-white--darker-8" data-rowclasses data-gutters="nested">
 
                 <!-- box 1 -->
                 <div class="box deboss"
-                data-span-xl="auto"
+                data-span-xl="4"
                 data-span-lrg="4"
                 data-span-med="8"
                 data-span-sml="6"
                 data-span-tny="12">
-                  <p class="tight show-xl">data-span-xl="auto"</p>
+                  <p class="tight show-xl">data-span-xl="4"</p>
                   <p class="tight show-lrg">data-span-lrg="4"</p>
                   <p class="tight show-med">data-span-med="8"</p>
                   <p class="tight show-sml">data-span-sml="6"</p>
                   <p class="tight show-tny">data-span-tny="12"</p>
                 </div>
 
-                <!-- box 3 -->
+                <!-- box 2 -->
                 <div class="box deboss"
                 data-span-xl="fill"
                 data-span-lrg="auto"
                 data-span-med="fill"
                 data-span-sml="fill"
                 data-span-tny="12">
-                  <p class="tight show-xl">data-span-xl="fill"</p>
+                  <p class="tight show-xl">data-span-xl="auto" Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
                   <p class="tight show-lrg">data-span-lrg="auto"</p>
                   <p class="tight show-med">data-span-med="fill"</p>
                   <p class="tight show-sml">data-span-sml="fill"</p>
                   <p class="tight show-tny">data-span-tny="12"</p>
                 </div>
 
-                <!-- box 4 -->
+                <!-- box 5 -->
                 <div class="box deboss"
-                data-span-xl="8"
-                data-span-lrg="fill"
-                data-span-med="fill"
-                data-span-sml="auto"
-                data-span-tny="0">
-                  <p class="tight show-xl">data-span-xl="8"</p>
-                  <p class="tight show-lrg">data-span-lrg="fill"</p>
-                  <p class="tight show-med">data-span-med="fill"</p>
-                  <p class="tight show-sml">data-span-sml="auto"</p>
+                data-span-xl="4">
+                  <p>data-span-***="4"</p>
                 </div>
+                <div class="box deboss"
+                data-span-xl="4">
+                  <p>data-span-***="4"</p>
+                </div>
+                <div class="box deboss"
+                data-span-xl="4">
+                  <p>data-span-***="4"</p>
+                </div>
+
 
                 <!-- box 5 -->
                 <div class="box deboss"
-                data-span-xl="4"
+                data-span-xl="12"
                 data-span-lrg="12"
                 data-span-med="fill"
                 data-span-tny="12">
@@ -252,7 +254,13 @@
                   <p class="tight show-sml">SML Inheriting From TNY (which spans 12)</p>
                   <p class="tight show-tny">data-span-tny="12"</p>
                 </div>
+
+
+
               </div>
+
+              <h6>Recommendations</h6>
+              <p>If you're using fill, it's much better experience if you're only using it on boxes that have 1 row of columns.</p>
 
               <h3>Vertical</h3>
               <p>If you want to run your boxes from top to bottom, add <code>data-direction="vertical"</code> to the parent <code>.boxes</code> element. From there, we can apply our <code>data-span-med="x"</code> attributes for each box.</p>
@@ -318,6 +326,11 @@
                       <td><code>.boxes</code></td>
                       <td>data-direction="X"</td>
                       <td>X being <code>vertical</code> or <code>horizontal</code> <br><small class="color-red">Attribute is optional and will default to horizontal</small></td>
+                    </tr>
+                    <tr>
+                      <td><code>.boxes</code></td>
+                      <td>data-rowclasses</td>
+                      <td>Add's row classes to each box. <br>For exmaple <code>.row-1</code>, <code>.row-2</code>, <code>.row-last</code> etc.</td>
                     </tr>
                     <tr>
                       <td><code>.box</code></td>

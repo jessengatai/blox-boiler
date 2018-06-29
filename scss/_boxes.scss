@@ -178,12 +178,23 @@ BOX COLUMNS
 
 
 .row-1 {
-  background: red;
+  background: lighten($red, 15) !important;
 }
 .row-2 {
-  background: blue;
+  background: lighten($orange, 15) !important;
 }
-
+.row-3 {
+  background: lighten($green, 15) !important;
+}
+.row-4 {
+  background: lighten($blue, 15) !important;
+}
+.row-5 {
+  background: lighten($purple, 15) !important;
+}
+.row-5 {
+  background: lighten($black, 15) !important;
+}
 
 
 /*
