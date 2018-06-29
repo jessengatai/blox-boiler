@@ -16,9 +16,10 @@ jQuery(document).ready(function($){
 
         // get the width of the container and setup the children
         const children = $(object).children('.box');
+        const lastChild = children.last();
         let rowCount = 0;
 
-        // clean up the row-x classes
+        // clean up the .row-x classes
         children.removeClass (function (index, className) {
           return (className.match (/(^|\s)row-\S+/g) || []).join(' ');
         });
@@ -36,6 +37,11 @@ jQuery(document).ready(function($){
             || currentNode[0].offsetTop !== previousNode[0].offsetTop
           ) {
             rowCount++;
+          }
+
+          // check if this box is in the last row
+          if( currentNode[0].offsetTop === lastChild[0].offsetTop ) {
+            $(box).addClass('row-last');
           }
 
           // add our class!
