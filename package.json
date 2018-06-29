@@ -1,6 +1,6 @@
 {
   "name": "blox-boiler",
-  "version": "0.1.0",
+  "version": "0.0.5",
   "description": "A function-first front-end boilerplate.",
   "main": "index.js",
   "scripts": {
