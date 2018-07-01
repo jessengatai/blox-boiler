@@ -5,6 +5,15 @@
 .max-width-thin {
   max-width: $container-max-width-thin !important;
 }
+.max-width-half {
+  max-width: calc(50vw) !important;
+}
+.max-width-tny {
+  max-width: 500px;
+}
+.min-width-tny {
+  min-width: 500px;
+}
 .full-width {
   max-width: 100%;
   min-width: 100%;

@@ -1,5 +1,6 @@
 // handle basic inputs
 input[type="text"],
+input[type="password"],
 input[type="email"],
 textarea {
   -webkit-appearance: none;
@@ -12,6 +13,7 @@ textarea {
   background: $white;
   font-size: 16px;
   width: 100%;
+  margin-bottom: $p-size;
 }
 select {
   font-size: 16px;

@@ -232,9 +232,9 @@ jQuery(document).ready(function ($) {
    * Add the correct modal markup for each modal
    */
   var setupModalMarkup = function setupModalMarkup() {
-    var modals = $('.bx-modal');
+    var modals = $('.modal');
     $.each(modals, function (index, modal) {
-      // $(this).prepend('<div class="bx-modal-bg"></div>');
+      // $(this).prepend('<div class="modal-bg"></div>');
     });
   };
 
@@ -252,8 +252,8 @@ jQuery(document).ready(function ($) {
     var id = $(this).attr('data-close-modal');
     closeModal($('#' + id));
   });
-  $(document).on('click', '.bx-modal.on', function () {
-    if (!jQuery(event.target).is('.bx-modal.on *')) {
+  $(document).on('click', '.modal.on', function () {
+    if (!jQuery(event.target).is('.modal.on *')) {
       var id = $(this).attr('id');
       closeModal($('#' + id));
     }
@@ -261,8 +261,8 @@ jQuery(document).ready(function ($) {
 
   // close a modal via esc key
   $(document).on('keyup', function (e) {
-    if (e.keyCode == 27 && $('.bx-modal.on').length) {
-      var id = $('.bx-modal.on').attr('id');
+    if (e.keyCode == 27 && $('.modal.on').length) {
+      var id = $('.modal.on').attr('id');
       closeModal($('#' + id));
     }
   });

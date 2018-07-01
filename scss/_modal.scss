@@ -1,4 +1,4 @@
-.bx-modal {
+.modal {
   @include fixed-fullscreen;
   @include background-opacity($black, 0.9);
   display: none;
@@ -10,7 +10,7 @@
   }
 
   // the inner modal
-  .bx-modal-inner {
+  .modal-inner {
 
   }
 

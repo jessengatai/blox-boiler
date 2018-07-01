@@ -71,10 +71,11 @@
               <li><a data-hash="#setup"    data-classes-onhash="purple" class="button off small full-width text-left" href="#setup">Setup</a></li>
               <li><a data-hash="#stickies" data-classes-onhash="purple" class="button off small full-width text-left" href="#stickies">Stickies</a></li>
               <li><a data-hash="#boxes"    data-classes-onhash="purple" class="button off small full-width text-left" href="#boxes">Boxes</a></li>
-              <li><a data-hash="#hash"     data-classes-onhash="purple" class="button off small full-width text-left" href="#hash">Hash States</a></li>
-              <li><a data-hash="#classes"  data-classes-onhash="purple" class="button off small full-width text-left" href="#classes">Responsive Classes</a></li>
-              <li><a data-hash="#buttons"  data-classes-onhash="purple" class="button off small full-width text-left" href="#buttons">Buttons</a></li>
               <li><a data-hash="#modals"   data-classes-onhash="purple" class="button off small full-width text-left" href="#modals">Modals</a></li>
+              <li><a data-hash="#classes"  data-classes-onhash="purple" class="button off small full-width text-left" href="#classes">Responsive Classes</a></li>
+              <li><a data-hash="#bg"       data-classes-onhash="purple" class="button off small full-width text-left" href="#bg">Backgrounds</a></li>
+              <li><a data-hash="#hash"     data-classes-onhash="purple" class="button off small full-width text-left" href="#hash">Hash States</a></li>
+              <li><a data-hash="#buttons"  data-classes-onhash="purple" class="button off small full-width text-left" href="#buttons">Buttons</a></li>
               <li><a data-hash="#forms"    data-classes-onhash="purple" class="button off small full-width text-left" href="#forms">Forms</a></li>
             </ul>
           </nav>
@@ -365,7 +366,6 @@
 
             </div><!-- end BOXES section -->
 
-
             <!-- HASH -->
             <div id="hash" class="box margin-bottom--x4">
               <h2 class="size--x2"># States</h2>
@@ -429,25 +429,33 @@
               </div>
             </div>
 
-
             <!-- modals -->
-            <div class="box margin-top" data-span-tny="12">
-              <h3>Modals</h3>
-              <p>The basic requirments to setup a modal is a button and a div with an ID.</p>
-              <p>note: It's recommended to place the modal div outside all divs right before the closing body tag.</p>
-            </div>
-            <div class="box" data-span-tny="12" data-span-med="6">
+            <div id="modals" class="box margin-bottom--x4">
+              <h2 class="size--x2">Modals</h2>
+              <p>Blox's modals don't come packaged with any styling, this allows us a lot of freedom in the type of modals we want to create. He's what you need to get your modal up and running.</p>
+
+              <h5>Requirments</h5>
+              <ol type="1" class="margin-bottom--x2">
+                <li>A div (recommended to be outside any major containers) with a unique id and class of <code>.modal</code>.</li>
+                <li>A button or link with the attribute <code>data-open-modal="yourModalId"</code> to open the modal on click.</li>
+                <li>A button or link with the attribute <code>data-close-modal="yourModalId"</code> to close the modal on click.</li>
+              </ol>
+
+              <h5>Example Modals</h5>
               <button data-open-modal="standard-modal">Standard</button>
-              <pre data-src="./code/_modal.html"></pre>
-            </div>
-            <div class="box" data-span-tny="12" data-span-med="6">
               <button data-open-modal="fullscreen-modal">Fullscreen</button>
-              <pre data-src="./code/_modal.html"></pre>
+              <button data-open-modal="left-modal">Left Aligned</button>
+              <button data-open-modal="right-modal">Right Aligned</button>
+
+              <p></p>
+              <h5>Javascript Triggers</h5>
+              <p>When you open and close a modal the a custom javascript trigger will fire allowing you to do some JS magic if required.</p>
+              <p>If you want to open or close a modal via javascript you can trigger the following event <code>open-modal-#modalID</code> and <code>close-modal-#modalID</code>.</p>
             </div>
 
             <!-- RESPONSIVE CLASSES -->
             <div id="classes" class="box margin-bottom--x4">
-              <h3>Responsive Classes</h3>
+              <h2 class="size--x2">Responsive Classes</h2>
               <p>We can also apply classes for specific viewport widths on elements using data attributes. This isn't limited to just boxed elements, you can use <code>data-classes-sml="..."</code> on any element. However, it's much more performant to use standard media query classes wherever possible.</p>
               <div class="boxes" data-gutters="nested">
                 <div class="box rounded padding"
@@ -464,6 +472,8 @@
                 </div>
               </div>
             </div>
+
+
 
             <!-- buttons -->
             <div class="box margin-top--x4" data-span-tny="12">
@@ -493,26 +503,52 @@
       </div><!-- end .boxes -->
     </div><!-- end .bx-container -->
 
+
     <!-- standard modal -->
-    <div id="standard-modal" class="bx-modal padding--x2">
-      <div class="bx-modal-inner bg-white padding--x2 rounded shadow-lrg max-width-thin align-center">
-        <h2 data-trans-delay="100" data-trans="slideY">Standard Modal</h2>
-        <h4 data-trans-delay="150" data-trans="slideY">This is a dope modal!</h4>
-        <p data-trans-delay="200" data-trans="slideY" class="color-white--darker-3">This is Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-        <button data-close-modal="standard-modal" class="purple">Close</button>
+    <div id="standard-modal" class="modal padding--x3">
+      <div class="bg-white--darker-1 padding--x3 rounded shadow-lrg max-width-thin align-center">
+        <h2>Standard Modal</h2>
+        <p class="color-black--lighter-10">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        <button data-close-modal="standard-modal" class="big circular shadow">Okay got it!</button>
       </div>
     </div>
 
     <!-- fullscreen modal -->
-    <div id="fullscreen-modal" class="bx-modal padding"
-    data-x-axis="full"
-    data-y-axis="full"
-    data-trans="fade"
-    >
-      <h2 data-trans-delay="100" data-trans="slideY">Fullscreen modal</h2>
-      <h4 data-trans-delay="150" data-trans="slideY">This is a dope modal!</h4>
-      <p data-trans-delay="200" data-trans="slideY" class="color-white--darker-3">This is a dope modal! Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-      <button data-close-modal="fullscreen-modal">Close</button>
+    <div id="fullscreen-modal" class="modal">
+      <div class="bg-white padding--x3 full-height full-width">
+        <h2>Fullscreen Modal</h2>
+        <p class="color-white--darker-3">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        <button data-close-modal="fullscreen-modal" class="big circular primary">I agree. Enter the site.</button>
+      </div>
+    </div>
+
+    <!-- left aligned modal -->
+    <div id="left-modal" class="modal bg-white" data-bg-image="/images/s.jpg">
+      <div data-classes-tny="full-width"
+      class="bg-black color-white padding--x3 shadow-lrg max-width-tny full-height float-left">
+        <h2>Left Modal</h2>
+        <div class="padding-y">
+          <p class="color-white--darker-10">With some text and some background image goodness.</p>
+          <label for="username">Username</label>
+          <input type="text" name="" value="">
+          <label for="username">Password</label>
+          <input type="password" name="" value="">
+          <small class="color-white--darker-10">Forgot your password?</small>
+        </div>
+        <button
+        data-classes-sml="big"
+        data-classes-tny="big"
+        data-close-modal="left-modal"
+        class="circular full-width green">Login</button>
+      </div>
+    </div>
+
+    <div id="right-modal" class="modal">
+      <div class="bg-white--darker-1 padding--x3 shadow-lrg full-height max-width-half min-width-sml float-right">
+        <h2>Right Aligned Modal</h2>
+        <p class="color-black--lighter-10">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        <button data-close-modal="right-modal" class="big circular shadow">Okay got it!</button>
+      </div>
     </div>
 
     <!-- inject:js -->

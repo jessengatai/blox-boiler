@@ -23,7 +23,7 @@
 .boxes {
   @include general-data-attributes('boxes');
 }
-.bx-modal {
+.modal {
   @include general-data-attributes('modal');
 }
 
