@@ -17,7 +17,8 @@
         padding: 2px 7px;
         border-radius: 4px;
         border: solid 1px #f0f0f0;
-        font-size: 13px;
+        font-size: 15px;
+        font-weight: 400;
       }
       .attr-list li {
         background: #f7f7f7;
@@ -115,27 +116,6 @@
               <p>CSS <code>position: sticky;</code> is epic, however it lacks the native support to trigger events when our element is "stuck". Blox attempts to solve this issue using javascripts <code>IntersectionObserver</code> in combination with HTML <code>data</code> attributes. This let's us quickly toggle CSS classes or fire our own custom functions when our sticky elements are stuck.</p>
 
               <div class="boxes" data-gutters="nested">
-                <div class="box" data-span-med="6">
-                  <h5>Requirments</h5>
-                  <ol type="1" class="margin-bottom--x2">
-                    <li>You need to add the attribute <code>data-sticky</code> to the sticky element.</li>
-                    <li>You can NOT have more than 1 sticky element in the same parent.<br>
-                        <small class="color-red">If you do, the events will only trigger on the first sticky element.</small>
-                    </li>
-                    <li>Don't forget to add a sticky utility class (eg: <code>.sticky-top</code>).<br>
-                        <small class="color-red">This will work for responsive sticky classes as well.</small>
-                    </li>
-                  </ol>
-                </div>
-                <div class="box" data-span-med="6">
-                  <h5>Recommendations</h5>
-                  <ol type="1" class="margin-bottom--x2">
-                    <li>Adding padding or changing the sticky height will result in some touchy functionalty. This is because the IntersectionObserver watches for hidden divs entering and leaving the viewport, these divs are positioned based on the sticky elements height, margins and offsets.</li>
-                  </ol>
-                </div>
-              </div>
-
-              <div class="boxes" data-gutters="nested">
                 <div class="box border-top--purple border-bottom--purple" data-span-tny="4">
                   <p class="color-white--darker-3">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
                   <p class="color-white--darker-3">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
@@ -157,6 +137,27 @@
                   data-classes-onstick="shadow-lrg color-white deboss--black"
                   ><small>.sticky-top + .offset-top--x2 + margin-bottom</small></div>
                   <p class="color-white--darker-3">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                </div>
+              </div>
+
+              <div class="boxes" data-gutters="nested">
+                <div class="box" data-span-med="6">
+                  <h5>Requirments</h5>
+                  <ol type="1" class="margin-bottom--x2">
+                    <li>You need to add the attribute <code>data-sticky</code> to the sticky element.</li>
+                    <li>You can NOT have more than 1 sticky element in the same parent.<br>
+                        <small class="color-red">If you do, the events will only trigger on the first sticky element.</small>
+                    </li>
+                    <li>Don't forget to add a sticky utility class (eg: <code>.sticky-top</code>).<br>
+                        <small class="color-red">This will work for responsive sticky classes as well.</small>
+                    </li>
+                  </ol>
+                </div>
+                <div class="box" data-span-med="6">
+                  <h5>Recommendations</h5>
+                  <ol type="1" class="margin-bottom--x2">
+                    <li>Adding padding or changing the sticky height will result in some touchy functionalty. This is because the IntersectionObserver watches for hidden divs entering and leaving the viewport, these divs are positioned based on the sticky elements height, margins and offsets.</li>
+                  </ol>
                 </div>
               </div>
 
@@ -432,6 +433,14 @@
               <h2 class="size--x2">Modals</h2>
               <p>Blox's modals don't come packaged with any styling, this allows us a lot of freedom in the type of modals we want to create. He's what you need to get your modal up and running.</p>
 
+              <div class="margin-bottom--x2">
+                <h5>Example Modals</h5>
+                <button data-open-modal="standard-modal">Standard</button>
+                <button data-open-modal="fullscreen-modal">Fullscreen</button>
+                <button data-open-modal="left-modal">Left Aligned</button>
+                <button data-open-modal="right-modal">Right Aligned</button>
+              </div>
+
               <h5>Requirments</h5>
               <ol type="1" class="margin-bottom--x2">
                 <li>A div (recommended to be outside any major containers) with a unique id and class of <code>.modal</code>.</li>
@@ -439,16 +448,47 @@
                 <li>A button or link with the attribute <code>data-close-modal="yourModalId"</code> to close the modal on click.</li>
               </ol>
 
-              <h5>Example Modals</h5>
-              <button data-open-modal="standard-modal">Standard</button>
-              <button data-open-modal="fullscreen-modal">Fullscreen</button>
-              <button data-open-modal="left-modal">Left Aligned</button>
-              <button data-open-modal="right-modal">Right Aligned</button>
+              <h5>Javascript Events</h5>
+              <p>If you need to run your own javascript functions once a modal is opened or closed you can listen for the following events.</p>
+              <div class="deboss margin-bottom--x2">
+                <table class="full-width">
+                  <thead>
+                    <th>Event</th>
+                    <th>Fires On</th>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><code>modal-opened:yourModalId</code></td>
+                      <td>When a modal is opened</td>
+                    </tr>
+                    <tr>
+                      <td><code>modal-closed:yourModalId</code></td>
+                      <td>When a modal is closed</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
 
-              <p></p>
-              <h5>Javascript Triggers</h5>
-              <p>When you open and close a modal the a custom javascript trigger will fire allowing you to do some JS magic if required.</p>
-              <p>If you want to open or close a modal via javascript you can trigger the following event <code>open-modal-#modalID</code> and <code>close-modal-#modalID</code>.</p>
+              <p>If you want to open or close a modal with javascript, you can use the following functions.</p>
+              <div class="deboss">
+                <table class="full-width">
+                  <thead>
+                    <th>Function Name</th>
+                    <th>Fires On</th>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><code>openModal( $(#yourModalId) )</code></td>
+                      <td>Open a modal directly with javascript</td>
+                    </tr>
+                    <tr>
+                      <td><code>closeModal( $(#yourModalId) )</code></td>
+                      <td>Close a modal directly with javascript</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
             </div>
 
             <!-- RESPONSIVE CLASSES -->

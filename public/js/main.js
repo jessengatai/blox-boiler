@@ -228,19 +228,6 @@ jQuery(document).ready(function ($) {
     return $(window).trigger('modal-closed:' + modalId);
   };
 
-  /**
-   * Add the correct modal markup for each modal
-   */
-  var setupModalMarkup = function setupModalMarkup() {
-    var modals = $('.modal');
-    $.each(modals, function (index, modal) {
-      // $(this).prepend('<div class="modal-bg"></div>');
-    });
-  };
-
-  // setup the modal markup
-  setupModalMarkup();
-
   // open a modal via click
   $(document).on('click', '[data-open-modal]', function () {
     var id = $(this).attr('data-open-modal');
