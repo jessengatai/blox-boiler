@@ -100,7 +100,7 @@ jQuery(document).ready(function ($) {
 
         // the color (fallback)
       } else {
-        $(object).prepend($('<div class="bg-image bg-blend-' + imageBlend + '"\n          style="\n            opacity: ' + colorOpacity + ';\n            background-color: ' + color + ';\n          "></div>'));
+        $(object).prepend($('<div class="bg-color"\n          style="\n            opacity: ' + colorOpacity + ';\n            background-color: ' + color + ';\n          "></div>'));
       }
     });
   };

@@ -52,7 +52,7 @@ jQuery(document).ready(function($){
 
       // the color (fallback)
       } else {
-        $(object).prepend( $(`<div class="bg-image bg-blend-${imageBlend}"
+        $(object).prepend( $(`<div class="bg-color"
           style="
             opacity: ${colorOpacity};
             background-color: ${color};
