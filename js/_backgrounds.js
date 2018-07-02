@@ -6,7 +6,7 @@ jQuery(document).ready(function($){
    */
   const setupBG = () => {
 
-    const bgs = $(`[data-bg]`);
+    const bgs = $(`[data-bg-image], [data-bg-gradient-start], [data-bg-color-opacity]`);
 
     $.each(bgs, function(index,object){
 

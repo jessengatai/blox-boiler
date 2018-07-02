@@ -63,7 +63,7 @@ jQuery(document).ready(function ($) {
    */
   var setupBG = function setupBG() {
 
-    var bgs = $('[data-bg]');
+    var bgs = $('[data-bg-image], [data-bg-gradient-start], [data-bg-color-opacity]');
 
     $.each(bgs, function (index, object) {
 

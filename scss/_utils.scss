@@ -588,4 +588,6 @@ a.inline-link {
   // blend modes
   @include blendModes($blendModes);
 
+  transition: background-image 0.5s ease;
+
 }
