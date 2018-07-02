@@ -436,9 +436,9 @@
               <div class="margin-bottom--x2">
                 <h5>Example Modals</h5>
                 <button data-open-modal="standard-modal">Standard</button>
-                <button data-open-modal="fullscreen-modal">Fullscreen</button>
                 <button data-open-modal="left-modal">Left Aligned</button>
                 <button data-open-modal="right-modal">Right Aligned</button>
+                <button data-open-modal="fullscreen-modal">Fullscreen</button>
               </div>
 
               <h5>Requirments</h5>
@@ -489,6 +489,32 @@
                 </table>
               </div>
 
+            </div>
+
+            <!-- BACKGROUNDS -->
+            <div id="bg" class="box  margin-bottom--x2">
+              <div
+              data-classes-tny="full-width"
+              data-bg-image="images/4.jpg"
+              data-bg-image-opacity="1"
+              data-bg-image-blend="multiply"
+              data-bg-gradient-start="blue"
+              data-bg-gradient-end="red"
+              data-bg-gradient-deg="0"
+              data-bg-gradient-opacity=".2"
+              data-bg-color-opacity="0.5"
+              class="bg-purple color-white padding-y--x4 padding-x--x2 rounded--lrg overflow-hidden shadow-lrg max-width-tny full-height float-left">
+                <h2 class="size--x2 text-shadow tight">Left <br>Modal.</h2>
+                <p class="color-white">With some text and some data-bg attribute goodness.</p>
+                <label for="username">Username</label>
+                <input type="text" name="" value="">
+                <label for="username">Password</label>
+                <input type="password" name="" value="">
+                <small class="color-white--darker-5">Forgot your password?</small>
+                <button
+                data-close-modal="left-modal"
+                class="weight-600 full-width big green">Login</button>
+              </div>
             </div>
 
             <!-- RESPONSIVE CLASSES -->
@@ -563,27 +589,25 @@
     data-classes-med="padding--x2"
     data-classes-lrg="padding--x2"
     data-classes-xl="padding--x4"
-    data-bg-color-opacity="0.7"
+    data-bg-color-opacity=".85"
     class="modal bg-white">
       <div
-      data-bg-image="images/3.jpg"
+      data-bg-image="images/4.jpg"
       data-bg-image-opacity="1"
       data-bg-image-blend="multiply"
       data-bg-gradient-start="red"
       data-bg-gradient-end="blue"
-      data-bg-gradient-deg="145"
-      data-bg-gradient-opacity=".5"
+      data-bg-gradient-deg="45"
+      data-bg-gradient-opacity=".3"
       data-classes-tny="full-width"
-      class="bg-purple color-white padding--x2 rounded overflow-hidden shadow-lrg max-width-tny full-height float-left">
-        <h2 class="size--x2">left<br> aligned<br> modal.</h2>
-        <div class="padding-y">
-          <p class="color-white--darker-5">With some text and some <code>data-bg</code> attribute goodness.</p>
-          <label for="username">Username</label>
-          <input type="text" name="" value="">
-          <label for="username">Password</label>
-          <input type="password" name="" value="">
-          <small class="color-white--darker-5">Forgot your password?</small>
-        </div>
+      class="bg-purple color-white padding-y--x4 padding-x--x2 rounded--lrg overflow-hidden shadow-lrg max-width-tny full-height float-left">
+        <h2 class="size--x2 text-shadow margin-bottom--x2">Left <br>Modal.</h2>
+        <p class="color-white">With some text and some data-bg attribute goodness.</p>
+        <label for="username">Username</label>
+        <input type="text" name="" value="">
+        <label for="username">Password</label>
+        <input type="password" name="" value="">
+        <small class="color-white--darker-5">Forgot your password?</small>
         <button
         data-close-modal="left-modal"
         class="weight-600 full-width big green">Login</button>

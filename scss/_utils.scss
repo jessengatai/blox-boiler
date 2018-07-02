@@ -200,6 +200,9 @@ MARGINS
 .rounded {
   border-radius: 6px;
 }
+.rounded--lrg {
+  border-radius: 12px;
+}
 .circular {
   border-radius: 999px !important;
 }
@@ -275,6 +278,13 @@ SHADOWS
 }
 .shadow--bottom {
   box-shadow: 0 15px 10px -10px rgba(0,0,0,.03);
+}
+
+/*
+TEXT SHADOWS
+ */
+.text-shadow {
+  text-shadow:  0 1px 3px rgba(0,0,0,.4);
 }
 
 /*
@@ -517,6 +527,23 @@ BORDERS
   @include underline;
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 a.inline-link {
   color: $blue;
   display: inline-block;
@@ -533,6 +560,12 @@ a.inline-link {
     }
   }
 }
+
+
+
+
+
+
 
 
 .transition-all {
@@ -589,6 +622,6 @@ a.inline-link {
   // blend modes
   @include blendModes($blendModes);
 
-  transition: background-image 0.5s ease;
+  transition: all 0.5s ease;
 
 }
