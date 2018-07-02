@@ -23,7 +23,7 @@ jQuery(document).ready(function($){
       $(object).addClass('position-relative');
 
       $(object).append( $(`<div
-        class="bg-image bg-cover"
+        class="bg-image bg-cover bg-multiply"
         style="
           background-color: ${color};
           background-image: url(${image});

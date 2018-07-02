@@ -3470,6 +3470,8 @@ a.inline-link {
   .bg-image.bg-blur {
     filter: blur(10px);
     transform: scale(1.1); }
+  .bg-image.bg-multiply {
+    background-blend-mode: multiply; }
 
 .bx-window {
   position: relative;

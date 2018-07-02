@@ -211,7 +211,7 @@ jQuery(document).ready(function ($) {
 
       $(object).addClass('position-relative');
 
-      $(object).append($('<div\n        class="bg-image bg-cover"\n        style="\n          background-color: ' + color + ';\n          background-image: url(' + image + ');\n          opacity: ' + opacity + '\n        "></div>'));
+      $(object).append($('<div\n        class="bg-image bg-cover bg-multiply"\n        style="\n          background-color: ' + color + ';\n          background-image: url(' + image + ');\n          opacity: ' + opacity + '\n        "></div>'));
     });
   };
   setupBG();
