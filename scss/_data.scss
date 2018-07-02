@@ -1,72 +1,16 @@
-// big boy data
-// this is only added to modal, slider, boxes
-@mixin general-data-attributes($type) {
-
-  // center x
-  &[data-x-axis="center"] {
-    max-width: $container-max-width;
-    width: $container-width;
-    margin-left: auto;
-    margin-right: auto;
-    @if $type=='modal' {
-      @extend .transform-center-x;
-    }
-  }
-  // full x
-  &[data-x-axis="full"] {
-    @extend .full-width;
-    &.gutter-x,
-    &.gutter {
-      @extend .full-width-gutter-x;
-    }
-  }
-  // center y
-  &[data-y-axis="center"] {
-    @if $type=='modal' {
-      @extend .transform-center-y;
-    }
-  }
-  // full y
-  &[data-y-axis="full"] {
-    @extend .full-height;
-  }
-
-  // center xy
-  &[data-x-axis="center"][data-y-axis="center"] {
-    @if $type=='modal' {
-      @extend .transform-center-xy;
-      background-position: red !important;
-    }
-  }
-
-  // transitions
-  [data-trans] {
-    &.bx--on {
-      display: block;
-    }
-    &.bx--entering {
-      opacity: 1;
-    }
-    &.bx--exiting {
-      opacity: 0;
-    }
-  }
-
-} // end data attributes
-
 // used for creating :before(s) and :after(s)
 @mixin psuedo {
   content: "";
 }
 @mixin fixed-fullscreen {
-  position: fixed;
+  position: fixed !important;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
 }
 @mixin absolute-fullscreen {
-  position: absolute;
+  position: absolute !important;
   top: 0;
   left: 0;
   right: 0;

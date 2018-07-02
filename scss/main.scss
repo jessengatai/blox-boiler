@@ -15,18 +15,6 @@
 @import "_responsive";
 @import "_utils";
 
-
-// main bx elements that have data-attributes
-.bx-container {
-  @include general-data-attributes('container');
-}
-.boxes {
-  @include general-data-attributes('boxes');
-}
-.modal {
-  @include general-data-attributes('modal');
-}
-
 // box windows wtf is this?
 .bx-window {
   position: relative;

@@ -1643,7 +1643,7 @@ BOX COLUMNS
   margin-bottom: 60px; }
 
 .modal {
-  position: fixed;
+  position: fixed !important;
   top: 0;
   left: 0;
   right: 0;
@@ -1707,14 +1707,14 @@ BOX COLUMNS
 .min-width-tny {
   min-width: 500px; }
 
-.full-width, .bx-container[data-x-axis="full"], .boxes[data-x-axis="full"], .modal[data-x-axis="full"] {
+.full-width {
   max-width: 100%;
   min-width: 100%; }
 
-.full-width-gutter-x, .bx-container.gutter-x[data-x-axis="full"], .bx-container.gutter[data-x-axis="full"], .boxes.gutter-x[data-x-axis="full"], .boxes.gutter[data-x-axis="full"], .modal.gutter-x[data-x-axis="full"], .modal.gutter[data-x-axis="full"] {
+.full-width-gutter-x {
   width: calc( 100% - 24px); }
 
-.full-height, .bx-container[data-y-axis="full"], .boxes[data-y-axis="full"], .modal[data-y-axis="full"] {
+.full-height {
   max-height: none;
   min-height: 100%; }
 
@@ -1728,15 +1728,15 @@ BOX COLUMNS
 .float-right {
   float: right; }
 
-.transform-center-x, .modal[data-x-axis="center"] {
+.transform-center-x {
   left: 50%;
   transform: translateX(-50%); }
 
-.transform-center-y, .modal[data-y-axis="center"] {
+.transform-center-y {
   top: 50%;
   transform: translateY(-50%); }
 
-.transform-center-xy, .modal[data-x-axis="center"][data-y-axis="center"] {
+.transform-center-xy {
   top: 50%;
   left: 50%;
   transform: translate3d(-50%, -50%, 0); }
@@ -3454,53 +3454,22 @@ a.inline-link {
 .overflow-hidden {
   overflow: hidden; }
 
-.bx-container[data-x-axis="center"] {
-  max-width: 1400px;
-  width: 90vw;
-  margin-left: auto;
-  margin-right: auto; }
+.position-relative {
+  position: relative; }
 
-.bx-container [data-trans].bx--on {
-  display: block; }
-
-.bx-container [data-trans].bx--entering {
-  opacity: 1; }
-
-.bx-container [data-trans].bx--exiting {
-  opacity: 0; }
-
-.boxes[data-x-axis="center"] {
-  max-width: 1400px;
-  width: 90vw;
-  margin-left: auto;
-  margin-right: auto; }
-
-.boxes [data-trans].bx--on {
-  display: block; }
-
-.boxes [data-trans].bx--entering {
-  opacity: 1; }
-
-.boxes [data-trans].bx--exiting {
-  opacity: 0; }
-
-.modal[data-x-axis="center"] {
-  max-width: 1400px;
-  width: 90vw;
-  margin-left: auto;
-  margin-right: auto; }
-
-.modal[data-x-axis="center"][data-y-axis="center"] {
-  background-position: red !important; }
-
-.modal [data-trans].bx--on {
-  display: block; }
-
-.modal [data-trans].bx--entering {
-  opacity: 1; }
-
-.modal [data-trans].bx--exiting {
-  opacity: 0; }
+.bg-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1; }
+  .bg-image.bg-cover {
+    background-size: cover;
+    background-position: right; }
+  .bg-image.bg-blur {
+    filter: blur(10px);
+    transform: scale(1.1); }
 
 .bx-window {
   position: relative;

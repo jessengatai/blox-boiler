@@ -196,6 +196,26 @@ jQuery(document).ready(function ($) {
 console.log('modal loaded');
 jQuery(document).ready(function ($) {
 
+  /*
+  move this into bg.js
+   */
+  var setupBG = function setupBG() {
+
+    var bgs = $('[data-bg-image]');
+
+    $.each(bgs, function (index, object) {
+
+      var image = $(object).attr('data-bg-image');
+      var opacity = $(object).attr('data-bg-opacity');
+      var color = $(object).css('background-color');
+
+      $(object).addClass('position-relative');
+
+      $(object).append($('<div\n        class="bg-image bg-cover"\n        style="\n          background-color: ' + color + ';\n          background-image: url(' + image + ');\n          opacity: ' + opacity + '\n        "></div>'));
+    });
+  };
+  setupBG();
+
   /**
    * Open a modal
    * @param  {object} modal The modal object that we are opening
