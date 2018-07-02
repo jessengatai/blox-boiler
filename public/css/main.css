@@ -3457,21 +3457,53 @@ a.inline-link {
 .position-relative {
   position: relative; }
 
-.bg-image {
+.bg-image,
+.bg-gradient {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  z-index: -1; }
-  .bg-image.bg-cover {
+  z-index: -1;
+  pointer-events: none; }
+  .bg-image.bg-cover,
+  .bg-gradient.bg-cover {
     background-size: cover;
-    background-position: right; }
-  .bg-image.bg-blur {
+    background-position: center; }
+  .bg-image.bg-blur,
+  .bg-gradient.bg-blur {
     filter: blur(10px);
     transform: scale(1.1); }
-  .bg-image.bg-multiply {
+  .bg-image.bg-blend-luminosity,
+  .bg-gradient.bg-blend-luminosity {
+    background-blend-mode: luminosity; }
+  .bg-image.bg-blend-color,
+  .bg-gradient.bg-blend-color {
+    background-blend-mode: color; }
+  .bg-image.bg-blend-saturation,
+  .bg-gradient.bg-blend-saturation {
+    background-blend-mode: saturation; }
+  .bg-image.bg-blend-color-dodge,
+  .bg-gradient.bg-blend-color-dodge {
+    background-blend-mode: color-dodge; }
+  .bg-image.bg-blend-lighten,
+  .bg-gradient.bg-blend-lighten {
+    background-blend-mode: lighten; }
+  .bg-image.bg-blend-darken,
+  .bg-gradient.bg-blend-darken {
+    background-blend-mode: darken; }
+  .bg-image.bg-blend-overlay,
+  .bg-gradient.bg-blend-overlay {
+    background-blend-mode: overlay; }
+  .bg-image.bg-blend-screen,
+  .bg-gradient.bg-blend-screen {
+    background-blend-mode: screen; }
+  .bg-image.bg-blend-multiply,
+  .bg-gradient.bg-blend-multiply {
     background-blend-mode: multiply; }
+  .bg-image.bg-blend-normal,
+  .bg-gradient.bg-blend-normal {
+    background-blend-mode: normal; }
 
 .bx-window {
   position: relative;

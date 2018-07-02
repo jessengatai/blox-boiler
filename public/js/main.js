@@ -55,6 +55,58 @@ var bloxSanitize = function bloxSanitize(string) {
   });
 };
 
+console.log('backgrounds loaded');
+jQuery(document).ready(function ($) {
+
+  /*
+  move this into bg.js
+   */
+  var setupBG = function setupBG() {
+
+    var bgs = $('[data-bg]');
+
+    $.each(bgs, function (index, object) {
+
+      // color
+      var color = $(object).css('background-color');
+      var colorOpacity = $(object).attr('data-bg-color-opacity');
+      // image
+      var image = $(object).attr('data-bg-image');
+      var imageOpacity = $(object).attr('data-bg-image-opacity');
+      var imageBlend = $(object).attr('data-bg-image-blend');
+
+      // setup image blur
+      var imageBlur = $(object).attr('data-bg-image-blur');
+      imageBlur = bloxIsset(imageBlur) ? 'bg-blur' : '';
+
+      // gradient
+      var gradStart = $(object).attr('data-bg-gradient-start');
+      var gradEnd = $(object).attr('data-bg-gradient-end');
+      var gradDeg = $(object).attr('data-bg-gradient-deg');
+      var gradOpacity = $(object).attr('data-bg-gradient-opacity');
+
+      // clean up
+      $(object).addClass('position-relative');
+      $(object).css('background-color', 'transparent');
+
+      // the gradient
+      if (bloxIsset(gradStart)) {
+        $(object).prepend($('<div class="bg-gradient bg-cover"\n          style="\n              background-image: linear-gradient(' + gradDeg + 'deg, ' + gradStart + ', ' + gradEnd + ');\n              opacity: ' + gradOpacity + ' ;\n          "></div>'));
+      }
+
+      // the image
+      if (bloxIsset(image)) {
+        $(object).prepend($('<div class="bg-image bg-cover ' + imageBlur + ' bg-blend-' + imageBlend + '"\n          style="\n            background-image: url(' + image + ');\n            opacity: ' + imageOpacity + ';\n            background-color: ' + color + ';\n          "></div>'));
+
+        // the color (fallback)
+      } else {
+        $(object).prepend($('<div class="bg-image bg-blend-' + imageBlend + '"\n          style="\n            opacity: ' + colorOpacity + ';\n            background-color: ' + color + ';\n          "></div>'));
+      }
+    });
+  };
+  setupBG();
+});
+
 console.log('boxes loaded');
 jQuery(document).ready(function ($) {
 
@@ -195,26 +247,6 @@ jQuery(document).ready(function ($) {
 
 console.log('modal loaded');
 jQuery(document).ready(function ($) {
-
-  /*
-  move this into bg.js
-   */
-  var setupBG = function setupBG() {
-
-    var bgs = $('[data-bg-image]');
-
-    $.each(bgs, function (index, object) {
-
-      var image = $(object).attr('data-bg-image');
-      var opacity = $(object).attr('data-bg-opacity');
-      var color = $(object).css('background-color');
-
-      $(object).addClass('position-relative');
-
-      $(object).append($('<div\n        class="bg-image bg-cover bg-multiply"\n        style="\n          background-color: ' + color + ';\n          background-image: url(' + image + ');\n          opacity: ' + opacity + '\n        "></div>'));
-    });
-  };
-  setupBG();
 
   /**
    * Open a modal

@@ -72,3 +72,6 @@ $s-size-double: calc(20px + .2vh + .2vw) ;
 // color arrays (DO NOT TOUCH!)
 $colorKeys: white, black, red, orange, yellow, pink, green, blue, purple;
 $colorValues: $white, $black, $red, $orange, $yellow, $pink, $green, $blue, $purple;
+
+// blend array (do not touch)
+$blendModes: luminosity, color, saturation, color-dodge, lighten, darken, overlay, screen, multiply, normal;

@@ -20,7 +20,7 @@ jQuery(document).ready(function($){
         let rowCount = 0;
 
         // clean up the .row-x classes
-        children.removeClass (function (index, className) {
+        children.removeClass(function (index, className) {
           return (className.match (/(^|\s)row-\S+/g) || []).join(' ');
         });
 

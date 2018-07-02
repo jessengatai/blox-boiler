@@ -511,8 +511,6 @@
               </div>
             </div>
 
-
-
             <!-- buttons -->
             <div class="box margin-top--x4" data-span-tny="12">
               <h3 class="tight">Buttons</h3>
@@ -561,28 +559,47 @@
     </div>
 
     <!-- left aligned modal -->
-    <div id="left-modal" class="modal bg-red" data-bg-image="images/2.jpg">
-      <div data-classes-tny="full-width"
-      class="color-white padding--x3 max-width-tny full-height float-left">
-        <h2>Left Modal</h2>
+    <div id="left-modal"
+    data-classes-med="padding--x2"
+    data-classes-lrg="padding--x3"
+    data-classes-xl="padding--x4"
+    data-bg
+    data-bg-color-opacity=".8"
+    class="modal bg-red">
+      <div
+      data-bg
+      data-bg-image="images/3.jpg"
+      data-bg-image-opacity="1"
+      data-bg-image-blend="darken"
+
+      data-bg-gradient-start="red"
+      data-bg-gradient-end="blue"
+      data-bg-gradient-deg="45"
+      data-bg-gradient-opacity=".4"
+
+      data-classes-tny="full-width"
+      class="bg-purple color-white padding--x3 rounded overflow-hidden shadow-lrg max-width-tny full-height float-left">
+        <h2 class="size--x2">left<br> aligned<br> modal.</h2>
         <div class="padding-y">
-          <p class="color-white--darker-10">With some text and some background image goodness.</p>
+          <p class="color-white--darker-5">With some text and some <code>data-bg</code> attribute goodness.</p>
           <label for="username">Username</label>
           <input type="text" name="" value="">
           <label for="username">Password</label>
           <input type="password" name="" value="">
-          <small class="color-white--darker-10">Forgot your password?</small>
+          <small class="color-white--darker-5">Forgot your password?</small>
         </div>
         <button
         data-classes-sml="big"
         data-classes-tny="big"
         data-close-modal="left-modal"
-        class="circular full-width green">Login</button>
+        class="circular full-width purple">Login</button>
       </div>
     </div>
 
     <div id="right-modal" class="modal">
-      <div data-bg-image="images/1.jpg" class="padding--x3 shadow-lrg full-height max-width-half min-width-sml float-right">
+      <div
+      data-bg-image="images/1.jpg"
+      class="padding--x3 shadow-lrg full-height max-width-half min-width-sml float-right">
         <h2>Right Aligned Modal</h2>
         <p class="color-black--lighter-10">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
         <button data-close-modal="right-modal" class="big circular shadow">Okay got it!</button>

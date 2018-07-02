@@ -556,22 +556,36 @@ a.inline-link {
 .position-relative {
   position: relative;
 }
-.bg-image {
+
+
+@mixin blendModes($modes){
+  @for $i from 1 through length($modes) {
+    &.bg-blend-#{nth($modes, $i)} {
+      background-blend-mode: #{nth($modes, $i)};
+    }
+  }
+}
+
+
+.bg-image,
+.bg-gradient {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
   z-index: -1;
+  pointer-events: none;
   &.bg-cover {
     background-size: cover;
-    background-position: right;
+    background-position: center;
   }
   &.bg-blur {
     filter: blur(10px);
     transform: scale(1.1);
   }
-  &.bg-multiply {
-    background-blend-mode: multiply;
-  }
+
+  // blend modes
+  @include blendModes($blendModes);
+
 }
