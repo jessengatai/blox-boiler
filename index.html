@@ -58,21 +58,19 @@
 
         <!-- table of contents -->
         <div id="contents"
-        class="box sticky-top--med-up offset-top padding rounded transition-bg"
-        data-sticky
-        data-classes-onstick="bg-white--darker-1"
+        class="box sticky-top--med-up offset-top padding-right border-right"
         data-span-tny="0"
         data-span-med="3">
           <nav>
             <ul>
-              <li><a data-hash="#setup"    data-classes-onhash="purple" class="button off full-width text-left" href="#setup">Setup</a></li>
-              <li><a data-hash="#boxes"    data-classes-onhash="purple" class="button off full-width text-left" href="#boxes">Boxes</a></li>
-              <li><a data-hash="#modals"   data-classes-onhash="purple" class="button off full-width text-left" href="#modals">Modals</a></li>
-              <li><a data-hash="#bg"       data-classes-onhash="purple" class="button off full-width text-left" href="#bg">Backgrounds</a></li>
-              <li><a data-hash="#stickies" data-classes-onhash="purple" class="button off full-width text-left" href="#stickies">Stickies</a></li>
-              <li><a data-hash="#classes"  data-classes-onhash="purple" class="button off full-width text-left" href="#classes">Responsive Classes</a></li>
-              <li><a data-hash="#buttons"  data-classes-onhash="purple" class="button off full-width text-left" href="#buttons">Buttons</a></li>
-              <li><a data-hash="#hash"     data-classes-onhash="purple" class="button off full-width text-left" href="#hash">Hash States</a></li>
+              <li><a data-classes-onhash="purple" class="button off full-width text-left" data-hash="#setup" href="#setup">Setup</a></li>
+              <li><a data-classes-onhash="purple" class="button off full-width text-left" data-hash="#boxes" href="#boxes">Boxes</a></li>
+              <li><a data-classes-onhash="purple" class="button off full-width text-left" data-hash="#modals" href="#modals">Modals</a></li>
+              <li><a data-classes-onhash="purple" class="button off full-width text-left" data-hash="#backgrounds" href="#backgrounds">Backgrounds</a></li>
+              <li><a data-classes-onhash="purple" class="button off full-width text-left" data-hash="#stickies" href="#stickies">Stickies</a></li>
+              <li><a data-classes-onhash="purple" class="button off full-width text-left" data-hash="#classes" href="#classes">Responsive Classes</a></li>
+              <li><a data-classes-onhash="purple" class="button off full-width text-left" data-hash="#buttons" href="#buttons">Buttons</a></li>
+              <li><a data-classes-onhash="purple" class="button off full-width text-left" data-hash="#hash" href="#hash">Hash States</a></li>
             </ul>
           </nav>
         </div>
@@ -336,11 +334,13 @@
             </div>
 
             <!-- BACKGROUNDS -->
-            <div id="bg" class="box  margin-bottom--x2">
+            <div id="backgrounds" class="box  margin-bottom--x2">
               <h2 class="size--x2">Backgrounds</h2>
               <p>Working with images, gradients and colors is my favourite part of front-end development. Blox let's us make quick work of such matters providing a robust set of data attributes for us to utilise. Let's take a closer look at the background from the above "left modal" example.</p>
               <div class="boxes" data-gutters="nested">
                 <div class="box"
+                data-classes-lrg="sticky-top offset-top"
+                data-classes-xl="sticky-top offset-top"
                 data-span-lrg="6">
                   <div
                   data-bg-image="images/4.jpg"
@@ -361,8 +361,44 @@
                     <small class="color-white--darker-5">Forgot your password?</small>
                     <button
                     data-close-modal="left-modal"
-                    class="weight-600 full-width big green">Login</button>
+                    class="full-width big green">Login</button>
                   </div>
+                </div>
+                <div class="box bg-white--darker-1 padding rounded--lrg" data-span-lrg="6">
+
+                  <h5>Image Attributes</h5>
+                  <label for="imageurl">data-bg-image (url)</label>
+                  <input type="text" name="imageurl" value="image/3.jpg">
+                  <label for="imageopacity">data-bg-image-opacity (0 > 1)</label>
+                  <input type="text" name="imageopacity" value="1">
+                  <label for="imageblend">data-bg-image-blend</label>
+                  <select name="imageblend">
+                    <option value="normal">normal</option>
+                    <option value="normal" selected>multiply</option>
+                    <option value="normal">screen</option>
+                    <option value="normal">overlay</option>
+                    <option value="normal">darken</option>
+                    <option value="normal">lighten</option>
+                    <option value="normal">color-dodge</option>
+                    <option value="normal">saturation</option>
+                    <option value="normal">color</option>
+                    <option value="normal">luminosity</option>
+                  </select>
+
+                  <h5>Gradient Attributes</h5>
+                  <label for="gradientstart">data-bg-gradient-start (color, #hex, rgba etc)</label>
+                  <input type="text" name="gradientstart" value="blue">
+                  <label for="gradientend">data-bg-gradient-end (color, #hex, rgba etc)</label>
+                  <input type="text" name="gradientend" value="red">
+                  <label for="gradientdeg">data-bg-gradient-deg (rotation in degrees eg: 45 or -45)</label>
+                  <input type="text" name="gradientdeg" value="0">
+                  <label for="gradientopacity">data-bg-gradient-opacity (0 > 1)</label>
+                  <input type="text" name="gradientopacity" value=".2">
+
+                  <h5>Color Attributes</h5>
+                  <label for="coloropacity">data-bg-color-opacity (0 > 1)</label>
+                  <input type="text" name="coloropacity" value="0.5">
+
                 </div>
               </div>
             </div>

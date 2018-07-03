@@ -11,12 +11,12 @@ $white: #ffffff;
 
 // containers
 $container-width: 90vw;
-$container-max-width: 1400px;
+$container-max-width: calc(1200px + 10vw);
 $container-max-width-thin: 900px;
 
 // margins and padding
-$gutterX: 24px;
-$gutterY: 24px;
+$gutterX: 30px;
+$gutterY: 30px;
 $paddingX: 20px;
 $paddingY: 20px;
 $default_cols: 12;
