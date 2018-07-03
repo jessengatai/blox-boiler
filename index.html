@@ -30,24 +30,24 @@
     </style>
 
   </head>
-  <body class="">
+  <body class="color-blue--darker-10">
 
     <div id="header"
-    class="bg-white--darker-1 color-blue--darker-9 padding-y--x4 margin-bottom--x4"
-    data-bg-gradient
-    data-bg-direction=""
-    data-bg-top=""
-    data-bg-bottom=""
-    >
+    class="bg-white--darker-1 padding-y--x4 margin-bottom--x4 shadow-lrg--inset">
       <div class="bx-container align-center max-width">
         <div class="boxes">
           <div class="box" data-span-tny="12">
             <h1 class="size--x2">Blox.</h1>
-            <h4>A functionality-first front-end boiler <br>
-              <span class="weight-200">( All of the stuff you wished for, none of the stuff you didn't )</span></h4>
-            <button type="button" class="big circular">👨🏽‍💻 GitHub</button>
-            <button type="button" class="big circular">👩🏼‍💻 NPM</button>
-            <button type="button" class="big circular">🐨 Me</button>
+            <h3>A functionality-first front-end boiler.
+              <br>
+              <span class="weight-200">{ All the stuff you wished for, none of the stuff you didn't }</span>
+            </h3>
+            <div class="margin-top--x2">
+              <button type="button" class="purple">👨🏽‍💻 GitHub</button>
+              <button type="button" class="purple">👩🏼‍💻 NPM</button>
+              <button type="button" class="purple">🐨 Mr. Jesse</button>
+              <br>
+            </div>
           </div>
         </div>
       </div>
@@ -62,31 +62,17 @@
         data-sticky
         data-classes-onstick="bg-white--darker-1"
         data-span-tny="0"
-        data-span-med="3"
-        data-span-xl="2">
-          <h6 class="margin-left">Functionality</h6>
-          <nav class="margin-bottom">
+        data-span-med="3">
+          <nav>
             <ul>
-              <li><a data-hash="#setup"    data-classes-onhash="purple" class="button off small full-width text-left" href="#setup">Setup</a></li>
-              <li><a data-hash="#stickies" data-classes-onhash="purple" class="button off small full-width text-left" href="#stickies">Stickies</a></li>
-              <li><a data-hash="#boxes"    data-classes-onhash="purple" class="button off small full-width text-left" href="#boxes">Boxes</a></li>
-              <li><a data-hash="#modals"   data-classes-onhash="purple" class="button off small full-width text-left" href="#modals">Modals</a></li>
-              <li><a data-hash="#classes"  data-classes-onhash="purple" class="button off small full-width text-left" href="#classes">Responsive Classes</a></li>
-              <li><a data-hash="#bg"       data-classes-onhash="purple" class="button off small full-width text-left" href="#bg">Backgrounds</a></li>
-              <li><a data-hash="#hash"     data-classes-onhash="purple" class="button off small full-width text-left" href="#hash">Hash States</a></li>
-              <li><a data-hash="#buttons"  data-classes-onhash="purple" class="button off small full-width text-left" href="#buttons">Buttons</a></li>
-              <li><a data-hash="#forms"    data-classes-onhash="purple" class="button off small full-width text-left" href="#forms">Forms</a></li>
-            </ul>
-          </nav>
-          <h6 class="margin-left">Utilitiy Classes</h6>
-          <nav class="margin-bottom">
-            <ul>
-              <li><a data-hash="setup" class="button off small full-width text-left" href="#layout">Layout</a></li>
-              <li><a data-hash="setup" class="button off small full-width text-left" href="#colors">Colors</a></li>
-              <li><a data-hash="setup" class="button off small full-width text-left" href="#deboss">Deboss</a></li>
-              <li><a data-hash="setup" class="button off small full-width text-left" href="#shadows">Shadows</a></li>
-              <li><a data-hash="setup" class="button off small full-width text-left" href="#borders">Borders</a></li>
-              <li><a data-hash="setup" class="button off small full-width text-left" href="#text">Text</a></li>
+              <li><a data-hash="#setup"    data-classes-onhash="purple" class="button off full-width text-left" href="#setup">Setup</a></li>
+              <li><a data-hash="#boxes"    data-classes-onhash="purple" class="button off full-width text-left" href="#boxes">Boxes</a></li>
+              <li><a data-hash="#modals"   data-classes-onhash="purple" class="button off full-width text-left" href="#modals">Modals</a></li>
+              <li><a data-hash="#bg"       data-classes-onhash="purple" class="button off full-width text-left" href="#bg">Backgrounds</a></li>
+              <li><a data-hash="#stickies" data-classes-onhash="purple" class="button off full-width text-left" href="#stickies">Stickies</a></li>
+              <li><a data-hash="#classes"  data-classes-onhash="purple" class="button off full-width text-left" href="#classes">Responsive Classes</a></li>
+              <li><a data-hash="#buttons"  data-classes-onhash="purple" class="button off full-width text-left" href="#buttons">Buttons</a></li>
+              <li><a data-hash="#hash"     data-classes-onhash="purple" class="button off full-width text-left" href="#hash">Hash States</a></li>
             </ul>
           </nav>
         </div>
@@ -95,100 +81,21 @@
         <div id="content"
         class="box"
         data-span-sml="12"
-        data-span-med="9"
-        data-span-xl="10">
+        data-span-med="9">
           <div class="boxes">
 
             <!-- SETUP -->
             <div id="setup" class="box margin-bottom--x4">
               <h2 class="size--x2">Setup</h2>
+
+              <p class="deboss color-red--lighter-2">PSA: This boilerplate will not be production ready until it hits version 1+. Use in the wild at your own risk.</p>
+
               <h5>Via NPM</h5>
               <p>You can install via node packet manager with <code>npm i blox-boiler</code></p>
               <h5>Sass Include</h5>
               <p>Download and include the <code>bloxBoiler.scss</code> and <code>bloxBoiler.js</code> files which will allow you to alter the default variables at the top of the file. Remember to call the JS after jQuery.</p>
               <h5>CSS</h5>
               <p>Or simply include the <code>bloxBoiler.min.css</code> and <code>bloxBoiler.min.js</code> files. Remember to call the JS after jQuery.</p>
-            </div>
-
-            <!-- stickies -->
-            <div id="stickies" class="box margin-bottom--x4">
-              <h2 class="size--x2">Stickies</h2>
-              <p>CSS <code>position: sticky;</code> is epic, however it lacks the native support to trigger events when our element is "stuck". Blox attempts to solve this issue using javascripts <code>IntersectionObserver</code> in combination with HTML <code>data</code> attributes. This let's us quickly toggle CSS classes or fire our own custom functions when our sticky elements are stuck.</p>
-
-              <div class="boxes" data-gutters="nested">
-                <div class="box border-top--purple border-bottom--purple" data-span-tny="4">
-                  <p class="color-white--darker-3">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                  <p class="color-white--darker-3">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                  <div class="sticky-bottom deboss"
-                  data-sticky
-                  data-classes-onstick="shadow-lrg color-white deboss--black"
-                  ><small>.sticky-bottom</small></div>
-                </div>
-                <div class="box border-top--purple border-bottom--purple" data-span-tny="4">
-                  <div class="sticky-top deboss offset-top"
-                  data-sticky
-                  data-classes-onstick="shadow-lrg color-white deboss--black"
-                  ><small>.sticky-top + .offset-top</small></div>
-                  <p class="margin-top color-white--darker-3">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                </div>
-                <div class="box border-top--purple border-bottom--purple" data-span-tny="4">
-                  <div class="sticky-top deboss offset-top--x2 margin-bottom"
-                  data-sticky
-                  data-classes-onstick="shadow-lrg color-white deboss--black"
-                  ><small>.sticky-top + .offset-top--x2 + margin-bottom</small></div>
-                  <p class="color-white--darker-3">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                </div>
-              </div>
-
-              <div class="boxes" data-gutters="nested">
-                <div class="box" data-span-med="6">
-                  <h5>Requirments</h5>
-                  <ol type="1" class="margin-bottom--x2">
-                    <li>You need to add the attribute <code>data-sticky</code> to the sticky element.</li>
-                    <li>You can NOT have more than 1 sticky element in the same parent.<br>
-                        <small class="color-red">If you do, the events will only trigger on the first sticky element.</small>
-                    </li>
-                    <li>Don't forget to add a sticky utility class (eg: <code>.sticky-top</code>).<br>
-                        <small class="color-red">This will work for responsive sticky classes as well.</small>
-                    </li>
-                  </ol>
-                </div>
-                <div class="box" data-span-med="6">
-                  <h5>Recommendations</h5>
-                  <ol type="1" class="margin-bottom--x2">
-                    <li>Adding padding or changing the sticky height will result in some touchy functionalty. This is because the IntersectionObserver watches for hidden divs entering and leaving the viewport, these divs are positioned based on the sticky elements height, margins and offsets.</li>
-                  </ol>
-                </div>
-              </div>
-
-              <div class="deboss">
-                <table class="full-width">
-                  <thead>
-                    <th>Attribute</th>
-                    <th>Description</th>
-                  </thead>
-                  <tr>
-                    <td>data-classes-onstick</td>
-                    <td>Classes while element is stuck.</td>
-                  </tr>
-                  <tr>
-                    <td>data-classes-offstick</td>
-                    <td>Classes while element is unstuck.</td>
-                  </tr>
-                  <tr>
-                    <td>data-callback-onstick="..."</td>
-                    <td>Callback to run when element becomes stuck. <br>
-                      <small class="color-red--lighter-1">The current element will be passed as the only parameter.</small>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>data-callback-offstick="..."</td>
-                    <td>Callback to run when element stops being stuck. <br>
-                      <small class="color-red--lighter-1">The current element will be passed as the only parameter.</small>
-                    </td>
-                  </tr>
-                </table>
-              </div>
             </div>
 
             <!-- BOXES -->
@@ -365,70 +272,7 @@
 
             </div><!-- end BOXES section -->
 
-            <!-- HASH -->
-            <div id="hash" class="box margin-bottom--x4">
-              <h2 class="size--x2"># States</h2>
-              <p>If you have an anchor tag that links to #foo and either moves to the matching element or simply updates the hash in the URL, when that hash is active we might want to add a class to our button or some other element on the page. We can achieve this using hash data attributes.</p>
-              <div class="boxes" data-gutters="nested">
-                <div class="box" data-span-tny="6">
-                  <a href="#foo"
-                  data-hash="#foo"
-                  data-classes-onhash="purple"
-                  class="button">#foo on</a>
-                  <a href="#bar" class="button">#foo off</a>
-                  <p data-hash="#foo"
-                  data-classes-onhash="deboss--red color-red--darker-4"
-                  data-classes-offhash="deboss--blue color-blue--darker-4"
-                  class="margin-top"
-                  >
-                    Binds the #foo hash by setting data-hash="#foo".<br><br>
-                    Adds classes when #foo is active with data-classes-onhash="..."<br><br>
-                    Adds classes when #foo is inactive with data-classes-offhash="..."
-                  </p>
-                </div>
-                <div class="box" data-span-tny="6">
-                  <pre data-src="./code/_hashes.html"></pre>
-                </div>
-              </div>
-              <p>A noteable downside to managing element states via the URL hash is that you can only have one state for the entire page. However, being able to change the state of elements via the browsers native forwards and back buttons make up for it, especially for simple static HTML sites.</p>
-              <p>Below are all the hash related data attributes</p>
-              <div class="deboss">
-                <table class="full-width">
-                  <thead>
-                    <th>Description</th>
-                    <th>Attribute</th>
-                  </thead>
-                  <tr>
-                    <td>data-hash="#hash"</td>
-                    <td>Bind an element to a hash. <br>
-                      <small class="color-red--lighter-1">Don't forget the # symbol!</small>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>data-classes-onhash="..."</td>
-                    <td>Classes while hash is active.</td>
-                  </tr>
-                  <tr>
-                    <td>data-classes-offhash="..."</td>
-                    <td>Classes while hash is not active.</td>
-                  </tr>
-                  <tr>
-                    <td>data-callback-onhash="functionName"</td>
-                    <td>Callback to run when hash is made active. <br>
-                      <small class="color-red--lighter-1">The current element will be passed as the only parameter.</small>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>data-callback-offhash="functionName"</td>
-                    <td>Callback to run when hash is made inactive. <br>
-                      <small class="color-red--lighter-1">The current element will be passed as the only parameter.</small>
-                    </td>
-                  </tr>
-                </table>
-              </div>
-            </div>
-
-            <!-- modals -->
+            <!-- MODALS -->
             <div id="modals" class="box margin-bottom--x4">
               <h2 class="size--x2">Modals</h2>
               <p>Blox's modals don't come packaged with any styling, this allows us a lot of freedom in the type of modals we want to create. He's what you need to get your modal up and running.</p>
@@ -493,27 +337,114 @@
 
             <!-- BACKGROUNDS -->
             <div id="bg" class="box  margin-bottom--x2">
-              <div
-              data-classes-tny="full-width"
-              data-bg-image="images/4.jpg"
-              data-bg-image-opacity="1"
-              data-bg-image-blend="multiply"
-              data-bg-gradient-start="blue"
-              data-bg-gradient-end="red"
-              data-bg-gradient-deg="0"
-              data-bg-gradient-opacity=".2"
-              data-bg-color-opacity="0.5"
-              class="bg-purple color-white padding-y--x4 padding-x--x2 rounded--lrg overflow-hidden shadow-lrg max-width-tny full-height float-left">
-                <h2 class="size--x2 text-shadow tight">Left <br>Modal.</h2>
-                <p class="color-white">With some text and some data-bg attribute goodness.</p>
-                <label for="username">Username</label>
-                <input type="text" name="" value="">
-                <label for="username">Password</label>
-                <input type="password" name="" value="">
-                <small class="color-white--darker-5">Forgot your password?</small>
-                <button
-                data-close-modal="left-modal"
-                class="weight-600 full-width big green">Login</button>
+              <h2 class="size--x2">Backgrounds</h2>
+              <p>Working with images, gradients and colors is my favourite part of front-end development. Blox let's us make quick work of such matters providing a robust set of data attributes for us to utilise. Let's take a closer look at the background from the above "left modal" example.</p>
+              <div class="boxes" data-gutters="nested">
+                <div class="box"
+                data-span-lrg="6">
+                  <div
+                  data-bg-image="images/4.jpg"
+                  data-bg-image-opacity="1"
+                  data-bg-image-blend="multiply"
+                  data-bg-gradient-start="blue"
+                  data-bg-gradient-end="red"
+                  data-bg-gradient-deg="0"
+                  data-bg-gradient-opacity=".2"
+                  data-bg-color-opacity="0.5"
+                  class="bg-purple color-white padding-y--x3 padding-x--x2 rounded--lrg overflow-hidden shadow-lrg">
+                    <h2 class="size--x2 text-shadow tight">Left <br>Modal.</h2>
+                    <p class="color-white">With some text and some data-bg attribute goodness.</p>
+                    <label for="username">Username</label>
+                    <input type="text" name="" value="">
+                    <label for="username">Password</label>
+                    <input type="password" name="" value="">
+                    <small class="color-white--darker-5">Forgot your password?</small>
+                    <button
+                    data-close-modal="left-modal"
+                    class="weight-600 full-width big green">Login</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- STICKIES -->
+            <div id="stickies" class="box margin-bottom--x4">
+              <h2 class="size--x2">Stickies</h2>
+              <p>CSS <code>position: sticky;</code> is epic, however it lacks the native support to trigger events when our element is "stuck". Blox attempts to solve this issue using javascripts <code>IntersectionObserver</code> in combination with HTML <code>data</code> attributes. This let's us quickly toggle CSS classes or fire our own custom functions when our sticky elements are stuck.</p>
+
+              <div class="boxes" data-gutters="nested">
+                <div class="box border-top--purple border-bottom--purple" data-span-tny="4">
+                  <p class="color-white--darker-3">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                  <p class="color-white--darker-3">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                  <div class="sticky-bottom deboss"
+                  data-sticky
+                  data-classes-onstick="shadow-lrg color-white deboss--black"
+                  ><small>.sticky-bottom</small></div>
+                </div>
+                <div class="box border-top--purple border-bottom--purple" data-span-tny="4">
+                  <div class="sticky-top deboss offset-top"
+                  data-sticky
+                  data-classes-onstick="shadow-lrg color-white deboss--black"
+                  ><small>.sticky-top + .offset-top</small></div>
+                  <p class="margin-top color-white--darker-3">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                </div>
+                <div class="box border-top--purple border-bottom--purple" data-span-tny="4">
+                  <div class="sticky-top deboss offset-top--x2 margin-bottom"
+                  data-sticky
+                  data-classes-onstick="shadow-lrg color-white deboss--black"
+                  ><small>.sticky-top + .offset-top--x2 + margin-bottom</small></div>
+                  <p class="color-white--darker-3">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                </div>
+              </div>
+
+              <div class="boxes" data-gutters="nested">
+                <div class="box" data-span-med="6">
+                  <h5>Requirments</h5>
+                  <ol type="1" class="margin-bottom--x2">
+                    <li>You need to add the attribute <code>data-sticky</code> to the sticky element.</li>
+                    <li>You can NOT have more than 1 sticky element in the same parent.<br>
+                        <small class="color-red">If you do, the events will only trigger on the first sticky element.</small>
+                    </li>
+                    <li>Don't forget to add a sticky utility class (eg: <code>.sticky-top</code>).<br>
+                        <small class="color-red">This will work for responsive sticky classes as well.</small>
+                    </li>
+                  </ol>
+                </div>
+                <div class="box" data-span-med="6">
+                  <h5>Recommendations</h5>
+                  <ol type="1" class="margin-bottom--x2">
+                    <li>Adding padding or changing the sticky height will result in some touchy functionalty. This is because the IntersectionObserver watches for hidden divs entering and leaving the viewport, these divs are positioned based on the sticky elements height, margins and offsets.</li>
+                  </ol>
+                </div>
+              </div>
+
+              <div class="deboss">
+                <table class="full-width">
+                  <thead>
+                    <th>Attribute</th>
+                    <th>Description</th>
+                  </thead>
+                  <tr>
+                    <td>data-classes-onstick</td>
+                    <td>Classes while element is stuck.</td>
+                  </tr>
+                  <tr>
+                    <td>data-classes-offstick</td>
+                    <td>Classes while element is unstuck.</td>
+                  </tr>
+                  <tr>
+                    <td>data-callback-onstick="..."</td>
+                    <td>Callback to run when element becomes stuck. <br>
+                      <small class="color-red--lighter-1">The current element will be passed as the only parameter.</small>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>data-callback-offstick="..."</td>
+                    <td>Callback to run when element stops being stuck. <br>
+                      <small class="color-red--lighter-1">The current element will be passed as the only parameter.</small>
+                    </td>
+                  </tr>
+                </table>
               </div>
             </div>
 
@@ -537,26 +468,91 @@
               </div>
             </div>
 
-            <!-- buttons -->
-            <div class="box margin-top--x4" data-span-tny="12">
-              <h3 class="tight">Buttons</h3>
+            <!-- BUTTONS -->
+            <div id="buttons" class="box margin-bottom--x4">
+              <h2 class="size--x2">Buttons</h2>
+              <div class="boxes" data-gutters="nested">
+                <div class="box" data-span-tny="6">
+                  <button class="full-width" type="button" name="button">.full-width</button>
+                  <button type="button" name="button">&#60;button&#62;</button>
+                  <button class="big" type="button" name="button">.big</button>
+                  <button class="small" type="button" name="button">.small</button>
+                  <button class="circular" type="button" name="button">.circular</button>
+                  <button class="" type="button" name="button">.icon child</button>
+                </div>
+                <div class="box" data-span-tny="6">
+                  <button class="primary full-width" type="button" name="button">.primary</button>
+                  <button class="red" type="button" name="button">.red</button>
+                  <button class="orange" type="button" name="button">.orange</button>
+                  <button class="yellow" type="button" name="button">.yellow</button>
+                  <button class="green" type="button" name="button">.green</button>
+                  <button class="blue" type="button" name="button">.blue</button>
+                  <button class="purple" type="button" name="button">.purple</button>
+                </div>
+              </div>
             </div>
-            <div class="box" data-span-tny="6">
-              <button class="full-width" type="button" name="button">.full-width</button>
-              <button type="button" name="button">&#60;button&#62;</button>
-              <button class="big" type="button" name="button">.big</button>
-              <button class="small" type="button" name="button">.small</button>
-              <button class="circular" type="button" name="button">.circular</button>
-              <button class="" type="button" name="button">.icon child</button>
-            </div>
-            <div class="box" data-span-tny="6">
-              <button class="primary full-width" type="button" name="button">.primary</button>
-              <button class="red" type="button" name="button">.red</button>
-              <button class="orange" type="button" name="button">.orange</button>
-              <button class="yellow" type="button" name="button">.yellow</button>
-              <button class="green" type="button" name="button">.green</button>
-              <button class="blue" type="button" name="button">.blue</button>
-              <button class="purple" type="button" name="button">.purple</button>
+
+            <!-- HASH STATES -->
+            <div id="hash" class="box margin-bottom--x4">
+              <h2 class="size--x2"># States</h2>
+              <p>If you have an anchor tag that links to #foo and either moves to the matching element or simply updates the hash in the URL, when that hash is active we might want to add a class to our button or some other element on the page. We can achieve this using hash data attributes.</p>
+              <div class="boxes" data-gutters="nested">
+                <div class="box" data-span-tny="6">
+                  <a href="#foo"
+                  data-hash="#foo"
+                  data-classes-onhash="purple"
+                  class="button">#foo on</a>
+                  <a href="#bar" class="button">#foo off</a>
+                  <p data-hash="#foo"
+                  data-classes-onhash="deboss--red color-red--darker-4"
+                  data-classes-offhash="deboss--blue color-blue--darker-4"
+                  class="margin-top"
+                  >
+                    Binds the #foo hash by setting data-hash="#foo".<br><br>
+                    Adds classes when #foo is active with data-classes-onhash="..."<br><br>
+                    Adds classes when #foo is inactive with data-classes-offhash="..."
+                  </p>
+                </div>
+                <div class="box" data-span-tny="6">
+                  <pre data-src="./code/_hashes.html"></pre>
+                </div>
+              </div>
+              <p>A noteable downside to managing element states via the URL hash is that you can only have one state for the entire page. However, being able to change the state of elements via the browsers native forwards and back buttons make up for it, especially for simple static HTML sites.</p>
+              <p>Below are all the hash related data attributes</p>
+              <div class="deboss">
+                <table class="full-width">
+                  <thead>
+                    <th>Description</th>
+                    <th>Attribute</th>
+                  </thead>
+                  <tr>
+                    <td>data-hash="#hash"</td>
+                    <td>Bind an element to a hash. <br>
+                      <small class="color-red--lighter-1">Don't forget the # symbol!</small>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>data-classes-onhash="..."</td>
+                    <td>Classes while hash is active.</td>
+                  </tr>
+                  <tr>
+                    <td>data-classes-offhash="..."</td>
+                    <td>Classes while hash is not active.</td>
+                  </tr>
+                  <tr>
+                    <td>data-callback-onhash="functionName"</td>
+                    <td>Callback to run when hash is made active. <br>
+                      <small class="color-red--lighter-1">The current element will be passed as the only parameter.</small>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>data-callback-offhash="functionName"</td>
+                    <td>Callback to run when hash is made inactive. <br>
+                      <small class="color-red--lighter-1">The current element will be passed as the only parameter.</small>
+                    </td>
+                  </tr>
+                </table>
+              </div>
             </div>
 
           </div><!-- end .boxes -->

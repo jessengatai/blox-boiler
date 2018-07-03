@@ -2078,6 +2078,12 @@ SHADOWS
 .shadow--bottom {
   box-shadow: 0 15px 10px -10px rgba(0, 0, 0, 0.03); }
 
+.shadow--inset {
+  box-shadow: inset 0 5px 10px rgba(0, 0, 0, 0.08); }
+
+.shadow-lrg--inset {
+  box-shadow: inset 0 -15px 25px -10px rgba(0, 0, 0, 0.02); }
+
 /*
 TEXT SHADOWS
  */
