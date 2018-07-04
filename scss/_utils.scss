@@ -625,9 +625,13 @@ a.inline-link {
   height: 100%;
   z-index: -1;
   pointer-events: none;
+  background-color: transparent;
+
+  // default size and position
+  background-size: cover;
+  background-position: center;
   &.bg-cover {
-    background-size: cover;
-    background-position: center;
+
   }
   &.bg-blur {
     filter: blur(10px);
@@ -636,7 +640,5 @@ a.inline-link {
 
   // blend modes
   @include blendModes($blendModes);
-
-  transition: all 0.5s ease;
 
 }

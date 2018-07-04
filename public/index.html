@@ -339,6 +339,7 @@
             <div id="backgrounds" class="box  margin-bottom--x2">
               <h2 class="size--x2">Backgrounds</h2>
               <p>Working with images, gradients and color is my favourite part of front-end development. Blox let's us make quick work of such matters providing a robust set of data attributes for us to utilise. Let's take a closer look at the background from the above "left modal" example.</p>
+
               <div class="boxes" data-gutters="nested">
                 <div class="box"
                 data-classes-lrg="sticky-top offset-top"
@@ -352,7 +353,6 @@
                   data-bg-gradient-end="red"
                   data-bg-gradient-deg="0"
                   data-bg-gradient-opacity=".2"
-                  data-bg-color-opacity="0.5"
                   class="bg-purple color-white padding-y--x3 padding-x--x2 rounded--lrg overflow-hidden shadow-lrg">
                     <h2 class="size--x2 text-shadow tight">Left <br>Modal.</h2>
                     <p class="color-white">With some text and some data-bg attribute goodness.</p>
@@ -403,6 +403,16 @@
 
                 </div>
               </div>
+
+              <h5>Requirments</h5>
+              <ol>
+
+              </ol>
+
+              <h5>Observer Awesome-sauce</h5>
+              <p>Javascript out of the box, can't directly listen for data-attribute changes. However, thanks to the <code>mutationObserver</code> we can listen and subsquently update the background on the fly.</p>
+
+
             </div>
 
             <!-- STICKIES -->
@@ -633,7 +643,6 @@
       data-bg-gradient-end="red"
       data-bg-gradient-deg="0"
       data-bg-gradient-opacity=".2"
-      data-bg-color-opacity="0.5"
       class="bg-purple color-white padding-y--x4 padding-x--x2 rounded--lrg overflow-hidden shadow-lrg max-width-tny full-height float-left">
         <h2 class="size--x2 text-shadow margin-bottom--x2">Left <br>Modal.</h2>
         <p class="color-white">With some text and some data-bg attribute goodness.</p>

@@ -58,53 +58,110 @@ var bloxSanitize = function bloxSanitize(string) {
 console.log('backgrounds loaded');
 jQuery(document).ready(function ($) {
 
+  /**
+   * Setup the base divs for our smart backgrounds
+   * @param  {object} object The background parent
+   */
+  var bloxSetupBackground = function bloxSetupBackground(object) {
+    var divColor = $('<div class="bg-color"></div>');
+    var divImage = $('<div class="bg-image"></div>');
+    var divGradient = $('<div class="bg-gradient"></div>');
+
+    // prepend new divs
+    $(object).prepend(divColor, divImage, divGradient);
+  };
+
+  /**
+   * Update the backgrounds for our smart backgrounds
+   * @param  {object} object The background parent
+   */
+  var bloxUpdateBackground = function bloxUpdateBackground(object) {
+    // divs
+    var divColor = $(object).children('.bg-color');
+    var divImage = $(object).children('.bg-image');
+    var divGradient = $(object).children('.bg-gradient');
+
+    // attributes
+    var color = $(object).css('background-color');
+    var colorOpacity = $(object).attr('data-bg-color-opacity');
+    var image = $(object).attr('data-bg-image');
+    var imageOpacity = $(object).attr('data-bg-image-opacity');
+    var imageBlend = $(object).attr('data-bg-image-blend');
+    var gradStart = $(object).attr('data-bg-gradient-start');
+    var gradEnd = $(object).attr('data-bg-gradient-end');
+    var gradDeg = $(object).attr('data-bg-gradient-deg');
+    var gradOpacity = $(object).attr('data-bg-gradient-opacity');
+
+    // fallbacks
+    colorOpacity = !bloxIsset(colorOpacity) ? 1 : colorOpacity;
+
+    // clean up
+    $(object).addClass('position-relative');
+    $(object).css('background-color', 'transparent');
+
+    // the gradient
+    if (bloxIsset(gradStart)) {
+      divGradient.css({
+        backgroundImage: 'linear-gradient(' + gradDeg + 'deg, ' + gradStart + ', ' + gradEnd + ')',
+        opacity: gradOpacity
+      });
+    }
+
+    // the image
+    // - the color is added here if the image is set, this ensures the blend mode actually works
+    if (bloxIsset(image)) {
+      divImage.css({
+        backgroundImage: 'url(' + image + ')',
+        backgroundBlendMode: imageBlend,
+        backgroundColor: color.replace(/(?=\))/, ', ' + colorOpacity),
+        opacity: imageOpacity
+      });
+      divColor.css('background-color', '');
+
+      // the color
+    } else if (bloxIsset(colorOpacity)) {
+      divColor.css({
+        backgroundColor: color.replace(/(?=\))/, ', ' + colorOpacity)
+      });
+    }
+  };
+
   /*
   move this into bg.js
    */
-  var setupBG = function setupBG() {
+  var bloxBackgrounds = function bloxBackgrounds() {
 
-    var bgs = $('[data-bg-image], [data-bg-gradient-start], [data-bg-color-opacity]');
+    // setup the smart backgrounds
+    var nodes = document.querySelectorAll('[data-bg-image], [data-bg-gradient-start], [data-bg-color-opacity]');
+    var objects = $(nodes);
 
-    $.each(bgs, function (index, object) {
+    console.log(nodes);
 
-      // color
-      var color = $(object).css('background-color');
-      var colorOpacity = $(object).attr('data-bg-color-opacity');
-      // image
-      var image = $(object).attr('data-bg-image');
-      var imageOpacity = $(object).attr('data-bg-image-opacity');
-      var imageBlend = $(object).attr('data-bg-image-blend');
-
-      // setup image blur
-      var imageBlur = $(object).attr('data-bg-image-blur');
-      imageBlur = bloxIsset(imageBlur) ? 'bg-blur' : '';
-
-      // gradient
-      var gradStart = $(object).attr('data-bg-gradient-start');
-      var gradEnd = $(object).attr('data-bg-gradient-end');
-      var gradDeg = $(object).attr('data-bg-gradient-deg');
-      var gradOpacity = $(object).attr('data-bg-gradient-opacity');
-
-      // clean up
-      $(object).addClass('position-relative');
-      $(object).css('background-color', 'transparent');
-
-      // the gradient
-      if (bloxIsset(gradStart)) {
-        $(object).prepend($('<div class="bg-gradient bg-cover"\n          style="\n              background-image: linear-gradient(' + gradDeg + 'deg, ' + gradStart + ', ' + gradEnd + ');\n              opacity: ' + gradOpacity + ' ;\n          "></div>'));
-      }
-
-      // the image
-      if (bloxIsset(image)) {
-        $(object).prepend($('<div class="bg-image bg-cover ' + imageBlur + ' bg-blend-' + imageBlend + '"\n          style="\n            background-image: url(' + image + ');\n            opacity: ' + imageOpacity + ';\n            background-color: ' + color + ';\n          "></div>'));
-
-        // the color (fallback)
-      } else {
-        $(object).prepend($('<div class="bg-color"\n          style="\n            opacity: ' + colorOpacity + ';\n            background-color: ' + color + ';\n          "></div>'));
-      }
+    // loop through each smart background and setup the html
+    $.each(objects, function (index, object) {
+      // setup base html
+      bloxSetupBackground(object);
+      // update the styles
+      bloxUpdateBackground(object);
     });
+
+    // listen for changes on or backgrounds
+    var mutationObserver = new MutationObserver(function (mutations) {
+      mutations.forEach(function (mutation) {
+        bloxUpdateBackground(mutation.target);
+        console.log('attribute change observed');
+      });
+    });
+
+    // starts listening for changes on our backgrounds
+    for (var i = 0; i < nodes.length; i++) {
+      mutationObserver.observe(nodes[i], {
+        attributes: true,
+        attributeOldValue: true
+      });
+    }
   };
-  setupBG();
+  bloxBackgrounds();
 });
 
 console.log('boxes loaded');
@@ -684,28 +741,25 @@ jQuery(document).ready(function ($) {
         var classesXl = $(object).attr('data-classes-xl');
         var allClasses = [classesTny, classesSml, classesMed, classesLrg, classesXl].join(' ');
 
-        // clean up all the classes
-        $(object).removeClass(allClasses);
-
         // tny classes on
-        if (ww <= 599 && classesTny !== '') {
-          $(object).addClass($(object).attr('data-classes-tny'));
+        if (ww <= 599 && classesTny !== '' && !$(object).hasClass(classesTny)) {
+          $(object).removeClass(allClasses).addClass($(object).attr('data-classes-tny'));
         }
         // sml classes on
-        else if (ww >= 600 && ww <= 879 && classesSml !== '') {
-            $(object).addClass($(object).attr('data-classes-sml'));
+        else if (ww >= 600 && ww <= 879 && classesSml !== '' && !$(object).hasClass(classesSml)) {
+            $(object).removeClass(allClasses).addClass($(object).attr('data-classes-sml'));
           }
           // med classes on
-          else if (ww >= 880 && ww <= 1099 && classesMed !== '') {
-              $(object).addClass($(object).attr('data-classes-med'));
+          else if (ww >= 880 && ww <= 1099 && classesMed !== '' && !$(object).hasClass(classesMed)) {
+              $(object).removeClass(allClasses).addClass($(object).attr('data-classes-med'));
             }
             // lrg classes on
-            else if (ww >= 1100 && ww <= 1499 && classesLrg !== '') {
-                $(object).addClass($(object).attr('data-classes-lrg'));
+            else if (ww >= 1100 && ww <= 1499 && classesLrg !== '' && !$(object).hasClass(classesLrg)) {
+                $(object).removeClass(allClasses).addClass($(object).attr('data-classes-lrg'));
               }
               // xl classes on
-              else if (ww > 1500 && classesXl !== '') {
-                  $(object).addClass($(object).attr('data-classes-xl'));
+              else if (ww > 1500 && classesXl !== '' && !$(object).hasClass(classesXl)) {
+                  $(object).removeClass(allClasses).addClass($(object).attr('data-classes-xl'));
                 }
       });
     }

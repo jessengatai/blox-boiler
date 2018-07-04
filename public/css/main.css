@@ -3491,12 +3491,9 @@ a.inline-link {
   height: 100%;
   z-index: -1;
   pointer-events: none;
-  transition: all 0.5s ease; }
-  .bg-image.bg-cover,
-  .bg-gradient.bg-cover,
-  .bg-color.bg-cover {
-    background-size: cover;
-    background-position: center; }
+  background-color: transparent;
+  background-size: cover;
+  background-position: center; }
   .bg-image.bg-blur,
   .bg-gradient.bg-blur,
   .bg-color.bg-blur {
