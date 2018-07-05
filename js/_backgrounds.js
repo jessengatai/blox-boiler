@@ -12,7 +12,9 @@ jQuery(document).ready(function($){
 
     // prepend new divs
     $(object).prepend( divColor, divImage, divGradient );
-
+    // force position
+    // note: only make this happen if it's static (not absolute, fixed etc)
+    $(object).addClass('position-relative');
   }
 
   /**
@@ -20,28 +22,33 @@ jQuery(document).ready(function($){
    * @param  {object} object The background parent
    */
   const bloxUpdateBackground = (object) => {
+
     // divs
     const divColor = $(object).children('.bg-color');
     const divImage = $(object).children('.bg-image');
     const divGradient = $(object).children('.bg-gradient');
 
     // attributes
-    const color = $(object).css('background-color');
+    let   color = $(object).attr('data-bg-color');
     let   colorOpacity = $(object).attr('data-bg-color-opacity');
     const image = $(object).attr('data-bg-image');
     const imageOpacity = $(object).attr('data-bg-image-opacity');
     const imageBlend = $(object).attr('data-bg-image-blend');
     const gradStart = $(object).attr('data-bg-gradient-start');
-    const gradEnd = $(object).attr('data-bg-gradient-end');
-    const gradDeg = $(object).attr('data-bg-gradient-deg');
-    const gradOpacity = $(object).attr('data-bg-gradient-opacity');
+    let   gradEnd = $(object).attr('data-bg-gradient-end');
+    let   gradDeg = $(object).attr('data-bg-gradient-rotation');
+    let   gradOpacity = $(object).attr('data-bg-gradient-opacity');
 
     // fallbacks
+    color = (!bloxIsset(color)) ? 'transparent' : color ;
     colorOpacity = (!bloxIsset(colorOpacity)) ? 1 : colorOpacity ;
+    gradEnd = (!bloxIsset(gradEnd)) ? 'transparent' : gradEnd ;
+    gradDeg = (!bloxIsset(gradDeg)) ? 0 : gradDeg ;
+    gradOpacity = (!bloxIsset(gradOpacity)) ? 1 : gradOpacity ;
 
-    // clean up
-    $(object).addClass('position-relative');
-    $(object).css('background-color','transparent');
+    // setup background color RGBA
+    // let colorRGBA = bloxRGBA(color,colorOpacity)
+    let colorRGBA = color.replace(/(?=\))/, ', '+colorOpacity).replace('rgb', 'rgba');
 
     // the gradient
     if ( bloxIsset(gradStart) ) {
@@ -57,7 +64,7 @@ jQuery(document).ready(function($){
       divImage.css({
         backgroundImage: `url(${image})`,
         backgroundBlendMode: imageBlend,
-        backgroundColor: color.replace(/(?=\))/, ', '+colorOpacity),
+        backgroundColor: colorRGBA,
         opacity: imageOpacity,
       });
       divColor.css('background-color','');
@@ -65,7 +72,7 @@ jQuery(document).ready(function($){
     // the color
     } else if( bloxIsset(colorOpacity) ) {
       divColor.css({
-        backgroundColor: color.replace(/(?=\))/, ', '+colorOpacity),
+        backgroundColor: colorRGBA,
       });
     }
 
@@ -77,10 +84,8 @@ jQuery(document).ready(function($){
   const bloxBackgrounds = () => {
 
     // setup the smart backgrounds
-    const nodes = document.querySelectorAll('[data-bg-image], [data-bg-gradient-start], [data-bg-color-opacity]');
+    const nodes = document.querySelectorAll('[data-bg-image], [data-bg-gradient-start], [data-bg-color]');
     const objects = $(nodes);
-
-    console.log(nodes);
 
     // loop through each smart background and setup the html
     $.each(objects, function(index,object){
@@ -94,7 +99,6 @@ jQuery(document).ready(function($){
     var mutationObserver = new MutationObserver(function(mutations) {
       mutations.forEach(function(mutation) {
         bloxUpdateBackground( mutation.target );
-        console.log('attribute change observed');
       });
     });
 

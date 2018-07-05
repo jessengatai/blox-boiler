@@ -32,6 +32,13 @@ button,
   border-bottom: 2px solid darken($white,15);
   color: lighten($black,20);
 
+  .inverted & {
+    background: $black;
+    border: 1px solid lighten($black,5);
+    border-bottom: 2px solid lighten($black,10);
+    color: $white;
+  }
+
   // off (but not disabled, purely stylistic)
   &.off {
     border-color: transparent;

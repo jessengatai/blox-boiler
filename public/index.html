@@ -13,15 +13,8 @@
       :not(pre) > code[class*="language-"], pre[class*="language-"] {
         background-color: transparent;
       }
-      *:not(pre) > code {
-        background: #f9f9f9;
-        color: #771dff;
-        padding: 2px 7px;
-        border-radius: 4px;
-        border: solid 1px #f0f0f0;
-        font-size: 15px;
-        font-weight: 400;
-      }
+
+
       .attr-list li {
         background: #f7f7f7;
         margin-bottom: 2px;
@@ -29,13 +22,14 @@
         float: left;
         clear: both;
       }
+
     </style>
 
   </head>
-  <body class="color-blue--darker-10">
+  <body class="inverted bg-black color-white--darker-2">
 
     <div id="header"
-    class="bg-white--darker-1 padding-y--x4 margin-bottom--x4 shadow-lrg--inset">
+    class="bg-black--darker-1 color-white padding-y--x4 margin-bottom--x4 shadow-lrg--inset">
       <div class="bx-container align-center max-width">
         <div class="boxes">
           <div class="box" data-span-tny="12">
@@ -346,14 +340,21 @@
                 data-classes-xl="sticky-top offset-top"
                 data-span-lrg="6">
                   <div
-                  data-bg-image="images/4.jpg"
+                  id="background-demo"
+                  class="color-white padding-y--x3 padding-x--x2 rounded--lrg overflow-hidden shadow-lrg"
+
+                  data-bg-color="#771dff"
+                  data-bg-color-opacity="0.5"
+
+                  data-bg-image="images/3.jpg"
                   data-bg-image-opacity="1"
                   data-bg-image-blend="multiply"
+
                   data-bg-gradient-start="blue"
                   data-bg-gradient-end="red"
-                  data-bg-gradient-deg="0"
+                  data-bg-gradient-rotation="0"
                   data-bg-gradient-opacity=".2"
-                  class="bg-purple color-white padding-y--x3 padding-x--x2 rounded--lrg overflow-hidden shadow-lrg">
+                  >
                     <h2 class="size--x2 text-shadow tight">Left <br>Modal.</h2>
                     <p class="color-white">With some text and some data-bg attribute goodness.</p>
                     <label for="username">Username</label>
@@ -367,46 +368,48 @@
                   </div>
                 </div>
                 <div class="box bg-white--darker-1 padding rounded--lrg" data-span-lrg="6">
+                  <form id="background-demo-form">
+                    <h5>Image Attributes</h5>
+                    <label>data-bg-image (url)</label>
+                    <input type="text" name="data-bg-image" value="images/3.jpg">
+                    <label>data-bg-image-opacity (0 > 1)</label>
+                    <input type="text" name="data-bg-image-opacity" value="1">
+                    <label>data-bg-image-blend</label>
+                    <select name="data-bg-image-blend">
+                      <option value="normal">normal</option>
+                      <option value="multiply" selected>multiply</option>
+                      <option value="screen">screen</option>
+                      <option value="overlay">overlay</option>
+                      <option value="darken">darken</option>
+                      <option value="lighten">lighten</option>
+                      <option value="color-dodge">color-dodge</option>
+                      <option value="saturation">saturation</option>
+                      <option value="color">color</option>
+                      <option value="luminosity">luminosity</option>
+                    </select>
 
-                  <h5>Image Attributes</h5>
-                  <label for="imageurl">data-bg-image (url)</label>
-                  <input type="text" name="imageurl" value="image/3.jpg">
-                  <label for="imageopacity">data-bg-image-opacity (0 > 1)</label>
-                  <input type="text" name="imageopacity" value="1">
-                  <label for="imageblend">data-bg-image-blend</label>
-                  <select name="imageblend">
-                    <option value="normal">normal</option>
-                    <option value="normal" selected>multiply</option>
-                    <option value="normal">screen</option>
-                    <option value="normal">overlay</option>
-                    <option value="normal">darken</option>
-                    <option value="normal">lighten</option>
-                    <option value="normal">color-dodge</option>
-                    <option value="normal">saturation</option>
-                    <option value="normal">color</option>
-                    <option value="normal">luminosity</option>
-                  </select>
+                    <h5>Gradient Attributes</h5>
+                    <label>data-bg-gradient-start (color, #hex, rgba etc)</label>
+                    <input type="text" name="data-bg-gradient-start" value="blue">
+                    <label>data-bg-gradient-end (color, #hex, rgba etc)</label>
+                    <input type="text" name="data-bg-gradient-end" value="red">
+                    <label>data-bg-gradient-rotation (rotation in degrees eg: 45 or -45)</label>
+                    <input type="text" name="data-bg-gradient-rotation" value="0">
+                    <label>data-bg-gradient-opacity (0 > 1)</label>
+                    <input type="text" name="data-bg-gradient-opacity" value=".2">
 
-                  <h5>Gradient Attributes</h5>
-                  <label for="gradientstart">data-bg-gradient-start (color, #hex, rgba etc)</label>
-                  <input type="text" name="gradientstart" value="blue">
-                  <label for="gradientend">data-bg-gradient-end (color, #hex, rgba etc)</label>
-                  <input type="text" name="gradientend" value="red">
-                  <label for="gradientdeg">data-bg-gradient-deg (rotation in degrees eg: 45 or -45)</label>
-                  <input type="text" name="gradientdeg" value="0">
-                  <label for="gradientopacity">data-bg-gradient-opacity (0 > 1)</label>
-                  <input type="text" name="gradientopacity" value=".2">
-
-                  <h5>Color Attributes</h5>
-                  <label for="coloropacity">data-bg-color-opacity (0 > 1)</label>
-                  <input type="text" name="coloropacity" value="0.5">
-
+                    <h5>Color Attributes</h5>
+                    <label>data-bg-color (name, hex, rgb, hsl, hwb, cmyk, ncol, .class-name)</label>
+                    <input type="text" name="data-bg-color" value="purple">
+                    <label>data-bg-color-opacity (0 > 1)</label>
+                    <input type="text" name="data-bg-color-opacity" value="0.5">
+                  </form>
                 </div>
               </div>
 
               <h5>Requirments</h5>
               <ol>
-
+                <li>A div element with any one of the follow attributes set <code>data-bg-image</code>, <code>data-bg-gradient-start</code> or <code>data-bg-color</code></li>
               </ol>
 
               <h5>Observer Awesome-sauce</h5>
@@ -643,7 +646,7 @@
       data-bg-gradient-end="red"
       data-bg-gradient-deg="0"
       data-bg-gradient-opacity=".2"
-      class="bg-purple color-white padding-y--x4 padding-x--x2 rounded--lrg overflow-hidden shadow-lrg max-width-tny full-height float-left">
+      class="color-white padding-y--x4 padding-x--x2 rounded--lrg overflow-hidden shadow-lrg max-width-tny full-height float-left">
         <h2 class="size--x2 text-shadow margin-bottom--x2">Left <br>Modal.</h2>
         <p class="color-white">With some text and some data-bg attribute goodness.</p>
         <label for="username">Username</label>
@@ -672,5 +675,27 @@
     <script src="/modules/prism.js"></script>
     <script src="/js/main.js"></script>
     <!-- endinject -->
+
+    <script type="text/javascript">
+      console.log('custom loaded');
+      jQuery(document).ready(function($){
+
+        $(document).on('keyup change','input[name*="data-bg-"]', function(e){
+          console.log($(this).val());
+          const attr = $(this).attr('name');
+          $('#background-demo').attr(attr, $(this).val() );
+        });
+
+        $(document).on('change','select[name*="data-bg-"]', function(e){
+          console.log($(this).val());
+          const attr = $(this).attr('name');
+          $('#background-demo').attr(attr, $(this).val() );
+        });
+
+      });
+      // http://ulporn.com/uploads/posts/2016-03/1458671844_3801.ulporn.com.jpg
+    </script>
+
+
   </body>
 </html>

@@ -254,11 +254,17 @@ DEBOSS
 }
 .deboss,
 [class*="deboss-"] {
+  background: $white;
+  border: solid 1px darken($white,10);
   box-shadow: 0 3px 7px rgba(0,0,0,.03);
   border-radius: 6px;
-  border: solid 1px darken($white,10);
   padding: $paddingY $paddingX;
-  background: #ffffff;
+
+  .inverted & {
+    background: lighten($black,2);
+    border: solid 1px lighten($black,5);
+    box-shadow: 0 3px 7px rgba(0,0,0,.15);
+  }
 }
 @mixin debossColors($colors, $values){
   @for $i from 1 through length($colors) {
@@ -641,4 +647,11 @@ a.inline-link {
   // blend modes
   @include blendModes($blendModes);
 
+}
+
+
+
+// inverted goodness
+.inverted .bg-white--darker-1 {
+  background: lighten($black,5);
 }

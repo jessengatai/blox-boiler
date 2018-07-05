@@ -54,3 +54,22 @@ ol {
     margin-bottom: 5px;
   }
 }
+
+
+
+
+
+// code
+*:not(pre) > code {
+  background: $white;
+  color: inherit;
+  padding: 2px 7px;
+  border-radius: 4px;
+  border: solid 1px #f0f0f0;
+  font-size: 15px;
+  font-weight: 400;
+  .inverted & {
+    background: lighten($black,5);
+    border-color: lighten($black,10);
+  }
+}
