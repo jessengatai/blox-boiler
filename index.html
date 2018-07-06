@@ -409,9 +409,8 @@
                 <li>A div element with any one of the follow attributes set <code>data-bg-image</code>, <code>data-bg-gradient-start</code> or <code>data-bg-color</code></li>
               </ol>
 
-              <h5>Observer Awesome-sauce</h5>
-              <p>Javascript out of the box, can't directly listen for data-attribute changes. However, thanks to the <code>mutationObserver</code> we can listen and subsquently update the background on the fly.</p>
-
+              <h5>Javascript Awesome-sauce</h5>
+              <p>Out of the box Javascript can't directly listen for data-attribute changes, however thanks to <code>mutationObserver</code> we can listen for changes relating to our background attributes and update on the fly. Ideal for single page applications that might pass background images as props.</p>
 
             </div>
 
@@ -678,7 +677,7 @@
       console.log('custom loaded');
       jQuery(document).ready(function($){
 
-        $(document).on('keyup change','input[name*="data-bg-"]', function(e){
+        $(document).on('keyup','input[name*="data-bg-"]', function(e){
           const attr = $(this).attr('name');
           $('#background-demo').attr(attr, $(this).val() );
         });

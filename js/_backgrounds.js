@@ -96,10 +96,27 @@ jQuery(document).ready(function($){
       bloxUpdateBackground(object);
     });
 
-    // listen for changes on or backgrounds
+    // listen for mutations on our smart backgrounds
     var mutationObserver = new MutationObserver(function(mutations) {
       mutations.forEach(function(mutation) {
-        bloxUpdateBackground( mutation.target );
+        // only update the background if the observed mutation was background related
+        // - MutationObserver will respond to any mutation (class changes, style changes etc).
+        // - We don't wont re-build the background if we don't have to
+        let bgAttributes = [
+          'data-bg-color',
+          'data-bg-color-opacity',
+          'data-bg-image',
+          'data-bg-image-opacity',
+          'data-bg-image-blend',
+          'data-bg-gradient-start',
+          'data-bg-gradient-end',
+          'data-bg-gradient-rotation',
+          'data-bg-gradient-opacity'
+        ];
+        if ( bgAttributes.includes( mutation.attributeName ) ) {
+          bloxUpdateBackground( mutation.target );
+          console.log(`${mutation.attributeName} was updated`);
+        }
       });
     });
 
