@@ -363,7 +363,7 @@
                   <form id="background-demo-form">
 
                     <h5>Color Attributes (Base Layer)</h5>
-                    <label>data-bg-color (nameed, hex, rgb, hsl, hwb, cmyk, ncol, .class-name)</label>
+                    <label>data-bg-color (nameed, hex, rgb, hsl, hwb, cmyk, ncol)</label>
                     <input type="text" name="data-bg-color" value="#771dff">
                     <label>data-bg-color-opacity (0 > 1)</label>
                     <input type="text" name="data-bg-color-opacity" value="1">
@@ -408,6 +408,56 @@
 
               <h5>Javascript Awesome-sauce</h5>
               <p>Out of the box Javascript can't directly listen for data-attribute changes, however thanks to <code>mutationObserver</code> we can listen for changes relating to our background attributes and update on the fly. Ideal for single page applications that might pass background images as props.</p>
+
+              <div class="deboss">
+                <table class="full-width">
+                  <thead>
+                    <th style="min-width: 250px;">Attribute</th>
+                    <th>Description</th>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>data-bg-color</td>
+                      <td>The base color layer. <br>
+                        <small class="color-red">This can be a named, hex, rgb, hsl, hwb, cmyk or ncol value.</small></td>
+                    </tr>
+                    <tr>
+                      <td>data-bg-color-opacity</td>
+                      <td>The opacity for the base color</td>
+                    </tr>
+                  </tbody>
+                  <tr>
+                    <td>data-bg-image</td>
+                    <td>The image layer.</td>
+                  </tr>
+                  <tr>
+                    <td>data-bg-image-opacity</td>
+                    <td>The opacity for the image layer.</td>
+                  </tr>
+                  <tr>
+                    <td>data-bg-image-blend</td>
+                    <td>The image blend mode. <br>
+                      <small class="color-red">This can be normal, multiply, screen, overlay, darken, lighten, color-dodge, saturation, color or luminosity.</small></td>
+                  </tr>
+                  <tr>
+                    <td>data-bg-gradient-start</td>
+                    <td>The first color in the gradient layer.</td>
+                  </tr>
+                  <tr>
+                    <td>data-bg-gradient-end</td>
+                    <td>The second color in the gradient layer.</td>
+                  </tr>
+                  <tr>
+                    <td>data-bg-gradient-rotation</td>
+                    <td>The rotation in degrees of the gradient layer.</td>
+                  </tr>
+                  <tr>
+                    <td>data-bg-gradient-opacity</td>
+                    <td>The opacity of the gradient layer.</td>
+                  </tr>
+                </tbody>
+                </table>
+              </div>
 
             </div>
 
