@@ -29,19 +29,21 @@ jQuery(document).ready(function($){
     const divGradient = $(object).children('.bg-gradient');
 
     // attributes
-    let   color = $(object).attr('data-bg-color');
-    let   colorOpacity = $(object).attr('data-bg-color-opacity');
-    const image = $(object).attr('data-bg-image');
-    const imageOpacity = $(object).attr('data-bg-image-opacity');
-    const imageBlend = $(object).attr('data-bg-image-blend');
-    const gradStart = $(object).attr('data-bg-gradient-start');
-    let   gradEnd = $(object).attr('data-bg-gradient-end');
-    let   gradDeg = $(object).attr('data-bg-gradient-rotation');
-    let   gradOpacity = $(object).attr('data-bg-gradient-opacity');
+    let color = $(object).attr('data-bg-color');
+    let colorOpacity = $(object).attr('data-bg-color-opacity');
+    let image = $(object).attr('data-bg-image');
+    let imageOpacity = $(object).attr('data-bg-image-opacity');
+    let imageBlend = $(object).attr('data-bg-image-blend');
+    let gradStart = $(object).attr('data-bg-gradient-start');
+    let gradEnd = $(object).attr('data-bg-gradient-end');
+    let gradDeg = $(object).attr('data-bg-gradient-rotation');
+    let gradOpacity = $(object).attr('data-bg-gradient-opacity');
 
     // fallbacks
     color = (!bloxIsset(color)) ? 'transparent' : color ;
     colorOpacity = (!bloxIsset(colorOpacity)) ? 1 : colorOpacity ;
+    imageOpacity = (!bloxIsset(imageOpacity)) ? 1 : imageOpacity ;
+    imageBlend = (!bloxIsset(imageBlend)) ? 'normal' : imageBlend ;
     gradEnd = (!bloxIsset(gradEnd)) ? 'transparent' : gradEnd ;
     gradDeg = (!bloxIsset(gradDeg)) ? 0 : gradDeg ;
     gradOpacity = (!bloxIsset(gradOpacity)) ? 1 : gradOpacity ;
@@ -68,10 +70,16 @@ jQuery(document).ready(function($){
         backgroundColor: colorRGBA,
         opacity: imageOpacity,
       });
-      divColor.css('background-color','');
+
+      // if blend is normal apply background color to the bg-color div so image opacity still works
+      if( imageBlend==='normal' ) {
+        divColor.css('background-color',colorRGBA);
+      } else {
+        divColor.css('background-color','');
+      }
 
     // the color
-    } else if( bloxIsset(colorOpacity) ) {
+    } else {
       divColor.css({
         backgroundColor: colorRGBA,
       });

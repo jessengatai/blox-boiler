@@ -902,6 +902,8 @@ jQuery(document).ready(function ($) {
     // fallbacks
     color = !bloxIsset(color) ? 'transparent' : color;
     colorOpacity = !bloxIsset(colorOpacity) ? 1 : colorOpacity;
+    imageOpacity = !bloxIsset(imageOpacity) ? 1 : imageOpacity;
+    imageBlend = !bloxIsset(imageBlend) ? 'normal' : imageBlend;
     gradEnd = !bloxIsset(gradEnd) ? 'transparent' : gradEnd;
     gradDeg = !bloxIsset(gradDeg) ? 0 : gradDeg;
     gradOpacity = !bloxIsset(gradOpacity) ? 1 : gradOpacity;
@@ -928,10 +930,16 @@ jQuery(document).ready(function ($) {
         backgroundColor: colorRGBA,
         opacity: imageOpacity
       });
-      divColor.css('background-color', '');
+
+      // if blend is normal apply background color to the bg-color div so image opacity still works
+      if (imageBlend === 'normal') {
+        divColor.css('background-color', colorRGBA);
+      } else {
+        divColor.css('background-color', '');
+      }
 
       // the color
-    } else if (bloxIsset(colorOpacity)) {
+    } else {
       divColor.css({
         backgroundColor: colorRGBA
       });
