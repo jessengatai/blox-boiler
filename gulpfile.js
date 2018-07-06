@@ -65,7 +65,6 @@ gulp.task('public:js', ['concat'], function() {
 gulp.task('livereload', function (){
   gulp.src('./public/**/*')
   .pipe(connect.reload());
-  console.log('reload');
 });
 
 // clean up all files inside the public folder
