@@ -47,13 +47,14 @@ jQuery(document).ready(function($){
     gradOpacity = (!bloxIsset(gradOpacity)) ? 1 : gradOpacity ;
 
     // setup background color RGBA
-    // let colorRGBA = bloxRGBA(color,colorOpacity)
-    let colorRGBA = color.replace(/(?=\))/, ', '+colorOpacity).replace('rgb', 'rgba');
+    let colorRGBA = w3color(color);
+        colorRGBA.opacity = colorOpacity;
+        colorRGBA = colorRGBA.toRgbaString();
 
     // the gradient
     if ( bloxIsset(gradStart) ) {
       divGradient.css({
-        backgroundImage: `linear-gradient(${gradDeg}deg, ${gradStart}, ${gradEnd})`,
+        backgroundImage: `linear-gradient(${gradDeg}deg, ${gradEnd}, ${gradStart})`,
         opacity: gradOpacity,
       });
     }

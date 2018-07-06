@@ -11,8 +11,6 @@
       :not(pre) > code[class*="language-"], pre[class*="language-"] {
         background-color: transparent;
       }
-
-
       .attr-list li {
         background: #f7f7f7;
         margin-bottom: 2px;
@@ -20,11 +18,10 @@
         float: left;
         clear: both;
       }
-
     </style>
 
   </head>
-  <body class="inverted bg-black color-white--darker-2">
+  <body class="inverted bg-black color-white--darker-1">
 
     <div id="header"
     class="bg-black--darker-1 color-white padding-y--x4 margin-bottom--x4 shadow-lrg--inset">
@@ -330,7 +327,7 @@
             <!-- BACKGROUNDS -->
             <div id="backgrounds" class="box  margin-bottom--x2">
               <h2 class="size--x2">Backgrounds</h2>
-              <p>Working with images, gradients and color is my favourite part of front-end development. Blox let's us make quick work of such matters providing a robust set of data attributes for us to utilise. Let's take a closer look at the background from the above "left modal" example.</p>
+              <p>Working with images, gradients and color is my favourite part of front-end development. Blox let's us make quick work of such matters by providing a robust set of data attributes to utilise. Let's take a closer look at the background from the above "left modal" example.</p>
 
               <div class="boxes" data-gutters="nested">
                 <div class="box"
@@ -342,7 +339,7 @@
                   class="color-white padding-y--x3 padding-x--x2 rounded--lrg overflow-hidden shadow-lrg"
 
                   data-bg-color="#771dff"
-                  data-bg-color-opacity="0.5"
+                  data-bg-color-opacity="1"
 
                   data-bg-image="images/3.jpg"
                   data-bg-image-opacity="1"
@@ -350,8 +347,8 @@
 
                   data-bg-gradient-start="blue"
                   data-bg-gradient-end="red"
-                  data-bg-gradient-rotation="0"
-                  data-bg-gradient-opacity=".2"
+                  data-bg-gradient-rotation="45"
+                  data-bg-gradient-opacity=".5"
                   >
                     <h2 class="size--x2 text-shadow tight">Left <br>Modal.</h2>
                     <p class="color-white">With some text and some data-bg attribute goodness.</p>
@@ -367,7 +364,14 @@
                 </div>
                 <div class="box bg-white--darker-1 padding rounded--lrg" data-span-lrg="6">
                   <form id="background-demo-form">
-                    <h5>Image Attributes</h5>
+
+                    <h5>Color Attributes (Base Layer)</h5>
+                    <label>data-bg-color (nameed, hex, rgb, hsl, hwb, cmyk, ncol, .class-name)</label>
+                    <input type="text" name="data-bg-color" value="#771dff">
+                    <label>data-bg-color-opacity (0 > 1)</label>
+                    <input type="text" name="data-bg-color-opacity" value="1">
+
+                    <h5>Image Attributes (Second Layer)</h5>
                     <label>data-bg-image (url)</label>
                     <input type="text" name="data-bg-image" value="images/3.jpg">
                     <label>data-bg-image-opacity (0 > 1)</label>
@@ -386,21 +390,16 @@
                       <option value="luminosity">luminosity</option>
                     </select>
 
-                    <h5>Gradient Attributes</h5>
+                    <h5>Gradient Attributes (Third Layer)</h5>
                     <label>data-bg-gradient-start (color, #hex, rgba etc)</label>
                     <input type="text" name="data-bg-gradient-start" value="blue">
                     <label>data-bg-gradient-end (color, #hex, rgba etc)</label>
                     <input type="text" name="data-bg-gradient-end" value="red">
                     <label>data-bg-gradient-rotation (rotation in degrees eg: 45 or -45)</label>
-                    <input type="text" name="data-bg-gradient-rotation" value="0">
+                    <input type="text" name="data-bg-gradient-rotation" value="45">
                     <label>data-bg-gradient-opacity (0 > 1)</label>
-                    <input type="text" name="data-bg-gradient-opacity" value=".2">
+                    <input type="text" name="data-bg-gradient-opacity" value=".5">
 
-                    <h5>Color Attributes</h5>
-                    <label>data-bg-color (name, hex, rgb, hsl, hwb, cmyk, ncol, .class-name)</label>
-                    <input type="text" name="data-bg-color" value="purple">
-                    <label>data-bg-color-opacity (0 > 1)</label>
-                    <input type="text" name="data-bg-color-opacity" value="0.5">
                   </form>
                 </div>
               </div>
@@ -676,13 +675,11 @@
       jQuery(document).ready(function($){
 
         $(document).on('keyup change','input[name*="data-bg-"]', function(e){
-          console.log($(this).val());
           const attr = $(this).attr('name');
           $('#background-demo').attr(attr, $(this).val() );
         });
 
         $(document).on('change','select[name*="data-bg-"]', function(e){
-          console.log($(this).val());
           const attr = $(this).attr('name');
           $('#background-demo').attr(attr, $(this).val() );
         });
