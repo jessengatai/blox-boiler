@@ -20,9 +20,16 @@
   </head>
 
   <body class="">
+
   <!-- inverted bg-black color-white--darker-1 -->
     <div id="header"
-    class="bg-white--darker-1 padding-y--x4 margin-bottom--x4 shadow-lrg--inset">
+    data-bg-color="blue"
+    data-bg-color-opacity=".2"
+    data-bg-gradient-start="red"
+    data-bg-gradient-end="blue"
+    data-bg-gradient-rotation="-20"
+    data-bg-gradient-opacity=".5"
+    class="padding-y--x4 margin-bottom--x4 color-white shadow-lrg--inset">
       <!-- bg-black--darker-1 color-white -->
       <div class="bx-container align-center max-width">
         <div class="boxes">
@@ -80,13 +87,13 @@
               <p class="deboss">PSA: This boilerplate will not be production ready until it hits version 1+. Use in the wild at your own risk.</p>
               <p>Current version - 0.0.5</p>
 
-              <h5>Via NPM</h5>
+              <h4>Via NPM</h4>
               <p>You can install via node packet manager with <code>npm i blox-boiler</code></p>
 
-              <h5>SCSS Include</h5>
+              <h4>SCSS Include</h4>
               <p>This is on the way. As soon as the variables are under lock and key I'll have a finalised <code>blox.scss</code> file in the /dist folder for devs.</p>
 
-              <h5>CSS & JS</h5>
+              <h4>CSS & JS</h4>
               <p>Or simply include the <code>bloxBoiler.min.css</code> and <code>bloxBoiler.min.js</code> files. Remember to call the JS after jQuery.</p>
             </div>
 
@@ -339,7 +346,7 @@
                 data-span-lrg="6">
                   <div
                   id="background-demo"
-                  class="color-white padding-y--x3 padding-x--x2 rounded--lrg overflow-hidden shadow-lrg"
+                  class="color-white headers-white padding-y--x3 padding-x--x2 rounded--lrg shadow-lrg"
                   data-bg-color="#771dff"
                   data-bg-color-opacity="1"
                   data-bg-image="assets/2.jpg"
@@ -352,7 +359,7 @@
                   data-bg-gradient-opacity=".2"
                   >
                     <h3 class="size--x2 weight-200 text-shadow tight">Boom <br> As Dude.</h3>
-                    <p class="color-white margin-bottom--x2">With some text and some data-bg attribute goodness.</p>
+                    <p class="margin-bottom--x2">With some text and some data-bg attribute goodness.</p>
                     <label for="username">Username</label>
                     <input type="text" name="" value="">
                     <label for="username">Password</label>
