@@ -38,6 +38,11 @@ $link-hover-decoration: underline ;
 $border-weight: 1px ;
 $border-color: darken($white,10) ;
 
+
+// inverted colors
+$inverted-border-color: lighten($black,5);
+
+
 // responsive only's
 $media-tny-only: "only screen and (max-width: 599px)";
 $media-sml-only: "only screen and (min-width: 600px) and (max-width: 879px)";

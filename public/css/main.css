@@ -32,15 +32,20 @@ hr {
 /* TABLES */
 table {
   text-align: left;
-  border-collapse: collapse; }
+  border-collapse: collapse;
+  border-color: #fafafa; }
+  .inverted table thead,
+  .inverted table tfoot,
+  .inverted table tr {
+    border-color: #22252e; }
   table thead {
-    border-bottom: solid 1px #fafafa; }
+    border-bottom: solid 1px; }
     table thead th {
       padding-bottom: 10px; }
   table tfoot {
-    border-top: solid 1px #fafafa; }
+    border-top: solid 1px; }
   table tr {
-    border-bottom: solid 1px #fafafa; }
+    border-bottom: solid 1px; }
     table tr:last-child {
       border-bottom: none; }
   table td {
@@ -2142,26 +2147,36 @@ BORDERS
   border-width: 1px !important;
   border-style: solid;
   border-color: #e6e6e6; }
+  .inverted [class*="border-all"] {
+    border-color: #22252e; }
 
 [class*="border-top"] {
   border-top-width: 1px !important;
   border-top-style: solid;
   border-color: #e6e6e6; }
+  .inverted [class*="border-top"] {
+    border-color: #22252e; }
 
 [class*="border-bottom"] {
   border-bottom-width: 1px !important;
   border-bottom-style: solid;
   border-color: #e6e6e6; }
+  .inverted [class*="border-bottom"] {
+    border-color: #22252e; }
 
 [class*="border-left"] {
   border-left-width: 1px !important;
   border-left-style: solid;
   border-color: #e6e6e6; }
+  .inverted [class*="border-left"] {
+    border-color: #22252e; }
 
 [class*="border-right"] {
   border-right-width: 1px !important;
   border-right-style: solid;
   border-color: #e6e6e6; }
+  .inverted [class*="border-right"] {
+    border-color: #22252e; }
 
 .border-all--white {
   border-color: #ffffff; }
