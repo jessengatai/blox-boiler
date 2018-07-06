@@ -82,6 +82,16 @@ PADDINGS
   .padding {
     padding: $paddingY $paddingX;
   }
+  // half paddings (clean this up)
+  .padding--half {
+    padding: ($paddingY / 2) ($paddingX / 2);
+  }
+  .padding-top--half {
+    padding-top: ($paddingY / 2);
+  }
+  .padding-bottom--half {
+    padding-bottom: ($paddingY / 2);
+  }
   @for $i from 2 through 4 {
     .padding-top--x#{$i} {
       padding-top: ($paddingY * $i);
@@ -110,12 +120,8 @@ PADDINGS
 }
 @include paddings;
 
-.padding-top--half {
-  padding-top: ($paddingY / 2);
-}
-.padding-bottom--half {
-  padding-bottom: ($paddingY / 2);
-}
+
+
 
 /*
 MARGINS
@@ -381,7 +387,7 @@ BACKGROUND COLORS
 @mixin bgColours($colors, $values){
   @for $i from 1 through length($colors) {
     .bg-#{nth($colors, $i)} {
-      background-color: #{nth($values, $i)}
+      background-color: #{nth($values, $i)};
     }
     // darken
     @for $n from 1 through 10 {
@@ -408,7 +414,7 @@ BACKGROUND COLORS
 @include bgColours($colorKeys, $colorValues);
 
 /*
-TEXT COLORS
+TEXT COLORS (needs to be cleaned up a lot, not good for final css filesize)
  */
 [class*="color-"] {
   color: inherit;
@@ -416,7 +422,7 @@ TEXT COLORS
 @mixin colors($colors, $values){
   @for $i from 1 through length($colors) {
     .color-#{nth($colors, $i)} {
-      color: #{nth($values, $i)}
+      color: #{nth($values, $i)};
     }
     // darken
     @for $n from 1 through 10 {
@@ -441,6 +447,49 @@ TEXT COLORS
   }
 }
 @include colors($colorKeys, $colorValues);
+
+
+/*
+HEADER TEXT COLOR (PRIMARILY OVERRIDES)
+ */
+// :matches(h1,h2,h3,h4,h5,h6),
+// :-moz-any(h1,h2,h3,h4,h5,h6),
+// :-webkit-any(h1,h2,h3,h4,h5,h6)
+h1,h2,h3,h4,h5,h6 {
+  @extend %headings !optional;
+}
+
+[class*="headers-"] %headings {
+  color: inherit;
+}
+@mixin headers($colors, $values){
+  @for $i from 1 through length($colors) {
+    .headers-#{nth($colors, $i)} %headings {
+      color: #{nth($values, $i)};
+    }
+    // darken
+    @for $n from 1 through 10 {
+      .headers-#{nth($colors, $i)}--darker-#{$n} %headings {
+        @if $n==1 {
+          color: darken( nth($values, $i), ($n * 3));
+        } @else {
+          color: darken( nth($values, $i), ($n * 5));
+        }
+      }
+    }
+    // lighten
+    @for $n from 1 through 10 {
+      .headers-#{nth($colors, $i)}--lighter-#{$n} %headings {
+        @if $n==1 {
+          color: lighten( nth($values, $i), ($n * 3));
+        } @else {
+          color: lighten( nth($values, $i), ($n * 5));
+        }
+      }
+    }
+  }
+}
+@include headers($colorKeys, $colorValues);
 
 /*
 FONT WEIGHTS

@@ -21,13 +21,14 @@
   <body class="">
 
     <div id="header" class="bg-white--darker-1 padding-y--x4 margin-bottom--x4 shadow-lrg--inset">
-      <div class="bx-container align-center max-width">
+      <div class="align-center max-width">
         <div class="boxes">
           <div class="box" data-span-tny="12">
             <h1 class="size--x2">Blox.</h1>
-            <h3>A functionality-first front-end boiler.
+            <h3>The FUN!rrntt-end boilerplate. I'll stop now.
               <br>
-              <span class="weight-200">{ All the stuff you wished for, none of the stuff you didn't }</span>
+              <!-- <span class="weight-200">( all the stuff you wished for, none of the stuff you didn't )</span> -->
+              <span class="weight-200">.. basically all the cool stuff piled into one</span>
             </h3>
             <div class="margin-top--x2">
               <a class="button big" href="https://github.com/jessengatai/blox-boiler">👨🏽‍💻 GitHub</a>
@@ -39,14 +40,14 @@
       </div>
     </div>
 
-    <div class="bx-container align-center max-width">
+    <div class="align-center max-width">
       <div class="boxes">
 
         <!-- table of contents -->
         <div id="contents"
         class="box sticky-top--med-up offset-top transition-all"
         data-sticky
-        data-classes-onstick="bg-white--darker-1 rounded--lrg padding"
+        data-classes-onstick="bg-white--darker-1 rounded padding"
         data-span-tny="0"
         data-span-med="3">
           <nav>
@@ -75,15 +76,14 @@
               <h2 class="size--x2">Setup</h2>
 
               <p class="deboss">PSA: This boilerplate will not be production ready until it hits version 1+. Use in the wild at your own risk.</p>
-              <p>Current version - 0.0.5</p>
 
-              <h4>Via NPM</h4>
+              <h6>Via NPM</h6>
               <p>You can install via node packet manager with <code>npm i blox-boiler</code></p>
 
-              <h4>SCSS Include</h4>
+              <h6>SCSS Include</h6>
               <p>This is on the way. As soon as the variables are under lock and key I'll have a finalised <code>blox.scss</code> file in the /dist folder for devs.</p>
 
-              <h4>CSS & JS</h4>
+              <h6>CSS & JS</h6>
               <p>Or simply include the <code>blox.min.css</code> in the head of your document and <code>blox.min.js</code> after you call jQuery.</p>
             </div>
 
@@ -194,7 +194,7 @@
               <h3>Gutters</h3>
               <p>There are three <code>data-gutters</code> values to choose from.</p>
 
-              <h6>Nested <code>data-gutters="nested"</code></h6>
+              <h6>Nested</h6>
               <div class="boxes" data-gutters="nested">
                 <div class="box rounded padding bg-white--darker-1" data-span-tny="6">
                   <p class="tight">Boxes will sit flush with parent div.</p>
@@ -203,7 +203,7 @@
                 </div>
               </div>
 
-              <h6>Tight <code>data-gutters="tight"</code></h6>
+              <h6>Tight</h6>
               <div class="boxes rounded overflow-hidden margin-bottom" data-gutters="tight">
                 <div class="box padding bg-white--darker-1 border-right" data-span-tny="6">
                   <p class="tight">Boxes will sit flush with the parent div and without internal gutters.</p>
@@ -212,7 +212,7 @@
                 </div>
               </div>
 
-              <h6>Default <code>no attribute</code></h6>
+              <h6>Default</h6>
               <div class="boxes margin-bottom">
                 <div class="box rounded padding bg-white--darker-1" data-span-tny="6">
                   <p class="tight">Boxes will sit unnested and have internal gutters.</p>
@@ -351,9 +351,9 @@
                     <h3 class="size--x2 weight-200 text-shadow tight">Boom <br> As Dude.</h3>
                     <p class="margin-bottom--x2">With some text and some data-bg attribute goodness.</p>
                     <label for="username">Username</label>
-                    <input type="text" name="" value="">
+                    <input class="bg-white" type="text" name="" value="">
                     <label for="username">Password</label>
-                    <input type="password" name="" value="">
+                    <input class="bg-white" type="password" name="" value="">
                     <small class="color-white--darker-5">Forgot your password?</small>
                     <button
                     data-close-modal="left-modal"
@@ -656,7 +656,7 @@
         </div><!-- end #content -->
 
       </div><!-- end .boxes -->
-    </div><!-- end .bx-container -->
+    </div><!-- end -->
 
 
     <!-- standard modal -->
@@ -727,6 +727,11 @@
       </div>
     </div>
 
+    <!-- night mode ACTIVAAAAATE! -->
+    <div class="sticky-bottom padding--half bg-white--darker-1">
+      <button id="nightmode" type="button" name="button" class="small tight">Night Mode On</button>
+    </div>
+
     <!-- inject:js -->
     <!-- endinject -->
 
@@ -742,6 +747,24 @@
         $(document).on('change','select[name*="data-bg-"]', function(e){
           const attr = $(this).attr('name');
           $('#background-demo').attr(attr, $(this).val() );
+        });
+
+        // toggle night mode classes
+        $(document).on('click', '#nightmode', function(e){
+          let b = $('body');
+          let n = $('#nightmode');
+
+          // turn off
+          if(b.attr('night-mode')==='on'){
+            b.attr('night-mode','off').removeClass('inverted bg-black color-black--lighter-10 headers-white');
+            n.removeClass('purple').text('Night Mode On');
+          // turn on
+          } else {
+            b.attr('night-mode','on').addClass('inverted bg-black color-black--lighter-10 headers-white');
+            n.addClass('purple').text('Night Mode Off');
+          }
+
+
         });
 
       });

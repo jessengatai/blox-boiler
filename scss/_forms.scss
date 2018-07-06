@@ -17,7 +17,7 @@ textarea {
   box-shadow: 0 1px 2px rgba(0,0,0,.05);
   background-color: $white;
 
-  .inverted & {
+  .inverted &:not([class*="bg-"]) { // check and make sure a bg-color isn't being directly applied (for overrides)
     border-bottom: solid 1px darken($black,2);
     box-shadow: 0 1px 2px rgba(0,0,0,.2);
     background-color: $black;
@@ -37,7 +37,7 @@ select {
   box-shadow: 0 1px 2px rgba(0,0,0,.05);
   background-color: $white;
 
-  .inverted & {
+  .inverted &:not([class*="bg-"]) { // check and make sure a bg-color isn't being directly applied (for overrides)
     border-bottom: solid 1px darken($black,2);
     box-shadow: 0 1px 2px rgba(0,0,0,.2);
     background-color: $black;

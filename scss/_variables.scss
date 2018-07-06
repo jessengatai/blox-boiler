@@ -26,7 +26,7 @@ $site-background: $white;
 $site-primary: $red;
 $site-accent: $blue;
 $site-text-headers: $black;
-$site-text-body: lighten($black,20);
+$site-text-body: lighten($black,25);
 
 // link styling
 $link-color: $black ;
@@ -38,10 +38,8 @@ $link-hover-decoration: underline ;
 $border-weight: 1px ;
 $border-color: darken($white,10) ;
 
-
 // inverted colors
 $inverted-border-color: lighten($black,5);
-
 
 // responsive only's
 $media-tny-only: "only screen and (max-width: 599px)";
@@ -73,10 +71,3 @@ $p-size: calc(13px + .15vh + .15vw) ;
 $p-size-double: calc(25px + .3vh + .3vw) ;
 $s-size: calc(10px + .1vh + .1vw) ;
 $s-size-double: calc(20px + .2vh + .2vw) ;
-
-// color arrays (DO NOT TOUCH!)
-$colorKeys: white, black, red, orange, yellow, pink, green, blue, purple;
-$colorValues: $white, $black, $red, $orange, $yellow, $pink, $green, $blue, $purple;
-
-// blend array (do not touch)
-$blendModes: luminosity, color, saturation, color-dodge, lighten, darken, overlay, screen, multiply, normal;

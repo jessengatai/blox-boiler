@@ -1,5 +1,14 @@
 // cool functional stuff!
 @import "_variables";
+
+// color arrays (DO NOT TOUCH!)
+$colorKeys: white, black, red, orange, yellow, pink, green, blue, purple;
+$colorValues: $white, $black, $red, $orange, $yellow, $pink, $green, $blue, $purple;
+
+// blend array (DO NOT TOUCH)
+$blendModes: luminosity, color, saturation, color-dodge, lighten, darken, overlay, screen, multiply, normal;
+
+// our mixins
 @import "_mixins";
 
 // import base level styles!
