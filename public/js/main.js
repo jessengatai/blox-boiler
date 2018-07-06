@@ -874,7 +874,7 @@ jQuery(document).ready(function ($) {
     $(object).prepend(divColor, divImage, divGradient);
     // force position
     // note: only make this happen if it's static (not absolute, fixed etc)
-    $(object).addClass('position-relative');
+    $(object).addClass('position-relative overflow-hidden');
   };
 
   /**
