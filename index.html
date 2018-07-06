@@ -34,7 +34,7 @@
             <div class="margin-top--x2">
               <a class="button big" href="https://github.com/jessengatai/blox-boiler">👨🏽‍💻 GitHub</a>
               <a class="button big" href="https://www.npmjs.com/package/blox-boiler">👩🏼‍💻 NPM</a>
-              <a class="button big" href="https://jessengatai.com">🐨 Mr. Jesse</a>
+              <a class="button big" href="https://github.com/jessengatai">🐨 Mr. Jesse</a>
             </div>
           </div>
         </div>
@@ -46,19 +46,21 @@
 
         <!-- table of contents -->
         <div id="contents"
-        class="box sticky-top--med-up offset-top padding-right border-right"
+        class="box sticky-top--med-up offset-top transition-all"
+        data-sticky
+        data-classes-onstick="bg-white--darker-1 rounded--lrg padding"
         data-span-tny="0"
         data-span-med="3">
           <nav>
             <ul>
-              <li><a data-classes-onhash="purple" class="button off full-width text-left" data-hash="#setup" href="#setup">Setup</a></li>
-              <li><a data-classes-onhash="purple" class="button off full-width text-left" data-hash="#boxes" href="#boxes">Boxes</a></li>
-              <li><a data-classes-onhash="purple" class="button off full-width text-left" data-hash="#modals" href="#modals">Modals</a></li>
-              <li><a data-classes-onhash="purple" class="button off full-width text-left" data-hash="#backgrounds" href="#backgrounds">Backgrounds</a></li>
-              <li><a data-classes-onhash="purple" class="button off full-width text-left" data-hash="#stickies" href="#stickies">Stickies</a></li>
-              <li><a data-classes-onhash="purple" class="button off full-width text-left" data-hash="#classes" href="#classes">Responsive Classes</a></li>
-              <li><a data-classes-onhash="purple" class="button off full-width text-left" data-hash="#buttons" href="#buttons">Buttons</a></li>
-              <li><a data-classes-onhash="purple" class="button off full-width text-left" data-hash="#hash" href="#hash">Hash States</a></li>
+              <li><a data-classes-onhash="green" class="button off full-width text-left" data-hash="#setup" href="#setup">Setup</a></li>
+              <li><a data-classes-onhash="green" class="button off full-width text-left" data-hash="#boxes" href="#boxes">Boxes</a></li>
+              <li><a data-classes-onhash="green" class="button off full-width text-left" data-hash="#modals" href="#modals">Modals</a></li>
+              <li><a data-classes-onhash="green" class="button off full-width text-left" data-hash="#backgrounds" href="#backgrounds">Backgrounds</a></li>
+              <li><a data-classes-onhash="green" class="button off full-width text-left" data-hash="#stickies" href="#stickies">Stickies</a></li>
+              <li><a data-classes-onhash="green" class="button off full-width text-left" data-hash="#classes" href="#classes">Responsive Classes</a></li>
+              <li><a data-classes-onhash="green" class="button off full-width text-left" data-hash="#buttons" href="#buttons">Buttons</a></li>
+              <li><a data-classes-onhash="green" class="button off full-width text-left" data-hash="#hash" href="#hash">Hash States</a></li>
             </ul>
           </nav>
         </div>
@@ -74,13 +76,15 @@
             <div id="setup" class="box margin-bottom--x4">
               <h2 class="size--x2">Setup</h2>
 
-              <p class="deboss color-red--lighter-2">PSA: This boilerplate will not be production ready until it hits version 1+. Use in the wild at your own risk.</p>
+              <p class="deboss">PSA: This boilerplate will not be production ready until it hits version 1+. Use in the wild at your own risk.</p>
               <p>Current version - 0.0.5</p>
 
               <h5>Via NPM</h5>
               <p>You can install via node packet manager with <code>npm i blox-boiler</code></p>
-              <h5>Sass Include</h5>
-              <p>Download and include the <code>bloxBoiler.scss</code> and <code>bloxBoiler.js</code> files which will allow you to alter the default variables at the top of the file. Remember to call the JS after jQuery.</p>
+
+              <h5>Developer Include</h5>
+              <p>Download and include the <code>blox.scss</code> and <code>blox.js</code> files which will allow you to alter the default variables at the top of the file. Remember to call the JS after jQuery.</p>
+
               <h5>CSS</h5>
               <p>Or simply include the <code>bloxBoiler.min.css</code> and <code>bloxBoiler.min.js</code> files. Remember to call the JS after jQuery.</p>
             </div>
