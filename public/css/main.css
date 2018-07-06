@@ -34,18 +34,21 @@ table {
   text-align: left;
   border-collapse: collapse;
   border-color: #fafafa; }
-  .inverted table thead,
-  .inverted table tfoot,
-  .inverted table tr {
-    border-color: #22252e; }
+  table thead, table tfoot, table tr {
+    border-color: #f7f7f7; }
+    .inverted table thead, .inverted table tfoot, .inverted table tr {
+      border-color: #22252e; }
   table thead {
-    border-bottom: solid 1px; }
+    border-bottom-style: solid;
+    border-bottom-width: 1px; }
     table thead th {
       padding-bottom: 10px; }
   table tfoot {
-    border-top: solid 1px; }
+    border-top-style: solid;
+    border-top-width: 1px; }
   table tr {
-    border-bottom: solid 1px; }
+    border-bottom-style: solid;
+    border-bottom-width: 1px; }
     table tr:last-child {
       border-bottom: none; }
   table td {

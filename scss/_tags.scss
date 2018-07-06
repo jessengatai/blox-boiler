@@ -26,23 +26,28 @@ table {
   border-collapse:collapse;
   border-color: darken($white,2);
 
-  .inverted & thead,
-  .inverted & tfoot,
-  .inverted & tr {
-    border-color: $inverted-border-color;
+
+  thead, tfoot, tr {
+    border-color: darken($white,3);
+    .inverted & {
+      border-color: $inverted-border-color;
+    }
   }
 
   thead {
-    border-bottom: solid 1px;
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
     th {
       padding-bottom: ($paddingY / 2);
     }
   }
   tfoot {
-    border-top: solid 1px;
+    border-top-style: solid;
+    border-top-width: 1px;
   }
   tr {
-    border-bottom: solid 1px;
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
     &:last-child {
       border-bottom: none;
     }
