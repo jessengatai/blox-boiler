@@ -18,8 +18,9 @@
     </style>
 
   </head>
-  <body class="inverted bg-black color-white--darker-1">
 
+  <body class="">
+  <!-- inverted bg-black color-white--darker-1 -->
     <div id="header"
     class="bg-black--darker-1 color-white padding-y--x4 margin-bottom--x4 shadow-lrg--inset">
       <div class="bx-container align-center max-width">
@@ -339,6 +340,7 @@
                   data-bg-image="assets/2.jpg"
                   data-bg-image-opacity="1"
                   data-bg-image-blend="multiply"
+                  data-bg-image-blur="0"
                   data-bg-gradient-start="blue"
                   data-bg-gradient-end="red"
                   data-bg-gradient-rotation="45"
@@ -383,6 +385,8 @@
                       <option value="color">color</option>
                       <option value="luminosity">luminosity</option>
                     </select>
+                    <label>data-bg-image-blur (blur in pixels, eg: 5px)</label>
+                    <input type="text" name="data-bg-image-blur" value="0">
 
                     <h5>Gradient Attributes (Third Layer)</h5>
                     <label>data-bg-gradient-start (color, #hex, rgba etc)</label>

@@ -641,9 +641,11 @@ a.inline-link {
 .bg-color {
   position: absolute;
   top: 0;
+  bottom: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
+  right: 0;
+  min-width: 100%;
+  min-height: 100%;
   z-index: -1;
   pointer-events: none;
   background-color: transparent;
@@ -651,16 +653,11 @@ a.inline-link {
   // default size and position
   background-size: cover;
   background-position: center;
-  &.bg-cover {
-
-  }
-  &.bg-blur {
-    filter: blur(10px);
-    transform: scale(1.1);
-  }
 
   // blend modes
   @include blendModes($blendModes);
+
+  transition: all 0.3s ease;
 
 }
 

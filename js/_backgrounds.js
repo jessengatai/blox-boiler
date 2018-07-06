@@ -34,21 +34,27 @@ jQuery(document).ready(function($){
     let image = $(object).attr('data-bg-image');
     let imageOpacity = $(object).attr('data-bg-image-opacity');
     let imageBlend = $(object).attr('data-bg-image-blend');
+    let imageBlur = $(object).attr('data-bg-image-blur');
     let gradStart = $(object).attr('data-bg-gradient-start');
     let gradEnd = $(object).attr('data-bg-gradient-end');
     let gradDeg = $(object).attr('data-bg-gradient-rotation');
     let gradOpacity = $(object).attr('data-bg-gradient-opacity');
 
-    // fallbacks
+    // color fallbacks
     color = (!bloxIsset(color)) ? 'transparent' : color ;
-    colorOpacity = (!bloxIsset(colorOpacity)) ? 1 : colorOpacity ;
-    imageOpacity = (!bloxIsset(imageOpacity)) ? 1 : imageOpacity ;
+    colorOpacity = (!bloxIsset(colorOpacity)) ? 1 : Number(colorOpacity) ;
+    // image fallbacks
+    imageOpacity = (!bloxIsset(imageOpacity)) ? 1 : Number(imageOpacity) ;
     imageBlend = (!bloxIsset(imageBlend)) ? 'normal' : imageBlend ;
+    imageBlur = (!bloxIsset(imageBlur)) ? 0 : Number(imageBlur) ;
+    // grad fallbacks
     gradEnd = (!bloxIsset(gradEnd)) ? 'transparent' : gradEnd ;
-    gradDeg = (!bloxIsset(gradDeg)) ? 0 : gradDeg ;
-    gradOpacity = (!bloxIsset(gradOpacity)) ? 1 : gradOpacity ;
+    gradDeg = (!bloxIsset(gradDeg)) ? 0 : Number(gradDeg) ;
+    gradOpacity = (!bloxIsset(gradOpacity)) ? 1 : Number(gradOpacity) ;
 
-    // setup background color RGBA
+    console.log(imageBlur);
+
+    // setup background color RGBA string
     let colorRGBA = w3color(color);
         colorRGBA.opacity = colorOpacity;
         colorRGBA = colorRGBA.toRgbaString();
@@ -59,6 +65,8 @@ jQuery(document).ready(function($){
         backgroundImage: `linear-gradient(${gradDeg}deg, ${gradEnd}, ${gradStart})`,
         opacity: gradOpacity,
       });
+    } else {
+      divGradient.attr('style','');
     }
 
     // the image
@@ -71,6 +79,26 @@ jQuery(document).ready(function($){
         opacity: imageOpacity,
       });
 
+      // if blur is on
+      if( imageBlur > 0 ) {
+        divImage.css({
+          filter: `blur(${imageBlur}px)`,
+          top: `-${(imageBlur * 1.5)}px`,
+          bottom: `-${(imageBlur * 1.5)}px`,
+          left: `-${(imageBlur * 1.5)}px`,
+          right: `-${(imageBlur * 1.5)}px`,
+        })
+        // reset blur styles if it's off
+      } else {
+        divImage.css({
+          filter: ``,
+          top: ``,
+          bottom: ``,
+          left: ``,
+          right: ``,
+        })
+      }
+
       // if blend is normal apply background color to the bg-color div so image opacity still works
       if( imageBlend==='normal' ) {
         divColor.css('background-color',colorRGBA);
@@ -78,11 +106,10 @@ jQuery(document).ready(function($){
         divColor.css('background-color','');
       }
 
-    // the color
+    // the color + clean the image
     } else {
-      divColor.css({
-        backgroundColor: colorRGBA,
-      });
+      divColor.css('background-color', colorRGBA);
+      divImage.attr('style','');
     }
 
   }
@@ -116,6 +143,7 @@ jQuery(document).ready(function($){
           'data-bg-image',
           'data-bg-image-opacity',
           'data-bg-image-blend',
+          'data-bg-image-blur',
           'data-bg-gradient-start',
           'data-bg-gradient-end',
           'data-bg-gradient-rotation',
