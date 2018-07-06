@@ -5,6 +5,9 @@ var babel = require('gulp-babel');
 var del = require('del');
 var inject = require('gulp-inject');
 var concat = require('gulp-concat');
+var rename = require('gulp-rename');
+var uglify = require('gulp-uglify');
+
 
 // setup the local enviroment
 gulp.task('localhost', function(){
@@ -16,14 +19,14 @@ gulp.task('localhost', function(){
 
 // watch for changes
 gulp.task('watch', function () {
-  gulp.watch('./index.html', ['index:update']);
-  gulp.watch('./scss/**/*.scss', ['scss']);
-  gulp.watch('./js/**/*.js', ['js']);
+  gulp.watch('./index.html', ['public:update']);
+  gulp.watch('./scss/**/*.scss', ['public:scss']);
+  gulp.watch('./js/**/*.js', ['public:js']);
   gulp.watch('./public/**/*', ['livereload']);
 });
 
 // compile sass and log errors in the terminal
-gulp.task('scss', function () {
+gulp.task('public:scss', function () {
   return gulp.src('./scss/main.scss')
       .pipe(sass({ errLogToConsole: true }))
       .pipe(gulp.dest('./public/css'));
@@ -37,7 +40,7 @@ gulp.task('concat', function() {
 });
 
 // transpile our ES6 javascript into ES5
-gulp.task('js', ['concat'], function() {
+gulp.task('public:js', ['concat'], function() {
   return gulp.src('./public/js/main.js')
       .pipe(babel({
           presets: ['env']
@@ -51,27 +54,57 @@ gulp.task('livereload', function (){
   .pipe(connect.reload());
 });
 
-// clean up all node_module in the ./public/folder
-gulp.task('mods:clean', function() {
-    // empty the ./public/modules/ directory
+// clean up all files inside the public folder
+gulp.task('public:clean', function() {
     return del([
+      './public/index.html',
       './public/modules/**/*',
+      './public/css/**/*',
+      './public/js/**/*',
+      './public/**/.DS_Store'
     ]);
 });
 
-// add all node_module assets we might need copied into the public folder
-gulp.task('mods:copy', function() {
+// copy all node_module assets we might need copied into the public folder
+gulp.task('public:mods', function() {
   sources = [
-    './node_modules/jquery/dist/jquery.min.js',
-    './node_modules/prismjs/prism.js',
-    './node_modules/prismjs/themes/prism.css',
+    './node_modules/jquery/dist/jquery.min.js'
   ]
   return gulp.src( sources ).pipe(gulp.dest('./public/modules/'));
 });
 
-// upodate the index.html without clean ups
-// (used in gulp default)
-gulp.task('index:update', function () {
+// build and minify css for dist (this is messy AF)
+gulp.task('dist:css', function() {
+  return gulp.src('./scss/main.scss')
+    .pipe(sass({
+      errLogToConsole: true,
+      outputStyle: 'compressed'
+    }))
+    .pipe(rename('blox.min.css'))
+    .pipe(gulp.dest('./dist/'));
+});
+
+// build and minify javascript for dist (this is messy AF)
+gulp.task('dist:js', function() {
+  return gulp.src('./js/*.js')
+    .pipe(concat('main.js'))
+    .pipe(babel({
+        presets: ['env']
+    }))
+    .pipe(uglify())
+    .pipe(rename('blox.min.js'))
+    .pipe(gulp.dest('./dist/'));
+});
+
+// clean up certain directories
+gulp.task('dist:clean', function() {
+  return del([
+    './dist/**/*'
+  ]);
+});
+
+// this is messy AF. clean this up.
+const injectPubIndexHTML = () => {
   var target = gulp.src('./index.html');
   var sources = gulp.src([
     './public/modules/jquery.min.js', // make sure jquery comes first
@@ -80,30 +113,29 @@ gulp.task('index:update', function () {
     './public/css/**/*.css',
     './public/js/**/*.js',
   ],{read: false});
-
   return target.pipe(inject(sources, {ignorePath: 'public'}))
     .pipe(gulp.dest('./public/'));
+}
+
+// listen for changes!
+gulp.task('default', [
+  'localhost',
+  'watch',
+  'public:scss',
+  'public:js',
+], function() {
+  injectPubIndexHTML();
 });
 
-// build the index.html and run all dependencies for cleaning up and installing modules
-// (used with gulp build)
-gulp.task('index:build', ['mods:clean', 'mods:copy'], function () {
-  var target = gulp.src('./index.html');
-  var sources = gulp.src([
-    './public/modules/jquery.min.js', // make sure jquery comes first
-    './public/modules/**/*.js',
-    './public/modules/**/*.css',
-    './public/css/**/*.css',
-    './public/js/**/*.js',
-  ],{read: false});
-
-  return target.pipe(inject(sources, {ignorePath: 'public'}))
-    .pipe(gulp.dest('./public/'));
+// launch the rocket!
+gulp.task('build', [
+  'public:clean',
+  'public:scss',
+  'public:js',
+  'public:mods',
+  'dist:clean',
+  'dist:css',
+  'dist:js'
+], function() {
+  injectPubIndexHTML();
 });
-
-
-/**
- * Setup Tasks
- */
-gulp.task('default', ['localhost', 'watch', 'scss', 'js', 'index:update']);
-gulp.task('build', ['scss', 'js', 'index:build']);
