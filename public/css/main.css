@@ -2313,6 +2313,9 @@ BORDERS
 .border-right--purple {
   border-right-color: #771dff; }
 
+/*
+BACKGROUND COLORS
+ */
 [class*="bg-"] {
   background-color: inherit; }
 
@@ -2883,6 +2886,9 @@ BORDERS
 .bg-purple--lighter-10 {
   background-color: white; }
 
+/*
+TEXT COLORS
+ */
 [class*="color-"] {
   color: inherit; }
 
@@ -3453,6 +3459,9 @@ BORDERS
 .color-purple--lighter-10 {
   color: white; }
 
+/*
+FONT WEIGHTS
+ */
 .weight-100 {
   font-weight: 100; }
 
@@ -3480,6 +3489,9 @@ BORDERS
 .weight-900 {
   font-weight: 900; }
 
+/*
+TEXT ALIGNMENT
+ */
 .text-center {
   text-align: center; }
 
@@ -3492,9 +3504,12 @@ BORDERS
 .text-justify {
   text-align: justify; }
 
-.underline, a.inline-link {
+/*
+TEXT DECORATIONS
+ */
+.underline {
   position: relative; }
-  .underline:after, a.inline-link:after {
+  .underline:after {
     content: "";
     position: absolute;
     left: 0;
@@ -3505,33 +3520,30 @@ BORDERS
     background-color: #b3b3b3;
     width: 100%; }
 
-a.inline-link {
-  color: #1f21ff;
-  display: inline-block;
-  text-decoration: none; }
-  a.inline-link:hover {
-    color: #17191f; }
-  a.inline-link.invert {
-    color: #17191f; }
-    a.inline-link.invert:hover {
-      color: #1f21ff; }
-
+/*
+TRANSTIONS
+ */
 .transition-all {
   transition: all 0.3s ease; }
 
 .transition-bg {
   transition: background 0.3s ease; }
 
-.scroll-y {
-  overflow-y: scroll;
-  height: 100%; }
-
+/*
+OVERFLOWS
+ */
 .overflow-hidden {
   overflow: hidden; }
 
+/*
+POSITIONS
+ */
 .position-relative {
   position: relative; }
 
+/*
+SMART BACKGROUNDS
+ */
 .bg-image,
 .bg-gradient,
 .bg-color {
@@ -3548,81 +3560,9 @@ a.inline-link {
   background-size: cover;
   background-position: center;
   transition: all 0.3s ease; }
-  .bg-image.bg-blend-luminosity,
-  .bg-gradient.bg-blend-luminosity,
-  .bg-color.bg-blend-luminosity {
-    background-blend-mode: luminosity; }
-  .bg-image.bg-blend-color,
-  .bg-gradient.bg-blend-color,
-  .bg-color.bg-blend-color {
-    background-blend-mode: color; }
-  .bg-image.bg-blend-saturation,
-  .bg-gradient.bg-blend-saturation,
-  .bg-color.bg-blend-saturation {
-    background-blend-mode: saturation; }
-  .bg-image.bg-blend-color-dodge,
-  .bg-gradient.bg-blend-color-dodge,
-  .bg-color.bg-blend-color-dodge {
-    background-blend-mode: color-dodge; }
-  .bg-image.bg-blend-lighten,
-  .bg-gradient.bg-blend-lighten,
-  .bg-color.bg-blend-lighten {
-    background-blend-mode: lighten; }
-  .bg-image.bg-blend-darken,
-  .bg-gradient.bg-blend-darken,
-  .bg-color.bg-blend-darken {
-    background-blend-mode: darken; }
-  .bg-image.bg-blend-overlay,
-  .bg-gradient.bg-blend-overlay,
-  .bg-color.bg-blend-overlay {
-    background-blend-mode: overlay; }
-  .bg-image.bg-blend-screen,
-  .bg-gradient.bg-blend-screen,
-  .bg-color.bg-blend-screen {
-    background-blend-mode: screen; }
-  .bg-image.bg-blend-multiply,
-  .bg-gradient.bg-blend-multiply,
-  .bg-color.bg-blend-multiply {
-    background-blend-mode: multiply; }
-  .bg-image.bg-blend-normal,
-  .bg-gradient.bg-blend-normal,
-  .bg-color.bg-blend-normal {
-    background-blend-mode: normal; }
 
+/*
+INVERTED LOGIC
+ */
 .inverted .bg-white--darker-1 {
   background: #22252e; }
-
-.bx-window {
-  position: relative;
-  background: #f9f9f9;
-  margin-bottom: 20px;
-  overflow: hidden;
-  background-size: cover;
-  background-position-x: center;
-  background-position-y: center; }
-  .bx-window.bg-repeat {
-    background-repeat: repeat; }
-  .bx-window.bg-x-left {
-    background-position-x: left; }
-  .bx-window.bg-x-right {
-    background-position-x: right; }
-  .bx-window.bg-y-top {
-    background-position-y: top; }
-  .bx-window.bg-y-bottom {
-    background-position-y: bottom; }
-  .bx-window.wide {
-    height: calc(2vw + 27vh); }
-  .bx-window.tall {
-    height: calc(5vw + 45vh);
-    max-height: 50vh; }
-  .bx-window.slit {
-    height: calc(2vw + 2vh);
-    max-height: 4vh; }
-  .bx-window.full-x {
-    margin-left: -20px;
-    margin-right: -20px; }
-  .bx-window.full-y {
-    margin-top: -20px; }
-    .deboss .bx-window.full-y {
-      border-top-right-radius: 6px;
-      border-top-left-radius: 6px; }

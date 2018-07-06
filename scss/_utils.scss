@@ -372,8 +372,9 @@ BORDERS
 }
 @include borderColours($colorKeys, $colorValues);
 
-
-// background colours
+/*
+BACKGROUND COLORS
+ */
 [class*="bg-"] {
   background-color: inherit;
 }
@@ -382,71 +383,33 @@ BORDERS
     .bg-#{nth($colors, $i)} {
       background-color: #{nth($values, $i)}
     }
-    .bg-#{nth($colors, $i)}--darker-1 {
-      background-color: darken( nth($values, $i), 3%);
+    // darken
+    @for $n from 1 through 10 {
+      .bg-#{nth($colors, $i)}--darker-#{$n} {
+        @if $n==1 {
+          background-color: darken( nth($values, $i), ($n * 3));
+        } @else {
+          background-color: darken( nth($values, $i), ($n * 5));
+        }
+      }
     }
-    .bg-#{nth($colors, $i)}--darker-2 {
-      background-color: darken( nth($values, $i), 10%);
-    }
-    .bg-#{nth($colors, $i)}--darker-3 {
-      background-color: darken( nth($values, $i), 15%);
-    }
-    .bg-#{nth($colors, $i)}--darker-4 {
-      background-color: darken( nth($values, $i), 20%);
-    }
-    .bg-#{nth($colors, $i)}--darker-5 {
-      background-color: darken( nth($values, $i), 25%);
-    }
-    .bg-#{nth($colors, $i)}--darker-6 {
-      background-color: darken( nth($values, $i), 30%);
-    }
-    .bg-#{nth($colors, $i)}--darker-7 {
-      background-color: darken( nth($values, $i), 35%);
-    }
-    .bg-#{nth($colors, $i)}--darker-8 {
-      background-color: darken( nth($values, $i), 40%);
-    }
-    .bg-#{nth($colors, $i)}--darker-9 {
-      background-color: darken( nth($values, $i), 45%);
-    }
-    .bg-#{nth($colors, $i)}--darker-10 {
-      background-color: darken( nth($values, $i), 50%);
-    }
-    .bg-#{nth($colors, $i)}--lighter-1 {
-      background-color: lighten( nth($values, $i), 3%);
-    }
-    .bg-#{nth($colors, $i)}--lighter-2 {
-      background-color: lighten( nth($values, $i), 10%);
-    }
-    .bg-#{nth($colors, $i)}--lighter-3 {
-      background-color: lighten( nth($values, $i), 15%);
-    }
-    .bg-#{nth($colors, $i)}--lighter-4 {
-      background-color: lighten( nth($values, $i), 20%);
-    }
-    .bg-#{nth($colors, $i)}--lighter-5 {
-      background-color: lighten( nth($values, $i), 25%);
-    }
-    .bg-#{nth($colors, $i)}--lighter-6 {
-      background-color: lighten( nth($values, $i), 30%);
-    }
-    .bg-#{nth($colors, $i)}--lighter-7 {
-      background-color: lighten( nth($values, $i), 35%);
-    }
-    .bg-#{nth($colors, $i)}--lighter-8 {
-      background-color: lighten( nth($values, $i), 40%);
-    }
-    .bg-#{nth($colors, $i)}--lighter-9 {
-      background-color: lighten( nth($values, $i), 45%);
-    }
-    .bg-#{nth($colors, $i)}--lighter-10 {
-      background-color: lighten( nth($values, $i), 50%);
+    // lighten
+    @for $n from 1 through 10 {
+      .bg-#{nth($colors, $i)}--lighter-#{$n} {
+        @if $n==1 {
+          background-color: lighten( nth($values, $i), ($n * 3));
+        } @else {
+          background-color: lighten( nth($values, $i), ($n * 5));
+        }
+      }
     }
   }
 }
 @include bgColours($colorKeys, $colorValues);
 
-// text colors
+/*
+TEXT COLORS
+ */
 [class*="color-"] {
   color: inherit;
 }
@@ -455,72 +418,33 @@ BORDERS
     .color-#{nth($colors, $i)} {
       color: #{nth($values, $i)}
     }
-    .color-#{nth($colors, $i)}--darker-1 {
-      color: darken( nth($values, $i), 3%);
+    // darken
+    @for $n from 1 through 10 {
+      .color-#{nth($colors, $i)}--darker-#{$n} {
+        @if $n==1 {
+          color: darken( nth($values, $i), ($n * 3));
+        } @else {
+          color: darken( nth($values, $i), ($n * 5));
+        }
+      }
     }
-    .color-#{nth($colors, $i)}--darker-2 {
-      color: darken( nth($values, $i), 10%);
-    }
-    .color-#{nth($colors, $i)}--darker-3 {
-      color: darken( nth($values, $i), 15%);
-    }
-    .color-#{nth($colors, $i)}--darker-4 {
-      color: darken( nth($values, $i), 20%);
-    }
-    .color-#{nth($colors, $i)}--darker-5 {
-      color: darken( nth($values, $i), 25%);
-    }
-    .color-#{nth($colors, $i)}--darker-6 {
-      color: darken( nth($values, $i), 30%);
-    }
-    .color-#{nth($colors, $i)}--darker-7 {
-      color: darken( nth($values, $i), 35%);
-    }
-    .color-#{nth($colors, $i)}--darker-8 {
-      color: darken( nth($values, $i), 40%);
-    }
-    .color-#{nth($colors, $i)}--darker-9 {
-      color: darken( nth($values, $i), 45%);
-    }
-    .color-#{nth($colors, $i)}--darker-10 {
-      color: darken( nth($values, $i), 50%);
-    }
-    .color-#{nth($colors, $i)}--lighter-1 {
-      color: lighten( nth($values, $i), 3%);
-    }
-    .color-#{nth($colors, $i)}--lighter-2 {
-      color: lighten( nth($values, $i), 10%);
-    }
-    .color-#{nth($colors, $i)}--lighter-3 {
-      color: lighten( nth($values, $i), 15%);
-    }
-    .color-#{nth($colors, $i)}--lighter-4 {
-      color: lighten( nth($values, $i), 20%);
-    }
-    .color-#{nth($colors, $i)}--lighter-5 {
-      color: lighten( nth($values, $i), 25%);
-    }
-    .color-#{nth($colors, $i)}--lighter-6 {
-      color: lighten( nth($values, $i), 30%);
-    }
-    .color-#{nth($colors, $i)}--lighter-7 {
-      color: lighten( nth($values, $i), 35%);
-    }
-    .color-#{nth($colors, $i)}--lighter-8 {
-      color: lighten( nth($values, $i), 40%);
-    }
-    .color-#{nth($colors, $i)}--lighter-9 {
-      color: lighten( nth($values, $i), 45%);
-    }
-    .color-#{nth($colors, $i)}--lighter-10 {
-      color: lighten( nth($values, $i), 50%);
+    // lighten
+    @for $n from 1 through 10 {
+      .color-#{nth($colors, $i)}--lighter-#{$n} {
+        @if $n==1 {
+          color: lighten( nth($values, $i), ($n * 3));
+        } @else {
+          color: lighten( nth($values, $i), ($n * 5));
+        }
+      }
     }
   }
 }
 @include colors($colorKeys, $colorValues);
 
-
-// font weights (numeric)
+/*
+FONT WEIGHTS
+ */
 @mixin weights{
   @for $i from 1 through 9 {
     .weight-#{$i}00 {
@@ -530,7 +454,9 @@ BORDERS
 }
 @include weights;
 
-// text alignment
+/*
+TEXT ALIGNMENT
+ */
 .text-center {
   text-align: center;
 }
@@ -544,7 +470,9 @@ BORDERS
   text-align: justify;
 }
 
-// text decorations
+/*
+TEXT DECORATIONS
+ */
 @mixin underline {
   position: relative;
   &:after {
@@ -563,47 +491,9 @@ BORDERS
   @include underline;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-a.inline-link {
-  color: $blue;
-  display: inline-block;
-  text-decoration: none;
-  @extend .underline;
-
-  &:hover {
-    color: $black;
-  }
-  &.invert {
-    color: $black;
-    &:hover {
-      color: $blue;
-    }
-  }
-}
-
-
-
-
-
-
-
-
+/*
+TRANSTIONS
+ */
 .transition-all {
   transition: all 0.3s ease;
 }
@@ -611,30 +501,23 @@ a.inline-link {
   transition: background 0.3s ease;
 }
 
-
-
-.scroll-y {
-  overflow-y: scroll;
-  height: 100%;
-}
+/*
+OVERFLOWS
+ */
 .overflow-hidden {
   overflow: hidden;
 }
 
-
+/*
+POSITIONS
+ */
 .position-relative {
   position: relative;
 }
 
-
-@mixin blendModes($modes){
-  @for $i from 1 through length($modes) {
-    &.bg-blend-#{nth($modes, $i)} {
-      background-blend-mode: #{nth($modes, $i)};
-    }
-  }
-}
-
+/*
+SMART BACKGROUNDS
+ */
 .bg-image,
 .bg-gradient,
 .bg-color {
@@ -653,14 +536,12 @@ a.inline-link {
   background-size: cover;
   background-position: center;
 
-  // blend modes
-  @include blendModes($blendModes);
-
   transition: all 0.3s ease;
-
 }
 
-// inverted goodness
+/*
+INVERTED LOGIC
+ */
 .inverted .bg-white--darker-1 {
   background: lighten($black,5);
 }
