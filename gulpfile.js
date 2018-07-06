@@ -19,10 +19,23 @@ gulp.task('localhost', function(){
 
 // watch for changes
 gulp.task('watch', function () {
-  gulp.watch('./index.html', ['public:update']);
+  gulp.watch('./index.html', ['public:inject']);
   gulp.watch('./scss/**/*.scss', ['public:scss']);
   gulp.watch('./js/**/*.js', ['public:js']);
   gulp.watch('./public/**/*', ['livereload']);
+});
+
+gulp.task('public:inject', function () {
+  var target = gulp.src('./index.html');
+  var sources = gulp.src([
+    './public/modules/jquery.min.js', // make sure jquery comes first
+    './public/modules/**/*.js',
+    './public/modules/**/*.css',
+    './public/css/**/*.css',
+    './public/js/**/*.js',
+  ],{read: false});
+  return target.pipe(inject(sources, {ignorePath: 'public'}))
+    .pipe(gulp.dest('./public/'));
 });
 
 // compile sass and log errors in the terminal
@@ -52,12 +65,14 @@ gulp.task('public:js', ['concat'], function() {
 gulp.task('livereload', function (){
   gulp.src('./public/**/*')
   .pipe(connect.reload());
+  console.log('reload');
 });
 
 // clean up all files inside the public folder
 gulp.task('public:clean', function() {
     return del([
       './public/index.html',
+      './public/assets/**/*',
       './public/modules/**/*',
       './public/css/**/*',
       './public/js/**/*',
@@ -72,6 +87,12 @@ gulp.task('public:mods', function() {
   ]
   return gulp.src( sources ).pipe(gulp.dest('./public/modules/'));
 });
+
+// copy all our remaining assets into /public
+gulp.task('public:assets', function() {
+  return gulp.src( './assets/**/*' ).pipe(gulp.dest('./public/assets/'));
+});
+
 
 // build and minify css for dist (this is messy AF)
 gulp.task('dist:css', function() {
@@ -123,6 +144,7 @@ gulp.task('default', [
   'watch',
   'public:scss',
   'public:js',
+  'public:assets'
 ], function() {
   injectPubIndexHTML();
 });
@@ -133,6 +155,7 @@ gulp.task('build', [
   'public:scss',
   'public:js',
   'public:mods',
+  'public:assets',
   'dist:clean',
   'dist:css',
   'dist:js'
