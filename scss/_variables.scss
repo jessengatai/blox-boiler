@@ -1,13 +1,23 @@
 // colors
-$red: #ff1929;
-$orange: orange;
-$yellow: #ffeb4d;
-$pink: pink;
-$purple: #771dff;
-$blue: #1f21ff;
-$green: #65ff97;
+$red: #F5142B;
+$orange: #F3AD00;
+$yellow: #F4E829;
+$pink: #FD9D98;
+$purple: #6623EF; // #771dff;
+$blue: #3C2EF9;
+$aqua: #3FE3FE;
+$green: #90F68C;
 $black: #17191f;
 $white: #ffffff;
+$grey: #BCC7D7;
+
+// COLOR ARRAY (color util generation)
+// - Add or remove colors as needed. Both a name and value are required.
+// - Keep in mind, every color added will increase the final .css filesize considerably.
+// - So keep the number of colours in your pallette to a miniumum
+// - (this is complete overkill btw)
+$colorKeys: white, black, grey, red, orange, yellow, pink, green, blue, aqua, purple;
+$colorValues: $white, $black, $grey, $red, $orange, $yellow, $pink, $green, $blue, $aqua, $purple;
 
 // containers
 $container-width: 90vw;
@@ -55,6 +65,7 @@ $media-lrg-up: "only screen and (min-width: 1100px)";
 $media-xl-up: "only screen and (min-width: 1500px)";
 
 // font sizes
+// note: consider implementing variable-exists() for this stuff so people don't have to fill all these out
 $h1-size: calc(28px + .8vh + .8vw) ;
 $h1-size-double: calc(56px + 1.6vh + 1.6vw) ;
 $h2-size: calc(20px + .6vh + .6vw) ;

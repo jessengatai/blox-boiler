@@ -12,7 +12,6 @@ button,
   -webkit-appearance: none;
   display: inline-block;
   outline: none;
-  box-shadow: none;
 
   margin: 0px 0.15vw 3px 0.15vw;
   padding-left: $padding;
@@ -29,13 +28,15 @@ button,
   // BASE BUTTON COLORS
   background: $white;
   border: 1px solid darken($white,5);
-  border-bottom: 2px solid darken($white,15);
+  border-bottom: 1px solid darken($white,10);
   color: lighten($black,20);
+  box-shadow: 0 3px 3px rgba(0,0,0,.05);
+
 
   .inverted & {
     background: $black;
     border: 1px solid lighten($black,5);
-    border-bottom: 2px solid lighten($black,10);
+    border-bottom-color: lighten($black,10);
     color: $white;
   }
 
@@ -44,13 +45,16 @@ button,
     border-color: transparent;
     background-color: transparent;
     box-shadow: none;
+    &:hover {
+      box-shadow: inherit;
+    }
   }
 
   // HOVER BUTTON COLORS
   &:hover {
     background: darken($white,2);
     border: 1px solid darken($white,15);
-    border-bottom: 2px solid darken($white,20);
+    border-bottom-color: darken($white,20);
     color: $black;
   }
 
@@ -87,125 +91,31 @@ button,
     padding-right: $padding-big;
   }
 
-  // PRIMARY BUTTON
-  &.primary {
-    background: lighten($black,5);
-    border: 1px solid lighten($black,10);
-    border-bottom: 2px solid lighten($black,20);
-    color: darken($white,10);
-    &:hover,
-    &[active="true"] {
-      background: lighten($black,15);
-      border: 1px solid lighten($black,20);
-      border-bottom: 2px solid lighten($black,25);
-      color: $white;
-    }
-  }
+  // BUTTON COLORS
+  @mixin buttonColors($colors, $values){
+    @for $i from 1 through length($colors) {
 
-  // GREEN BUTTON
-  &.green {
-    background: $green;
-    border: 1px solid darken($green,10);
-    border-bottom: 2px solid darken($green,30);
-    color: darken($green,40);
-    &:hover,
-    &[active="true"] {
-      background: darken($green,30);
-      border: 1px solid darken($green,30);
-      border-bottom: 2px solid darken($green,40);
-      color: $white;
-    }
-  }
+      $bgc: nth($values, $i);
+      $bgc-hover: choose-hover-color($bgc);
 
-  // RED BUTTON
-  &.red {
-    background: $red;
-    border: 1px solid darken($red,10);
-    border-bottom: 2px solid darken($red,20);
-    color: darken($red,40);
-    &:hover,
-    &[active="true"] {
-      background: darken($red,20);
-      border: 1px solid darken($red,20);
-      border-bottom: 2px solid darken($red,30);
-      color: $white;
-    }
-  }
+      &.#{nth($colors, $i)} {
+        background: $bgc;
+        border-color: darken($bgc, 10);
+        border-bottom-color: darken($bgc, 9);
+        color: choose-contrast-color($bgc);
 
-  // ORANGE BUTTON
-  &.orange {
-    background: $orange;
-    border: 1px solid darken($orange,10);
-    border-bottom: 2px solid darken($orange,20);
-    color: darken($orange,40);
-    &:hover,
-    &[active="true"] {
-      background: lighten($orange,20);
-      border: 1px solid $orange;
-      border-bottom: 2px solid $orange;
-      color: darken($orange,40);;
-    }
-  }
+        &:hover,
+        &[active="true"] {
+          background: $bgc-hover;
+          border-color: darken($bgc-hover, 9);
+          border-bottom-color: darken($bgc-hover, 14);
+          color: choose-contrast-color($bgc-hover);
+        }
 
-  // YELLOW BUTTON
-  &.yellow {
-    background: $yellow;
-    border: 1px solid darken($yellow,20);
-    border-bottom: 2px solid darken($yellow,30);
-    color: darken($yellow,40);
-    &:hover,
-    &[active="true"] {
-      background: darken($yellow,10);
-      border: 1px solid darken($yellow,10);
-      border-bottom: 2px solid darken($yellow,10);
-      color: darken($yellow,40);
+      }
     }
   }
-
-  // BLUE BUTTON
-  &.blue {
-    background: $blue;
-    border: 1px solid darken($yellow,20);
-    border-bottom: 2px solid darken($yellow,30);
-    color: $white;
-    &:hover,
-    &[active="true"] {
-      background: lighten($blue,10);
-      border: 1px solid darken($blue,10);
-      border-bottom: 2px solid dark($blue,10);
-      color: $white;
-    }
-  }
-
-  // PINK BUTTON
-  &.pink {
-    background: $pink;
-    border: 1px solid darken($pink,5);
-    border-bottom: 2px solid darken($pink,15);
-    color: darken($pink,70);
-    &:hover,
-    &[active="true"] {
-      background: lighten($pink,5);
-      border: 1px solid darken($pink,10);
-      border-bottom: 2px solid darken($pink,10);
-      color: darken($pink,50);
-    }
-  }
-
-  // PURPLE BUTTON
-  &.purple {
-    background: $purple;
-    border: 1px solid darken($purple,10);
-    border-bottom: 2px solid darken($purple,30);
-    color: $white;
-    &:hover,
-    &[active="true"] {
-      background: lighten($purple,10);
-      border: 1px solid darken($purple,10);
-      border-bottom: 2px solid darken($purple,10);
-      color: $white;
-    }
-  }
+  @include buttonColors($colorKeys, $colorValues);
 
   // ICONS IN BUTTONS
   span.icon {

@@ -424,6 +424,10 @@ TEXT COLORS (needs to be cleaned up a lot, not good for final css filesize)
     .color-#{nth($colors, $i)} {
       color: #{nth($values, $i)};
     }
+    // contrast
+    .color-#{nth($colors, $i)}--contrast {
+      color: choose-contrast-color(nth($values, $i));
+    }
     // darken
     @for $n from 1 through 10 {
       .color-#{nth($colors, $i)}--darker-#{$n} {
@@ -466,6 +470,10 @@ h1,h2,h3,h4,h5,h6 {
   @for $i from 1 through length($colors) {
     .headers-#{nth($colors, $i)} %headings {
       color: #{nth($values, $i)};
+    }
+    // contrast
+    .headers-#{nth($colors, $i)}--contrast %headings {
+      color: choose-contrast-color(nth($values, $i));
     }
     // darken
     @for $n from 1 through 10 {
@@ -592,5 +600,5 @@ SMART BACKGROUNDS
 INVERTED LOGIC
  */
 .inverted .bg-white--darker-1 {
-  background: lighten($black,5);
+  background: darken($black,2);
 }
