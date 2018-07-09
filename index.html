@@ -560,15 +560,7 @@
               class="rounded border padding shadow-lrg margin-bottom resize text-center color-white headers-white"
 
               data-resize-component
-
-              data-bg-color="red"
-              data-bg-image="assets/1.jpg"
-              data-bg-image-blur="0"
-              data-bg-image-blend="multiply"
-              data-bg-gradient-start="blue"
-              data-bg-gradient-end="red"
-              data-bg-gradient-rotation="45"
-              data-bg-gradient-opacity=".3"
+              data-bg-color="white"
               >
                 <div class="transform-center-y position-relative overflow-hidden" style="pointer-events: none;">
                   <div class="show-square">
@@ -840,17 +832,36 @@
         $(window).on('component-resized:responsive-component', function(){
           let object = $('#responsive-component');
           if (object.hasClass('isTall')) {
-            object.attr('data-bg-image','assets/3.jpg')
-                  .attr('data-bg-color','yellow')
-                  .attr('data-bg-gradient-rotation','45')
-          } else if (object.hasClass('isWide')) {
             object.attr('data-bg-image','assets/1.jpg')
-                  .attr('data-bg-color','red')
-                  .attr('data-bg-gradient-rotation','180')
+                  .attr('data-bg-image-blend','luminosity')
+                  .attr('data-bg-color','purple')
+                  .attr('data-bg-color-opacity','1')
+                  .attr('data-bg-gradient-rotation','0')
+                  .attr('data-bg-gradient-start','black')
+                  .attr('data-bg-gradient-end','')
+                  .attr('data-bg-gradient-opacity','0.8')
+
+
+          } else if (object.hasClass('isWide')) {
+            object.attr('data-bg-image','assets/6.jpg')
+                  .attr('data-bg-image-blend','multiply')
+                  .attr('data-bg-color','blue')
+                  .attr('data-bg-color-opacity','.7')
+                  .attr('data-bg-gradient-rotation','45')
+                  .attr('data-bg-gradient-start','black')
+                  .attr('data-bg-gradient-end','')
+                  .attr('data-bg-gradient-opacity','0.7')
+
           } else {
             object.attr('data-bg-image','assets/5.jpg')
-                  .attr('data-bg-color','blue')
-                  .attr('data-bg-gradient-rotation','0')
+                  .attr('data-bg-image-blend','darken')
+                  .attr('data-bg-color','red')
+                  .attr('data-bg-color-opacity','1')
+                  .attr('data-bg-gradient-rotation','180')
+                  .attr('data-bg-gradient-start','black')
+                  .attr('data-bg-gradient-end','red')
+                  .attr('data-bg-gradient-opacity','.8')
+
           }
         });
 
