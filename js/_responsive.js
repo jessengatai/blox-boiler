@@ -66,7 +66,7 @@ jQuery(document).ready(function($){
   const runComponentClasses = () => {
 
     // setup the smart backgrounds
-    const nodes = document.querySelectorAll('[data-classes-tall], [data-classes-wide], [data-classes-square], [data-resize-component]');
+    const nodes = document.querySelectorAll('[data-classes-tall], [data-classes-wide], [data-classes-square], [data-responsive-component]');
     const objects = $(nodes);
 
     // listen for resize changes and update the classes accordingly
@@ -76,10 +76,10 @@ jQuery(document).ready(function($){
         let width = element.contentRect.width;
         let height = element.contentRect.height;
 
-        if( width > Math.pow(height, 1.035) ) {
+        if( width > Math.pow(height, 1.04) ) {
           setComponentClasses(element.target, 'wide');
 
-        } else if( height > Math.pow(width, 1.02) ) {
+        } else if( height > Math.pow(width, 1.03) ) {
           setComponentClasses(element.target, 'tall');
 
         } else {

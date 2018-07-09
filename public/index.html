@@ -561,14 +561,10 @@
               <p>Blox has two types of responsive class systems; Viewport and Component. Viewport responsive classes relate to the window dimensions and component classes relate to the dimensions of an indivual element.</p>
 
               <h5>Component Classes</h5>
-              <p>Method 1: Using <code>data-classes-tall="..."</code>, <code>data-classes-wide="..."</code> and <code>data-classes-square="..."</code>, we can apply classes to any element based on that elements dimensions. Give the below element a resize to see it in action.</p>
-              <h5>OR</h5>
-              <p>Method 2: If we only want to listen to resize changes and use the resize util classes, we can apply the <code>data-resize</code> attribute.</p>
-
               <div id="responsive-component"
               style="max-width: 100%; min-width: 150px; min-height: 100px; width: 100%; height: 400px;"
-              class="rounded border padding shadow-lrg margin-bottom resize text-center color-white headers-white"
-              data-resize-component
+              class="rounded border padding shadow-lrg margin-bottom--x2 resize text-center color-white headers-white"
+              data-responsive-component
               data-bg-color="white"
               data-bg-image-blur="2"
               >
@@ -589,6 +585,15 @@
                 <div class="resize-corner"></div>
               </div>
 
+              <p>Select either of the two methods below to get responsive components working.</p>
+              <h6>data-responsive-compenent</h6>
+              <p>Adding <code>data-responsive-component</code> to an element will enable base utility classes (.isWide, .isTall, .isSquare) and trigger events when the element changes state.</p>
+              <h6>data-classes-x=""</h6>
+              <p>Alternatively, if you want to add classes to the element for certain states, any one of the following attributes will trigger the base functionalty plus add your classes for appropriate states: <code>data-classes-wide=""</code>, <code>data-classes-tall=""</code> and <code>data-classes-square=""</code>.</p>
+
+
+
+
               <!-- <div class="deboss">
                 <table class="full-width">
                   <thead>
@@ -596,7 +601,7 @@
                     <th>Description</th>
                   </thead>
                   <tr>
-                    <td>data-resize-component</td>
+                    <td>data-responsive-component</td>
                     <td>Classes while element is stuck.</td>
                   </tr>
                   <tr>
