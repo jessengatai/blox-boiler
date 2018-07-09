@@ -19,7 +19,11 @@ $grey: #BCC7D7;
 $colorKeys: white, black, grey, red, orange, yellow, pink, green, blue, aqua, purple;
 $colorValues: $white, $black, $grey, $red, $orange, $yellow, $pink, $green, $blue, $aqua, $purple;
 
-// containers
+// site text colours
+$site-text-headers: $black;
+$site-text-body: lighten($black,25);
+
+// container widths
 $container-width: 90vw;
 $container-max-width: calc(1200px + 10vw);
 $container-max-width-thin: 900px;
@@ -31,38 +35,24 @@ $paddingX: 20px;
 $paddingY: 20px;
 $default_cols: 12;
 
-// site colours
-$site-background: $white;
-$site-primary: $red;
-$site-accent: $blue;
-$site-text-headers: $black;
-$site-text-body: lighten($black,25);
-
 // link styling
 $link-color: $black ;
 $link-decoration: underline ;
 $link-hover-color: $blue ;
 $link-hover-decoration: underline ;
 
-// default border stylings
+// border styling
 $border-weight: 1px ;
 $border-color: darken($white,10) ;
 
 // inverted colors
 $inverted-border-color: lighten($black,5);
 
-// responsive only's
-$media-tny-only: "only screen and (max-width: 599px)";
-$media-sml-only: "only screen and (min-width: 600px) and (max-width: 879px)";
-$media-med-only: "only screen and (min-width: 880px) and (max-width: 1099px)";
-$media-lrg-only: "only screen and (min-width: 1100px) and (max-width: 1499px)";
-$media-xl-only: "only screen and (min-width: 1500px)";
-
-// responsive up's
-$media-sml-up: "only screen and (min-width: 600px)";
-$media-med-up: "only screen and (min-width: 880px)";
-$media-lrg-up: "only screen and (min-width: 1100px)";
-$media-xl-up: "only screen and (min-width: 1500px)";
+// responsive breakpoints
+$sml-breakpoint: 600px;
+$med-breakpoint: 880px;
+$lrg-breakpoint: 1100px;
+$xl-breakpoint: 1500px;
 
 // font sizes
 // note: consider implementing variable-exists() for this stuff so people don't have to fill all these out

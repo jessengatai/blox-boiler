@@ -1,6 +1,19 @@
 // cool functional stuff!
 @import "_variables";
 
+// responsive only's
+$media-tny-only: "only screen and (max-width: #{$sml-breakpoint - 1})";
+$media-sml-only: "only screen and (min-width: #{$sml-breakpoint}) and (max-width: #{$med-breakpoint - 1})";
+$media-med-only: "only screen and (min-width: #{$med-breakpoint}) and (max-width: #{$lrg-breakpoint - 1})";
+$media-lrg-only: "only screen and (min-width: #{$lrg-breakpoint}) and (max-width: #{$xl-breakpoint - 1})";
+$media-xl-only: "only screen and (min-width: #{$xl-breakpoint})";
+
+// responsive up's
+$media-sml-up: "only screen and (min-width: #{$sml-breakpoint})";
+$media-med-up: "only screen and (min-width: #{$med-breakpoint})";
+$media-lrg-up: "only screen and (min-width: #{$lrg-breakpoint})";
+$media-xl-up: "only screen and (min-width: #{$xl-breakpoint})";
+
 // blend array (DO NOT TOUCH)
 $blendModes: luminosity, color, saturation, color-dodge, lighten, darken, overlay, screen, multiply, normal;
 
