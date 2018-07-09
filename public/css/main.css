@@ -118,7 +118,7 @@ h2 {
   margin-bottom: calc(16px + .6vh + .6vw);
   font-size: calc(20px + .6vh + .6vw);
   font-weight: 600;
-  line-height: 1.1; }
+  line-height: 1; }
   h2.size--x2 {
     font-size: calc(40px + 1.2vh + 1.2vw); }
   h2.x2-margin {

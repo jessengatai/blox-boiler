@@ -28,7 +28,7 @@
     </style>
 
   </head>
-  <body>
+  <body night-mode="on" class="inverted bg-black color-black--lighter-10 headers-white">
 
     <div id="header" class="bg-white--darker-1 padding-y--x4 margin-bottom--x4 shadow-lrg--inset">
       <div class="align-center max-width">
@@ -557,16 +557,16 @@
 
             <!-- RESPONSIVE CLASSES -->
             <div id="classes" class="box margin-bottom--x4">
-              <h2 class="size--x2">Responsive Classes</h2>
+              <h2 class="size--x2">Responsive <br> Classes</h2>
               <p>Blox has two types of responsive class systems; Viewport and Component. Viewport responsive classes relate to the window dimensions and component classes relate to the dimensions of an indivual element.</p>
 
-              <h5>Component Classes</h5>
+              <h3>Component</h3>
               <div id="responsive-component"
               style="max-width: 100%; min-width: 150px; min-height: 100px; width: 100%; height: 400px;"
               class="rounded border padding shadow-lrg margin-bottom--x2 resize text-center color-white headers-white"
               data-responsive-component
               data-bg-color="white"
-              data-bg-image-blur="2"
+              data-bg-image-blur="0"
               >
                 <div class="transform-center-y position-relative overflow-hidden" style="pointer-events: none;">
                   <div class="show-square">
@@ -585,11 +585,20 @@
                 <div class="resize-corner"></div>
               </div>
 
+              <h5>Methods</h5>
               <p>Select either of the two methods below to get responsive components working.</p>
-              <h6>data-responsive-compenent</h6>
-              <p>Adding <code>data-responsive-component</code> to an element will enable base utility classes (.isWide, .isTall, .isSquare) and trigger events when the element changes state.</p>
-              <h6>data-classes-x=""</h6>
-              <p>Alternatively, if you want to add classes to the element for certain states, any one of the following attributes will trigger the base functionalty plus add your classes for appropriate states: <code>data-classes-wide=""</code>, <code>data-classes-tall=""</code> and <code>data-classes-square=""</code>.</p>
+
+              <div class="boxes" data-gutters="nested">
+                <div class="box" data-span-lrg="6">
+                  <h6>data-responsive-compenent</h6>
+                  <p>Adding <code>data-responsive-component</code> to an element will enable base utility classes (.isWide, .isTall, .isSquare) and trigger events when the element changes state.</p>
+                </div>
+                <div class="box" data-span-lrg="6">
+                  <h6>data-classes-x=""</h6>
+                  <p>Alternatively, if you want to add classes to the element for certain states, any one of the following attributes will trigger the base functionalty plus add your classes for appropriate states: <code>data-classes-wide=""</code>, <code>data-classes-tall=""</code> and <code>data-classes-square=""</code>.</p>
+                </div>
+              </div>
+
 
 
 
@@ -832,8 +841,9 @@
                   .attr('data-bg-color','purple')
                   .attr('data-bg-color-opacity','1')
                   .attr('data-bg-gradient-rotation','0')
-                  .attr('data-bg-gradient-start','black')
-                  .attr('data-bg-gradient-opacity','0.8')
+                  .attr('data-bg-gradient-start','pink')
+                  .attr('data-bg-gradient-end','red')
+                  .attr('data-bg-gradient-opacity','0.4')
 
           } else if (object.hasClass('isWide')) {
             object.attr('data-bg-image','assets/6.jpg')
@@ -842,16 +852,18 @@
                   .attr('data-bg-color-opacity','.7')
                   .attr('data-bg-gradient-rotation','45')
                   .attr('data-bg-gradient-start','black')
-                  .attr('data-bg-gradient-opacity','0.7')
+                  .attr('data-bg-gradient-end','purple')
+                  .attr('data-bg-gradient-opacity','0.4')
 
           } else {
-            object.attr('data-bg-image','assets/5.jpg')
+            object.attr('data-bg-image','assets/2.jpg')
                   .attr('data-bg-image-blend','multiply')
                   .attr('data-bg-color','red')
-                  .attr('data-bg-color-opacity','.9')
+                  .attr('data-bg-color-opacity','.4')
                   .attr('data-bg-gradient-rotation','180')
-                  .attr('data-bg-gradient-start','black')
-                  .attr('data-bg-gradient-opacity','1')
+                  .attr('data-bg-gradient-start','red')
+                  .attr('data-bg-gradient-end','purple')
+                  .attr('data-bg-gradient-opacity','0.6')
           }
         });
 
