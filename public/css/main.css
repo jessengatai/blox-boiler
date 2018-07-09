@@ -4719,8 +4719,10 @@ SMART BACKGROUNDS
   pointer-events: none;
   background-color: transparent;
   background-size: cover;
-  background-position: center;
-  transition: all 0.3s ease; }
+  background-position: center; }
+
+.bg-image {
+  transition: background-image 0.2s ease !important; }
 
 /*
 INVERTED LOGIC
