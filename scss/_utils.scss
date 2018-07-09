@@ -55,10 +55,16 @@
   transform: translate3d(-50%, -50%, 0);
 }
 
+// make the margins and paddings work via a loop
+// $directionArray: top, bottom, left, right, x, y;
+
 /*
 PADDINGS
  */
 @mixin paddings {
+  .padding {
+    padding: $paddingY $paddingX;
+  }
   .padding-top {
     padding-top: $paddingY;
   }
@@ -79,9 +85,7 @@ PADDINGS
     padding-top: $paddingY;
     padding-bottom: $paddingY;
   }
-  .padding {
-    padding: $paddingY $paddingX;
-  }
+
   // half paddings (clean this up)
   .padding--half {
     padding: ($paddingY / 2) ($paddingX / 2);
