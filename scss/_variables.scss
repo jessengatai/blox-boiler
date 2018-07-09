@@ -3,7 +3,7 @@ $red: #F5142B;
 $orange: #F3AD00;
 $yellow: #F4E829;
 $pink: #FD9D98;
-$purple: #6623EF; // #771dff;
+$purple: #6623EF;
 $blue: #3C2EF9;
 $aqua: #3FE3FE;
 $green: #90F68C;
@@ -12,21 +12,21 @@ $white: #ffffff;
 $grey: #BCC7D7;
 
 // COLOR ARRAY (color util generation)
-// - Add or remove colors as needed. Both a name and value are required.
-// - Keep in mind, every color added will increase the final .css filesize considerably.
+// - Add or remove colors as needed.
+// - Both a key (name) and value are required.
+// - Every color added will increase the final .css filesize considerably.
 // - So keep the number of colours in your pallette to a miniumum
-// - (this is complete overkill btw)
 $colorKeys: white, black, grey, red, orange, yellow, pink, green, blue, aqua, purple;
 $colorValues: $white, $black, $grey, $red, $orange, $yellow, $pink, $green, $blue, $aqua, $purple;
 
-// site text colours
+// base text colours
 $site-text-headers: $black;
 $site-text-body: lighten($black,25);
 
 // container widths
 $container-width: 90vw;
 $container-max-width: calc(1200px + 10vw);
-$container-max-width-thin: 900px;
+$container-max-width--thin: 900px;
 
 // margins and padding
 $gutterX: 30px;
@@ -49,7 +49,7 @@ $border-color: darken($white,10) ;
 $inverted-border-color: lighten($black,5);
 
 // responsive breakpoints
-$sml-breakpoint: 600px;
+$sml-breakpoint: 600px; // tny being 599 and under
 $med-breakpoint: 880px;
 $lrg-breakpoint: 1100px;
 $xl-breakpoint: 1500px;

@@ -52,8 +52,6 @@ jQuery(document).ready(function($){
     gradDeg = (!bloxIsset(gradDeg)) ? 0 : Number(gradDeg) ;
     gradOpacity = (!bloxIsset(gradOpacity)) ? 1 : Number(gradOpacity) ;
 
-    console.log(imageBlur);
-
     // setup background color RGBA string
     let colorRGBA = w3color(color);
         colorRGBA.opacity = colorOpacity;

@@ -73,7 +73,7 @@ ol {
 // code
 *:not(pre) > code {
   background: $white;
-  color: inherit;
+  color: choose-contrast-color($white);
   padding: 2px 7px;
   border-radius: 4px;
   border: solid 1px #f0f0f0;
@@ -81,6 +81,7 @@ ol {
   font-weight: 400;
   .inverted & {
     background: lighten($black,5);
+    color: choose-contrast-color($black);
     border-color: lighten($black,10);
   }
 }

@@ -3,39 +3,32 @@
   visibility: hidden;
   pointer-events: none;
 }
+@mixin show {
+  display: inherit;
+  visibility: visible;
+  pointer-events: inherit;
+}
 
+// viewport classes
 @media #{$media-tny-only} {
-  .show-tny {
-    display: inherit;
-    visibility: visible;
-    pointer-events: inherit;
-  }
+  .show-tny { @include show; }
 }
 @media #{$media-sml-only} {
-  .show-sml {
-    display: inherit;
-    visibility: visible;
-    pointer-events: inherit;
-  }
+  .show-sml { @include show; }
 }
 @media #{$media-med-only} {
-  .show-med {
-    display: inherit;
-    visibility: visible;
-    pointer-events: inherit;
-  }
+  .show-med { @include show; }
 }
 @media #{$media-lrg-only} {
-  .show-lrg {
-    display: inherit;
-    visibility: visible;
-    pointer-events: inherit;
-  }
+  .show-lrg { @include show; }
 }
 @media #{$media-xl-only} {
-  .show-xl {
-    display: inherit;
-    visibility: visible;
-    pointer-events: inherit;
-  }
+  .show-xl { @include show; }
+}
+
+// component classes
+.isTall .show-tall,
+.isWide .show-wide,
+.isSquare .show-square {
+  @include show;
 }

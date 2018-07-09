@@ -912,8 +912,6 @@ jQuery(document).ready(function ($) {
     gradDeg = !bloxIsset(gradDeg) ? 0 : Number(gradDeg);
     gradOpacity = !bloxIsset(gradOpacity) ? 1 : Number(gradOpacity);
 
-    console.log(imageBlur);
-
     // setup background color RGBA string
     var colorRGBA = w3color(color);
     colorRGBA.opacity = colorOpacity;
@@ -1213,6 +1211,162 @@ jQuery(document).ready(function ($) {
       closeModal($('#' + id));
     }
   });
+});
+
+console.log('responsive loaded');
+jQuery(document).ready(function ($) {
+
+  var setComponentClasses = function setComponentClasses(object, size) {
+
+    var componentId = $(object).attr('id');
+    var classesWide = $(object).attr('data-classes-wide');
+    var classesTall = $(object).attr('data-classes-tall');
+    var classesSquare = $(object).attr('data-classes-square');
+    var allClasses = [classesWide, classesTall, classesSquare].join(' ');
+    var utilClasses = 'isTall isWide isSquare';
+
+    // clean up all the classes on the object
+    var cleanUp = function cleanUp() {
+      // handle the util classes
+      $(object).removeClass(utilClasses);
+      // clean up the custom classes
+      $(object).removeClass(allClasses);
+      // return the object
+      return $(object);
+    };
+
+    // fire the event trigger for this component
+    var fireUp = function fireUp() {
+      if (bloxIsset(componentId)) {
+        return $(window).trigger('component-resized:' + componentId);
+      }
+    };
+
+    /*
+    WIDE CLASSES
+     */
+    if (size == 'wide' && !$(object).hasClass('isWide')) {
+      cleanUp().addClass('isWide');
+      fireUp();
+      // handle custom classes
+      if (bloxIsset(classesWide)) {
+        $(object).addClass(classesWide);
+      }
+
+      /*
+      TALL CLASSES
+       */
+    } else if (size == 'tall' && !$(object).hasClass('isTall')) {
+      cleanUp().addClass('isTall');
+      fireUp();
+      // handle the custom classes
+      if (bloxIsset(classesTall)) {
+        $(object).addClass(classesTall);
+      }
+
+      // square
+    } else if (size == 'square' && !$(object).hasClass('isSquare')) {
+      cleanUp().addClass('isSquare');
+      fireUp();
+      // handle the custom classes
+      if (bloxIsset(classesSquare)) {
+        $(object).addClass(classesSquare);
+      }
+    }
+  };
+
+  var runComponentClasses = function runComponentClasses() {
+
+    // setup the smart backgrounds
+    var nodes = document.querySelectorAll('[data-classes-tall], [data-classes-wide], [data-classes-square], [data-resize-component]');
+    var objects = $(nodes);
+
+    // listen for resize changes and update the classes accordingly
+    var ro = new ResizeObserver(function (elements) {
+      elements.forEach(function (element) {
+
+        var width = element.contentRect.width;
+        var height = element.contentRect.height;
+
+        if (width > Math.pow(height, 1.035)) {
+          setComponentClasses(element.target, 'wide');
+        } else if (height > Math.pow(width, 1.02)) {
+          setComponentClasses(element.target, 'tall');
+        } else {
+          setComponentClasses(element.target, 'square');
+        }
+      });
+    });
+
+    // starts listening for changes on our backgrounds
+    for (var i = 0; i < nodes.length; i++) {
+      ro.observe(nodes[i]);
+    }
+
+    // const ro = new ResizeObserver(entries => {
+    //   for (let entry of entries) {
+    //     entry.target.style.borderRadius = Math.max(0, 250 - entry.contentRect.width) + 'px';
+    //   }
+    // });
+    // // Only observe the second box
+    // ro.observe(document.querySelector('.box:nth-child(2)'));
+
+  };
+  runComponentClasses();
+
+  /**
+   * run through the boxes and apply viewport classes
+   */
+  var runViewportClasses = function runViewportClasses() {
+
+    // setup some big scope variables
+    var ww = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
+    var responsiveClasses = $('[data-classes-tny], [data-classes-sml], [data-classes-med], [data-classes-lrg], [data-classes-xl]');
+
+    // run through each element that uses responsive classes
+    if (responsiveClasses.length) {
+      $.each(responsiveClasses, function (index, object) {
+
+        // get all the classes this element has
+        var classesTny = $(object).attr('data-classes-tny');
+        var classesSml = $(object).attr('data-classes-sml');
+        var classesMed = $(object).attr('data-classes-med');
+        var classesLrg = $(object).attr('data-classes-lrg');
+        var classesXl = $(object).attr('data-classes-xl');
+        var allClasses = [classesTny, classesSml, classesMed, classesLrg, classesXl].join(' ');
+
+        // tny classes on
+        if (ww <= 599 && classesTny !== '' && !$(object).hasClass(classesTny)) {
+          $(object).removeClass(allClasses).addClass(classesTny);
+        }
+        // sml classes on
+        else if (ww >= 600 && ww <= 879 && classesSml !== '' && !$(object).hasClass(classesSml)) {
+            $(object).removeClass(allClasses).addClass(classesSml);
+          }
+          // med classes on
+          else if (ww >= 880 && ww <= 1099 && classesMed !== '' && !$(object).hasClass(classesMed)) {
+              $(object).removeClass(allClasses).addClass(classesMed);
+            }
+            // lrg classes on
+            else if (ww >= 1100 && ww <= 1499 && classesLrg !== '' && !$(object).hasClass(classesLrg)) {
+                $(object).removeClass(allClasses).addClass(classesLrg);
+              }
+              // xl classes on
+              else if (ww > 1500 && classesXl !== '' && !$(object).hasClass(classesXl)) {
+                  $(object).removeClass(allClasses).addClass(classesXl);
+                }
+      });
+    }
+  };
+
+  /**
+   * Handle responsive changes
+   * @param  {object} e the event
+   */
+  $(window).on('resize', function (e) {
+    runViewportClasses();
+  });
+  runViewportClasses();
 });
 
 console.log('slider loaded');
@@ -1567,61 +1721,3 @@ jQuery(document).ready(function ($) {
 });
 
 console.log('main loaded');
-
-console.log('responsive loaded');
-jQuery(document).ready(function ($) {
-
-  /**
-   * run through the boxes and apply viewport classes
-   */
-  var runResponsiveClasses = function runResponsiveClasses() {
-
-    // setup some big scope variables
-    var ww = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
-    var responsiveClasses = $('[data-classes-tny], [data-classes-sml], [data-classes-med], [data-classes-lrg], [data-classes-xl]');
-
-    // run through each element that uses responsive classes
-    if (responsiveClasses.length) {
-      $.each(responsiveClasses, function (index, object) {
-
-        // get all the classes this element has
-        var classesTny = $(object).attr('data-classes-tny');
-        var classesSml = $(object).attr('data-classes-sml');
-        var classesMed = $(object).attr('data-classes-med');
-        var classesLrg = $(object).attr('data-classes-lrg');
-        var classesXl = $(object).attr('data-classes-xl');
-        var allClasses = [classesTny, classesSml, classesMed, classesLrg, classesXl].join(' ');
-
-        // tny classes on
-        if (ww <= 599 && classesTny !== '' && !$(object).hasClass(classesTny)) {
-          $(object).removeClass(allClasses).addClass($(object).attr('data-classes-tny'));
-        }
-        // sml classes on
-        else if (ww >= 600 && ww <= 879 && classesSml !== '' && !$(object).hasClass(classesSml)) {
-            $(object).removeClass(allClasses).addClass($(object).attr('data-classes-sml'));
-          }
-          // med classes on
-          else if (ww >= 880 && ww <= 1099 && classesMed !== '' && !$(object).hasClass(classesMed)) {
-              $(object).removeClass(allClasses).addClass($(object).attr('data-classes-med'));
-            }
-            // lrg classes on
-            else if (ww >= 1100 && ww <= 1499 && classesLrg !== '' && !$(object).hasClass(classesLrg)) {
-                $(object).removeClass(allClasses).addClass($(object).attr('data-classes-lrg'));
-              }
-              // xl classes on
-              else if (ww > 1500 && classesXl !== '' && !$(object).hasClass(classesXl)) {
-                  $(object).removeClass(allClasses).addClass($(object).attr('data-classes-xl'));
-                }
-      });
-    }
-  };
-
-  /**
-   * Handle responsive changes
-   * @param  {object} e the event
-   */
-  $(window).on('resize', function (e) {
-    runResponsiveClasses();
-  });
-  runResponsiveClasses();
-});

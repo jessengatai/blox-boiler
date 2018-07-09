@@ -79,7 +79,7 @@ ol {
 
 *:not(pre) > code {
   background: #ffffff;
-  color: inherit;
+  color: black;
   padding: 2px 7px;
   border-radius: 4px;
   border: solid 1px #f0f0f0;
@@ -87,6 +87,7 @@ ol {
   font-weight: 400; }
   .inverted *:not(pre) > code {
     background: #22252e;
+    color: white;
     border-color: #2d313c; }
 
 html {
@@ -1790,21 +1791,46 @@ BOX COLUMNS
     visibility: visible;
     pointer-events: inherit; } }
 
+.isTall .show-tall,
+.isWide .show-wide,
+.isSquare .show-square {
+  display: inherit;
+  visibility: visible;
+  pointer-events: inherit; }
+
+/*
+MAX WIDTHS
+ */
 .max-width {
   max-width: calc(1200px + 10vw); }
 
-.max-width-thin {
+.max-width--thin {
   max-width: 900px !important; }
 
-.max-width-half {
-  max-width: calc(50vw) !important; }
+.max-width--full {
+  max-width: 100%; }
 
-.max-width-tny {
-  max-width: 500px; }
+.max-width--half {
+  max-width: 50%; }
 
-.min-width-tny {
-  min-width: 500px; }
+.max-width--third {
+  max-width: 33.33333%; }
 
+.max-width--tny {
+  max-width: 600px; }
+
+.max-width--sml {
+  max-width: 880px; }
+
+.max-width--med {
+  max-width: 1100px; }
+
+.max-width--lrg {
+  max-width: 1500px; }
+
+/*
+FULL WIDTHS
+ */
 .full-width {
   max-width: 100%;
   min-width: 100%; }
@@ -1812,6 +1838,9 @@ BOX COLUMNS
 .full-width-gutter-x {
   width: calc( 100% - 30px); }
 
+/*
+FULL HEIGHTS
+ */
 .full-height {
   max-height: none;
   min-height: 100%; }
@@ -1838,6 +1867,21 @@ BOX COLUMNS
   top: 50%;
   left: 50%;
   transform: translate3d(-50%, -50%, 0); }
+
+/*
+RESIZES
+ */
+.resize {
+  resize: both;
+  overflow: auto; }
+
+.resize-vertical {
+  resize: vertical;
+  overflow: auto; }
+
+.resize-horizontal {
+  resize: horizontal;
+  overflow: auto; }
 
 /*
 PADDINGS
@@ -4683,3 +4727,6 @@ INVERTED LOGIC
  */
 .inverted .bg-white--darker-1 {
   background: #131419; }
+
+.flex {
+  display: flex; }

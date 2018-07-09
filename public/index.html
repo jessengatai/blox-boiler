@@ -15,6 +15,7 @@
         float: left;
         clear: both;
       }
+
     </style>
 
   </head>
@@ -548,19 +549,99 @@
             <!-- RESPONSIVE CLASSES -->
             <div id="classes" class="box margin-bottom--x4">
               <h2 class="size--x2">Responsive Classes</h2>
-              <p>We can also apply classes for specific viewport widths on elements using data attributes. This isn't limited to just boxed elements, you can use <code>data-classes-sml="..."</code> on any element. However, it's much more performant to use standard media query classes wherever possible.</p>
-              <div class="boxes" data-gutters="nested">
-                <div class="box rounded padding"
-                data-span-lrg="6"
-                data-classes-tny="bg-blue--lighter-3 color-white"
-                data-classes-sml="bg-orange"
-                data-classes-med="bg-purple color-white"
-                data-classes-lrg="bg-red--lighter-2 color-white"
-                data-classes-xl="bg-green color-green--darker-10">
-                  <p>Hey, give the window a resize and watch the classes on this box change</p>
+              <p>Blox has two types of responsive class systems; Viewport and Component. Viewport responsive classes relate to the window dimensions and component classes relate to the dimensions of an indivual element.</p>
+
+              <h5>Component Classes</h5>
+              <p>Using <code>data-classes-tall="..."</code>, <code>data-classes-wide="..."</code> and <code>data-classes-square="..."</code>, we can apply classes to any element based on that elements dimensions. Give the below element a resize to see it in action.</p>
+
+              <div id="responsive-component"
+              style="max-width: 100%; min-width: 150px; min-height: 100px; width: 100%; height: 400px;"
+              class="rounded border padding shadow-lrg margin-bottom resize text-center color-white headers-white"
+
+              data-resize-component
+
+              data-bg-color="red"
+              data-bg-image="assets/1.jpg"
+              data-bg-image-blur="0"
+              data-bg-image-blend="multiply"
+              data-bg-gradient-start="blue"
+              data-bg-gradient-end="red"
+              data-bg-gradient-rotation="45"
+              data-bg-gradient-opacity=".3"
+              >
+                <div class="transform-center-y position-relative overflow-hidden" style="pointer-events: none;">
+                  <div class="show-square">
+                    <h3 class="size--x2 weight-200">Square.</h3>
+                    <p class="tight"><code>.isSquare</code> is applied by default and <code>.show-square</code> is being used to show this text.</p>
+                  </div>
+                  <div class="show-tall">
+                    <h3 class="size--x2 weight-200">Tall.</h3>
+                    <p class="tight"><code>.isTall</code> is applied by default and <code>.show-tall</code> is being used to show this text.</p>
+                  </div>
+                  <div class="show-wide">
+                    <h3 class="size--x2 weight-200">Wide.</h3>
+                    <p class="tight"><code>.isWide</code> is applied by default and <code>.show-wide</code> is being used to show this text.</p>
+                  </div>
                 </div>
-                <div class="box deboss tight--padding" data-span-lrg="6">
-                  <pre data-src="./code/_boxes4.html"></pre>
+              </div>
+
+              <!-- <div class="deboss">
+                <table class="full-width">
+                  <thead>
+                    <th>Attribute</th>
+                    <th>Description</th>
+                  </thead>
+                  <tr>
+                    <td>data-resize-component</td>
+                    <td>Classes while element is stuck.</td>
+                  </tr>
+                  <tr>
+                    <td>data-classes-offstick</td>
+                    <td>Classes while element is unstuck.</td>
+                  </tr>
+                  <tr>
+                    <td>data-callback-onstick="..."</td>
+                    <td>Callback to run when element becomes stuck. <br>
+                      <small class="color-red--lighter-1">The current element will be passed as the only parameter.</small>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>data-callback-offstick="..."</td>
+                    <td>Callback to run when element stops being stuck. <br>
+                      <small class="color-red--lighter-1">The current element will be passed as the only parameter.</small>
+                    </td>
+                  </tr>
+                </table>
+              </div> -->
+
+
+
+              <p>Tip: You can do this for any element, including the html tag. Meaning this could be a nice way to manage devices orientation in your app.</p>
+
+              <div class="boxes" data-gutters="nested">
+                <div class="box rounded deboss resize-horizontal"
+                data-span-lrg="6"
+                data-classes-tny="bg-blue color-blue--contrast headers-blue--contrast"
+                data-classes-sml="bg-orange color-orange--contrast headers-orange--contrast"
+                data-classes-med="bg-purple color-purple--contrast headers-purple--contrast"
+                data-classes-lrg="bg-red color-red--contrast headers-red--contrast"
+                data-classes-xl="bg-green color-green--contrast headers-green--contrast">
+                  <h5>Viewport Classes</h5>
+                  <p>Hey, give the window a resize and watch the classes on this box change</p>
+                  <small>classes</small>
+                  <ul>
+                    <li></li>
+                  </ul>
+                </div>
+                <div class="box rounded deboss" data-span-lrg="6">
+                  <h5>Component Classes</h5>
+                  <p>Hey, give these boxes a resize and watch the classeson this box change.</p>
+                  <small>classes</small>
+                  <ul>
+                    <li>.square</li>
+                    <li>.tall</li>
+                    <li>.wide</li>
+                  </ul>
                 </div>
               </div>
             </div>
@@ -615,7 +696,7 @@
                   </p>
                 </div>
                 <div class="box" data-span-tny="6">
-                  <pre data-src="./code/_hashes.html"></pre>
+                  <h1>put something here</h1>
                 </div>
               </div>
               <p>A noteable downside to managing element states via the URL hash is that you can only have one state for the entire page. However, being able to change the state of elements via the browsers native forwards and back buttons make up for it, especially for simple static HTML sites.</p>
@@ -665,7 +746,7 @@
 
     <!-- standard modal -->
     <div id="standard-modal" class="modal padding--x3">
-      <div class="bg-white--darker-1 padding--x3 rounded shadow-lrg max-width-thin align-center">
+      <div class="bg-white--darker-1 padding--x3 rounded shadow-lrg max-width--thin align-center">
         <h2>Standard Modal</h2>
         <p class="color-black--lighter-10">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
         <button data-close-modal="standard-modal" class="big circular shadow">Okay got it!</button>
@@ -689,7 +770,7 @@
       data-bg-gradient-end="red"
       data-bg-gradient-rotation="45"
       data-bg-gradient-opacity=".5"
-      class="color-white padding-y--x4 padding-x--x2 rounded--lrg overflow-hidden shadow-lrg max-width-tny full-height float-left">
+      class="color-white padding-y--x4 padding-x--x2 rounded--lrg overflow-hidden shadow-lrg max-width--tny full-height float-left">
         <h2 class="size--x2 text-shadow margin-bottom--x2">Left <br>Modal.</h2>
         <p class="color-white">With some text and some data-bg attribute goodness.</p>
         <label for="username">Username</label>
@@ -705,7 +786,7 @@
 
     <!-- right modal -->
     <div id="right-modal" class="modal">
-      <div class="padding--x3 bg-white color-black shadow-lrg full-height max-width-half min-width-sml float-right">
+      <div class="padding--x3 bg-white color-black shadow-lrg full-height max-width--half min-width-sml float-right">
         <h2>Right Aligned Modal</h2>
         <p class="color-black--lighter-10">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
         <button data-close-modal="right-modal" class="big circular shadow">Okay got it!</button>
@@ -723,7 +804,7 @@
       data-bg-gradient-start="black"
       data-bg-gradient-opacity=".9"
       class="padding--x2 full-height full-width">
-        <div class="max-width-half align-center">
+        <div class="max-width--half align-center">
           <p class="size--x2">Fullscreen Modal</p>
           <p class="color-white--darker-3">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
           <button data-close-modal="fullscreen-modal" class="big orange">I agree. Enter the site.</button>
@@ -732,7 +813,7 @@
     </div>
 
     <!-- night mode ACTIVAAAAATE! -->
-    <div class="sticky-bottom padding--half bg-white--darker-1">
+    <div class="sticky-bottom padding--half">
       <button id="nightmode" type="button" name="button" class="small tight">Night Mode On</button>
     </div>
 
@@ -745,6 +826,7 @@
       console.log('custom loaded');
       jQuery(document).ready(function($){
 
+        // handle background form inputs
         $(document).on('keyup','input[name*="data-bg-"]', function(e){
           const attr = $(this).attr('name');
           $('#background-demo').attr(attr, $(this).val() );
@@ -755,11 +837,28 @@
           $('#background-demo').attr(attr, $(this).val() );
         });
 
+        // handle compenent resize events
+        $(window).on('component-resized:responsive-component', function(){
+          let object = $('#responsive-component');
+          if (object.hasClass('isTall')) {
+            object.attr('data-bg-image','assets/3.jpg')
+                  .attr('data-bg-color','yellow')
+                  .attr('data-bg-gradient-rotation','45')
+          } else if (object.hasClass('isWide')) {
+            object.attr('data-bg-image','assets/1.jpg')
+                  .attr('data-bg-color','red')
+                  .attr('data-bg-gradient-rotation','180')
+          } else {
+            object.attr('data-bg-image','assets/5.jpg')
+                  .attr('data-bg-color','blue')
+                  .attr('data-bg-gradient-rotation','0')
+          }
+        });
+
         // toggle night mode classes
         $(document).on('click', '#nightmode', function(e){
           let b = $('body');
           let n = $('#nightmode');
-
           // turn off
           if(b.attr('night-mode')==='on'){
             b.attr('night-mode','off').removeClass('inverted bg-black color-black--lighter-10 headers-white');
@@ -769,8 +868,6 @@
             b.attr('night-mode','on').addClass('inverted bg-black color-black--lighter-10 headers-white');
             n.addClass('purple').text('Night Mode Off');
           }
-
-
         });
 
       });

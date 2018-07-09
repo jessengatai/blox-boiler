@@ -1,19 +1,37 @@
-// widths
+/*
+MAX WIDTHS
+ */
 .max-width {
   max-width: $container-max-width;
 }
-.max-width-thin {
-  max-width: $container-max-width-thin !important;
+.max-width--thin {
+  max-width: $container-max-width--thin !important;
 }
-.max-width-half {
-  max-width: calc(50vw) !important;
+.max-width--full {
+  max-width: 100%;
 }
-.max-width-tny {
-  max-width: 500px;
+.max-width--half {
+  max-width: 50%;
 }
-.min-width-tny {
-  min-width: 500px;
+.max-width--third {
+  max-width: 33.33333%;
 }
+.max-width--tny {
+  max-width: $sml-breakpoint;
+}
+.max-width--sml {
+  max-width: $med-breakpoint;
+}
+.max-width--med {
+  max-width: $lrg-breakpoint;
+}
+.max-width--lrg {
+  max-width: $xl-breakpoint;
+}
+
+/*
+FULL WIDTHS
+ */
 .full-width {
   max-width: 100%;
   min-width: 100%;
@@ -22,11 +40,14 @@
   width: calc( 100% - #{$gutterX} );
 }
 
-// heights
+/*
+FULL HEIGHTS
+ */
 .full-height {
   max-height: none;
   min-height: 100%;
 }
+
 
 // plain css positions
 .align-center {
@@ -57,6 +78,22 @@
 
 // make the margins and paddings work via a loop
 // $directionArray: top, bottom, left, right, x, y;
+
+/*
+RESIZES
+ */
+.resize {
+ resize: both;
+ overflow: auto;
+}
+.resize-vertical {
+  resize: vertical;
+  overflow: auto;
+}
+.resize-horizontal {
+  resize: horizontal;
+  overflow: auto;
+}
 
 /*
 PADDINGS
@@ -123,9 +160,6 @@ PADDINGS
   }
 }
 @include paddings;
-
-
-
 
 /*
 MARGINS
@@ -605,4 +639,14 @@ INVERTED LOGIC
  */
 .inverted .bg-white--darker-1 {
   background: darken($black,2);
+}
+
+
+
+
+.flex {
+  display: flex;
+}
+.col {
+
 }
