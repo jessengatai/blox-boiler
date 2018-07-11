@@ -827,13 +827,14 @@
       console.log('custom loaded');
       jQuery(document).ready(function($){
 
-
         // handle the scroll for sticking headers and sidebar navigation
-        $(document).on('isSticking', function(e, header) {
-          let section = $(header).parent().attr('id');
-          $('#contents a').removeClass('green');
-          $(`a[href="#${section}"]`).addClass('green');
-        });
+        setTimeout(function(){
+          $(document).on('isSticking', function(e, header) {
+            let section = $(header).parent().attr('id');
+            $('#contents a').removeClass('green');
+            $(`a[href="#${section}"]`).addClass('green');
+          });
+        }, 50);
 
         // handle background form inputs
         $(document).on('keyup','input[name*="data-bg-"]', function(e){

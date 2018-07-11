@@ -1743,8 +1743,7 @@ BOX COLUMNS
 
 .sticky_parent {
   /* class is applied via js */
-  position: relative;
-  margin-bottom: 60px; }
+  position: relative; }
 
 .modal {
   position: fixed !important;
@@ -6215,6 +6214,3 @@ INVERTED LOGIC
 
 .hide {
   opacity: 0; }
-
-[class*="sticky-"] {
-  display: none; }
