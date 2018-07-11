@@ -261,22 +261,17 @@ jQuery(document).ready(function($){
   const stickyCallback = (object,sticking) => {
 
     // setup sticky classes
-    let stickyCallbackOn = $(object).attr('data-callback-onstick');
-    let stickyCallbackOff = $(object).attr('data-callback-offstick');
+    let stickyEventOn = $(object).attr('data-event-onstick');
+    let stickyEventOff = $(object).attr('data-event-offstick');
 
     // callcback to run when sticking
-    if( sticking===true && bloxIsset(stickyCallbackOn) ) {
-      $(object).trigger(stickyCallbackOn, object);
+    if( sticking===true && bloxIsset(stickyEventOn) ) {
+      $(object).trigger(stickyEventOn, object);
     }
 
     // callcback to run when not sticking
-    if( sticking===false && bloxIsset(stickyCallbackOff) ) {
-      // convert the variable into a function
-      stickyCallbackOff = eval( bloxSanitize(stickyCallbackOff) );
-      // if the function exists, run it
-      if( typeof stickyCallbackOff === "function" ) {
-        stickyCallbackOff( $(object) );
-      }
+    if( sticking===false && bloxIsset(stickyEventOff) ) {
+      $(object).trigger(stickyEventOff, object);
     }
 
   }
@@ -285,8 +280,12 @@ jQuery(document).ready(function($){
    * Notifies when elements w/ the `sticky` class begin to stick or stop sticking.
    */
   const observeStickyHeaderChanges = () => {
-    let stickies = document.querySelectorAll('[data-sticky]');
+    let stickies = document.querySelectorAll('[data-classes-onstick], [data-classes-offstick], [data-event-onstick], [data-event-offstick]');
     let containers = [];
+
+    // add the data-sticky attribute to our sticky elements
+    $(stickies).attr('data-sticky','');
+
     // loop through each sticky and push the parent element to the containers array
     for (var i = 0; i < stickies.length; i++) {
       containers.push(stickies[i].parentElement)

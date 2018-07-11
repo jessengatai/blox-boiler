@@ -58,7 +58,6 @@
         <!-- table of contents -->
         <div id="contents"
         class="box sticky-top--med-up offset-top transition-all padding-y"
-        data-sticky
         data-classes-onstick="bg-white--darker-1 rounded--lrg padding"
         data-span-tny="0"
         data-span-med="3">
@@ -86,8 +85,7 @@
             <!-- SETUP -->
             <div id="setup" class="box margin-bottom--x4">
               <h2 class="sticky-top padding-y bg-black"
-              data-sticky
-              data-callback-onstick="isSticking"
+              data-event-onstick="isSticking"
               data-classes-onstick="headers-green border-bottom">Setup</h2>
 
               <p class="deboss">PSA: This boilerplate will not be production ready until it hits version 1+. Use in the wild at your own risk.</p>
@@ -488,20 +486,17 @@
                   <p class="color-white--darker-3">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
                   <p class="color-white--darker-3">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
                   <div class="sticky-bottom deboss"
-                  data-sticky
                   data-classes-onstick="shadow-lrg color-white deboss--black"
                   ><small>.sticky-bottom</small></div>
                 </div>
                 <div class="box border-top--purple border-bottom--purple" data-span-tny="4">
                   <div class="sticky-top deboss offset-top"
-                  data-sticky
                   data-classes-onstick="shadow-lrg color-white deboss--black"
                   ><small>.sticky-top + .offset-top</small></div>
                   <p class="margin-top color-white--darker-3">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
                 </div>
                 <div class="box border-top--purple border-bottom--purple" data-span-tny="4">
                   <div class="sticky-top deboss offset-top--x2 margin-bottom"
-                  data-sticky
                   data-classes-onstick="shadow-lrg color-white deboss--black"
                   ><small>.sticky-top + .offset-top--x2 + margin-bottom</small></div>
                   <p class="color-white--darker-3">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
@@ -544,13 +539,13 @@
                     <td>Classes while element is unstuck.</td>
                   </tr>
                   <tr>
-                    <td>data-callback-onstick="..."</td>
+                    <td>data-event-onstick="..."</td>
                     <td>Callback to run when element becomes stuck. <br>
                       <small class="color-red--lighter-1">The current element will be passed as the only parameter.</small>
                     </td>
                   </tr>
                   <tr>
-                    <td>data-callback-offstick="..."</td>
+                    <td>data-event-offstick="..."</td>
                     <td>Callback to run when element stops being stuck. <br>
                       <small class="color-red--lighter-1">The current element will be passed as the only parameter.</small>
                     </td>
@@ -622,13 +617,13 @@
                     <td>Classes while element is unstuck.</td>
                   </tr>
                   <tr>
-                    <td>data-callback-onstick="..."</td>
+                    <td>data-event-onstick="..."</td>
                     <td>Callback to run when element becomes stuck. <br>
                       <small class="color-red--lighter-1">The current element will be passed as the only parameter.</small>
                     </td>
                   </tr>
                   <tr>
-                    <td>data-callback-offstick="..."</td>
+                    <td>data-event-offstick="..."</td>
                     <td>Callback to run when element stops being stuck. <br>
                       <small class="color-red--lighter-1">The current element will be passed as the only parameter.</small>
                     </td>
