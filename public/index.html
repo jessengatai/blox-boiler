@@ -32,7 +32,7 @@
 
     <div id="header"
     data-bg-color="#17191f"
-    data-bg-gradient-start="#111111"
+    data-bg-gradient-start="black"
     data-bg-gradient-end=""
     data-bg-gradient-rotation="0"
     data-bg-gradient-opacity="1"
@@ -84,9 +84,8 @@
 
             <!-- SETUP -->
             <div id="setup" class="box margin-bottom--x4">
-              <h2 class="sticky-top padding-y bg-black"
-              data-event-onstick="isSticking"
-              data-classes-onstick="headers-green border-bottom">Setup</h2>
+              <div class="invisible sticky-top" data-event-onstick="isSticking"></div>
+              <h2 class="size--x2">Setup</h2>
 
               <p class="deboss">PSA: This boilerplate will not be production ready until it hits version 1+. Use in the wild at your own risk.</p>
 
@@ -102,7 +101,9 @@
 
             <!-- BOXES -->
             <div id="boxes" class="box margin-bottom--x4">
+              <div class="invisible sticky-top" data-event-onstick="isSticking"></div>
               <h2 class="size--x2">Boxes</h2>
+
               <p>Blox uses flexbox to create layouts quickly. All that's needed is for a parent element to have a class of <code>.boxes</code> and it's direct children to have classes of <code>.box</code>. Then we simply apply widths and heights via data-attributes for each box.</p>
 
               <h3>Horizontal</h3>
@@ -276,7 +277,9 @@
 
             <!-- MODALS -->
             <div id="modals" class="box margin-bottom--x4">
+              <div class="invisible sticky-top" data-event-onstick="isSticking"></div>
               <h2 class="size--x2">Modals</h2>
+
               <p>Blox's modals don't come packaged with any styling, this allows us a lot of freedom in the type of modals we want to create. He's what you need to get your modal up and running.</p>
 
               <div class="margin-bottom--x2">
@@ -338,7 +341,9 @@
 
             <!-- BACKGROUNDS -->
             <div id="backgrounds" class="box  margin-bottom--x2">
+              <div class="invisible sticky-top" data-event-onstick="isSticking"></div>
               <h2 class="size--x2">Backgrounds</h2>
+
               <p>Working with images, gradients and color is my favourite part of front-end development. Blox let's us make quick work of such matters by providing a robust set of data attributes to utilise. Let's take a closer look at the background from the above "left modal" example.</p>
 
               <div class="boxes" data-gutters="nested">
@@ -478,7 +483,9 @@
 
             <!-- STICKIES -->
             <div id="stickies" class="box margin-bottom--x4">
+              <div class="invisible sticky-top" data-event-onstick="isSticking"></div>
               <h2 class="size--x2">Stickies</h2>
+
               <p>CSS <code>position: sticky;</code> is epic, however it lacks the native support to trigger events when our element is "stuck". Blox attempts to solve this issue using javascripts <code>IntersectionObserver</code> in combination with HTML <code>data</code> attributes. This let's us quickly toggle CSS classes or fire our own custom functions when our sticky elements are stuck.</p>
 
               <div class="boxes" data-gutters="nested">
@@ -507,7 +514,6 @@
                 <div class="box" data-span-med="6">
                   <h5>Requirments</h5>
                   <ol type="1" class="margin-bottom--x2">
-                    <li>You need to add the attribute <code>data-sticky</code> to the sticky element.</li>
                     <li>You can NOT have more than 1 sticky element in the same parent.<br>
                         <small class="color-red">If you do, the events will only trigger on the first sticky element.</small>
                     </li>
@@ -556,7 +562,9 @@
 
             <!-- RESPONSIVE CLASSES -->
             <div id="classes" class="box margin-bottom--x4">
-              <h2 class="size--x2">Responsive <br> Classes</h2>
+              <div class="invisible sticky-top" data-event-onstick="isSticking"></div>
+              <h2 class="size--x2">Responsive Classes</h2>
+
               <p>Blox has two types of responsive class systems; Viewport and Component. Viewport responsive classes relate to the window dimensions and component classes relate to the dimensions of an indivual element.</p>
 
               <h3>Component</h3>
@@ -642,7 +650,9 @@
 
             <!-- BUTTONS -->
             <div id="buttons" class="box margin-bottom--x4">
+              <div class="invisible sticky-top" data-event-onstick="isSticking"></div>
               <h2 class="size--x2">Buttons</h2>
+
               <div class="boxes" data-gutters="nested">
                 <div class="box" data-span-tny="6">
                   <button class="full-width" type="button" name="button">.full-width</button>
@@ -670,7 +680,9 @@
 
             <!-- HASH STATES -->
             <div id="hash" class="box margin-bottom--x4">
+              <div class="invisible sticky-top" data-event-onstick="isSticking"></div>
               <h2 class="size--x2"># States</h2>
+
               <p>If you have an anchor tag that links to #foo and either moves to the matching element or simply updates the hash in the URL, when that hash is active we might want to add a class to our button or some other element on the page. We can achieve this using hash data attributes.</p>
               <div class="boxes" data-gutters="nested">
                 <div class="box" data-span-tny="6">
@@ -815,6 +827,8 @@
       console.log('custom loaded');
       jQuery(document).ready(function($){
 
+
+        // handle the scroll for sticking headers and sidebar navigation
         $(document).on('isSticking', function(e, header) {
           let section = $(header).parent().attr('id');
           $('#contents a').removeClass('green');

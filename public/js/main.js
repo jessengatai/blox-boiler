@@ -1694,7 +1694,7 @@ jQuery(document).ready(function ($) {
       observeFooters(containers[i]);
     }
   };
-  // observe on document ready
+  // observe on window load (just so the doc has some time to render first)
   observeStickyHeaderChanges();
 
   /**
