@@ -31,12 +31,12 @@
 
     <div id="header"
     data-bg-color="#17191f"
-    data-bg-gradient-start="black"
+    data-bg-gradient-start="#111111"
     data-bg-gradient-end=""
     data-bg-gradient-rotation="0"
     data-bg-gradient-opacity="1"
     class="padding-y--x4 margin-bottom--x2">
-      <div class="padding-y--x4 max-width align-center text-center color-white headers-white">
+      <div class="padding-y--x4 max-width align-center text-center color-white headers-white text-shadow">
         <h1 class="margin-top--x2 size--x3">Blox.</h1>
         <h4 class="margin-top--x3">A function over form, front-end boiler
           <br>
@@ -56,7 +56,7 @@
 
         <!-- table of contents -->
         <div id="contents"
-        class="box sticky-top--med-up offset-top transition-all"
+        class="box sticky-top--med-up offset-top transition-all padding-y"
         data-sticky
         data-classes-onstick="bg-white--darker-1 rounded--lrg padding"
         data-span-tny="0"
@@ -84,7 +84,10 @@
 
             <!-- SETUP -->
             <div id="setup" class="box margin-bottom--x4">
-              <h2 class="blue">Setup</h2>
+              <h2 class="sticky-top padding-y bg-black"
+              data-sticky
+              data-callback-onstick="isSticking"
+              data-classes-onstick="headers-green border-bottom">Setup</h2>
 
               <p class="deboss">PSA: This boilerplate will not be production ready until it hits version 1+. Use in the wild at your own risk.</p>
 
@@ -814,8 +817,15 @@
       console.log('custom loaded');
       jQuery(document).ready(function($){
 
+        $(document).on('isSticking', function(e, header) {
+          let section = $(header).parent().attr('id');
+          $('#contents a').removeClass('green');
+          $(`a[href="#${section}"]`).addClass('green');
+        });
+
         // handle background form inputs
         $(document).on('keyup','input[name*="data-bg-"]', function(e){
+          console.log(e);
           const attr = $(this).attr('name');
           $('#background-demo').attr(attr, $(this).val() );
         });

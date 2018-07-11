@@ -503,21 +503,25 @@ h1,h2,h3,h4,h5,h6 {
   @extend %headings !optional;
 }
 
-[class*="headers-"] %headings {
+[class*="headers-"] %headings,
+ %headings[class*="headers-"] {
   color: inherit;
 }
 @mixin headers($colors, $values){
   @for $i from 1 through length($colors) {
-    .headers-#{nth($colors, $i)} %headings {
+    .headers-#{nth($colors, $i)} %headings,
+     %headings.headers-#{nth($colors, $i)} {
       color: #{nth($values, $i)};
     }
     // contrast
-    .headers-#{nth($colors, $i)}--contrast %headings {
+    .headers-#{nth($colors, $i)}--contrast %headings,
+    %headings.headers-#{nth($colors, $i)}--contrast {
       color: choose-contrast-color(nth($values, $i));
     }
     // darken
     @for $n from 1 through 10 {
-      .headers-#{nth($colors, $i)}--darker-#{$n} %headings {
+      .headers-#{nth($colors, $i)}--darker-#{$n} %headings,
+      %headings.headers-#{nth($colors, $i)}--darker-#{$n} {
         @if $n==1 {
           color: darken( nth($values, $i), ($n * 3));
         } @else {
@@ -527,7 +531,8 @@ h1,h2,h3,h4,h5,h6 {
     }
     // lighten
     @for $n from 1 through 10 {
-      .headers-#{nth($colors, $i)}--lighter-#{$n} %headings {
+      .headers-#{nth($colors, $i)}--lighter-#{$n} %headings,
+      %headings.headers-#{nth($colors, $i)}--lighter-#{$n} {
         @if $n==1 {
           color: lighten( nth($values, $i), ($n * 3));
         } @else {

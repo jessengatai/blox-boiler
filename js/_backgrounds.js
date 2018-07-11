@@ -149,7 +149,6 @@ jQuery(document).ready(function($){
         ];
         if ( bgAttributes.includes( mutation.attributeName ) ) {
           bloxUpdateBackground( mutation.target );
-          console.log(`${mutation.attributeName} was updated`);
         }
       });
     });

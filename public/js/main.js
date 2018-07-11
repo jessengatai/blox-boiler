@@ -997,7 +997,6 @@ jQuery(document).ready(function ($) {
         var bgAttributes = ['data-bg-color', 'data-bg-color-opacity', 'data-bg-image', 'data-bg-image-opacity', 'data-bg-image-blend', 'data-bg-image-blur', 'data-bg-gradient-start', 'data-bg-gradient-end', 'data-bg-gradient-rotation', 'data-bg-gradient-opacity'];
         if (bgAttributes.includes(mutation.attributeName)) {
           bloxUpdateBackground(mutation.target);
-          console.log(mutation.attributeName + ' was updated');
         }
       });
     });
@@ -1661,12 +1660,7 @@ jQuery(document).ready(function ($) {
 
     // callcback to run when sticking
     if (sticking === true && bloxIsset(stickyCallbackOn)) {
-      // convert the variable into a function
-      stickyCallbackOn = eval(bloxSanitize(stickyCallbackOn));
-      // if the function exists, run it
-      if (typeof stickyCallbackOn === "function") {
-        stickyCallbackOn($(object));
-      }
+      $(object).trigger(stickyCallbackOn, object);
     }
 
     // callcback to run when not sticking

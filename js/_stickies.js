@@ -266,12 +266,7 @@ jQuery(document).ready(function($){
 
     // callcback to run when sticking
     if( sticking===true && bloxIsset(stickyCallbackOn) ) {
-      // convert the variable into a function
-      stickyCallbackOn = eval( bloxSanitize(stickyCallbackOn) );
-      // if the function exists, run it
-      if( typeof stickyCallbackOn === "function" ) {
-        stickyCallbackOn( $(object) );
-      }
+      $(object).trigger(stickyCallbackOn, object);
     }
 
     // callcback to run when not sticking
