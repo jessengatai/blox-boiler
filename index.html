@@ -27,32 +27,26 @@
     </style>
 
   </head>
-  <body>
+  <body night-mode="on" class="inverted bg-black color-black--lighter-10 headers-white">
 
-    <div
-    data-bg-color="white"
-    data-bg-gradient-start="#4bd8b9"
-    data-bg-gradient-end="#0000ff"
+    <div id="header"
+    data-bg-color="#17191f"
+    data-bg-gradient-start="black"
+    data-bg-gradient-end=""
     data-bg-gradient-rotation="0"
-    data-bg-gradient-opacity=".8"
-    id="header" class="padding-y--x4 margin-bottom--x4 shadow-lrg--inset"
-    style="height: 80vh;"
-    >
-      <div class="max-width align-center text-center transform-center-y color-white headers-white">
-        <div class="boxes">
-          <div class="box" data-span-tny="12">
-            <h1 class="size--x2">Blox.</h1>
-            <h3>An experimental functionality-first front-end boilerplate
-              <br>
-              <!-- <span class="weight-200">(  )</span> -->
-              <span class="weight-200">(all the fancy new front-end goodies piled into one)</span>
-            </h3>
-            <div class="margin-top--x2">
-              <a class="button blue circular" href="https://github.com/jessengatai/blox-boiler">👨🏽‍💻 GitHub</a>
-              <a class="button blue circular" href="https://www.npmjs.com/package/blox-boiler">👩🏼‍💻 NPM</a>
-              <a class="button blue circular" href="https://github.com/jessengatai">🐨 Mr. Jesse</a>
-            </div>
-          </div>
+    data-bg-gradient-opacity="1"
+    class="padding-y--x4 margin-bottom--x2">
+      <div class="padding-y--x4 max-width align-center text-center color-white headers-white">
+        <h1 class="margin-top--x2 size--x3">Blox.</h1>
+        <h4 class="margin-top--x3">A function over form, front-end boiler.
+          <br>
+          <!-- <span class="weight-200">(  )</span> -->
+          <span class="weight-200">..that still secretly looks badass.</span>
+        </h4>
+        <div class="margin-top--x2">
+          <a data-classes-tny="full-width" class="button blue circular big" href="https://github.com/jessengatai/blox-boiler">👨🏽‍💻 GitHub</a>
+          <a data-classes-tny="full-width" class="button blue circular big" href="https://www.npmjs.com/package/blox-boiler">👩🏼‍💻 NPM</a>
+          <a data-classes-tny="full-width" class="button blue circular big" href="https://github.com/jessengatai">🐨 Mr. Jesse</a>
         </div>
       </div>
     </div>
@@ -90,7 +84,7 @@
 
             <!-- SETUP -->
             <div id="setup" class="box margin-bottom--x4">
-              <h2 class="size--x2">Setup</h2>
+              <h2 class="blue">Setup</h2>
 
               <p class="deboss">PSA: This boilerplate will not be production ready until it hits version 1+. Use in the wild at your own risk.</p>
 
@@ -353,16 +347,16 @@
                   <div
                   id="background-demo"
                   class="color-white headers-white padding-y--x3 padding-x--x2 rounded--lrg shadow-lrg"
-                  data-bg-color="#771dff"
-                  data-bg-color-opacity="1"
+                  data-bg-color="red"
+                  data-bg-color-opacity="0.4"
                   data-bg-image="assets/2.jpg"
                   data-bg-image-opacity="1"
                   data-bg-image-blend="multiply"
                   data-bg-image-blur="0"
-                  data-bg-gradient-start="blue"
-                  data-bg-gradient-end="red"
-                  data-bg-gradient-rotation="45"
-                  data-bg-gradient-opacity=".2"
+                  data-bg-gradient-start="red"
+                  data-bg-gradient-end="purple"
+                  data-bg-gradient-rotation="180"
+                  data-bg-gradient-opacity="0.6"
                   >
                     <h3 class="size--x2 weight-200 text-shadow tight">Boom <br> As Dude.</h3>
                     <p class="margin-bottom--x2">With some text and some data-bg attribute goodness.</p>
@@ -381,9 +375,9 @@
 
                     <h5>Color Attributes (Base Layer)</h5>
                     <label>data-bg-color (nameed, hex, rgb, hsl, hwb, cmyk, ncol)</label>
-                    <input type="text" name="data-bg-color" value="#771dff">
+                    <input type="text" name="data-bg-color" value="red">
                     <label>data-bg-color-opacity (0 > 1)</label>
-                    <input type="text" name="data-bg-color-opacity" value="1">
+                    <input type="text" name="data-bg-color-opacity" value="0.4">
 
                     <h5>Image Attributes (Second Layer)</h5>
                     <label>data-bg-image (url)</label>
@@ -408,13 +402,13 @@
 
                     <h5>Gradient Attributes (Third Layer)</h5>
                     <label>data-bg-gradient-start (color, #hex, rgba etc)</label>
-                    <input type="text" name="data-bg-gradient-start" value="blue">
+                    <input type="text" name="data-bg-gradient-start" value="red">
                     <label>data-bg-gradient-end (color, #hex, rgba etc)</label>
-                    <input type="text" name="data-bg-gradient-end" value="red">
+                    <input type="text" name="data-bg-gradient-end" value="purple">
                     <label>data-bg-gradient-rotation (rotation in degrees eg: 45 or -45)</label>
-                    <input type="text" name="data-bg-gradient-rotation" value="45">
+                    <input type="text" name="data-bg-gradient-rotation" value="180">
                     <label>data-bg-gradient-opacity (0 > 1)</label>
-                    <input type="text" name="data-bg-gradient-opacity" value=".2">
+                    <input type="text" name="data-bg-gradient-opacity" value="0.6">
 
                   </form>
                 </div>
@@ -813,11 +807,6 @@
       </div>
     </div>
 
-    <!-- night mode ACTIVAAAAATE! -->
-    <div class="sticky-bottom padding--half">
-      <button id="nightmode" type="button" name="button" class="small tight">Night Mode On</button>
-    </div>
-
     <!-- inject:js -->
     <!-- endinject -->
 
@@ -878,11 +867,11 @@
           // turn off
           if(b.attr('night-mode')==='on'){
             b.attr('night-mode','off').removeClass('inverted bg-black color-black--lighter-10 headers-white');
-            n.removeClass('purple').text('Night Mode On');
+            n.text('Night Mode On');
           // turn on
           } else {
             b.attr('night-mode','on').addClass('inverted bg-black color-black--lighter-10 headers-white');
-            n.addClass('purple').text('Night Mode Off');
+            n.text('Night Mode Off');
           }
         });
 

@@ -18,6 +18,9 @@ hr {
   display: block;
   height: 1px;
   width: 100%;
+  .inverted & {
+    border-color: darken($black,20);
+  }
 }
 
 /* TABLES */

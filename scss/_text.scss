@@ -21,6 +21,9 @@ h1 {
   &.size--x2 {
     font-size: $h1-size-double;
   }
+  &.size--x3 {
+    font-size: $h1-size-triple;
+  }
   &.x2-margin {
     margin-bottom: $h1-size-double;
   }
