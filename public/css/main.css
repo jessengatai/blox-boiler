@@ -6194,23 +6194,3 @@ INVERTED LOGIC
  */
 .inverted .bg-white--darker-1 {
   background: #131419; }
-
-.flex {
-  display: flex; }
-
-.invisible {
-  pointer-events: none;
-  opacity: 0;
-  visibility: hidden; }
-
-.scale-half {
-  transform: scale(0.5); }
-
-.anchor-top {
-  transform-origin: left top; }
-
-.show {
-  opacity: 1; }
-
-.hide {
-  opacity: 0; }
