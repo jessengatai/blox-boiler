@@ -104,6 +104,28 @@ gulp.task('dist:css', function() {
     .pipe(gulp.dest('./dist/'));
 });
 
+// build and minify sass for dist
+gulp.task('dist:sass', function() {
+    sources = [
+      './scss/_variables.scss',
+      './scss/_mixins.scss',
+      './scss/_reset.scss',
+      './scss/_data.scss',
+      './scss/_tags.scss',
+      './scss/_text.scss',
+      './scss/_forms.scss',
+      './scss/_buttons.scss',
+      './scss/_boxes.scss',
+      './scss/_stickies.scss',
+      './scss/_modal.scss',
+      './scss/_responsive.scss',
+      './scss/_utils.scss'
+    ];
+    return gulp.src(sources)
+      .pipe(concat('blox.scss'))
+      .pipe(gulp.dest('./dist/'));
+});
+
 // build and minify javascript for dist (this is messy AF)
 gulp.task('dist:js', function() {
   return gulp.src('./js/*.js')
@@ -157,7 +179,8 @@ gulp.task('build', [
   'public:assets',
   'dist:clean',
   'dist:css',
-  'dist:js'
+  'dist:js',
+  'dist:sass'
 ], function() {
   injectPubIndexHTML();
 });

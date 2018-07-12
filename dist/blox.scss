@@ -1,0 +1,1867 @@
+// colors
+$red: #ff2628;
+$orange: #F3AD00;
+$yellow: #F4E829;
+$pink: #FD9D98;
+$purple: #4b11c3;
+$blue: #4302F8;
+$aqua: #3FE3FE;
+$green: #00FF8D;
+$black: #17191f;
+$white: #ffffff;
+$grey: #BCC7D7;
+
+// COLOR ARRAY (color util generation)
+// - Add or remove colors as needed.
+// - Both a key (name) and value are required.
+// - Every color added will increase the final .css filesize considerably.
+// - So keep the number of colours in your pallette to a miniumum
+$colorKeys: white, black, grey, red, orange, yellow, pink, green, blue, aqua, purple;
+$colorValues: $white, $black, $grey, $red, $orange, $yellow, $pink, $green, $blue, $aqua, $purple;
+
+// base text colours
+$site-text-headers: $black;
+$site-text-body: lighten($black,25);
+
+// container widths
+$container-width: 90vw;
+$container-max-width: calc(1200px + 10vw);
+$container-max-width--thin: 900px;
+
+// margins and padding
+$gutterX: 30px;
+$gutterY: 30px;
+$paddingX: 20px;
+$paddingY: 20px;
+$default_cols: 12;
+
+// link styling
+$link-color: $black ;
+$link-decoration: underline ;
+$link-hover-color: $blue ;
+$link-hover-decoration: underline ;
+
+// border styling
+$border-weight: 1px ;
+$border-color: darken($white,10) ;
+
+// inverted colors
+$inverted-border-color: lighten($black,5);
+
+// responsive breakpoints
+$sml-breakpoint: 600px; // tny being 599 and under
+$med-breakpoint: 880px;
+$lrg-breakpoint: 1100px;
+$xl-breakpoint: 1500px;
+
+// font sizes
+// note: consider implementing variable-exists() for this stuff so people don't have to fill all these out
+$h1-size: calc(28px + .8vh + .8vw) ;
+$h1-size-double: calc(56px + 1.6vh + 1.6vw) ;
+$h1-size-triple: calc(56px + 3.2vh + 3.2vw) ;
+$h2-size: calc(20px + .6vh + .6vw) ;
+$h2-size-double: calc(40px + 1.2vh + 1.2vw) ;
+$h3-size: calc(16px + .6vh + .6vw) ;
+$h3-size-double: calc(32px + 1.2vh + 1.2vw) ;
+$h4-size: calc(14px + .5vh + .5vw) ;
+$h4-size-double: calc(28px + 1vh + 1vw) ;
+$h5-size: calc(12px + .4vh + .4vw) ;
+$h5-size-double: calc(24px + .8vh + .8vw) ;
+$h6-size: calc(13px + .2vh + .2vw) ;
+$h6-size-double: calc(24px + .4vh + .4vw) ;
+$p-size: calc(13px + .15vh + .15vw) ;
+$p-size-double: calc(25px + .3vh + .3vw) ;
+$s-size: calc(10px + .1vh + .1vw) ;
+$s-size-double: calc(20px + .2vh + .2vw) ;
+
+
+
+
+
+
+
+
+
+
+// responsive only's
+$media-tny-only: "only screen and (max-width: #{$sml-breakpoint - 1})";
+$media-sml-only: "only screen and (min-width: #{$sml-breakpoint}) and (max-width: #{$med-breakpoint - 1})";
+$media-med-only: "only screen and (min-width: #{$med-breakpoint}) and (max-width: #{$lrg-breakpoint - 1})";
+$media-lrg-only: "only screen and (min-width: #{$lrg-breakpoint}) and (max-width: #{$xl-breakpoint - 1})";
+$media-xl-only: "only screen and (min-width: #{$xl-breakpoint})";
+
+// responsive up's
+$media-sml-up: "only screen and (min-width: #{$sml-breakpoint})";
+$media-med-up: "only screen and (min-width: #{$med-breakpoint})";
+$media-lrg-up: "only screen and (min-width: #{$lrg-breakpoint})";
+$media-xl-up: "only screen and (min-width: #{$xl-breakpoint})";
+
+// blend array (DO NOT TOUCH)
+$blendModes: luminosity, color, saturation, color-dodge, lighten, darken, overlay, screen, multiply, normal;
+
+// Precomputed linear color channel values, for use in contrast calculations.
+// See https://www.w3.org/TR/WCAG20-TECHS/G17.html#G17-tests
+//
+// Algorithm, for c in 0 to 255:
+// f(c) {
+//   c = c / 255;
+//   return c < 0.03928 ? c / 12.92 : Math.pow((c + 0.055) / 1.055, 2.4);
+// }
+//
+// This lookup table is needed since there is no `pow` in SASS.
+$linear-channel-values:
+  0
+  .0003035269835488375
+  .000607053967097675
+  .0009105809506465125
+  .00121410793419535
+  .0015176349177441874
+  .001821161901293025
+  .0021246888848418626
+  .0024282158683907
+  .0027317428519395373
+  .003035269835488375
+  .003346535763899161
+  .003676507324047436
+  .004024717018496307
+  .004391442037410293
+  .004776953480693729
+  .005181516702338386
+  .005605391624202723
+  .006048833022857054
+  .006512090792594475
+  .006995410187265387
+  .007499032043226175
+  .008023192985384994
+  .008568125618069307
+  .009134058702220787
+  .00972121732023785
+  .010329823029626936
+  .010960094006488246
+  .011612245179743885
+  .012286488356915872
+  .012983032342173012
+  .013702083047289686
+  .014443843596092545
+  .01520851442291271
+  .01599629336550963
+  .016807375752887384
+  .017641954488384078
+  .018500220128379697
+  .019382360956935723
+  .0202885630566524
+  .021219010376003555
+  .022173884793387385
+  .02315336617811041
+  .024157632448504756
+  .02518685962736163
+  .026241221894849898
+  .027320891639074894
+  .028426039504420793
+  .0295568344378088
+  .030713443732993635
+  .03189603307301153
+  .033104766570885055
+  .03433980680868217
+  .03560131487502034
+  .03688945040110004
+  .0382043715953465
+  .03954623527673284
+  .04091519690685319
+  .042311410620809675
+  .043735029256973465
+  .04518620438567554
+  .046665086336880095
+  .04817182422688942
+  .04970656598412723
+  .05126945837404324
+  .052860647023180246
+  .05448027644244237
+  .05612849004960009
+  .05780543019106723
+  .0595112381629812
+  .06124605423161761
+  .06301001765316767
+  .06480326669290577
+  .06662593864377289
+  .06847816984440017
+  .07036009569659588
+  .07227185068231748
+  .07421356838014963
+  .07618538148130785
+  .07818742180518633
+  .08021982031446832
+  .0822827071298148
+  .08437621154414882
+  .08650046203654976
+  .08865558628577294
+  .09084171118340768
+  .09305896284668745
+  .0953074666309647
+  .09758734714186246
+  .09989872824711389
+  .10224173308810132
+  .10461648409110419
+  .10702310297826761
+  .10946171077829933
+  .1119324278369056
+  .11443537382697373
+  .11697066775851084
+  .11953842798834562
+  .12213877222960187
+  .12477181756095049
+  .12743768043564743
+  .1301364766903643
+  .13286832155381798
+  .13563332965520566
+  .13843161503245183
+  .14126329114027164
+  .14412847085805777
+  .14702726649759498
+  .14995978981060856
+  .15292615199615017
+  .1559264637078274
+  .1589608350608804
+  .162029375639111
+  .1651321945016676
+  .16826940018969075
+  .1714411007328226
+  .17464740365558504
+  .17788841598362912
+  .18116424424986022
+  .184474994500441
+  .18782077230067787
+  .19120168274079138
+  .1946178304415758
+  .19806931955994886
+  .20155625379439707
+  .20507873639031693
+  .20863687014525575
+  .21223075741405523
+  .21586050011389926
+  .2195261997292692
+  .2232279573168085
+  .22696587351009836
+  .23074004852434915
+  .23455058216100522
+  .238397573812271
+  .24228112246555486
+  .24620132670783548
+  .25015828472995344
+  .25415209433082675
+  .2581828529215958
+  .26225065752969623
+  .26635560480286247
+  .2704977910130658
+  .27467731206038465
+  .2788942634768104
+  .2831487404299921
+  .2874408377269175
+  .29177064981753587
+  .2961382707983211
+  .3005437944157765
+  .3049873140698863
+  .30946892281750854
+  .31398871337571754
+  .31854677812509186
+  .32314320911295075
+  .3277780980565422
+  .33245153634617935
+  .33716361504833037
+  .3419144249086609
+  .3467040563550296
+  .35153259950043936
+  .3564001441459435
+  .3613067797835095
+  .3662525955988395
+  .3712376804741491
+  .3762621229909065
+  .38132601143253014
+  .386429433787049
+  .39157247774972326
+  .39675523072562685
+  .4019777798321958
+  .4072402119017367
+  .41254261348390375
+  .4178850708481375
+  .4232676699860717
+  .4286904966139066
+  .43415363617474895
+  .4396571738409188
+  .44520119451622786
+  .45078578283822346
+  .45641102318040466
+  .4620769996544071
+  .467783796112159
+  .47353149614800955
+  .4793201831008268
+  .4851499400560704
+  .4910208498478356
+  .4969329950608704
+  .5028864580325687
+  .5088813208549338
+  .5149176653765214
+  .5209955732043543
+  .5271151257058131
+  .5332764040105052
+  .5394794890121072
+  .5457244613701866
+  .5520114015120001
+  .5583403896342679
+  .5647115057049292
+  .5711248294648731
+  .5775804404296506
+  .5840784178911641
+  .5906188409193369
+  .5972017883637634
+  .6038273388553378
+  .6104955708078648
+  .6172065624196511
+  .6239603916750761
+  .6307571363461468
+  .6375968739940326
+  .6444796819705821
+  .6514056374198242
+  .6583748172794485
+  .665387298282272
+  .6724431569576875
+  .6795424696330938
+  .6866853124353135
+  .6938717612919899
+  .7011018919329731
+  .7083757798916868
+  .7156935005064807
+  .7230551289219693
+  .7304607400903537
+  .7379104087727308
+  .7454042095403874
+  .7529422167760779
+  .7605245046752924
+  .768151147247507
+  .7758222183174236
+  .7835377915261935
+  .7912979403326302
+  .799102738014409
+  .8069522576692516
+  .8148465722161012
+  .8227857543962835
+  .8307698767746546
+  .83879901174074
+  .846873231509858
+  .8549926081242338
+  .8631572134541023
+  .8713671191987972
+  .8796223968878317
+  .8879231178819663
+  .8962693533742664
+  .9046611743911496
+  .9130986517934192
+  .9215818562772946
+  .9301108583754237
+  .938685728457888
+  .9473065367331999
+  .9559733532492861
+  .9646862478944651
+  .9734452903984125
+  .9822505503331171
+  .9911020971138298
+  1;
+
+/*
+BACKGROUND OPACITY
+ */
+@mixin background-opacity($color, $opacity: 0.7) {
+  background: $color; /* The Fallback */
+  background: rgba($color, $opacity);
+}
+
+/**
+ * Calculate the luminance for a color.
+ * See https://www.w3.org/TR/WCAG20-TECHS/G17.html#G17-tests
+ */
+@function luminance($color) {
+  $red: nth($linear-channel-values, red($color) + 1);
+  $green: nth($linear-channel-values, green($color) + 1);
+  $blue: nth($linear-channel-values, blue($color) + 1);
+
+  @return .2126 * $red + .7152 * $green + .0722 * $blue;
+}
+
+/**
+ * Calculate the contrast ratio between two colors.
+ * See https://www.w3.org/TR/WCAG20-TECHS/G17.html#G17-tests
+ */
+@function contrast($back, $front) {
+  $backLum: luminance($back) + .05;
+  $foreLum: luminance($front) + .05;
+
+  @return max($backLum, $foreLum) / min($backLum, $foreLum);
+}
+
+/**
+ * Determine whether to use dark or light text on top of given color.
+ * Returns black for dark text and white for light text.
+ */
+@function choose-contrast-color($color) {
+  $lightContrast: contrast($color, white );
+  $darkContrast: contrast($color, black );
+  $luma: (luminance($color));
+
+  // @debug $color $luma ;
+
+  // if the background is REALLY dark, return solid white
+  @if ( $luma < .2 ) {
+    @return white;
+
+  // if the background is REALLY light, return solid black
+  } @elseif ( $luma > .9 ) {
+    @return black;
+
+  // darker background so return lighter color
+  } @elseif ($lightContrast > $darkContrast) {
+    @return lighten($color, 60);
+
+  // lighter background so return darker color
+  } @else {
+    @return darken($color, 60);
+  }
+
+}
+
+/**
+ * Determine whether or not a color should get lighter or darker on hover
+ */
+@function choose-hover-color($color) {
+  $lightContrast: contrast($color, white );
+  $darkContrast: contrast($color, black );
+  $luma: (luminance($color));
+
+  // @debug $color $luma ;
+
+  // if the background is REALLY dark, lighten a lot
+  @if ( $luma < .05 ) {
+    @return lighten($color, 25);
+
+  // if the background is REALLY light, darken a tiny amount
+  } @elseif ( $luma > .95 ) {
+    @return darken($color, 5);
+
+  // lighter background so return darker color
+  } @else {
+    @return lighten($color, 10);
+  }
+
+}
+
+/* reset */
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  outline: none;
+  border: none;
+}
+ul {
+  list-style: none;
+}
+
+// used for creating :before(s) and :after(s)
+@mixin psuedo {
+  content: "";
+}
+@mixin fixed-fullscreen {
+  position: fixed !important;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+@mixin absolute-fullscreen {
+  position: absolute !important;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+/* LINKS */
+a {
+  color: $link-color;
+  text-decoration: $link-decoration;
+  &:hover {
+    color: $link-hover-color;
+    text-decoration: $link-hover-decoration;
+  }
+  // little override for links that are buttons
+  &.button {
+    text-decoration: inherit;
+  }
+}
+
+/* HORIZONTAL LINE */
+hr {
+  border-bottom: solid 2px darken($white,20);
+  display: block;
+  height: 1px;
+  width: 100%;
+  .inverted & {
+    border-color: darken($black,20);
+  }
+}
+
+/* TABLES */
+table {
+  text-align: left;
+  border-collapse:collapse;
+  border-color: darken($white,2);
+
+
+  thead, tfoot, tr {
+    border-color: darken($white,3);
+    .inverted & {
+      border-color: $inverted-border-color;
+    }
+  }
+
+  thead {
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    th {
+      padding-bottom: ($paddingY / 2);
+    }
+  }
+  tfoot {
+    border-top-style: solid;
+    border-top-width: 1px;
+  }
+  tr {
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    &:last-child {
+      border-bottom: none;
+    }
+  }
+  td {
+    padding-top: ($paddingY / 2);
+    padding-bottom: ($paddingY / 2);
+  }
+
+
+
+}
+
+/* LISTS */
+ol {
+  margin-left: $p-size-double;
+  margin-bottom: $p-size-double;
+  li {
+    margin-bottom: 5px;
+  }
+}
+
+// code
+*:not(pre) > code {
+  background: $white;
+  color: choose-contrast-color($white);
+  padding: 2px 7px;
+  border-radius: 4px;
+  border: solid 1px #f0f0f0;
+  font-size: 15px;
+  font-weight: 400;
+  .inverted & {
+    background: lighten($black,5);
+    color: choose-contrast-color($black);
+    border-color: lighten($black,10);
+  }
+}
+
+html {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-family: system;
+  font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
+  font-size: $p-size;
+  font-weight: 400;
+  line-height: 1.7;
+  color: $site-text-body;
+}
+h1,h2,h3,h4,h5,h6 {
+  color: $site-text-headers;
+}
+
+/* text */
+h1 {
+  margin-bottom: $h2-size;
+  font-size: $h1-size;
+  font-weight: 700;
+  line-height: 1.1;
+  &.size--x2 {
+    font-size: $h1-size-double;
+  }
+  &.size--x3 {
+    font-size: $h1-size-triple;
+  }
+  &.x2-margin {
+    margin-bottom: $h1-size-double;
+  }
+}
+h2 {
+  margin-bottom: $h3-size;
+  font-size: $h2-size;
+  font-weight: 600;
+  line-height: 1;
+  &.size--x2 {
+    font-size: $h2-size-double;
+  }
+  &.x2-margin {
+    margin-bottom: $h2-size-double;
+  }
+}
+h3 {
+  margin-top: $h4-size;
+  margin-bottom: $h4-size;
+  font-size: $h3-size;
+  font-weight: 600;
+  line-height: 1.2;
+  &.size--x2 {
+    font-size: $h3-size-double;
+  }
+  &.x2-margin {
+    margin-bottom: $h3-size-double;
+  }
+}
+h4 {
+  margin-top: $h5-size;
+  margin-bottom: $h5-size;
+  font-size: $h4-size;
+  font-weight: 500;
+  line-height: 1.3;
+  &.size--x2 {
+    font-size: $h4-size-double;
+  }
+  &.x2-margin {
+    margin-bottom: $h4-size-double;
+  }
+}
+h5 {
+  margin-top: $h6-size;
+  margin-bottom: $h6-size;
+  font-size: $h5-size;
+  font-weight: 500;
+  line-height: 1.4;
+  &.size--x2 {
+    font-size: $h5-size-double;
+  }
+  &.x2-margin {
+    margin-bottom: $h5-size-double;
+  }
+}
+h6 {
+  margin-bottom: 4px;
+  font-size: $h6-size;
+  font-weight: 600;
+  line-height: 1.5;
+  &.size--x2 {
+    font-size: $h6-size-double;
+  }
+  &.x2-margin {
+    margin-bottom: $h6-size-double;
+  }
+}
+p {
+  margin-bottom: $p-size-double;
+  font-size: $p-size;
+  font-weight: 400;
+  &.size--x2 {
+    font-size: $p-size-double;
+  }
+  &.x2-margin {
+    margin-bottom: $h4-size-double;
+  }
+}
+small {
+  font-size: $s-size;
+  font-weight: 500;
+  display: inline-block;
+  &.x2-margin {
+    margin-bottom: $s-size-double;
+  }
+}
+
+// first and last children margins
+// h1, h2, h3, h4, h5, h6, p, small {
+//   &:last-child {
+//     margin-bottom: 0px;
+//   }
+// }
+
+// handle basic inputs
+input[type="text"],
+input[type="password"],
+input[type="email"],
+textarea {
+  -webkit-appearance: none;
+  outline: none;
+  padding: 8px 12px;
+  margin: 0px;
+  box-shadow: none;
+  border-radius: 4px;
+  font-size: 16px;
+  width: 100%;
+  margin-bottom: $p-size;
+  //
+  border-bottom: solid 1px darken($white,10);
+  box-shadow: 0 1px 2px rgba(0,0,0,.05);
+  background-color: $white;
+
+  .inverted &:not([class*="bg-"]) { // check and make sure a bg-color isn't being directly applied (for overrides)
+    border-bottom: solid 1px darken($black,2);
+    box-shadow: 0 1px 2px rgba(0,0,0,.2);
+    background-color: $black;
+    color: $white;
+  }
+
+}
+select {
+  font-size: 16px;
+  padding: 5px 10px;
+  width: 100%;
+  height: 30px;
+  overflow: hidden;
+  margin-bottom: $p-size;
+  //
+  border-bottom: solid 1px darken($white,10);
+  box-shadow: 0 1px 2px rgba(0,0,0,.05);
+  background-color: $white;
+
+  .inverted &:not([class*="bg-"]) { // check and make sure a bg-color isn't being directly applied (for overrides)
+    border-bottom: solid 1px darken($black,2);
+    box-shadow: 0 1px 2px rgba(0,0,0,.2);
+    background-color: $black;
+    color: $white;
+  }
+
+}
+label {
+  font-size: 14px;
+  margin-bottom: 5px;
+  font-weight: 500;
+  display: block;
+  opacity: 0.5;
+}
+
+// handle fielset markup
+fieldset {
+  display: block;
+  // checkboxes inside fieldset
+  label.checkbox {
+    padding: 0 10px;
+    margin-bottom: 3px;
+    border-radius: 4px;
+    border: solid 1px darken($white,30);
+    cursor: pointer;
+    line-height: 30px;
+    &:hover {
+      background-color: darken($white,30);
+    }
+    input {
+      margin-right: 5px;
+    }
+  }
+}
+
+$height: calc(22px + 0.8vh + 0.8vw);
+$height-small: calc(16px + 0.8vh + 0.8vw);
+$height-big: calc(30px + 1.2vh + 1.2vw);
+
+$padding: calc(8px + 0.5vh + 0.5vw);
+$padding-small: calc(3px + 0.4vh + 0.4vw);
+$padding-big: calc(10px + 0.8vh + 0.8vw);
+
+button,
+.button {
+  -webkit-appearance: none;
+  display: inline-block;
+  outline: none;
+
+  margin: 0px 0.15vw 3px 0.15vw;
+  padding-left: $padding;
+  padding-right: $padding;
+  line-height: $height;
+  height: $height;
+  font-size: 16px;
+  text-align: center;
+  text-decoration: none;
+  text-shadow: none;
+  cursor: pointer;
+  transition: box-shadow 0.1s ease, background 0.15s ease, border 0.15s ease, color 0.1s ease;
+  border-radius: 4px;
+
+  // BASE BUTTON COLORS
+  background: $white;
+  border: 1px solid darken($white,5);
+  border-bottom: 1px solid darken($white,10);
+  color: lighten($black,20);
+  box-shadow: 0 3px 3px rgba(0,0,0,.05);
+
+
+  .inverted & {
+    background: $black;
+    border: 1px solid lighten($black,5);
+    border-bottom-color: lighten($black,10);
+    color: $white;
+  }
+
+  // off (but not disabled, purely stylistic)
+  &.off {
+    border-color: transparent;
+    background-color: transparent;
+    box-shadow: none;
+    &:hover {
+      box-shadow: inherit;
+    }
+  }
+
+  // HOVER BUTTON COLORS
+  &:hover {
+    background: darken($white,2);
+    border: 1px solid darken($white,15);
+    border-bottom-color: darken($white,20);
+    color: $black;
+  }
+
+  // active state
+  &.active,
+  &:focus,
+  &[active="true"] {
+    // @extend .purple;
+  }
+
+  // DISABLED STATE
+  &:disabled {
+  	opacity: 0.3;
+  	background-color: inherit !important;
+  	color: inherit !important;
+  	cursor: default !important;
+  }
+
+  // SMALL BUTTON
+  &.small {
+    font-size: 13px;
+    line-height: $height-small;
+    height: $height-small;
+    padding-left: $padding-small;
+    padding-right: $padding-small;
+  }
+
+  // BIG BUTTON
+  &.big {
+    font-size: $h5-size;
+    line-height: $height-big;
+    height: $height-big;
+    padding-left: $padding-big;
+    padding-right: $padding-big;
+  }
+
+  // BUTTON COLORS
+  @mixin buttonColors($colors, $values){
+    @for $i from 1 through length($colors) {
+
+      $bgc: nth($values, $i);
+      $bgc-hover: choose-hover-color($bgc);
+
+      &.#{nth($colors, $i)} {
+        background: $bgc;
+        border-color: darken($bgc, 10);
+        border-bottom-color: darken($bgc, 9);
+        color: choose-contrast-color($bgc);
+
+        &:hover,
+        &[active="true"] {
+          background: $bgc-hover;
+          border-color: darken($bgc-hover, 9);
+          border-bottom-color: darken($bgc-hover, 14);
+          color: choose-contrast-color($bgc-hover);
+        }
+
+      }
+    }
+  }
+  @include buttonColors($colorKeys, $colorValues);
+
+  // ICONS IN BUTTONS
+  span.icon {
+    display: inline-block;
+    margin: 0 5px;
+    line-height: inherit;
+  }
+
+}
+
+/*
+BOX COLUMN FUNCTIONS
+*/
+@function bx-span($cols,$dividerby,$tight){
+  $number: (100% / $dividerby) * $cols;
+  @if $tight == true {
+    @return $number;
+  } @else {
+    @return calc( #{$number} - #{$gutterX} );
+  }
+}
+
+/* BOX SIZE OUTPUTS */
+@mixin span-output-single($s, $count, $attr) {
+  // spans
+  @for $i from 0 through $count {
+    @if( $i==0 ) {
+      > .box[data-span-#{$s}="#{$i}"] { display: none; }
+    } @else {
+      > .box[data-span-#{$s}="#{$i}"] {
+        #{$attr}: bx-span($i,$count,false);
+        flex-grow: 0;
+        display: block;
+      }
+      &[data-gutters="tight"] > .box[data-span-#{$s}="#{$i}"] {
+        #{$attr}: bx-span($i,$count,true);
+        flex-grow: 0;
+        display: block;
+      }
+    }
+  }
+  // fill
+  > .box[data-span-#{$s}="fill"],
+  &[data-gutters="tight"] > .box[data-span-#{$s}="fill"] {
+    flex-grow: 1;
+    #{$attr}: auto;
+    display: block;
+  }
+  // auto
+  > .box[data-span-#{$s}="auto"],
+  &[data-gutters="tight"] > .box[data-span-#{$s}="auto"] {
+    flex-grow: 0;
+    #{$attr}: auto;
+    display: block;
+  }
+}
+
+/*
+BOX ROWS
+ */
+@mixin bx-span-output($count, $attr){
+  // tny
+  @include span-output-single('tny', $count, $attr);
+  // sml
+  @media #{$media-sml-up} {
+    @include span-output-single('sml', $count, $attr);
+  }
+  // med
+  @media #{$media-med-up} {
+    @include span-output-single('med', $count, $attr);
+  }
+  // lrg
+  @media #{$media-lrg-up} {
+    @include span-output-single('lrg', $count, $attr);
+  }
+  // xl
+  @media #{$media-xl-up} {
+    @include span-output-single('xl', $count, $attr);
+  }
+}
+
+/*
+BOX COLUMNS
+ */
+.boxes {
+
+  // horizontal layout (default)
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin-left: calc( #{$gutterX} / 2 );
+  margin-right: calc( #{$gutterX} / 2 );
+
+  // nester negative margins
+  &[data-gutters="nested"] {
+    margin-left: calc( -#{$gutterX} / 2 );
+    margin-right: calc( -#{$gutterX} / 2 );
+  }
+
+  // tight margin overrides
+  &[data-gutters="tight"] {
+    margin-left: 0px;
+    margin-right: 0px;
+    > .box {
+      margin: 0px;
+    }
+  }
+
+  // horizontal layout (default)
+  &:not([data-direction*="vertical"]) {
+    @include bx-span-output( $default_cols, 'width' );
+  }
+
+  // vertical layout
+  &[data-direction="vertical"] {
+    flex-direction: column;
+    align-items: center;
+    @include bx-span-output( $default_cols, 'height' );
+
+    // force box widths @ 100% for tight verticals
+    &[data-gutters="tight"] {
+      > .box {
+        width: 100%;
+        max-width: 100%;
+      }
+    }
+  }
+
+}
+
+// outside the above scope to make style overrides easier
+.box {
+  margin-left: calc( #{$gutterX} / 2 );
+  margin-right: calc( #{$gutterX} / 2 );
+  margin-bottom: $gutterY;
+  width: calc( 100% - #{$gutterX} );
+  max-width: calc( 100% - #{$gutterX} );
+}
+
+// sticky mixins
+@mixin sticky-top {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  align-self: flex-start; // incase this is a flexbox item
+}
+@mixin sticky-bottom {
+  position: sticky;
+  bottom: 0;
+  z-index: 10;
+  align-self: flex-end; // incase this is a flexbox item
+}
+
+// sticky top rules
+.sticky-top {
+  @include sticky-top;
+}
+@media #{$media-sml-up} {
+  .sticky-top--sml-up {
+    @include sticky-top;
+  }
+}
+@media #{$media-med-up} {
+  .sticky-top--med-up {
+    @include sticky-top;
+  }
+}
+@media #{$media-lrg-up} {
+  .sticky-top--lrg-up {
+    @include sticky-top;
+  }
+}
+@media #{$media-xl-up} {
+  .sticky-top--xl-up {
+    @include sticky-top;
+  }
+}
+@media #{$media-tny-only} {
+  .sticky-top--tny-only {
+    @include sticky-top;
+  }
+}
+@media #{$media-sml-only} {
+  .sticky-top--sml-only {
+    @include sticky-top;
+  }
+}
+@media #{$media-med-only} {
+  .sticky-top--med-only {
+    @include sticky-top;
+  }
+}
+@media #{$media-lrg-only} {
+  .sticky-top--lrg-only {
+    @include sticky-top;
+  }
+}
+@media #{$media-xl-only} {
+  .sticky-top--xl-only {
+    @include sticky-top;
+  }
+}
+
+// sticky bottom rules
+.sticky-bottom {
+  @include sticky-bottom;
+}
+@media #{$media-sml-up} {
+  .sticky-bottom--sml-up {
+    @include sticky-bottom;
+  }
+}
+@media #{$media-med-up} {
+  .sticky-bottom--med-up {
+    @include sticky-bottom;
+  }
+}
+@media #{$media-lrg-up} {
+  .sticky-bottom--lrg-up {
+    @include sticky-bottom;
+  }
+}
+@media #{$media-xl-up} {
+  .sticky-bottom--xl-up {
+    @include sticky-bottom;
+  }
+}
+@media #{$media-tny-only} {
+  .sticky-bottom--tny-only {
+    @include sticky-bottom;
+  }
+}
+@media #{$media-sml-only} {
+  .sticky-bottom--sml-only {
+    @include sticky-bottom;
+  }
+}
+@media #{$media-med-only} {
+  .sticky-bottom--med-only {
+    @include sticky-bottom;
+  }
+}
+@media #{$media-lrg-only} {
+  .sticky-bottom--lrg-only {
+    @include sticky-bottom;
+  }
+}
+@media #{$media-xl-only} {
+  .sticky-bottom--xl-only {
+    @include sticky-bottom;
+  }
+}
+
+/* js classes */
+.sticky_sentinel {
+  position: absolute;
+  left: 0;
+  right: 0;
+  visibility: hidden;
+}
+.sticky_sentinel--top {
+  top: 0; /* top set via js (needs to be height of sticky element) */
+  height: 1px;
+}
+.sticky_sentinel--bottom {
+  bottom: 0; /* bottom set via js (needs to be height of sticky element) */
+  height: 1px;
+}
+.sticky_parent { /* class is applied via js */
+  position: relative;
+}
+
+.modal {
+  @include fixed-fullscreen;
+  @include background-opacity($black, 0.9);
+  display: none;
+  overflow: scroll;
+
+  &.on {
+    display: block;
+    z-index: 100;
+  }
+
+  // the inner modal
+  .modal-inner {
+
+  }
+
+}
+
+*[class*="show-"] {
+  display: none;
+  visibility: hidden;
+  pointer-events: none;
+}
+@mixin show {
+  display: inherit;
+  visibility: visible;
+  pointer-events: inherit;
+}
+
+// viewport classes
+@media #{$media-tny-only} {
+  .show-tny { @include show; }
+}
+@media #{$media-sml-only} {
+  .show-sml { @include show; }
+}
+@media #{$media-med-only} {
+  .show-med { @include show; }
+}
+@media #{$media-lrg-only} {
+  .show-lrg { @include show; }
+}
+@media #{$media-xl-only} {
+  .show-xl { @include show; }
+}
+
+// component classes
+.isTall .show-tall,
+.isWide .show-wide,
+.isSquare .show-square {
+  @include show;
+}
+
+/*
+MAX WIDTHS
+ */
+.max-width {
+  max-width: $container-max-width;
+}
+.max-width--thin {
+  max-width: $container-max-width--thin !important;
+}
+.max-width--full {
+  max-width: 100%;
+}
+.max-width--half {
+  max-width: 50%;
+}
+.max-width--third {
+  max-width: 33.33333%;
+}
+.max-width--tny {
+  max-width: $sml-breakpoint;
+}
+.max-width--sml {
+  max-width: $med-breakpoint;
+}
+.max-width--med {
+  max-width: $lrg-breakpoint;
+}
+.max-width--lrg {
+  max-width: $xl-breakpoint;
+}
+
+/*
+FULL WIDTHS
+ */
+.full-width {
+  max-width: 100%;
+  min-width: 100%;
+}
+.full-width-gutter-x {
+  width: calc( 100% - #{$gutterX} );
+}
+
+/*
+FULL HEIGHTS
+ */
+.full-height {
+  max-height: none;
+  min-height: 100%;
+}
+
+// plain css positions
+.align-center {
+  margin-left: auto;
+  margin-right: auto;
+}
+.float-left {
+  float: left;
+}
+.float-right {
+  float: right;
+}
+
+// transform positions
+.transform-center-x {
+  left: 50%;
+  transform: translateX(-50%);
+  position: relative;
+}
+.transform-center-y {
+  top: 50%;
+  transform: translateY(-50%);
+  position: relative;
+}
+.transform-center-xy {
+  top: 50%;
+  left: 50%;
+  transform: translate3d(-50%, -50%, 0);
+  position: relative;
+}
+
+// make the margins and paddings work via a loop
+// $directionArray: top, bottom, left, right, x, y;
+
+/*
+RESIZES
+ */
+.resize {
+ resize: both;
+ overflow: auto;
+}
+.resize-vertical {
+  resize: vertical;
+  overflow: auto;
+}
+.resize-horizontal {
+  resize: horizontal;
+  overflow: auto;
+}
+
+/*
+PADDINGS
+ */
+@mixin paddings {
+  .padding {
+    padding: $paddingY $paddingX;
+  }
+  .padding-top {
+    padding-top: $paddingY;
+  }
+  .padding-bottom {
+    padding-bottom: $paddingY;
+  }
+  .padding-left {
+    padding-left: $paddingX;
+  }
+  .padding-right {
+    padding-right: $paddingX;
+  }
+  .padding-x {
+    padding-left: $paddingX;
+    padding-right: $paddingX;
+  }
+  .padding-y {
+    padding-top: $paddingY;
+    padding-bottom: $paddingY;
+  }
+
+  // half paddings (clean this up)
+  .padding--half {
+    padding: ($paddingY / 2) ($paddingX / 2);
+  }
+  .padding-top--half {
+    padding-top: ($paddingY / 2);
+  }
+  .padding-bottom--half {
+    padding-bottom: ($paddingY / 2);
+  }
+  @for $i from 2 through 4 {
+    .padding-top--x#{$i} {
+      padding-top: ($paddingY * $i);
+    }
+    .padding-bottom--x#{$i} {
+      padding-bottom: ($paddingY * $i);
+    }
+    .padding-left--x#{$i} {
+      padding-left: ($paddingX * $i);
+    }
+    .padding-right--x#{$i} {
+      padding-right: ($paddingX * $i);
+    }
+    .padding-x--x#{$i} {
+      padding-left: ($paddingX * $i);
+      padding-right: ($paddingX * $i);
+    }
+    .padding-y--x#{$i} {
+      padding-top: ($paddingY * $i);
+      padding-bottom: ($paddingY * $i);
+    }
+    .padding--x#{$i} {
+      padding: ($paddingY * $i) ($paddingX * $i);
+    }
+  }
+}
+@include paddings;
+
+/*
+MARGINS
+ */
+@mixin margins {
+  .margin-top {
+    margin-top: $paddingY;
+  }
+  .margin-bottom {
+    margin-bottom: $paddingY;
+  }
+  .margin-left {
+    margin-left: $paddingX;
+  }
+  .margin-right {
+    margin-right: $paddingX;
+  }
+  .margin-x {
+    margin-left: $paddingX;
+    margin-right: $paddingX;
+  }
+  .margin-y {
+    margin-top: $paddingY;
+    margin-bottom: $paddingY;
+  }
+  .margin {
+    margin: $paddingY $paddingX;
+  }
+  @for $i from 2 through 4 {
+    .margin-top--x#{$i} {
+      margin-top: ($gutterY * $i);
+    }
+    .margin-bottom--x#{$i} {
+      margin-bottom: ($gutterY * $i);
+    }
+    .margin-left--x#{$i} {
+      margin-left: ($gutterX * $i);
+    }
+    .margin-right--x#{$i} {
+      margin-right: ($gutterX * $i);
+    }
+    .margin-x--x#{$i} {
+      margin-left: ($gutterX * $i);
+      margin-right: ($gutterX * $i);
+    }
+    .margin-y--x#{$i} {
+      margin-top: ($gutterY * $i);
+      margin-bottom: ($gutterY * $i);
+    }
+    .margin--x#{$i} {
+      margin: ($gutterY * $i) ($gutterY * $i);
+    }
+  }
+}
+@include margins;
+
+
+
+// tight
+.tight {
+  margin: 0px !important;
+}
+.tight--top {
+  margin-top: 0px !important;
+}
+.tight--bottom {
+  margin-bottom: 0px !important;
+}
+.tight--padding {
+  padding: 0px !important;
+}
+
+
+// gutters
+.gutter-x {
+  margin-left: calc( #{$gutterX} / 2);
+  margin-right: calc( #{$gutterX} / 2);
+}
+.gutter-y {
+  margin-top: $gutterY;
+  margin-bottom: $gutterY;
+}
+.gutter {
+  margin: $gutterY calc( #{$gutterX} / 2);
+}
+
+// border radius
+.rounded {
+  border-radius: 6px;
+}
+.rounded--lrg {
+  border-radius: 12px;
+}
+.circular {
+  border-radius: 999px !important;
+}
+
+// offsets
+@mixin offsets {
+  .offset-top {
+    top: $gutterY;
+  }
+  .offset-bottom {
+    bottom: $gutterY;
+  }
+  .offset-left {
+    left: $gutterX;
+  }
+  .offset-right {
+    right: $gutterX;
+  }
+  @for $i from 2 through 4 {
+    .offset-top--x#{$i} {
+      top: ($gutterY * $i);
+    }
+    .offset-bottom--x#{$i} {
+      bottom: ($gutterY * $i);
+    }
+    .offset-left--x#{$i} {
+      left: ($gutterX * $i);
+    }
+    .offset-right--x#{$i} {
+      right: ($gutterX * $i);
+    }
+  }
+}
+@include offsets;
+
+/*
+DEBOSS
+ */
+.invisible-deboss {
+ border-radius: 6px;
+ border: solid 1px transparent;
+ padding: $paddingY $paddingX;
+}
+.deboss,
+[class*="deboss-"] {
+  background: $white;
+  border: solid 1px darken($white,10);
+  box-shadow: 0 3px 7px rgba(0,0,0,.03);
+  border-radius: 6px;
+  padding: $paddingY $paddingX;
+
+  .inverted & {
+    background: lighten($black,2);
+    border: solid 1px lighten($black,5);
+    box-shadow: 0 3px 7px rgba(0,0,0,.15);
+  }
+}
+@mixin debossColors($colors, $values){
+  @for $i from 1 through length($colors) {
+    .deboss--#{nth($colors, $i)} {
+      background-color: lighten( nth($values, $i), 25);
+      border-color: lighten( nth($values, $i), 15);
+    }
+  }
+}
+@include debossColors($colorKeys, $colorValues);
+
+/*
+SHADOWS
+ */
+.shadow {
+  box-shadow: 0 5px 10px rgba(0,0,0,.08);
+}
+.shadow-lrg {
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.18);
+}
+.shadow-sml {
+  box-shadow: 0 3px 7px rgba(0,0,0,.03);
+}
+.shadow--bottom {
+  box-shadow: 0 15px 10px -10px rgba(0,0,0,.03);
+}
+
+// these need to finished and perfected
+.shadow--inset {
+  box-shadow: inset 0 5px 10px rgba(0,0,0,.08);
+}
+.shadow-lrg--inset {
+  box-shadow: inset 0 -15px 25px -10px rgba(0,0,0,.02);
+}
+
+
+/*
+TEXT SHADOWS
+ */
+.text-shadow {
+  text-shadow:  0 1px 3px rgba(0,0,0,.4);
+}
+
+/*
+BORDERS
+*/
+[class*="border-all"] {
+  border-width: $border-weight !important;
+  border-style: solid;
+  border-color: $border-color;
+  .inverted & {
+    border-color: $inverted-border-color;
+  }
+}
+[class*="border-top"] {
+  border-top-width: $border-weight !important;
+  border-top-style: solid;
+  border-color: $border-color;
+  .inverted & {
+    border-color: $inverted-border-color;
+  }
+}
+[class*="border-bottom"] {
+  border-bottom-width: $border-weight !important;
+  border-bottom-style: solid;
+  border-color: $border-color;
+  .inverted & {
+    border-color: $inverted-border-color;
+  }
+}
+[class*="border-left"] {
+  border-left-width: $border-weight !important;
+  border-left-style: solid;
+  border-color: $border-color;
+  .inverted & {
+    border-color: $inverted-border-color;
+  }
+}
+[class*="border-right"] {
+  border-right-width: $border-weight !important;
+  border-right-style: solid;
+  border-color: $border-color;
+  .inverted & {
+    border-color: $inverted-border-color;
+  }
+}
+@mixin borderColours($colors, $values){
+  @for $i from 1 through length($colors) {
+    .border-all--#{nth($colors, $i)} {
+      border-color: #{nth($values, $i)}
+    }
+    .border-top--#{nth($colors, $i)} {
+      border-top-color: #{nth($values, $i)}
+    }
+    .border-bottom--#{nth($colors, $i)} {
+      border-bottom-color: #{nth($values, $i)}
+    }
+    .border-left--#{nth($colors, $i)} {
+      border-left-color: #{nth($values, $i)}
+    }
+    .border-right--#{nth($colors, $i)} {
+      border-right-color: #{nth($values, $i)}
+    }
+  }
+}
+@include borderColours($colorKeys, $colorValues);
+
+/*
+BACKGROUND COLORS
+ */
+[class*="bg-"] {
+  background-color: inherit;
+}
+@mixin bgColours($colors, $values){
+  @for $i from 1 through length($colors) {
+    .bg-#{nth($colors, $i)} {
+      background-color: #{nth($values, $i)};
+    }
+    // darken
+    @for $n from 1 through 10 {
+      .bg-#{nth($colors, $i)}--darker-#{$n} {
+        @if $n==1 {
+          background-color: darken( nth($values, $i), ($n * 3));
+        } @else {
+          background-color: darken( nth($values, $i), ($n * 5));
+        }
+      }
+    }
+    // lighten
+    @for $n from 1 through 10 {
+      .bg-#{nth($colors, $i)}--lighter-#{$n} {
+        @if $n==1 {
+          background-color: lighten( nth($values, $i), ($n * 3));
+        } @else {
+          background-color: lighten( nth($values, $i), ($n * 5));
+        }
+      }
+    }
+  }
+}
+@include bgColours($colorKeys, $colorValues);
+
+/*
+TEXT COLORS (needs to be cleaned up a lot, not good for final css filesize)
+ */
+[class*="color-"] {
+  color: inherit;
+}
+@mixin colors($colors, $values){
+  @for $i from 1 through length($colors) {
+    .color-#{nth($colors, $i)} {
+      color: #{nth($values, $i)};
+    }
+    // contrast
+    .color-#{nth($colors, $i)}--contrast {
+      color: choose-contrast-color(nth($values, $i));
+    }
+    // darken
+    @for $n from 1 through 10 {
+      .color-#{nth($colors, $i)}--darker-#{$n} {
+        @if $n==1 {
+          color: darken( nth($values, $i), ($n * 3));
+        } @else {
+          color: darken( nth($values, $i), ($n * 5));
+        }
+      }
+    }
+    // lighten
+    @for $n from 1 through 10 {
+      .color-#{nth($colors, $i)}--lighter-#{$n} {
+        @if $n==1 {
+          color: lighten( nth($values, $i), ($n * 3));
+        } @else {
+          color: lighten( nth($values, $i), ($n * 5));
+        }
+      }
+    }
+  }
+}
+@include colors($colorKeys, $colorValues);
+
+
+/*
+HEADER TEXT COLOR (PRIMARILY OVERRIDES)
+ */
+// :matches(h1,h2,h3,h4,h5,h6),
+// :-moz-any(h1,h2,h3,h4,h5,h6),
+// :-webkit-any(h1,h2,h3,h4,h5,h6)
+h1,h2,h3,h4,h5,h6 {
+  @extend %headings !optional;
+}
+
+[class*="headers-"] %headings,
+ %headings[class*="headers-"] {
+  color: inherit;
+}
+@mixin headers($colors, $values){
+  @for $i from 1 through length($colors) {
+    .headers-#{nth($colors, $i)} %headings,
+     %headings.headers-#{nth($colors, $i)} {
+      color: #{nth($values, $i)};
+    }
+    // contrast
+    .headers-#{nth($colors, $i)}--contrast %headings,
+    %headings.headers-#{nth($colors, $i)}--contrast {
+      color: choose-contrast-color(nth($values, $i));
+    }
+    // darken
+    @for $n from 1 through 10 {
+      .headers-#{nth($colors, $i)}--darker-#{$n} %headings,
+      %headings.headers-#{nth($colors, $i)}--darker-#{$n} {
+        @if $n==1 {
+          color: darken( nth($values, $i), ($n * 3));
+        } @else {
+          color: darken( nth($values, $i), ($n * 5));
+        }
+      }
+    }
+    // lighten
+    @for $n from 1 through 10 {
+      .headers-#{nth($colors, $i)}--lighter-#{$n} %headings,
+      %headings.headers-#{nth($colors, $i)}--lighter-#{$n} {
+        @if $n==1 {
+          color: lighten( nth($values, $i), ($n * 3));
+        } @else {
+          color: lighten( nth($values, $i), ($n * 5));
+        }
+      }
+    }
+  }
+}
+@include headers($colorKeys, $colorValues);
+
+/*
+FONT WEIGHTS
+ */
+@mixin weights{
+  @for $i from 1 through 9 {
+    .weight-#{$i}00 {
+      font-weight: ($i * 100);
+    }
+  }
+}
+@include weights;
+
+/*
+TEXT ALIGNMENT
+ */
+.text-center {
+  text-align: center;
+}
+.text-left {
+  text-align: left;
+}
+.text-right {
+  text-align: right;
+}
+.text-justify {
+  text-align: justify;
+}
+
+/*
+TEXT DECORATIONS
+ */
+@mixin underline {
+  position: relative;
+  &:after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 2px;
+    transform: translateY(3px);
+    background-color: darken($white,30);
+    width: 100%;
+  }
+}
+.underline {
+  @include underline;
+}
+
+/*
+TRANSTIONS
+ */
+.transition-all {
+  transition: all 0.3s ease;
+}
+.transition-bg {
+  transition: background 0.3s ease;
+}
+
+/*
+OVERFLOWS
+ */
+.overflow-hidden {
+  overflow: hidden;
+}
+
+/*
+POSITIONS
+ */
+.position-relative {
+  position: relative;
+}
+
+/*
+SMART BACKGROUNDS
+ */
+.bg-image,
+.bg-gradient,
+.bg-color {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  min-width: 100%;
+  min-height: 100%;
+  z-index: -1;
+  pointer-events: none;
+  background-color: transparent;
+
+  // default size and position
+  background-size: cover;
+  background-position: center;
+
+}
+
+.bg-image {
+  transition: background-image 0.2s ease !important;
+}
+
+/*
+INVERTED LOGIC
+ */
+.inverted .bg-white--darker-1 {
+  background: darken($black,2);
+}
