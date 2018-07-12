@@ -564,7 +564,7 @@
               <div id="responsive-component"
               style="max-width: 100%; min-width: 150px; min-height: 100px; width: 100%; height: 400px;"
               class="rounded border padding shadow-lrg margin-bottom--x2 resize text-center color-white headers-white"
-              data-responsive-component
+              data-responsive
               data-bg-color="white"
               data-bg-image-blur="0"
               >
@@ -591,7 +591,7 @@
               <div class="boxes" data-gutters="nested">
                 <div class="box" data-span-lrg="6">
                   <h6>data-responsive-compenent</h6>
-                  <p>Adding <code>data-responsive-component</code> to an element will enable base utility classes (.isWide, .isTall, .isSquare) and trigger events when the element changes state.</p>
+                  <p>Adding <code>data-responsive</code> to an element will enable base utility classes (.isWide, .isTall, .isSquare) and trigger events when the element changes state.</p>
                 </div>
                 <div class="box" data-span-lrg="6">
                   <h6>data-classes-x=""</h6>
@@ -599,45 +599,32 @@
                 </div>
               </div>
 
-
-
-
-
-              <!-- <div class="deboss">
+              <div class="deboss">
                 <table class="full-width">
                   <thead>
                     <th>Attribute</th>
                     <th>Description</th>
                   </thead>
                   <tr>
-                    <td>data-responsive-component</td>
-                    <td>Classes while element is stuck.</td>
+                    <td>data-classes-wide="..."</td>
+                    <td>Classes while element is wide.</td>
                   </tr>
                   <tr>
-                    <td>data-classes-offstick</td>
-                    <td>Classes while element is unstuck.</td>
+                    <td>data-classes-tall="..."</td>
+                    <td>Classes while element is tall.</td>
                   </tr>
                   <tr>
-                    <td>data-event-onstick="..."</td>
-                    <td>Callback to run when element becomes stuck. <br>
-                      <small class="color-red--lighter-1">The current element will be passed as the only parameter.</small>
-                    </td>
+                    <td>data-classes-square="..."</td>
+                    <td>Classes while element is square.</td>
                   </tr>
                   <tr>
-                    <td>data-event-offstick="..."</td>
-                    <td>Callback to run when element stops being stuck. <br>
-                      <small class="color-red--lighter-1">The current element will be passed as the only parameter.</small>
+                    <td>data-responsive</td>
+                    <td>Adds utilility classes (.isTall, .isWide, .isSquare) and triggers events on window.<br>
+                      <small class="color-red--lighter-1">Events are named "component-resized:ID", where ID is the id of the resized element.</small>
+                      <small class="color-red--lighter-1">This attribute is not nessecary if your using data-classes-wide (tall, square etc) already.</small>
                     </td>
                   </tr>
                 </table>
-              </div> -->
-
-
-
-              <p>Tip: You can do this for any element, including the html tag. Meaning this could be a nice way to manage devices orientation in your app.</p>
-
-              <div class="boxes" data-gutters="nested">
-
               </div>
             </div>
 

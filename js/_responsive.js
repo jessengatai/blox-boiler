@@ -66,7 +66,7 @@ jQuery(document).ready(function($){
   const runComponentClasses = () => {
 
     // setup the smart backgrounds
-    const nodes = document.querySelectorAll('[data-classes-tall], [data-classes-wide], [data-classes-square], [data-responsive-component]');
+    const nodes = document.querySelectorAll('[data-classes-tall], [data-classes-wide], [data-classes-square], [data-responsive]');
     const objects = $(nodes);
 
     // listen for resize changes and update the classes accordingly
