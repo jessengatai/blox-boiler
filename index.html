@@ -487,18 +487,18 @@
                   <p class="color-white--darker-3">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
                   <p class="color-white--darker-3">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
                   <div class="sticky-bottom deboss"
-                  data-classes-onstick="shadow-lrg color-white deboss--black"
+                  data-classes-onstick="shadow-lrg color-purple--contrast deboss--purple"
                   ><small>.sticky-bottom</small></div>
                 </div>
                 <div class="box border-top--purple border-bottom--purple" data-span-tny="4">
                   <div class="sticky-top deboss offset-top"
-                  data-classes-onstick="shadow-lrg color-white deboss--black"
+                  data-classes-onstick="shadow-lrg color-purple--contrast deboss--purple"
                   ><small>.sticky-top + .offset-top</small></div>
                   <p class="margin-top color-white--darker-3">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
                 </div>
                 <div class="box border-top--purple border-bottom--purple" data-span-tny="4">
                   <div class="sticky-top deboss offset-top--x2 margin-bottom"
-                  data-classes-onstick="shadow-lrg color-white deboss--black"
+                  data-classes-onstick="shadow-lrg color-purple--contrast deboss--purple"
                   ><small>.sticky-top + .offset-top--x2 + margin-bottom</small></div>
                   <p class="color-white--darker-3">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
                 </div>
@@ -663,25 +663,23 @@
               <h2 class="size--x2"># States</h2>
 
               <p>If you have an anchor tag that links to #foo and either moves to the matching element or simply updates the hash in the URL, when that hash is active we might want to add a class to our button or some other element on the page. We can achieve this using hash data attributes.</p>
+              <p>A noteable downside to managing element states via the URL hash is that you can only have one state for the entire page. However, being able to change the state of elements via the browsers native forwards and back buttons make up for it, especially for simple static HTML sites.</p>
 
-              <a href="#foo"
-              data-hash="#foo"
-              data-classes-onhash="purple"
-              class="button">#foo on</a>
+              <a href="#foo" data-hash="#foo" data-classes-onhash="purple"class="button">#foo on</a>
               <a href="#bar" class="button">#foo off</a>
-              <p data-hash="#foo"
+              <div data-hash="#foo"
               data-classes-onhash="deboss--red color-red--contrast"
               data-classes-offhash="deboss--blue color-blue--contrast"
-              class="margin-top shadow-lrg"
+              class="margin-y"
               >
-                Binds the #foo hash by setting data-hash="#foo".<br>
-                Adds classes when #foo is active with data-classes-onhash="..."<br>
-                Adds classes when #foo is inactive with data-classes-offhash="..."
-              </p>
+                <ol class="tight--bottom">
+                  <li>Binds the #foo hash by setting data-hash="#foo"</li>
+                  <li>Adds classes when #foo is active with data-classes-onhash="..."</li>
+                  <li>Adds classes when #foo is inactive with data-classes-offhash="..."</li>
+                </ol>
+              </div>
 
-              <p>A noteable downside to managing element states via the URL hash is that you can only have one state for the entire page. However, being able to change the state of elements via the browsers native forwards and back buttons make up for it, especially for simple static HTML sites.</p>
-              <p>Below are all the hash related data attributes</p>
-              <div class="deboss">
+              <div class="margin-top--x2 deboss">
                 <table class="full-width">
                   <thead>
                     <th>Description</th>
