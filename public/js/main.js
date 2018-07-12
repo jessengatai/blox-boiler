@@ -5,15 +5,8 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 console.log('functions loaded');
 
 /**
- * Give an element a unique id
- * @param {object} el The element that will receive the id
- */
-var bloxSetId = function bloxSetId(el) {
-  el.attr('bx-id', Math.random().toString(36).substr(2, 16));
-};
-
-/**
  * Check wether a value is set
+ * - similar to php isset
  * @param {mixed} value Can be anything from a string to an array
  * @return {bool}
  */
@@ -23,6 +16,7 @@ var bloxIsset = function bloxIsset(value) {
 
 /**
  * Check if an element has any of the classes passed (via array)
+ * - useful for nodes
  * @param  {object} element The element to check the class array against
  * @param  {array} array    The array of classes to check for
  * @return {bool}           A boolean of true or false if classes were / were not found
@@ -862,7 +856,7 @@ console.log('backgrounds loaded');
 jQuery(document).ready(function ($) {
 
   /**
-   * Setup the base divs for our smart backgrounds
+   * Setup the base markup needed for our data-attr backgrounds
    * @param  {object} object The background parent
    */
   var bloxSetupBackground = function bloxSetupBackground(object) {
@@ -878,7 +872,7 @@ jQuery(document).ready(function ($) {
   };
 
   /**
-   * Update the backgrounds for our smart backgrounds
+   * Update a background
    * @param  {object} object The background parent
    */
   var bloxUpdateBackground = function bloxUpdateBackground(object) {
@@ -971,8 +965,10 @@ jQuery(document).ready(function ($) {
     }
   };
 
-  /*
-  move this into bg.js
+  /**
+   * Our background wrapper function
+   * - sets up the markup we need
+   * - sets up the updates we run on eahc background
    */
   var bloxBackgrounds = function bloxBackgrounds() {
 
@@ -1016,7 +1012,7 @@ console.log('boxes loaded');
 jQuery(document).ready(function ($) {
 
   /**
-   * run through the boxes and apply row classes
+   * Adds row classes to our .boxes
    */
   var runBoxRowClasses = function runBoxRowClasses() {
 
@@ -1078,7 +1074,7 @@ console.log('hashes loaded');
 jQuery(document).ready(function ($) {
 
   /**
-   * run through the hash functionalty when url hash changes
+   * Run through the hash functionalty when url hash changes
    */
   var runHashes = function runHashes() {
 
@@ -1215,8 +1211,12 @@ jQuery(document).ready(function ($) {
 console.log('responsive loaded');
 jQuery(document).ready(function ($) {
 
+  /**
+   * Update classes on componenent resize elements
+   * @param {object} object The element that we are updating
+   * @param {string} size   The size we are updating to (wide, tall, square)
+   */
   var setComponentClasses = function setComponentClasses(object, size) {
-
     var componentId = $(object).attr('id');
     var classesWide = $(object).attr('data-classes-wide');
     var classesTall = $(object).attr('data-classes-tall');
@@ -1274,6 +1274,11 @@ jQuery(document).ready(function ($) {
     }
   };
 
+  /**
+   * Our responsive componenent wrapper function
+   * - sets up the resize observer we use to listen for element changes
+   * @return {[type]} [description]
+   */
   var runComponentClasses = function runComponentClasses() {
 
     // setup the smart backgrounds
@@ -1301,20 +1306,12 @@ jQuery(document).ready(function ($) {
     for (var i = 0; i < nodes.length; i++) {
       ro.observe(nodes[i]);
     }
-
-    // const ro = new ResizeObserver(entries => {
-    //   for (let entry of entries) {
-    //     entry.target.style.borderRadius = Math.max(0, 250 - entry.contentRect.width) + 'px';
-    //   }
-    // });
-    // // Only observe the second box
-    // ro.observe(document.querySelector('.box:nth-child(2)'));
-
   };
   runComponentClasses();
 
   /**
-   * run through the boxes and apply viewport classes
+   * Our responsive viewport wrapper function
+   * - sets up viewport repsonsive classes and listens for changes
    */
   var runViewportClasses = function runViewportClasses() {
 
@@ -1355,7 +1352,7 @@ jQuery(document).ready(function ($) {
                   $(object).removeClass(allClasses).addClass(classesXl);
                 }
       });
-    }
+    } // end responsiveClasses.length check
   };
 
   /**
