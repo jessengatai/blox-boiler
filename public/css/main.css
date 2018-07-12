@@ -2190,47 +2190,47 @@ DEBOSS
     border: solid 1px #22252e;
     box-shadow: 0 3px 7px rgba(0, 0, 0, 0.15); }
 
-.deboss--white {
+:not(.inverted) .deboss--white {
   background-color: white;
   border-color: white; }
 
-.deboss--black {
+:not(.inverted) .deboss--black {
   background-color: #4d5468;
   border-color: #383c4b; }
 
-.deboss--grey {
+:not(.inverted) .deboss--grey {
   background-color: white;
   border-color: #eceff4; }
 
-.deboss--red {
+:not(.inverted) .deboss--red {
   background-color: #ffa6a6;
   border-color: #ff7374; }
 
-.deboss--orange {
+:not(.inverted) .deboss--orange {
   background-color: #ffd774;
   border-color: #ffc841; }
 
-.deboss--yellow {
+:not(.inverted) .deboss--yellow {
   background-color: #faf5a2;
   border-color: #f8f072; }
 
-.deboss--pink {
+:not(.inverted) .deboss--pink {
   background-color: white;
   border-color: #fee4e3; }
 
-.deboss--green {
+:not(.inverted) .deboss--green {
   background-color: #80ffc6;
   border-color: #4dffaf; }
 
-.deboss--blue {
+:not(.inverted) .deboss--blue {
   background-color: #9e7cfe;
   border-color: #7949fe; }
 
-.deboss--aqua {
+:not(.inverted) .deboss--aqua {
   background-color: #bef5ff;
   border-color: #8beefe; }
 
-.deboss--purple {
+:not(.inverted) .deboss--purple {
   background-color: #9162f1;
   border-color: #7033ed; }
 

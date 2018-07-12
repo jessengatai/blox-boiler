@@ -632,7 +632,7 @@
             <!-- BUTTONS -->
             <div id="buttons" class="box margin-bottom--x4">
               <h2 class="size--x2">Buttons</h2>
-              <p>Nothing revolutionary here, just add <code>.button</code> to an anchor tag or button. It should be noted you are not locked into these colors shown, you can add as many (or as little) colors to your pallete in the blox.scss file color array. I'd try and keep your color array below 4-5 colors as each color in your pallete will increase the final .css filesize considerabely due to color utility classes.</p>
+              <p>Nothing revolutionary here, just add <code>.button</code> to an element (not required for button tags). It should be noted you are not locked into these colors shown, you can add as many (or as little) colors to your pallete in the blox.scss file color array. I'd try and keep your color array below 4-5 colors as each color in your pallete will increase the final .css filesize considerabely due to color utility classes.</p>
 
               <div class="boxes" data-gutters="nested">
                 <div class="box" data-span-tny="6">
@@ -664,27 +664,22 @@
               <h2 class="size--x2"># States</h2>
 
               <p>If you have an anchor tag that links to #foo and either moves to the matching element or simply updates the hash in the URL, when that hash is active we might want to add a class to our button or some other element on the page. We can achieve this using hash data attributes.</p>
-              <div class="boxes" data-gutters="nested">
-                <div class="box" data-span-tny="6">
-                  <a href="#foo"
-                  data-hash="#foo"
-                  data-classes-onhash="purple"
-                  class="button">#foo on</a>
-                  <a href="#bar" class="button">#foo off</a>
-                  <p data-hash="#foo"
-                  data-classes-onhash="deboss--red color-red--darker-4"
-                  data-classes-offhash="deboss--blue color-blue--darker-4"
-                  class="margin-top"
-                  >
-                    Binds the #foo hash by setting data-hash="#foo".<br><br>
-                    Adds classes when #foo is active with data-classes-onhash="..."<br><br>
-                    Adds classes when #foo is inactive with data-classes-offhash="..."
-                  </p>
-                </div>
-                <div class="box" data-span-tny="6">
-                  <h1>put something here</h1>
-                </div>
-              </div>
+
+              <a href="#foo"
+              data-hash="#foo"
+              data-classes-onhash="purple"
+              class="button">#foo on</a>
+              <a href="#bar" class="button">#foo off</a>
+              <p data-hash="#foo"
+              data-classes-onhash="deboss--red color-red--contrast"
+              data-classes-offhash="deboss--blue color-blue--contrast"
+              class="margin-top shadow-lrg"
+              >
+                Binds the #foo hash by setting data-hash="#foo".<br>
+                Adds classes when #foo is active with data-classes-onhash="..."<br>
+                Adds classes when #foo is inactive with data-classes-offhash="..."
+              </p>
+
               <p>A noteable downside to managing element states via the URL hash is that you can only have one state for the entire page. However, being able to change the state of elements via the browsers native forwards and back buttons make up for it, especially for simple static HTML sites.</p>
               <p>Below are all the hash related data attributes</p>
               <div class="deboss">
