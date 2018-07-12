@@ -1,9 +1,12 @@
 console.log('responsive loaded');
 jQuery(document).ready(function($){
 
-
+  /**
+   * Update classes on componenent resize elements
+   * @param {object} object The element that we are updating
+   * @param {string} size   The size we are updating to (wide, tall, square)
+   */
   const setComponentClasses = (object, size) => {
-
     const componentId = $(object).attr('id');
     const classesWide = $(object).attr('data-classes-wide');
     const classesTall = $(object).attr('data-classes-tall');
@@ -59,10 +62,13 @@ jQuery(document).ready(function($){
         $(object).addClass( classesSquare );
       }
     }
-
   }
 
-
+  /**
+   * Our responsive componenent wrapper function
+   * - sets up the resize observer we use to listen for element changes
+   * @return {[type]} [description]
+   */
   const runComponentClasses = () => {
 
     // setup the smart backgrounds
@@ -94,23 +100,12 @@ jQuery(document).ready(function($){
       ro.observe(nodes[i]);
     }
 
-    // const ro = new ResizeObserver(entries => {
-    //   for (let entry of entries) {
-    //     entry.target.style.borderRadius = Math.max(0, 250 - entry.contentRect.width) + 'px';
-    //   }
-    // });
-    // // Only observe the second box
-    // ro.observe(document.querySelector('.box:nth-child(2)'));
-
-
   }
   runComponentClasses();
 
-
-
-
   /**
-   * run through the boxes and apply viewport classes
+   * Our responsive viewport wrapper function
+   * - sets up viewport repsonsive classes and listens for changes
    */
   const runViewportClasses = () => {
 
@@ -171,8 +166,7 @@ jQuery(document).ready(function($){
         }
 
       })
-    }
-
+    } // end responsiveClasses.length check
   }
 
   /**

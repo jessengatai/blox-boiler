@@ -2,7 +2,7 @@ console.log('boxes loaded');
 jQuery(document).ready(function($){
 
   /**
-   * run through the boxes and apply row classes
+   * Adds row classes to our .boxes
    */
   const runBoxRowClasses = () => {
 

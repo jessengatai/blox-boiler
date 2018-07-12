@@ -2,7 +2,7 @@ console.log('hashes loaded');
 jQuery(document).ready(function($){
 
   /**
-   * run through the hash functionalty when url hash changes
+   * Run through the hash functionalty when url hash changes
    */
   const runHashes = () => {
 

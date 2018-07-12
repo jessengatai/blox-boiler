@@ -2,7 +2,7 @@ console.log('backgrounds loaded');
 jQuery(document).ready(function($){
 
   /**
-   * Setup the base divs for our smart backgrounds
+   * Setup the base markup needed for our data-attr backgrounds
    * @param  {object} object The background parent
    */
   const bloxSetupBackground = (object) => {
@@ -18,7 +18,7 @@ jQuery(document).ready(function($){
   }
 
   /**
-   * Update the backgrounds for our smart backgrounds
+   * Update a background
    * @param  {object} object The background parent
    */
   const bloxUpdateBackground = (object) => {
@@ -112,8 +112,10 @@ jQuery(document).ready(function($){
 
   }
 
-  /*
-  move this into bg.js
+  /**
+   * Our background wrapper function
+   * - sets up the markup we need
+   * - sets up the updates we run on eahc background
    */
   const bloxBackgrounds = () => {
 
