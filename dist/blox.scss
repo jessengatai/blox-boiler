@@ -1509,9 +1509,9 @@ MARGINS
 DEBOSS
  */
 .invisible-deboss {
- border-radius: 6px;
- border: solid 1px transparent;
- padding: $paddingY $paddingX;
+  border-radius: 6px;
+  border: solid 1px transparent;
+  padding: $paddingY $paddingX;
 }
 .deboss,
 [class*="deboss-"] {
@@ -1527,9 +1527,10 @@ DEBOSS
     box-shadow: 0 3px 7px rgba(0,0,0,.15);
   }
 }
+
 @mixin debossColors($colors, $values){
   @for $i from 1 through length($colors) {
-    .deboss--#{nth($colors, $i)} {
+    :not(.inverted) & .deboss--#{nth($colors, $i)} {
       background-color: lighten( nth($values, $i), 25);
       border-color: lighten( nth($values, $i), 15);
     }
