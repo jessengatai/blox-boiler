@@ -64,11 +64,11 @@
           <nav>
             <ul>
               <li><a data-classes-onhash="green" class="button off full-width text-left" data-hash="#setup" href="#setup">Setup</a></li>
+              <li><a data-classes-onhash="green" class="button off full-width text-left" data-hash="#backgrounds" href="#backgrounds">Backgrounds</a></li>
+              <li><a data-classes-onhash="green" class="button off full-width text-left" data-hash="#classes" href="#classes">Responsive Classes</a></li>
               <li><a data-classes-onhash="green" class="button off full-width text-left" data-hash="#boxes" href="#boxes">Boxes</a></li>
               <li><a data-classes-onhash="green" class="button off full-width text-left" data-hash="#modals" href="#modals">Modals</a></li>
-              <li><a data-classes-onhash="green" class="button off full-width text-left" data-hash="#backgrounds" href="#backgrounds">Backgrounds</a></li>
               <li><a data-classes-onhash="green" class="button off full-width text-left" data-hash="#stickies" href="#stickies">Stickies</a></li>
-              <li><a data-classes-onhash="green" class="button off full-width text-left" data-hash="#classes" href="#classes">Responsive Classes</a></li>
               <li><a data-classes-onhash="green" class="button off full-width text-left" data-hash="#buttons" href="#buttons">Buttons</a></li>
               <li><a data-classes-onhash="green" class="button off full-width text-left" data-hash="#hash" href="#hash">Hash States</a></li>
             </ul>
@@ -96,6 +96,221 @@
 
               <h6>CSS & JS</h6>
               <p>Or simply include the <code>blox.min.css</code> in the head of your document and <code>blox.min.js</code> after you call jQuery.</p>
+            </div>
+
+            <!-- BACKGROUNDS -->
+            <div id="backgrounds" class="box  margin-bottom--x2">
+              <h2 class="size--x2">Backgrounds</h2>
+
+              <p>Working with images, gradients and color is my favourite part of front-end development. Blox let's us make quick work of such matters by providing a robust set of data attributes to utilise. Let's take a closer look at the background from the above "left modal" example.</p>
+
+              <div class="boxes" data-gutters="nested">
+                <div class="box"
+                data-classes-lrg="sticky-top offset-top"
+                data-classes-xl="sticky-top offset-top"
+                data-span-lrg="6">
+                  <div
+                  id="background-demo"
+                  class="color-white headers-white padding-y--x3 padding-x--x2 rounded--lrg shadow-lrg"
+                  data-bg-color="red"
+                  data-bg-color-opacity="0.4"
+                  data-bg-image="assets/2.jpg"
+                  data-bg-image-opacity="1"
+                  data-bg-image-blend="multiply"
+                  data-bg-image-blur="0"
+                  data-bg-gradient-start="red"
+                  data-bg-gradient-end="purple"
+                  data-bg-gradient-rotation="180"
+                  data-bg-gradient-opacity="0.6"
+                  >
+                    <h3 class="size--x2 weight-200 text-shadow tight">Boom <br> As Dude.</h3>
+                    <p class="margin-bottom--x2">With some text and some data-bg attribute goodness.</p>
+                    <label for="username">Username</label>
+                    <input class="bg-white" type="text" name="" value="">
+                    <label for="username">Password</label>
+                    <input class="bg-white" type="password" name="" value="">
+                    <small class="color-white--darker-5">Forgot your password?</small>
+                    <button
+                    data-close-modal="left-modal"
+                    class="full-width big green">Login</button>
+                  </div>
+                </div>
+                <div class="box deboss" data-span-lrg="6">
+                  <form id="background-demo-form">
+
+                    <h5>Color Attributes (Base Layer)</h5>
+                    <label>data-bg-color (named, hex, rgb, hsl, hwb, cmyk, ncol)</label>
+                    <input type="text" name="data-bg-color" value="red">
+                    <label>data-bg-color-opacity (0 > 1)</label>
+                    <input type="text" name="data-bg-color-opacity" value="0.4">
+
+                    <h5>Image Attributes (Second Layer)</h5>
+                    <label>data-bg-image (url)</label>
+                    <input type="text" name="data-bg-image" value="assets/2.jpg">
+                    <label>data-bg-image-opacity (0 > 1)</label>
+                    <input type="text" name="data-bg-image-opacity" value="1">
+                    <label>data-bg-image-blend</label>
+                    <select name="data-bg-image-blend">
+                      <option value="normal">normal</option>
+                      <option value="multiply" selected>multiply</option>
+                      <option value="screen">screen</option>
+                      <option value="overlay">overlay</option>
+                      <option value="darken">darken</option>
+                      <option value="lighten">lighten</option>
+                      <option value="color-dodge">color-dodge</option>
+                      <option value="saturation">saturation</option>
+                      <option value="color">color</option>
+                      <option value="luminosity">luminosity</option>
+                    </select>
+                    <label>data-bg-image-blur (blur in pixels, eg: 5)</label>
+                    <input type="text" name="data-bg-image-blur" value="0">
+
+                    <h5>Gradient Attributes (Third Layer)</h5>
+                    <label>data-bg-gradient-start (color, #hex, rgba etc)</label>
+                    <input type="text" name="data-bg-gradient-start" value="red">
+                    <label>data-bg-gradient-end (color, #hex, rgba etc)</label>
+                    <input type="text" name="data-bg-gradient-end" value="purple">
+                    <label>data-bg-gradient-rotation (rotation in degrees eg: 45 or -45)</label>
+                    <input type="text" name="data-bg-gradient-rotation" value="180">
+                    <label>data-bg-gradient-opacity (0 > 1)</label>
+                    <input type="text" name="data-bg-gradient-opacity" value="0.6">
+
+                  </form>
+                </div>
+              </div>
+
+              <h5>Requirments</h5>
+              <ol>
+                <li>A div element with any one of the follow attributes set <code>data-bg-image</code>, <code>data-bg-gradient-start</code> or <code>data-bg-color</code></li>
+              </ol>
+
+              <h5>Javascript Awesome-sauce</h5>
+              <p>Out of the box Javascript can't directly listen for data-attribute changes, however thanks to <code>mutationObserver</code> we can listen for changes relating to our background attributes and update on the fly. Ideal for single page applications that might pass background images as props.</p>
+
+              <div class="deboss">
+                <table class="full-width">
+                  <thead>
+                    <th style="min-width: 250px;">Attribute</th>
+                    <th>Description</th>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>data-bg-color</td>
+                      <td>The base color layer. <br>
+                        <small class="color-red">This can be a named, hex, rgb, hsl, hwb, cmyk or ncol value.</small></td>
+                    </tr>
+                    <tr>
+                      <td>data-bg-color-opacity</td>
+                      <td>The opacity for the base color</td>
+                    </tr>
+                  </tbody>
+                  <tr>
+                    <td>data-bg-image</td>
+                    <td>The image layer.</td>
+                  </tr>
+                  <tr>
+                    <td>data-bg-image-opacity</td>
+                    <td>The opacity for the image layer.</td>
+                  </tr>
+                  <tr>
+                    <td>data-bg-image-blend</td>
+                    <td>The image blend mode. <br>
+                      <small class="color-red">This can be normal, multiply, screen, overlay, darken, lighten, color-dodge, saturation, color or luminosity.</small></td>
+                  </tr>
+                  <tr>
+                    <td>data-bg-gradient-start</td>
+                    <td>The first color in the gradient layer.</td>
+                  </tr>
+                  <tr>
+                    <td>data-bg-gradient-end</td>
+                    <td>The second color in the gradient layer.</td>
+                  </tr>
+                  <tr>
+                    <td>data-bg-gradient-rotation</td>
+                    <td>The rotation in degrees of the gradient layer.</td>
+                  </tr>
+                  <tr>
+                    <td>data-bg-gradient-opacity</td>
+                    <td>The opacity of the gradient layer.</td>
+                  </tr>
+                </tbody>
+                </table>
+              </div>
+
+            </div>
+
+            <!-- RESPONSIVE CLASSES -->
+            <div id="classes" class="box margin-bottom--x4">
+              <h2 class="size--x2">Responsive Classes</h2>
+
+              <p>Blox has two types of responsive class systems; Viewport and Component. Viewport responsive classes relate to the window dimensions and component classes relate to the dimensions of an indivual element.</p>
+
+              <h3>Component</h3>
+              <div id="responsive-component"
+              style="max-width: 100%; min-width: 150px; min-height: 100px; width: 100%; height: 400px;"
+              class="rounded border padding shadow-lrg margin-bottom--x2 resize text-center color-white headers-white"
+              data-responsive
+              data-bg-color="white"
+              data-bg-image-blur="0"
+              >
+                <div class="transform-center-y position-relative overflow-hidden" style="pointer-events: none;">
+                  <div class="show-square">
+                    <h3 class="size--x2 weight-200">Square.</h3>
+                    <p class="tight"><code>.isSquare</code> is applied by default and <code>.show-square</code> is being used to show this text. Add your own classes with <code>data-classes-square=""</code> </p>
+                  </div>
+                  <div class="show-tall">
+                    <h3 class="size--x2 weight-200">Tall.</h3>
+                    <p class="tight"><code>.isTall</code> is applied by default and <code>.show-tall</code> is being used to show this text. Add your own classes with <code>data-classes-tall=""</code> </p>
+                  </div>
+                  <div class="show-wide">
+                    <h3 class="size--x2 weight-200">Wide.</h3>
+                    <p class="tight"><code>.isWide</code> is applied by default and <code>.show-wide</code> is being used to show this text. Add your own classes with <code>data-classes-wide=""</code> </p>
+                  </div>
+                </div>
+                <div class="resize-corner"></div>
+              </div>
+
+              <h5>Methods</h5>
+              <p>Select either of the two methods below to get responsive components working.</p>
+
+              <div class="boxes" data-gutters="nested">
+                <div class="box" data-span-lrg="6">
+                  <h6>data-responsive-compenent</h6>
+                  <p>Adding <code>data-responsive</code> to an element will enable base utility classes (.isWide, .isTall, .isSquare) and trigger events when the element changes state.</p>
+                </div>
+                <div class="box" data-span-lrg="6">
+                  <h6>data-classes-x=""</h6>
+                  <p>Alternatively, if you want to add classes to the element for certain states, any one of the following attributes will trigger the base functionalty plus add your classes for appropriate states: <code>data-classes-wide=""</code>, <code>data-classes-tall=""</code> and <code>data-classes-square=""</code>.</p>
+                </div>
+              </div>
+
+              <div class="deboss">
+                <table class="full-width">
+                  <thead>
+                    <th>Attribute</th>
+                    <th>Description</th>
+                  </thead>
+                  <tr>
+                    <td>data-classes-wide="..."</td>
+                    <td>Classes while element is wide.</td>
+                  </tr>
+                  <tr>
+                    <td>data-classes-tall="..."</td>
+                    <td>Classes while element is tall.</td>
+                  </tr>
+                  <tr>
+                    <td>data-classes-square="..."</td>
+                    <td>Classes while element is square.</td>
+                  </tr>
+                  <tr>
+                    <td>data-responsive</td>
+                    <td>Adds utilility classes (.isTall, .isWide, .isSquare) and triggers events on window.<br>
+                      <small class="color-red--lighter-1">Events are named "component-resized:ID", where ID is the id of the resized element.</small>
+                      <small class="color-red--lighter-1">This attribute is not nessecary if your using data-classes-wide (tall, square etc) already.</small>
+                    </td>
+                  </tr>
+                </table>
+              </div>
             </div>
 
             <!-- BOXES -->
@@ -336,147 +551,6 @@
               </div>
             </div>
 
-            <!-- BACKGROUNDS -->
-            <div id="backgrounds" class="box  margin-bottom--x2">
-              <h2 class="size--x2">Backgrounds</h2>
-
-              <p>Working with images, gradients and color is my favourite part of front-end development. Blox let's us make quick work of such matters by providing a robust set of data attributes to utilise. Let's take a closer look at the background from the above "left modal" example.</p>
-
-              <div class="boxes" data-gutters="nested">
-                <div class="box"
-                data-classes-lrg="sticky-top offset-top"
-                data-classes-xl="sticky-top offset-top"
-                data-span-lrg="6">
-                  <div
-                  id="background-demo"
-                  class="color-white headers-white padding-y--x3 padding-x--x2 rounded--lrg shadow-lrg"
-                  data-bg-color="red"
-                  data-bg-color-opacity="0.4"
-                  data-bg-image="assets/2.jpg"
-                  data-bg-image-opacity="1"
-                  data-bg-image-blend="multiply"
-                  data-bg-image-blur="0"
-                  data-bg-gradient-start="red"
-                  data-bg-gradient-end="purple"
-                  data-bg-gradient-rotation="180"
-                  data-bg-gradient-opacity="0.6"
-                  >
-                    <h3 class="size--x2 weight-200 text-shadow tight">Boom <br> As Dude.</h3>
-                    <p class="margin-bottom--x2">With some text and some data-bg attribute goodness.</p>
-                    <label for="username">Username</label>
-                    <input class="bg-white" type="text" name="" value="">
-                    <label for="username">Password</label>
-                    <input class="bg-white" type="password" name="" value="">
-                    <small class="color-white--darker-5">Forgot your password?</small>
-                    <button
-                    data-close-modal="left-modal"
-                    class="full-width big green">Login</button>
-                  </div>
-                </div>
-                <div class="box deboss" data-span-lrg="6">
-                  <form id="background-demo-form">
-
-                    <h5>Color Attributes (Base Layer)</h5>
-                    <label>data-bg-color (nameed, hex, rgb, hsl, hwb, cmyk, ncol)</label>
-                    <input type="text" name="data-bg-color" value="red">
-                    <label>data-bg-color-opacity (0 > 1)</label>
-                    <input type="text" name="data-bg-color-opacity" value="0.4">
-
-                    <h5>Image Attributes (Second Layer)</h5>
-                    <label>data-bg-image (url)</label>
-                    <input type="text" name="data-bg-image" value="assets/2.jpg">
-                    <label>data-bg-image-opacity (0 > 1)</label>
-                    <input type="text" name="data-bg-image-opacity" value="1">
-                    <label>data-bg-image-blend</label>
-                    <select name="data-bg-image-blend">
-                      <option value="normal">normal</option>
-                      <option value="multiply" selected>multiply</option>
-                      <option value="screen">screen</option>
-                      <option value="overlay">overlay</option>
-                      <option value="darken">darken</option>
-                      <option value="lighten">lighten</option>
-                      <option value="color-dodge">color-dodge</option>
-                      <option value="saturation">saturation</option>
-                      <option value="color">color</option>
-                      <option value="luminosity">luminosity</option>
-                    </select>
-                    <label>data-bg-image-blur (blur in pixels, eg: 5)</label>
-                    <input type="text" name="data-bg-image-blur" value="0">
-
-                    <h5>Gradient Attributes (Third Layer)</h5>
-                    <label>data-bg-gradient-start (color, #hex, rgba etc)</label>
-                    <input type="text" name="data-bg-gradient-start" value="red">
-                    <label>data-bg-gradient-end (color, #hex, rgba etc)</label>
-                    <input type="text" name="data-bg-gradient-end" value="purple">
-                    <label>data-bg-gradient-rotation (rotation in degrees eg: 45 or -45)</label>
-                    <input type="text" name="data-bg-gradient-rotation" value="180">
-                    <label>data-bg-gradient-opacity (0 > 1)</label>
-                    <input type="text" name="data-bg-gradient-opacity" value="0.6">
-
-                  </form>
-                </div>
-              </div>
-
-              <h5>Requirments</h5>
-              <ol>
-                <li>A div element with any one of the follow attributes set <code>data-bg-image</code>, <code>data-bg-gradient-start</code> or <code>data-bg-color</code></li>
-              </ol>
-
-              <h5>Javascript Awesome-sauce</h5>
-              <p>Out of the box Javascript can't directly listen for data-attribute changes, however thanks to <code>mutationObserver</code> we can listen for changes relating to our background attributes and update on the fly. Ideal for single page applications that might pass background images as props.</p>
-
-              <div class="deboss">
-                <table class="full-width">
-                  <thead>
-                    <th style="min-width: 250px;">Attribute</th>
-                    <th>Description</th>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td>data-bg-color</td>
-                      <td>The base color layer. <br>
-                        <small class="color-red">This can be a named, hex, rgb, hsl, hwb, cmyk or ncol value.</small></td>
-                    </tr>
-                    <tr>
-                      <td>data-bg-color-opacity</td>
-                      <td>The opacity for the base color</td>
-                    </tr>
-                  </tbody>
-                  <tr>
-                    <td>data-bg-image</td>
-                    <td>The image layer.</td>
-                  </tr>
-                  <tr>
-                    <td>data-bg-image-opacity</td>
-                    <td>The opacity for the image layer.</td>
-                  </tr>
-                  <tr>
-                    <td>data-bg-image-blend</td>
-                    <td>The image blend mode. <br>
-                      <small class="color-red">This can be normal, multiply, screen, overlay, darken, lighten, color-dodge, saturation, color or luminosity.</small></td>
-                  </tr>
-                  <tr>
-                    <td>data-bg-gradient-start</td>
-                    <td>The first color in the gradient layer.</td>
-                  </tr>
-                  <tr>
-                    <td>data-bg-gradient-end</td>
-                    <td>The second color in the gradient layer.</td>
-                  </tr>
-                  <tr>
-                    <td>data-bg-gradient-rotation</td>
-                    <td>The rotation in degrees of the gradient layer.</td>
-                  </tr>
-                  <tr>
-                    <td>data-bg-gradient-opacity</td>
-                    <td>The opacity of the gradient layer.</td>
-                  </tr>
-                </tbody>
-                </table>
-              </div>
-
-            </div>
-
             <!-- STICKIES -->
             <div id="stickies" class="box margin-bottom--x4">
               <h2 class="size--x2">Stickies</h2>
@@ -555,79 +629,6 @@
               </div>
             </div>
 
-            <!-- RESPONSIVE CLASSES -->
-            <div id="classes" class="box margin-bottom--x4">
-              <h2 class="size--x2">Responsive Classes</h2>
-
-              <p>Blox has two types of responsive class systems; Viewport and Component. Viewport responsive classes relate to the window dimensions and component classes relate to the dimensions of an indivual element.</p>
-
-              <h3>Component</h3>
-              <div id="responsive-component"
-              style="max-width: 100%; min-width: 150px; min-height: 100px; width: 100%; height: 400px;"
-              class="rounded border padding shadow-lrg margin-bottom--x2 resize text-center color-white headers-white"
-              data-responsive
-              data-bg-color="white"
-              data-bg-image-blur="0"
-              >
-                <div class="transform-center-y position-relative overflow-hidden" style="pointer-events: none;">
-                  <div class="show-square">
-                    <h3 class="size--x2 weight-200">Square.</h3>
-                    <p class="tight"><code>.isSquare</code> is applied by default and <code>.show-square</code> is being used to show this text. Add your own classes with <code>data-classes-square=""</code> </p>
-                  </div>
-                  <div class="show-tall">
-                    <h3 class="size--x2 weight-200">Tall.</h3>
-                    <p class="tight"><code>.isTall</code> is applied by default and <code>.show-tall</code> is being used to show this text. Add your own classes with <code>data-classes-tall=""</code> </p>
-                  </div>
-                  <div class="show-wide">
-                    <h3 class="size--x2 weight-200">Wide.</h3>
-                    <p class="tight"><code>.isWide</code> is applied by default and <code>.show-wide</code> is being used to show this text. Add your own classes with <code>data-classes-wide=""</code> </p>
-                  </div>
-                </div>
-                <div class="resize-corner"></div>
-              </div>
-
-              <h5>Methods</h5>
-              <p>Select either of the two methods below to get responsive components working.</p>
-
-              <div class="boxes" data-gutters="nested">
-                <div class="box" data-span-lrg="6">
-                  <h6>data-responsive-compenent</h6>
-                  <p>Adding <code>data-responsive</code> to an element will enable base utility classes (.isWide, .isTall, .isSquare) and trigger events when the element changes state.</p>
-                </div>
-                <div class="box" data-span-lrg="6">
-                  <h6>data-classes-x=""</h6>
-                  <p>Alternatively, if you want to add classes to the element for certain states, any one of the following attributes will trigger the base functionalty plus add your classes for appropriate states: <code>data-classes-wide=""</code>, <code>data-classes-tall=""</code> and <code>data-classes-square=""</code>.</p>
-                </div>
-              </div>
-
-              <div class="deboss">
-                <table class="full-width">
-                  <thead>
-                    <th>Attribute</th>
-                    <th>Description</th>
-                  </thead>
-                  <tr>
-                    <td>data-classes-wide="..."</td>
-                    <td>Classes while element is wide.</td>
-                  </tr>
-                  <tr>
-                    <td>data-classes-tall="..."</td>
-                    <td>Classes while element is tall.</td>
-                  </tr>
-                  <tr>
-                    <td>data-classes-square="..."</td>
-                    <td>Classes while element is square.</td>
-                  </tr>
-                  <tr>
-                    <td>data-responsive</td>
-                    <td>Adds utilility classes (.isTall, .isWide, .isSquare) and triggers events on window.<br>
-                      <small class="color-red--lighter-1">Events are named "component-resized:ID", where ID is the id of the resized element.</small>
-                      <small class="color-red--lighter-1">This attribute is not nessecary if your using data-classes-wide (tall, square etc) already.</small>
-                    </td>
-                  </tr>
-                </table>
-              </div>
-            </div>
 
             <!-- BUTTONS -->
             <div id="buttons" class="box margin-bottom--x4">
