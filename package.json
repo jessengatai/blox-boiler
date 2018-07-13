@@ -1,6 +1,6 @@
 {
   "name": "blox-boiler",
-  "version": "0.0.5",
+  "version": "0.0.501",
   "description": "A function-first front-end boilerplate.",
   "main": "index.js",
   "scripts": {
@@ -17,8 +17,7 @@
   },
   "homepage": "https://github.com/jessengatai/blox-boiler#readme",
   "dependencies": {
-    "jquery": "^3.3.1",
-    "prismjs": "^1.13.0"
+    "jquery": "^3.3.1"
   },
   "devDependencies": {
     "babel-core": "^6.26.3",
