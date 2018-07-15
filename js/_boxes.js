@@ -1,4 +1,4 @@
-jQuery(document).ready(function($){
+document.addEventListener("DOMContentLoaded", function(event) {
 
   /**
    * Adds row classes to our .boxes
@@ -7,46 +7,51 @@ jQuery(document).ready(function($){
 
     // setup some big scope variables
     const ww = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
-    const boxContainers = $(`.boxes[data-rowclasses]`);
+    const boxContainers = document.querySelectorAll('.boxes[data-rowclasses]');
 
     // run through each element that uses responsive classes
     if (boxContainers.length) {
-      $.each(boxContainers, function(index,object){
+      boxContainers.forEach( function(object, index) {
 
         // get the width of the container and setup the children
-        const children = $(object).children('.box');
-        const lastChild = children.last();
+        const children = object.querySelectorAll('.box');
+        const lastChild = children[children.length - 1];
         let rowCount = 0;
 
         // clean up the .row-x classes
-        children.removeClass(function (index, className) {
-          return (className.match (/(^|\s)row-\S+/g) || []).join(' ');
-        });
+        for (var i = 0; i < children.length; i++) {
+          var prefix = "row-";
+          var classes = children[i].className.split(" ").filter(function(c) {
+            return c.lastIndexOf(prefix, 0) !== 0;
+          });
+          children[i].className = classes.join(" ").trim();
+        }
 
         // run through each box and apply row class
-        $.each(children, function(index,box){
-          const currentNode = $(box).get();
-          const previousNode = $(box).prev().get();
+        for (var i = 0; i < children.length; i++) {
+          const currentNode = children[i];
+          const previousNode = children[i - 1];
 
           // check if we are on a new row
           if (
             // if this is the first box
-            $(box).is(':first-child')
+            currentNode === children[0]
             // or if the top offset of this box doesn't match the previous siblings offset
-            || currentNode[0].offsetTop !== previousNode[0].offsetTop
+            || currentNode.offsetTop !== previousNode.offsetTop
           ) {
             rowCount++;
           }
 
           // check if this box is in the last row
-          if( currentNode[0].offsetTop === lastChild[0].offsetTop ) {
-            $(box).addClass('row-last');
+          if( currentNode.offsetTop === lastChild.offsetTop ) {
+            currentNode.className += ' row-last';
           }
 
           // add our class!
-          $(box).addClass(`row-${rowCount}`);
+          currentNode.className += ` row-${rowCount}`;
 
-        }) // end each .box
+        } // end each .box
+
       }) // end each .boxes
     }// end .boxes exist check
   } // end runBoxRowClasses()
@@ -55,9 +60,9 @@ jQuery(document).ready(function($){
    * Handle responsive changes
    * @param  {object} e the event
    */
-  $(window).on('resize', function(e) {
+  window.onresize = function(event) {
     runBoxRowClasses();
-  });
+  };
   runBoxRowClasses();
 
 });
