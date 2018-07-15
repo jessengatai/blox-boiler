@@ -1,10 +1,10 @@
 // colors
-$red: #ff2628;
+$red: #EF3555;
 $orange: #F3AD00;
 $yellow: #F4E829;
 $pink: #FD9D98;
 $purple: #4b11c3;
-$blue: #4302F8;
+$blue: #1642D1;
 $aqua: #3FE3FE;
 $green: #00FF8D;
 $black: #17191f;
@@ -450,7 +450,6 @@ BACKGROUND OPACITY
   } @else {
     @return lighten($color, 10);
   }
-
 }
 
 /* reset */
@@ -1516,7 +1515,7 @@ DEBOSS
 .deboss,
 [class*="deboss-"] {
   background: $white;
-  border: solid 1px darken($white,10);
+  border: solid 1px darken($white,5);
   box-shadow: 0 3px 7px rgba(0,0,0,.03);
   border-radius: 6px;
   padding: $paddingY $paddingX;
@@ -1531,8 +1530,8 @@ DEBOSS
 @mixin debossColors($colors, $values){
   @for $i from 1 through length($colors) {
     :not(.inverted) & .deboss--#{nth($colors, $i)} {
-      background-color: lighten( nth($values, $i), 25);
-      border-color: lighten( nth($values, $i), 15);
+      background-color: mix( nth($values, $i), $white, 70);
+      border-color: mix( nth($values, $i), $white, 80);
     }
   }
 }
