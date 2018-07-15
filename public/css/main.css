@@ -32,7 +32,7 @@ a {
   color: #17191f;
   text-decoration: underline; }
   a:hover {
-    color: #0e0090;
+    color: #1642D1;
     text-decoration: underline; }
   a.button {
     text-decoration: inherit; }
@@ -352,17 +352,17 @@ button,
       color: #37475d; }
   button.red,
   .button.red {
-    background: #ff2628;
-    border-color: #f20002;
-    border-bottom-color: #f70002;
+    background: #EF3555;
+    border-color: #df1235;
+    border-bottom-color: #e41236;
     color: black; }
     button.red:hover, button.red[active="true"],
     .button.red:hover,
     .button.red[active="true"] {
-      background: #ff595b;
-      border-color: #ff2b2d;
-      border-bottom-color: #ff1214;
-      color: #260000; }
+      background: #f3647d;
+      border-color: #ef3a59;
+      border-bottom-color: #ee2245;
+      color: #220308; }
   button.orange,
   .button.orange {
     background: #F3AD00;
@@ -417,16 +417,16 @@ button,
       color: black; }
   button.blue,
   .button.blue {
-    background: #0e0090;
-    border-color: #09005d;
-    border-bottom-color: #0a0062;
+    background: #1642D1;
+    border-color: #1133a3;
+    border-bottom-color: #1235a7;
     color: white; }
     button.blue:hover, button.blue[active="true"],
     .button.blue:hover,
     .button.blue[active="true"] {
-      background: #2811ff;
-      border-color: #1600e2;
-      border-bottom-color: #1300c8;
+      background: #315ce9;
+      border-color: #1643d6;
+      border-bottom-color: #143cbf;
       color: white; }
   button.aqua,
   .button.aqua {
@@ -2195,44 +2195,44 @@ DEBOSS
   border-color: white; }
 
 :not(.inverted) .deboss--black {
-  background-color: #8b8c8f;
-  border-color: #747579; }
+  background-color: #5d5e62;
+  border-color: #45474c; }
 
 :not(.inverted) .deboss--grey {
-  background-color: #dee3eb;
-  border-color: #d7dde7; }
+  background-color: #d0d8e3;
+  border-color: #c9d2df; }
 
 :not(.inverted) .deboss--red {
-  background-color: #ff9394;
-  border-color: #ff7d7e; }
+  background-color: #f47288;
+  border-color: #f25d77; }
 
 :not(.inverted) .deboss--orange {
-  background-color: #f9d680;
-  border-color: #f8ce66; }
+  background-color: #f7c64d;
+  border-color: #f5bd33; }
 
 :not(.inverted) .deboss--yellow {
-  background-color: #faf494;
-  border-color: #f8f17f; }
+  background-color: #f7ef69;
+  border-color: #f6ed54; }
 
 :not(.inverted) .deboss--pink {
-  background-color: #fececc;
-  border-color: #fec4c1; }
+  background-color: #febab7;
+  border-color: #fdb1ad; }
 
 :not(.inverted) .deboss--green {
-  background-color: #80ffc6;
-  border-color: #66ffbb; }
+  background-color: #4dffaf;
+  border-color: #33ffa4; }
 
 :not(.inverted) .deboss--blue {
-  background-color: #8780c8;
-  border-color: #6e66bc; }
+  background-color: #5c7bdf;
+  border-color: #4568da; }
 
 :not(.inverted) .deboss--aqua {
-  background-color: #9ff1ff;
-  border-color: #8ceefe; }
+  background-color: #79ebfe;
+  border-color: #65e9fe; }
 
 :not(.inverted) .deboss--purple {
-  background-color: #a588e1;
-  border-color: mediumpurple; }
+  background-color: #8158d5;
+  border-color: #6f41cf; }
 
 /*
 SHADOWS
@@ -2345,19 +2345,19 @@ BORDERS
   border-right-color: #BCC7D7; }
 
 .border-all--red {
-  border-color: #ff2628; }
+  border-color: #EF3555; }
 
 .border-top--red {
-  border-top-color: #ff2628; }
+  border-top-color: #EF3555; }
 
 .border-bottom--red {
-  border-bottom-color: #ff2628; }
+  border-bottom-color: #EF3555; }
 
 .border-left--red {
-  border-left-color: #ff2628; }
+  border-left-color: #EF3555; }
 
 .border-right--red {
-  border-right-color: #ff2628; }
+  border-right-color: #EF3555; }
 
 .border-all--orange {
   border-color: #F3AD00; }
@@ -2420,19 +2420,19 @@ BORDERS
   border-right-color: #00FF8D; }
 
 .border-all--blue {
-  border-color: #0e0090; }
+  border-color: #1642D1; }
 
 .border-top--blue {
-  border-top-color: #0e0090; }
+  border-top-color: #1642D1; }
 
 .border-bottom--blue {
-  border-bottom-color: #0e0090; }
+  border-bottom-color: #1642D1; }
 
 .border-left--blue {
-  border-left-color: #0e0090; }
+  border-left-color: #1642D1; }
 
 .border-right--blue {
-  border-right-color: #0e0090; }
+  border-right-color: #1642D1; }
 
 .border-all--aqua {
   border-color: #3FE3FE; }
@@ -2660,61 +2660,61 @@ BACKGROUND COLORS
   background-color: white; }
 
 .bg-red {
-  background-color: #ff2628; }
+  background-color: #EF3555; }
 
 .bg-red--darker-1 {
-  background-color: #ff1719; }
+  background-color: #ee2749; }
 
 .bg-red--darker-2 {
-  background-color: #f20002; }
+  background-color: #df1235; }
 
 .bg-red--darker-3 {
-  background-color: #d90002; }
+  background-color: #c8102f; }
 
 .bg-red--darker-4 {
-  background-color: #bf0002; }
+  background-color: #b00e2a; }
 
 .bg-red--darker-5 {
-  background-color: #a60002; }
+  background-color: #980c24; }
 
 .bg-red--darker-6 {
-  background-color: #8c0001; }
+  background-color: #810a1f; }
 
 .bg-red--darker-7 {
-  background-color: #730001; }
+  background-color: #690819; }
 
 .bg-red--darker-8 {
-  background-color: #590001; }
+  background-color: #520613; }
 
 .bg-red--darker-9 {
-  background-color: #400001; }
+  background-color: #3a050e; }
 
 .bg-red--darker-10 {
-  background-color: #260000; }
+  background-color: #220308; }
 
 .bg-red--lighter-1 {
-  background-color: #ff3537; }
+  background-color: #f04361; }
 
 .bg-red--lighter-2 {
-  background-color: #ff595b; }
+  background-color: #f3647d; }
 
 .bg-red--lighter-3 {
-  background-color: #ff7374; }
+  background-color: #f57c91; }
 
 .bg-red--lighter-4 {
-  background-color: #ff8c8d; }
+  background-color: #f694a5; }
 
 .bg-red--lighter-5 {
-  background-color: #ffa6a6; }
+  background-color: #f8abb8; }
 
 .bg-red--lighter-6 {
-  background-color: #ffbfc0; }
+  background-color: #fac3cc; }
 
 .bg-red--lighter-7 {
-  background-color: #ffd9d9; }
+  background-color: #fcdae0; }
 
 .bg-red--lighter-8 {
-  background-color: #fff2f2; }
+  background-color: #fef2f4; }
 
 .bg-red--lighter-9 {
   background-color: white; }
@@ -2975,67 +2975,67 @@ BACKGROUND COLORS
   background-color: white; }
 
 .bg-blue {
-  background-color: #0e0090; }
+  background-color: #1642D1; }
 
 .bg-blue--darker-1 {
-  background-color: #0d0081; }
+  background-color: #153ec3; }
 
 .bg-blue--darker-2 {
-  background-color: #09005d; }
+  background-color: #1133a3; }
 
 .bg-blue--darker-3 {
-  background-color: #070044; }
+  background-color: #0f2c8c; }
 
 .bg-blue--darker-4 {
-  background-color: #04002a; }
+  background-color: #0c2575; }
 
 .bg-blue--darker-5 {
-  background-color: #020011; }
+  background-color: #0a1e5e; }
 
 .bg-blue--darker-6 {
-  background-color: black; }
+  background-color: #071647; }
 
 .bg-blue--darker-7 {
-  background-color: black; }
+  background-color: #050f30; }
 
 .bg-blue--darker-8 {
-  background-color: black; }
+  background-color: #030818; }
 
 .bg-blue--darker-9 {
-  background-color: black; }
+  background-color: #000001; }
 
 .bg-blue--darker-10 {
   background-color: black; }
 
 .bg-blue--lighter-1 {
-  background-color: #0f009f; }
+  background-color: #1746df; }
 
 .bg-blue--lighter-2 {
-  background-color: #1300c3; }
+  background-color: #315ce9; }
 
 .bg-blue--lighter-3 {
-  background-color: #1500dd; }
+  background-color: #486eec; }
 
 .bg-blue--lighter-4 {
-  background-color: #1800f6; }
+  background-color: #5f81ee; }
 
 .bg-blue--lighter-5 {
-  background-color: #2811ff; }
+  background-color: #7693f1; }
 
 .bg-blue--lighter-6 {
-  background-color: #3f2aff; }
+  background-color: #8da5f3; }
 
 .bg-blue--lighter-7 {
-  background-color: #5644ff; }
+  background-color: #a4b7f5; }
 
 .bg-blue--lighter-8 {
-  background-color: #6d5dff; }
+  background-color: #bbc9f8; }
 
 .bg-blue--lighter-9 {
-  background-color: #8477ff; }
+  background-color: #d2dcfa; }
 
 .bg-blue--lighter-10 {
-  background-color: #9b90ff; }
+  background-color: #e9eefd; }
 
 .bg-aqua {
   background-color: #3FE3FE; }
@@ -3368,64 +3368,64 @@ TEXT COLORS (needs to be cleaned up a lot, not good for final css filesize)
   color: white; }
 
 .color-red {
-  color: #ff2628; }
+  color: #EF3555; }
 
 .color-red--contrast {
   color: black; }
 
 .color-red--darker-1 {
-  color: #ff1719; }
+  color: #ee2749; }
 
 .color-red--darker-2 {
-  color: #f20002; }
+  color: #df1235; }
 
 .color-red--darker-3 {
-  color: #d90002; }
+  color: #c8102f; }
 
 .color-red--darker-4 {
-  color: #bf0002; }
+  color: #b00e2a; }
 
 .color-red--darker-5 {
-  color: #a60002; }
+  color: #980c24; }
 
 .color-red--darker-6 {
-  color: #8c0001; }
+  color: #810a1f; }
 
 .color-red--darker-7 {
-  color: #730001; }
+  color: #690819; }
 
 .color-red--darker-8 {
-  color: #590001; }
+  color: #520613; }
 
 .color-red--darker-9 {
-  color: #400001; }
+  color: #3a050e; }
 
 .color-red--darker-10 {
-  color: #260000; }
+  color: #220308; }
 
 .color-red--lighter-1 {
-  color: #ff3537; }
+  color: #f04361; }
 
 .color-red--lighter-2 {
-  color: #ff595b; }
+  color: #f3647d; }
 
 .color-red--lighter-3 {
-  color: #ff7374; }
+  color: #f57c91; }
 
 .color-red--lighter-4 {
-  color: #ff8c8d; }
+  color: #f694a5; }
 
 .color-red--lighter-5 {
-  color: #ffa6a6; }
+  color: #f8abb8; }
 
 .color-red--lighter-6 {
-  color: #ffbfc0; }
+  color: #fac3cc; }
 
 .color-red--lighter-7 {
-  color: #ffd9d9; }
+  color: #fcdae0; }
 
 .color-red--lighter-8 {
-  color: #fff2f2; }
+  color: #fef2f4; }
 
 .color-red--lighter-9 {
   color: white; }
@@ -3698,70 +3698,70 @@ TEXT COLORS (needs to be cleaned up a lot, not good for final css filesize)
   color: white; }
 
 .color-blue {
-  color: #0e0090; }
+  color: #1642D1; }
 
 .color-blue--contrast {
   color: white; }
 
 .color-blue--darker-1 {
-  color: #0d0081; }
+  color: #153ec3; }
 
 .color-blue--darker-2 {
-  color: #09005d; }
+  color: #1133a3; }
 
 .color-blue--darker-3 {
-  color: #070044; }
+  color: #0f2c8c; }
 
 .color-blue--darker-4 {
-  color: #04002a; }
+  color: #0c2575; }
 
 .color-blue--darker-5 {
-  color: #020011; }
+  color: #0a1e5e; }
 
 .color-blue--darker-6 {
-  color: black; }
+  color: #071647; }
 
 .color-blue--darker-7 {
-  color: black; }
+  color: #050f30; }
 
 .color-blue--darker-8 {
-  color: black; }
+  color: #030818; }
 
 .color-blue--darker-9 {
-  color: black; }
+  color: #000001; }
 
 .color-blue--darker-10 {
   color: black; }
 
 .color-blue--lighter-1 {
-  color: #0f009f; }
+  color: #1746df; }
 
 .color-blue--lighter-2 {
-  color: #1300c3; }
+  color: #315ce9; }
 
 .color-blue--lighter-3 {
-  color: #1500dd; }
+  color: #486eec; }
 
 .color-blue--lighter-4 {
-  color: #1800f6; }
+  color: #5f81ee; }
 
 .color-blue--lighter-5 {
-  color: #2811ff; }
+  color: #7693f1; }
 
 .color-blue--lighter-6 {
-  color: #3f2aff; }
+  color: #8da5f3; }
 
 .color-blue--lighter-7 {
-  color: #5644ff; }
+  color: #a4b7f5; }
 
 .color-blue--lighter-8 {
-  color: #6d5dff; }
+  color: #bbc9f8; }
 
 .color-blue--lighter-9 {
-  color: #8477ff; }
+  color: #d2dcfa; }
 
 .color-blue--lighter-10 {
-  color: #9b90ff; }
+  color: #e9eefd; }
 
 .color-aqua {
   color: #3FE3FE; }
@@ -4508,7 +4508,7 @@ h3.headers-red,
 h4.headers-red,
 h5.headers-red,
 h6.headers-red {
-  color: #ff2628; }
+  color: #EF3555; }
 
 .headers-red--contrast h1, .headers-red--contrast h2, .headers-red--contrast h3, .headers-red--contrast h4, .headers-red--contrast h5, .headers-red--contrast h6,
 h1.headers-red--contrast,
@@ -4526,7 +4526,7 @@ h3.headers-red--darker-1,
 h4.headers-red--darker-1,
 h5.headers-red--darker-1,
 h6.headers-red--darker-1 {
-  color: #ff1719; }
+  color: #ee2749; }
 
 .headers-red--darker-2 h1, .headers-red--darker-2 h2, .headers-red--darker-2 h3, .headers-red--darker-2 h4, .headers-red--darker-2 h5, .headers-red--darker-2 h6,
 h1.headers-red--darker-2,
@@ -4535,7 +4535,7 @@ h3.headers-red--darker-2,
 h4.headers-red--darker-2,
 h5.headers-red--darker-2,
 h6.headers-red--darker-2 {
-  color: #f20002; }
+  color: #df1235; }
 
 .headers-red--darker-3 h1, .headers-red--darker-3 h2, .headers-red--darker-3 h3, .headers-red--darker-3 h4, .headers-red--darker-3 h5, .headers-red--darker-3 h6,
 h1.headers-red--darker-3,
@@ -4544,7 +4544,7 @@ h3.headers-red--darker-3,
 h4.headers-red--darker-3,
 h5.headers-red--darker-3,
 h6.headers-red--darker-3 {
-  color: #d90002; }
+  color: #c8102f; }
 
 .headers-red--darker-4 h1, .headers-red--darker-4 h2, .headers-red--darker-4 h3, .headers-red--darker-4 h4, .headers-red--darker-4 h5, .headers-red--darker-4 h6,
 h1.headers-red--darker-4,
@@ -4553,7 +4553,7 @@ h3.headers-red--darker-4,
 h4.headers-red--darker-4,
 h5.headers-red--darker-4,
 h6.headers-red--darker-4 {
-  color: #bf0002; }
+  color: #b00e2a; }
 
 .headers-red--darker-5 h1, .headers-red--darker-5 h2, .headers-red--darker-5 h3, .headers-red--darker-5 h4, .headers-red--darker-5 h5, .headers-red--darker-5 h6,
 h1.headers-red--darker-5,
@@ -4562,7 +4562,7 @@ h3.headers-red--darker-5,
 h4.headers-red--darker-5,
 h5.headers-red--darker-5,
 h6.headers-red--darker-5 {
-  color: #a60002; }
+  color: #980c24; }
 
 .headers-red--darker-6 h1, .headers-red--darker-6 h2, .headers-red--darker-6 h3, .headers-red--darker-6 h4, .headers-red--darker-6 h5, .headers-red--darker-6 h6,
 h1.headers-red--darker-6,
@@ -4571,7 +4571,7 @@ h3.headers-red--darker-6,
 h4.headers-red--darker-6,
 h5.headers-red--darker-6,
 h6.headers-red--darker-6 {
-  color: #8c0001; }
+  color: #810a1f; }
 
 .headers-red--darker-7 h1, .headers-red--darker-7 h2, .headers-red--darker-7 h3, .headers-red--darker-7 h4, .headers-red--darker-7 h5, .headers-red--darker-7 h6,
 h1.headers-red--darker-7,
@@ -4580,7 +4580,7 @@ h3.headers-red--darker-7,
 h4.headers-red--darker-7,
 h5.headers-red--darker-7,
 h6.headers-red--darker-7 {
-  color: #730001; }
+  color: #690819; }
 
 .headers-red--darker-8 h1, .headers-red--darker-8 h2, .headers-red--darker-8 h3, .headers-red--darker-8 h4, .headers-red--darker-8 h5, .headers-red--darker-8 h6,
 h1.headers-red--darker-8,
@@ -4589,7 +4589,7 @@ h3.headers-red--darker-8,
 h4.headers-red--darker-8,
 h5.headers-red--darker-8,
 h6.headers-red--darker-8 {
-  color: #590001; }
+  color: #520613; }
 
 .headers-red--darker-9 h1, .headers-red--darker-9 h2, .headers-red--darker-9 h3, .headers-red--darker-9 h4, .headers-red--darker-9 h5, .headers-red--darker-9 h6,
 h1.headers-red--darker-9,
@@ -4598,7 +4598,7 @@ h3.headers-red--darker-9,
 h4.headers-red--darker-9,
 h5.headers-red--darker-9,
 h6.headers-red--darker-9 {
-  color: #400001; }
+  color: #3a050e; }
 
 .headers-red--darker-10 h1, .headers-red--darker-10 h2, .headers-red--darker-10 h3, .headers-red--darker-10 h4, .headers-red--darker-10 h5, .headers-red--darker-10 h6,
 h1.headers-red--darker-10,
@@ -4607,7 +4607,7 @@ h3.headers-red--darker-10,
 h4.headers-red--darker-10,
 h5.headers-red--darker-10,
 h6.headers-red--darker-10 {
-  color: #260000; }
+  color: #220308; }
 
 .headers-red--lighter-1 h1, .headers-red--lighter-1 h2, .headers-red--lighter-1 h3, .headers-red--lighter-1 h4, .headers-red--lighter-1 h5, .headers-red--lighter-1 h6,
 h1.headers-red--lighter-1,
@@ -4616,7 +4616,7 @@ h3.headers-red--lighter-1,
 h4.headers-red--lighter-1,
 h5.headers-red--lighter-1,
 h6.headers-red--lighter-1 {
-  color: #ff3537; }
+  color: #f04361; }
 
 .headers-red--lighter-2 h1, .headers-red--lighter-2 h2, .headers-red--lighter-2 h3, .headers-red--lighter-2 h4, .headers-red--lighter-2 h5, .headers-red--lighter-2 h6,
 h1.headers-red--lighter-2,
@@ -4625,7 +4625,7 @@ h3.headers-red--lighter-2,
 h4.headers-red--lighter-2,
 h5.headers-red--lighter-2,
 h6.headers-red--lighter-2 {
-  color: #ff595b; }
+  color: #f3647d; }
 
 .headers-red--lighter-3 h1, .headers-red--lighter-3 h2, .headers-red--lighter-3 h3, .headers-red--lighter-3 h4, .headers-red--lighter-3 h5, .headers-red--lighter-3 h6,
 h1.headers-red--lighter-3,
@@ -4634,7 +4634,7 @@ h3.headers-red--lighter-3,
 h4.headers-red--lighter-3,
 h5.headers-red--lighter-3,
 h6.headers-red--lighter-3 {
-  color: #ff7374; }
+  color: #f57c91; }
 
 .headers-red--lighter-4 h1, .headers-red--lighter-4 h2, .headers-red--lighter-4 h3, .headers-red--lighter-4 h4, .headers-red--lighter-4 h5, .headers-red--lighter-4 h6,
 h1.headers-red--lighter-4,
@@ -4643,7 +4643,7 @@ h3.headers-red--lighter-4,
 h4.headers-red--lighter-4,
 h5.headers-red--lighter-4,
 h6.headers-red--lighter-4 {
-  color: #ff8c8d; }
+  color: #f694a5; }
 
 .headers-red--lighter-5 h1, .headers-red--lighter-5 h2, .headers-red--lighter-5 h3, .headers-red--lighter-5 h4, .headers-red--lighter-5 h5, .headers-red--lighter-5 h6,
 h1.headers-red--lighter-5,
@@ -4652,7 +4652,7 @@ h3.headers-red--lighter-5,
 h4.headers-red--lighter-5,
 h5.headers-red--lighter-5,
 h6.headers-red--lighter-5 {
-  color: #ffa6a6; }
+  color: #f8abb8; }
 
 .headers-red--lighter-6 h1, .headers-red--lighter-6 h2, .headers-red--lighter-6 h3, .headers-red--lighter-6 h4, .headers-red--lighter-6 h5, .headers-red--lighter-6 h6,
 h1.headers-red--lighter-6,
@@ -4661,7 +4661,7 @@ h3.headers-red--lighter-6,
 h4.headers-red--lighter-6,
 h5.headers-red--lighter-6,
 h6.headers-red--lighter-6 {
-  color: #ffbfc0; }
+  color: #fac3cc; }
 
 .headers-red--lighter-7 h1, .headers-red--lighter-7 h2, .headers-red--lighter-7 h3, .headers-red--lighter-7 h4, .headers-red--lighter-7 h5, .headers-red--lighter-7 h6,
 h1.headers-red--lighter-7,
@@ -4670,7 +4670,7 @@ h3.headers-red--lighter-7,
 h4.headers-red--lighter-7,
 h5.headers-red--lighter-7,
 h6.headers-red--lighter-7 {
-  color: #ffd9d9; }
+  color: #fcdae0; }
 
 .headers-red--lighter-8 h1, .headers-red--lighter-8 h2, .headers-red--lighter-8 h3, .headers-red--lighter-8 h4, .headers-red--lighter-8 h5, .headers-red--lighter-8 h6,
 h1.headers-red--lighter-8,
@@ -4679,7 +4679,7 @@ h3.headers-red--lighter-8,
 h4.headers-red--lighter-8,
 h5.headers-red--lighter-8,
 h6.headers-red--lighter-8 {
-  color: #fff2f2; }
+  color: #fef2f4; }
 
 .headers-red--lighter-9 h1, .headers-red--lighter-9 h2, .headers-red--lighter-9 h3, .headers-red--lighter-9 h4, .headers-red--lighter-9 h5, .headers-red--lighter-9 h6,
 h1.headers-red--lighter-9,
@@ -5498,7 +5498,7 @@ h3.headers-blue,
 h4.headers-blue,
 h5.headers-blue,
 h6.headers-blue {
-  color: #0e0090; }
+  color: #1642D1; }
 
 .headers-blue--contrast h1, .headers-blue--contrast h2, .headers-blue--contrast h3, .headers-blue--contrast h4, .headers-blue--contrast h5, .headers-blue--contrast h6,
 h1.headers-blue--contrast,
@@ -5516,7 +5516,7 @@ h3.headers-blue--darker-1,
 h4.headers-blue--darker-1,
 h5.headers-blue--darker-1,
 h6.headers-blue--darker-1 {
-  color: #0d0081; }
+  color: #153ec3; }
 
 .headers-blue--darker-2 h1, .headers-blue--darker-2 h2, .headers-blue--darker-2 h3, .headers-blue--darker-2 h4, .headers-blue--darker-2 h5, .headers-blue--darker-2 h6,
 h1.headers-blue--darker-2,
@@ -5525,7 +5525,7 @@ h3.headers-blue--darker-2,
 h4.headers-blue--darker-2,
 h5.headers-blue--darker-2,
 h6.headers-blue--darker-2 {
-  color: #09005d; }
+  color: #1133a3; }
 
 .headers-blue--darker-3 h1, .headers-blue--darker-3 h2, .headers-blue--darker-3 h3, .headers-blue--darker-3 h4, .headers-blue--darker-3 h5, .headers-blue--darker-3 h6,
 h1.headers-blue--darker-3,
@@ -5534,7 +5534,7 @@ h3.headers-blue--darker-3,
 h4.headers-blue--darker-3,
 h5.headers-blue--darker-3,
 h6.headers-blue--darker-3 {
-  color: #070044; }
+  color: #0f2c8c; }
 
 .headers-blue--darker-4 h1, .headers-blue--darker-4 h2, .headers-blue--darker-4 h3, .headers-blue--darker-4 h4, .headers-blue--darker-4 h5, .headers-blue--darker-4 h6,
 h1.headers-blue--darker-4,
@@ -5543,7 +5543,7 @@ h3.headers-blue--darker-4,
 h4.headers-blue--darker-4,
 h5.headers-blue--darker-4,
 h6.headers-blue--darker-4 {
-  color: #04002a; }
+  color: #0c2575; }
 
 .headers-blue--darker-5 h1, .headers-blue--darker-5 h2, .headers-blue--darker-5 h3, .headers-blue--darker-5 h4, .headers-blue--darker-5 h5, .headers-blue--darker-5 h6,
 h1.headers-blue--darker-5,
@@ -5552,7 +5552,7 @@ h3.headers-blue--darker-5,
 h4.headers-blue--darker-5,
 h5.headers-blue--darker-5,
 h6.headers-blue--darker-5 {
-  color: #020011; }
+  color: #0a1e5e; }
 
 .headers-blue--darker-6 h1, .headers-blue--darker-6 h2, .headers-blue--darker-6 h3, .headers-blue--darker-6 h4, .headers-blue--darker-6 h5, .headers-blue--darker-6 h6,
 h1.headers-blue--darker-6,
@@ -5561,7 +5561,7 @@ h3.headers-blue--darker-6,
 h4.headers-blue--darker-6,
 h5.headers-blue--darker-6,
 h6.headers-blue--darker-6 {
-  color: black; }
+  color: #071647; }
 
 .headers-blue--darker-7 h1, .headers-blue--darker-7 h2, .headers-blue--darker-7 h3, .headers-blue--darker-7 h4, .headers-blue--darker-7 h5, .headers-blue--darker-7 h6,
 h1.headers-blue--darker-7,
@@ -5570,7 +5570,7 @@ h3.headers-blue--darker-7,
 h4.headers-blue--darker-7,
 h5.headers-blue--darker-7,
 h6.headers-blue--darker-7 {
-  color: black; }
+  color: #050f30; }
 
 .headers-blue--darker-8 h1, .headers-blue--darker-8 h2, .headers-blue--darker-8 h3, .headers-blue--darker-8 h4, .headers-blue--darker-8 h5, .headers-blue--darker-8 h6,
 h1.headers-blue--darker-8,
@@ -5579,7 +5579,7 @@ h3.headers-blue--darker-8,
 h4.headers-blue--darker-8,
 h5.headers-blue--darker-8,
 h6.headers-blue--darker-8 {
-  color: black; }
+  color: #030818; }
 
 .headers-blue--darker-9 h1, .headers-blue--darker-9 h2, .headers-blue--darker-9 h3, .headers-blue--darker-9 h4, .headers-blue--darker-9 h5, .headers-blue--darker-9 h6,
 h1.headers-blue--darker-9,
@@ -5588,7 +5588,7 @@ h3.headers-blue--darker-9,
 h4.headers-blue--darker-9,
 h5.headers-blue--darker-9,
 h6.headers-blue--darker-9 {
-  color: black; }
+  color: #000001; }
 
 .headers-blue--darker-10 h1, .headers-blue--darker-10 h2, .headers-blue--darker-10 h3, .headers-blue--darker-10 h4, .headers-blue--darker-10 h5, .headers-blue--darker-10 h6,
 h1.headers-blue--darker-10,
@@ -5606,7 +5606,7 @@ h3.headers-blue--lighter-1,
 h4.headers-blue--lighter-1,
 h5.headers-blue--lighter-1,
 h6.headers-blue--lighter-1 {
-  color: #0f009f; }
+  color: #1746df; }
 
 .headers-blue--lighter-2 h1, .headers-blue--lighter-2 h2, .headers-blue--lighter-2 h3, .headers-blue--lighter-2 h4, .headers-blue--lighter-2 h5, .headers-blue--lighter-2 h6,
 h1.headers-blue--lighter-2,
@@ -5615,7 +5615,7 @@ h3.headers-blue--lighter-2,
 h4.headers-blue--lighter-2,
 h5.headers-blue--lighter-2,
 h6.headers-blue--lighter-2 {
-  color: #1300c3; }
+  color: #315ce9; }
 
 .headers-blue--lighter-3 h1, .headers-blue--lighter-3 h2, .headers-blue--lighter-3 h3, .headers-blue--lighter-3 h4, .headers-blue--lighter-3 h5, .headers-blue--lighter-3 h6,
 h1.headers-blue--lighter-3,
@@ -5624,7 +5624,7 @@ h3.headers-blue--lighter-3,
 h4.headers-blue--lighter-3,
 h5.headers-blue--lighter-3,
 h6.headers-blue--lighter-3 {
-  color: #1500dd; }
+  color: #486eec; }
 
 .headers-blue--lighter-4 h1, .headers-blue--lighter-4 h2, .headers-blue--lighter-4 h3, .headers-blue--lighter-4 h4, .headers-blue--lighter-4 h5, .headers-blue--lighter-4 h6,
 h1.headers-blue--lighter-4,
@@ -5633,7 +5633,7 @@ h3.headers-blue--lighter-4,
 h4.headers-blue--lighter-4,
 h5.headers-blue--lighter-4,
 h6.headers-blue--lighter-4 {
-  color: #1800f6; }
+  color: #5f81ee; }
 
 .headers-blue--lighter-5 h1, .headers-blue--lighter-5 h2, .headers-blue--lighter-5 h3, .headers-blue--lighter-5 h4, .headers-blue--lighter-5 h5, .headers-blue--lighter-5 h6,
 h1.headers-blue--lighter-5,
@@ -5642,7 +5642,7 @@ h3.headers-blue--lighter-5,
 h4.headers-blue--lighter-5,
 h5.headers-blue--lighter-5,
 h6.headers-blue--lighter-5 {
-  color: #2811ff; }
+  color: #7693f1; }
 
 .headers-blue--lighter-6 h1, .headers-blue--lighter-6 h2, .headers-blue--lighter-6 h3, .headers-blue--lighter-6 h4, .headers-blue--lighter-6 h5, .headers-blue--lighter-6 h6,
 h1.headers-blue--lighter-6,
@@ -5651,7 +5651,7 @@ h3.headers-blue--lighter-6,
 h4.headers-blue--lighter-6,
 h5.headers-blue--lighter-6,
 h6.headers-blue--lighter-6 {
-  color: #3f2aff; }
+  color: #8da5f3; }
 
 .headers-blue--lighter-7 h1, .headers-blue--lighter-7 h2, .headers-blue--lighter-7 h3, .headers-blue--lighter-7 h4, .headers-blue--lighter-7 h5, .headers-blue--lighter-7 h6,
 h1.headers-blue--lighter-7,
@@ -5660,7 +5660,7 @@ h3.headers-blue--lighter-7,
 h4.headers-blue--lighter-7,
 h5.headers-blue--lighter-7,
 h6.headers-blue--lighter-7 {
-  color: #5644ff; }
+  color: #a4b7f5; }
 
 .headers-blue--lighter-8 h1, .headers-blue--lighter-8 h2, .headers-blue--lighter-8 h3, .headers-blue--lighter-8 h4, .headers-blue--lighter-8 h5, .headers-blue--lighter-8 h6,
 h1.headers-blue--lighter-8,
@@ -5669,7 +5669,7 @@ h3.headers-blue--lighter-8,
 h4.headers-blue--lighter-8,
 h5.headers-blue--lighter-8,
 h6.headers-blue--lighter-8 {
-  color: #6d5dff; }
+  color: #bbc9f8; }
 
 .headers-blue--lighter-9 h1, .headers-blue--lighter-9 h2, .headers-blue--lighter-9 h3, .headers-blue--lighter-9 h4, .headers-blue--lighter-9 h5, .headers-blue--lighter-9 h6,
 h1.headers-blue--lighter-9,
@@ -5678,7 +5678,7 @@ h3.headers-blue--lighter-9,
 h4.headers-blue--lighter-9,
 h5.headers-blue--lighter-9,
 h6.headers-blue--lighter-9 {
-  color: #8477ff; }
+  color: #d2dcfa; }
 
 .headers-blue--lighter-10 h1, .headers-blue--lighter-10 h2, .headers-blue--lighter-10 h3, .headers-blue--lighter-10 h4, .headers-blue--lighter-10 h5, .headers-blue--lighter-10 h6,
 h1.headers-blue--lighter-10,
@@ -5687,7 +5687,7 @@ h3.headers-blue--lighter-10,
 h4.headers-blue--lighter-10,
 h5.headers-blue--lighter-10,
 h6.headers-blue--lighter-10 {
-  color: #9b90ff; }
+  color: #e9eefd; }
 
 .headers-aqua h1, .headers-aqua h2, .headers-aqua h3, .headers-aqua h4, .headers-aqua h5, .headers-aqua h6,
 h1.headers-aqua,

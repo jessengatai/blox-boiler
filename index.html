@@ -27,8 +27,8 @@
     </style>
 
   </head>
-  <body>
-    <!-- night-mode="on" class="inverted bg-black color-black--lighter-10 headers-white" -->
+  <body night-mode="on" class="inverted bg-black color-black--lighter-10 headers-white">
+
     <div id="header"
     data-bg-color="#17191f"
     data-bg-gradient-start="black"
@@ -44,9 +44,9 @@
           <span class="weight-200">..that still looks badass 🤞 </span>
         </h4>
         <div class="margin-top--x2">
-          <a data-classes-tny="full-width" class="button blue circular big" href="https://github.com/jessengatai/blox-boiler">👨🏽‍💻 GitHub</a>
-          <a data-classes-tny="full-width" class="button blue circular big" href="https://www.npmjs.com/package/blox-boiler">👩🏼‍💻 NPM</a>
-          <a data-classes-tny="full-width" class="button blue circular big" href="https://github.com/jessengatai">🐨 Mr. Jesse</a>
+          <a data-classes-tny="full-width" class="button black circular big" href="https://github.com/jessengatai/blox-boiler">👨🏽‍💻 GitHub</a>
+          <a data-classes-tny="full-width" class="button black circular big" href="https://www.npmjs.com/package/blox-boiler">👩🏼‍💻 NPM</a>
+          <a data-classes-tny="full-width" class="button black circular big" href="https://github.com/jessengatai">🐨 Mr. Jesse</a>
         </div>
       </div>
     </div>
@@ -98,7 +98,7 @@
             </div>
 
             <!-- BACKGROUNDS -->
-            <div id="backgrounds" class="box  margin-bottom--x2">
+            <div id="backgrounds" class="box  margin-bottom--x4">
               <h2 class="size--x2">Backgrounds</h2>
 
               <p>Working with images, gradients and color is my favourite part of front-end development. Blox let's us make quick work of such matters by providing a robust set of data attributes to utilise. Let's take a closer look at the background from the above "left modal" example.</p>
@@ -118,23 +118,21 @@
                   data-bg-image-blend="multiply"
                   data-bg-image-blur="0"
                   data-bg-gradient-start="red"
-                  data-bg-gradient-end="purple"
-                  data-bg-gradient-rotation="180"
-                  data-bg-gradient-opacity="0.6"
+                  data-bg-gradient-end="blue"
+                  data-bg-gradient-rotation="45"
+                  data-bg-gradient-opacity="0.7"
                   >
-                    <h3 class="size--x2 weight-200 text-shadow tight">Boom <br> As Dude.</h3>
-                    <p class="margin-bottom--x2">With some text and some data-bg attribute goodness.</p>
+                    <h4 class="size--x2 weight-200 text-shadow">Woah.</h4>
+                    <h6 class="margin-bottom--x2">Just a little text and some data-bg attribute goodness.</h6>
                     <label for="username">Username</label>
                     <input class="bg-white" type="text" name="" value="">
                     <label for="username">Password</label>
                     <input class="bg-white" type="password" name="" value="">
+                    <button class="margin-top full-width big orange">Login</button>
                     <small class="color-white--darker-5">Forgot your password?</small>
-                    <button
-                    data-close-modal="left-modal"
-                    class="full-width big green">Login</button>
                   </div>
                 </div>
-                <div class="box deboss" data-span-lrg="6">
+                <div class="box deboss bg-white--darker-1" data-span-lrg="6">
                   <form id="background-demo-form">
 
                     <h5>Color Attributes (Base Layer)</h5>
@@ -168,11 +166,11 @@
                     <label>data-bg-gradient-start (color, #hex, rgba etc)</label>
                     <input type="text" name="data-bg-gradient-start" value="red">
                     <label>data-bg-gradient-end (color, #hex, rgba etc)</label>
-                    <input type="text" name="data-bg-gradient-end" value="purple">
+                    <input type="text" name="data-bg-gradient-end" value="blue">
                     <label>data-bg-gradient-rotation (rotation in degrees eg: 45 or -45)</label>
-                    <input type="text" name="data-bg-gradient-rotation" value="180">
+                    <input type="text" name="data-bg-gradient-rotation" value="45">
                     <label>data-bg-gradient-opacity (0 > 1)</label>
-                    <input type="text" name="data-bg-gradient-opacity" value="0.6">
+                    <input type="text" name="data-bg-gradient-opacity" value="0.7">
 
                   </form>
                 </div>
@@ -237,6 +235,7 @@
               </div>
 
             </div>
+
 
             <!-- RESPONSIVE CLASSES -->
             <div id="classes" class="box margin-bottom--x4">
