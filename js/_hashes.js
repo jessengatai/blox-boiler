@@ -1,4 +1,3 @@
-console.log('hashes loaded');
 jQuery(document).ready(function($){
 
   /**

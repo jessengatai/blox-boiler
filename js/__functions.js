@@ -1,4 +1,12 @@
-console.log('functions loaded');
+
+/**
+ * Quickly change the styles of an element
+ * @param  {[type]} element   The element we are going to change
+ * @param  {[type]} styles    The styles we are adding to the element
+ */
+const bloxCSS = function(element, styles){
+  Object.assign(element.style, styles);
+}
 
 /**
  * Check wether a value is set

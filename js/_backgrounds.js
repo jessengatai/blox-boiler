@@ -1,23 +1,27 @@
-console.log('backgrounds loaded');
-jQuery(document).ready(function($){
+document.addEventListener("DOMContentLoaded", function(event) {
 
   /**
    * Setup the base markup needed for our data-attr backgrounds
    * @param  {object} object The background parent
    */
   const bloxSetupBackground = (object) => {
-    const divColor = $(`<div class="bg-color"></div>`);
-    const divImage = $(`<div class="bg-image"></div>`);
-    const divGradient = $(`<div class="bg-gradient"></div>`);
+
+    // setup the background divs we will need
+    let divColor = document.createElement('div')
+        divColor.className = 'bg-color'
+    let divImage = document.createElement('div')
+        divImage.className = 'bg-image'
+    let divGradient = document.createElement('div')
+        divGradient.className = 'bg-gradient'
 
     // prepend new divs
-    $(object).prepend( divColor, divImage, divGradient );
+    object.prepend( divColor, divImage, divGradient );
     // force position
     // note: only make this happen if it's static (not absolute, fixed etc)
-    $(object).addClass('position-relative overflow-hidden');
+    object.className += ' position-relative overflow-hidden';
     // if this is a modal, remove the background style
-    if ( $(object).hasClass('modal')) {
-      $(object).css('background','transparent');
+    if ( object.classList.contains('modal') ) {
+      object.style.backgroundColor = 'transparent';
     }
   }
 
@@ -28,21 +32,21 @@ jQuery(document).ready(function($){
   const bloxUpdateBackground = (object) => {
 
     // divs
-    const divColor = $(object).children('.bg-color');
-    const divImage = $(object).children('.bg-image');
-    const divGradient = $(object).children('.bg-gradient');
+    const divColor = object.querySelector('.bg-color');
+    const divImage = object.querySelector('.bg-image');
+    const divGradient = object.querySelector('.bg-gradient');
 
     // attributes
-    let color = $(object).attr('data-bg-color');
-    let colorOpacity = $(object).attr('data-bg-color-opacity');
-    let image = $(object).attr('data-bg-image');
-    let imageOpacity = $(object).attr('data-bg-image-opacity');
-    let imageBlend = $(object).attr('data-bg-image-blend');
-    let imageBlur = $(object).attr('data-bg-image-blur');
-    let gradStart = $(object).attr('data-bg-gradient-start');
-    let gradEnd = $(object).attr('data-bg-gradient-end');
-    let gradDeg = $(object).attr('data-bg-gradient-rotation');
-    let gradOpacity = $(object).attr('data-bg-gradient-opacity');
+    let color = object.getAttribute('data-bg-color');
+    let colorOpacity = object.getAttribute('data-bg-color-opacity');
+    let image = object.getAttribute('data-bg-image');
+    let imageOpacity = object.getAttribute('data-bg-image-opacity');
+    let imageBlend = object.getAttribute('data-bg-image-blend');
+    let imageBlur = object.getAttribute('data-bg-image-blur');
+    let gradStart = object.getAttribute('data-bg-gradient-start');
+    let gradEnd = object.getAttribute('data-bg-gradient-end');
+    let gradDeg = object.getAttribute('data-bg-gradient-rotation');
+    let gradOpacity = object.getAttribute('data-bg-gradient-opacity');
 
     // color fallbacks
     color = (!bloxIsset(color)) ? 'transparent' : color ;
@@ -63,27 +67,27 @@ jQuery(document).ready(function($){
 
     // the gradient
     if ( bloxIsset(gradStart) ) {
-      divGradient.css({
+      bloxCSS(divGradient, {
         backgroundImage: `linear-gradient(${gradDeg}deg, ${gradEnd}, ${gradStart})`,
         opacity: gradOpacity,
-      });
+      })
     } else {
-      divGradient.attr('style','');
+      divGradient.removeAttribute('style');
     }
 
     // the image
     // - the color is added here if the image is set, this ensures the blend mode actually works
     if( bloxIsset(image) ) {
-      divImage.css({
+      bloxCSS(divImage, {
         backgroundImage: `url(${image})`,
         backgroundBlendMode: imageBlend,
         backgroundColor: colorRGBA,
         opacity: imageOpacity,
-      });
+      })
 
       // if blur is on
       if( imageBlur > 0 ) {
-        divImage.css({
+        bloxCSS(divImage, {
           filter: `blur(${imageBlur}px)`,
           top: `-${(imageBlur * 1.5)}px`,
           bottom: `-${(imageBlur * 1.5)}px`,
@@ -92,7 +96,7 @@ jQuery(document).ready(function($){
         })
         // reset blur styles if it's off
       } else {
-        divImage.css({
+        bloxCSS(divImage, {
           filter: ``,
           top: ``,
           bottom: ``,
@@ -103,19 +107,19 @@ jQuery(document).ready(function($){
 
       // if blend is normal apply background color to the bg-color div so image opacity still works
       if( imageBlend==='normal' ) {
-        divColor.css('background-color',colorRGBA);
+        divColor.style.backgroundColor = colorRGBA;
       } else {
-        divColor.css('background-color','');
+        divColor.style.backgroundColor = '';
       }
 
     // the color + clean the image
     } else {
       if ( color==='transparent' || colorOpacity===0 ) {
-        divColor.css('background-color', 'transparent');
+        divColor.style.backgroundColor = 'transparent';
       } else {
-        divColor.css('background-color', colorRGBA);
+        divColor.style.backgroundColor = colorRGBA;
       }
-      divImage.attr('style','');
+      divImage.removeAttribute('style');
     }
   }
 
@@ -128,15 +132,14 @@ jQuery(document).ready(function($){
 
     // setup the smart backgrounds
     const nodes = document.querySelectorAll('[data-bg-image], [data-bg-gradient-start], [data-bg-color]');
-    const objects = $(nodes);
 
     // loop through each smart background and setup the html
-    $.each(objects, function(index,object){
+    for (var i = 0; i < nodes.length; i++) {
       // setup base html
-      bloxSetupBackground(object);
+      bloxSetupBackground( nodes[i] );
       // update the styles
-      bloxUpdateBackground(object);
-    });
+      bloxUpdateBackground( nodes[i] );
+    }
 
     // listen for mutations on our smart backgrounds
     var mutationObserver = new MutationObserver(function(mutations) {

@@ -1,4 +1,3 @@
-console.log('responsive loaded');
 jQuery(document).ready(function($){
 
   /**

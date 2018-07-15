@@ -1,4 +1,3 @@
-console.log('modal loaded');
 jQuery(document).ready(function($){
 
   /**

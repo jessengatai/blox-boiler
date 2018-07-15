@@ -1,4 +1,3 @@
-console.log('stickies loaded');
 jQuery(document).ready(function($){
 
   // Props and thanks for this functionalty goes to Eric Bidelman
