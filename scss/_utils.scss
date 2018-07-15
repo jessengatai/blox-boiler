@@ -301,7 +301,7 @@ DEBOSS
 .deboss,
 [class*="deboss-"] {
   background: $white;
-  border: solid 1px darken($white,10);
+  border: solid 1px darken($white,5);
   box-shadow: 0 3px 7px rgba(0,0,0,.03);
   border-radius: 6px;
   padding: $paddingY $paddingX;
@@ -316,8 +316,8 @@ DEBOSS
 @mixin debossColors($colors, $values){
   @for $i from 1 through length($colors) {
     :not(.inverted) & .deboss--#{nth($colors, $i)} {
-      background-color: lighten( nth($values, $i), 25);
-      border-color: lighten( nth($values, $i), 15);
+      background-color: mix( nth($values, $i), $white, 50);
+      border-color: mix( nth($values, $i), $white, 60);
     }
   }
 }

@@ -82,15 +82,3 @@ BACKGROUND OPACITY
     @return lighten($color, 10);
   }
 }
-
-/**
- * Calculate the lightest version of a color without it being white
- */
-@function lightest($color, $amount) {
-  $color: lighten($color,$amount);
-  @if( luminance($color) == 1 ) {
-    @return darken($color, 5);
-  } @else {
-    @return $color;
-  }
-}
