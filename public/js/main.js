@@ -869,6 +869,10 @@ jQuery(document).ready(function ($) {
     // force position
     // note: only make this happen if it's static (not absolute, fixed etc)
     $(object).addClass('position-relative overflow-hidden');
+    // if this is a modal, remove the background style
+    if ($(object).hasClass('modal')) {
+      $(object).css('background', 'transparent');
+    }
   };
 
   /**
@@ -960,7 +964,11 @@ jQuery(document).ready(function ($) {
 
       // the color + clean the image
     } else {
-      divColor.css('background-color', colorRGBA);
+      if (color === 'transparent' || colorOpacity === 0) {
+        divColor.css('background-color', 'transparent');
+      } else {
+        divColor.css('background-color', colorRGBA);
+      }
       divImage.attr('style', '');
     }
   };
