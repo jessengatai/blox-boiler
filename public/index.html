@@ -560,7 +560,8 @@
                 <div class="box border-top--purple border-bottom--purple" data-span-tny="4">
                   <p class="color-white--darker-3">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
                   <p class="color-white--darker-3">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                  <div class="sticky-bottom deboss"
+                  <div id="sick"
+                  class="sticky-bottom deboss"
                   data-classes-onstick="shadow-lrg color-purple--contrast deboss--purple"
                   ><small>.sticky-bottom</small></div>
                 </div>
@@ -614,14 +615,14 @@
                   </tr>
                   <tr>
                     <td>data-event-onstick="..."</td>
-                    <td>Callback to run when element becomes stuck. <br>
-                      <small class="color-red--lighter-1">The current element will be passed as the only parameter.</small>
+                    <td>Event to trigger the when element becomes stuck. <br>
+                      <small class="color-red--lighter-1">You can access the sticking element with e.detail.target within your event listener.</small>
                     </td>
                   </tr>
                   <tr>
                     <td>data-event-offstick="..."</td>
-                    <td>Callback to run when element stops being stuck. <br>
-                      <small class="color-red--lighter-1">The current element will be passed as the only parameter.</small>
+                    <td>Event to trigger when the element stops being stuck. <br>
+                      <small class="color-red--lighter-1">You can access the sticking element with e.detail.target within your event listener.</small>
                     </td>
                   </tr>
                 </table>
@@ -811,12 +812,12 @@
           const attr = $(this).attr('name');
           $('#background-demo').attr(attr, $(this).val() );
         });
-
         $(document).on('change','select[name*="data-bg-"]', function(e){
           const attr = $(this).attr('name');
           $('#background-demo').attr(attr, $(this).val() );
         });
 
+        // handle compenent resize events
         function handleResizeComponent() {
           let object = $('#responsive-component');
           if (object.hasClass('isTall')) {
@@ -851,8 +852,6 @@
           }
         }
         handleResizeComponent();
-
-        // handle compenent resize events
         $(window).on('component-resized:responsive-component', function(){
           handleResizeComponent();
         });

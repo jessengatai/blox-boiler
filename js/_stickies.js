@@ -1,8 +1,7 @@
-jQuery(document).ready(function($){
+document.addEventListener("DOMContentLoaded", function(event) {
 
   // Props and thanks for this functionalty goes to Eric Bidelman
   // https://developers.google.com/web/updates/2017/09/sticky-headers
-
   const bottomClasses = [
     'sticky-bottom',
     'sticky-bottom--sml-up',
@@ -226,27 +225,27 @@ jQuery(document).ready(function($){
    * @param  {element} object   The sticky header elements
    * @param  {bool} sticking    True or false representation of the sticky states
    */
-  const stickyClasses = (object,sticking) => {
+  const stickyClasses = (object, sticking) => {
 
     // setup sticky classes
-    let stickyClassesOn = $(object).attr('data-classes-onstick');
-    let stickyClassesOff = $(object).attr('data-classes-offstick');
+    let stickyClassesOn = bloxDataClasses(object, 'data-classes-onstick');
+    let stickyClassesOff = bloxDataClasses(object, 'data-classes-offstick');
 
     // header is sticking
     if( sticking===true ) {
       if ( bloxIsset(stickyClassesOn) ) {
-        $(object).addClass(stickyClassesOn);
+        object.classList.add(...stickyClassesOn);
       }
       if ( bloxIsset(stickyClassesOff) ) {
-        $(object).removeClass(stickyClassesOff);
+        object.classList.remove(...stickyClassesOff);
       }
     // header is no longer sticking
     } else {
       if ( bloxIsset(stickyClassesOn) ) {
-        $(object).removeClass(stickyClassesOn);
+        object.classList.remove(...stickyClassesOn);
       }
       if ( bloxIsset(stickyClassesOff) ) {
-        $(object).addClass(stickyClassesOff);
+        object.classList.add(...stickyClassesOff);
       }
     }
 
@@ -257,20 +256,32 @@ jQuery(document).ready(function($){
    * @param  {element} object   The sticky header elements
    * @param  {bool} sticking    True or false representation of the sticky states
    */
-  const stickyCallback = (object,sticking) => {
+  const stickyCallback = (object, sticking) => {
 
     // setup sticky classes
-    let stickyEventOn = $(object).attr('data-event-onstick');
-    let stickyEventOff = $(object).attr('data-event-offstick');
+    let stickyEventOn = bloxDataCallback(object, 'data-event-onstick');
+    let stickyEventOff = bloxDataCallback(object, 'data-event-offstick');
 
     // callcback to run when sticking
     if( sticking===true && bloxIsset(stickyEventOn) ) {
-      $(object).trigger(stickyEventOn, object);
+      const event = new CustomEvent(stickyEventOn, {
+        detail: {
+          target: object,
+          sticking: sticking,
+        }
+      });
+      document.dispatchEvent(event);
     }
 
     // callcback to run when not sticking
     if( sticking===false && bloxIsset(stickyEventOff) ) {
-      $(object).trigger(stickyEventOff, object);
+      const event = new CustomEvent(stickyEventOff, {
+        detail: {
+          target: object,
+          sticking: sticking,
+        }
+      });
+      document.dispatchEvent(event);
     }
 
   }
@@ -282,15 +293,17 @@ jQuery(document).ready(function($){
     let stickies = document.querySelectorAll('[data-classes-onstick], [data-classes-offstick], [data-event-onstick], [data-event-offstick]');
     let containers = [];
 
-    // add the data-sticky attribute to our sticky elements
-    $(stickies).attr('data-sticky','');
-
-    // loop through each sticky and push the parent element to the containers array
+    // loop through each sticky
     for (var i = 0; i < stickies.length; i++) {
+      // add the data-sticky attribute to our sticky elements
+      stickies[i].setAttribute('data-sticky','');
+      // push the parent element to the containers array
       containers.push(stickies[i].parentElement)
     }
+
     // make the container array unique
     containers = uniqueArray(containers);
+
     // create and observe the sentinals for all sticky contains on the page
     for (var i = 0; i < containers.length; i++) {
       // add sticky parent class
