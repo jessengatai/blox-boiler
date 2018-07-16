@@ -13,7 +13,7 @@ const bloxDataClasses = (object, attr) => {
  * @param  {string} attr The name of the attribute
  * @return {mixed}       A string or null
  */
-const bloxDataCallback = (object, attr) => {
+const bloxDataString = (object, attr) => {
   let callback = object.getAttribute(attr);
   return (bloxIsset(callback)) ? callback : null ;
 }

@@ -21,8 +21,8 @@ document.addEventListener("DOMContentLoaded", function(event) {
         let hashClassesOff = bloxDataClasses(object, 'data-classes-offhash');
 
         // callbacks
-        let hashCallbackOn = bloxDataCallback(object, 'data-callback-onhash');
-        let hashCallbackOff = bloxDataCallback(object, 'data-callback-offhash');
+        let hashEventOn = bloxDataString(object, 'data-event-onhash');
+        let hashEventOff = bloxDataString(object, 'data-event-offhash');
 
         // clean up the hashes
         if (bloxIsset(hashClassesOn)) {
@@ -47,22 +47,22 @@ document.addEventListener("DOMContentLoaded", function(event) {
         HASH CALLBACKS
          */
         // has unmatched and function callback off
-        if( hash!==hashBound && bloxIsset(hashCallbackOff) ) {
-          // conver the variable into a function
-          hashCallbackOff = eval( bloxSanitize(hashCallbackOff) );
-          // if the function exists, run it
-          if( typeof hashCallbackOff === "function" ) {
-            hashCallbackOff( object );
-          }
+        if( hash!==hashBound && bloxIsset(hashEventOff) ) {
+          const event = new CustomEvent(hashEventOff, {
+            detail: {
+              target: object,
+            }
+          });
+          document.dispatchEvent(event);
 
         // has matched and function callback on
-        } else if( hash===hashBound && bloxIsset(hashCallbackOn) ) {
-          // convert the variable into a function
-          hashCallbackOn = eval( bloxSanitize(hashCallbackOn) );
-          // if the function exists, run it
-          if( typeof hashCallbackOn === "function" ) {
-            hashCallbackOn( object );
-          }
+        } else if( hash===hashBound && bloxIsset(hashEventOn) ) {
+          const event = new CustomEvent(hashEventOn, {
+            detail: {
+              target: object,
+            }
+          });
+          document.dispatchEvent(event);
         }
 
       });

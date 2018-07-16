@@ -19,7 +19,7 @@ var bloxDataClasses = function bloxDataClasses(object, attr) {
  * @param  {string} attr The name of the attribute
  * @return {mixed}       A string or null
  */
-var bloxDataCallback = function bloxDataCallback(object, attr) {
+var bloxDataString = function bloxDataString(object, attr) {
   var callback = object.getAttribute(attr);
   return bloxIsset(callback) ? callback : null;
 };
@@ -1140,8 +1140,8 @@ document.addEventListener("DOMContentLoaded", function (event) {
         var hashClassesOff = bloxDataClasses(object, 'data-classes-offhash');
 
         // callbacks
-        var hashCallbackOn = bloxDataCallback(object, 'data-callback-onhash');
-        var hashCallbackOff = bloxDataCallback(object, 'data-callback-offhash');
+        var hashEventOn = bloxDataString(object, 'data-event-onhash');
+        var hashEventOff = bloxDataString(object, 'data-event-offhash');
 
         // clean up the hashes
         if (bloxIsset(hashClassesOn)) {
@@ -1174,22 +1174,22 @@ document.addEventListener("DOMContentLoaded", function (event) {
         HASH CALLBACKS
          */
         // has unmatched and function callback off
-        if (hash !== hashBound && bloxIsset(hashCallbackOff)) {
-          // conver the variable into a function
-          hashCallbackOff = eval(bloxSanitize(hashCallbackOff));
-          // if the function exists, run it
-          if (typeof hashCallbackOff === "function") {
-            hashCallbackOff(object);
-          }
+        if (hash !== hashBound && bloxIsset(hashEventOff)) {
+          var _event = new CustomEvent(hashEventOff, {
+            detail: {
+              target: object
+            }
+          });
+          document.dispatchEvent(_event);
 
           // has matched and function callback on
-        } else if (hash === hashBound && bloxIsset(hashCallbackOn)) {
-          // convert the variable into a function
-          hashCallbackOn = eval(bloxSanitize(hashCallbackOn));
-          // if the function exists, run it
-          if (typeof hashCallbackOn === "function") {
-            hashCallbackOn(object);
-          }
+        } else if (hash === hashBound && bloxIsset(hashEventOn)) {
+          var _event2 = new CustomEvent(hashEventOn, {
+            detail: {
+              target: object
+            }
+          });
+          document.dispatchEvent(_event2);
         }
       });
     }
@@ -1318,8 +1318,8 @@ document.addEventListener("DOMContentLoaded", function (event) {
     var fireUp = function fireUp() {
       if (bloxIsset(componentId)) {
         // notify
-        var _event = new CustomEvent('component-resized:' + componentId);
-        return window.dispatchEvent(_event);
+        var _event3 = new CustomEvent('component-resized:' + componentId);
+        return window.dispatchEvent(_event3);
       }
     };
 
@@ -1777,29 +1777,29 @@ document.addEventListener("DOMContentLoaded", function (event) {
   var stickyCallback = function stickyCallback(object, sticking) {
 
     // setup sticky classes
-    var stickyEventOn = bloxDataCallback(object, 'data-event-onstick');
-    var stickyEventOff = bloxDataCallback(object, 'data-event-offstick');
+    var stickyEventOn = bloxDataString(object, 'data-event-onstick');
+    var stickyEventOff = bloxDataString(object, 'data-event-offstick');
 
     // callcback to run when sticking
     if (sticking === true && bloxIsset(stickyEventOn)) {
-      var _event2 = new CustomEvent(stickyEventOn, {
+      var _event4 = new CustomEvent(stickyEventOn, {
         detail: {
           target: object,
           sticking: sticking
         }
       });
-      document.dispatchEvent(_event2);
+      document.dispatchEvent(_event4);
     }
 
     // callcback to run when not sticking
     if (sticking === false && bloxIsset(stickyEventOff)) {
-      var _event3 = new CustomEvent(stickyEventOff, {
+      var _event5 = new CustomEvent(stickyEventOff, {
         detail: {
           target: object,
           sticking: sticking
         }
       });
-      document.dispatchEvent(_event3);
+      document.dispatchEvent(_event5);
     }
   };
 

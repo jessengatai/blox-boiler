@@ -259,8 +259,8 @@ document.addEventListener("DOMContentLoaded", function(event) {
   const stickyCallback = (object, sticking) => {
 
     // setup sticky classes
-    let stickyEventOn = bloxDataCallback(object, 'data-event-onstick');
-    let stickyEventOff = bloxDataCallback(object, 'data-event-offstick');
+    let stickyEventOn = bloxDataString(object, 'data-event-onstick');
+    let stickyEventOff = bloxDataString(object, 'data-event-offstick');
 
     // callcback to run when sticking
     if( sticking===true && bloxIsset(stickyEventOn) ) {
