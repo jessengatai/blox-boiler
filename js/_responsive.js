@@ -25,7 +25,9 @@ document.addEventListener("DOMContentLoaded", function(event) {
     // fire the event trigger for this component
     const fireUp = () => {
       if ( bloxIsset(componentId) ) {
-        return $(window).trigger(`component-resized:${componentId}`);
+        // notify
+        let event = new CustomEvent(`component-resized:${componentId}`);
+        return window.dispatchEvent(event);
       }
     }
 

@@ -16,9 +16,7 @@
     "url": "https://github.com/jessengatai/blox-boiler/issues"
   },
   "homepage": "https://github.com/jessengatai/blox-boiler#readme",
-  "dependencies": {
-    "jquery": "^3.3.1"
-  },
+  "dependencies": {},
   "devDependencies": {
     "babel-core": "^6.26.3",
     "babel-preset-env": "^1.6.1",

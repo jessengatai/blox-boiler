@@ -89,13 +89,13 @@
               <p class="deboss">PSA: This boilerplate will not be production ready until it hits version 1+. Use in the wild at your own risk.</p>
 
               <h6>Via NPM</h6>
-              <p>You can install via node packet manager with <code>npm i blox-boiler</code></p>
+              <p>You can install via node packet manager with <code>npm i blox-boiler --save-dev</code></p>
 
               <h6>SCSS Include</h6>
-              <p>This is on the way. As soon as the variables are under lock and key I'll have a finalised <code>blox.scss</code> file in the /dist folder for devs.</p>
+              <p>If you want to manage your own variables, you have the option of adding the <code>blox.scss</code> file in your project. This is a bit of a WIP at the moment and will be cleaned up as I go long. Don't forget to add the <code>blox.min.js</code> file as well.</p>
 
               <h6>CSS & JS</h6>
-              <p>Or simply include the <code>blox.min.css</code> in the head of your document and <code>blox.min.js</code> after you call jQuery.</p>
+              <p>Or simply include <code>blox.min.css</code> and <code>blox.min.js</code> in your document.</p>
             </div>
 
             <!-- BACKGROUNDS -->
@@ -113,15 +113,15 @@
                   id="background-demo"
                   class="color-white headers-white padding-y--x3 padding-x--x2 rounded--lrg shadow-lrg"
                   data-bg-color="red"
-                  data-bg-color-opacity="0.4"
+                  data-bg-color-opacity="0.7"
                   data-bg-image="assets/2.jpg"
                   data-bg-image-opacity="1"
-                  data-bg-image-blend="multiply"
+                  data-bg-image-blend="darken"
                   data-bg-image-blur="0"
                   data-bg-gradient-start="red"
                   data-bg-gradient-end="blue"
-                  data-bg-gradient-rotation="45"
-                  data-bg-gradient-opacity="0.7"
+                  data-bg-gradient-rotation="0"
+                  data-bg-gradient-opacity="0.4"
                   >
                     <h4 class="size--x2 weight-200 text-shadow">Woah.</h4>
                     <h6 class="margin-bottom--x2">Just a little text and some data-bg attribute goodness.</h6>
@@ -140,7 +140,7 @@
                     <label>data-bg-color (named, hex, rgb, hsl, hwb, cmyk, ncol)</label>
                     <input type="text" name="data-bg-color" value="red">
                     <label>data-bg-color-opacity (0 > 1)</label>
-                    <input type="text" name="data-bg-color-opacity" value="0.4">
+                    <input type="text" name="data-bg-color-opacity" value="0.7">
 
                     <h5>Image Attributes (Second Layer)</h5>
                     <label>data-bg-image (url)</label>
@@ -150,10 +150,10 @@
                     <label>data-bg-image-blend</label>
                     <select name="data-bg-image-blend">
                       <option value="normal">normal</option>
-                      <option value="multiply" selected>multiply</option>
+                      <option value="multiply">multiply</option>
                       <option value="screen">screen</option>
                       <option value="overlay">overlay</option>
-                      <option value="darken">darken</option>
+                      <option value="darken" selected>darken</option>
                       <option value="lighten">lighten</option>
                       <option value="color-dodge">color-dodge</option>
                       <option value="saturation">saturation</option>
@@ -169,9 +169,9 @@
                     <label>data-bg-gradient-end (color, #hex, rgba etc)</label>
                     <input type="text" name="data-bg-gradient-end" value="blue">
                     <label>data-bg-gradient-rotation (rotation in degrees eg: 45 or -45)</label>
-                    <input type="text" name="data-bg-gradient-rotation" value="45">
+                    <input type="text" name="data-bg-gradient-rotation" value="0">
                     <label>data-bg-gradient-opacity (0 > 1)</label>
-                    <input type="text" name="data-bg-gradient-opacity" value="0.7">
+                    <input type="text" name="data-bg-gradient-opacity" value="0.4">
 
                   </form>
                 </div>
@@ -738,8 +738,6 @@
     data-classes-med="padding--x2"
     data-classes-lrg="padding--x2"
     data-classes-xl="padding--x4"
-    data-bg-color="white"
-    data-bg-color-opacity=".95"
     class="modal">
       <div
       data-bg-color="red"
@@ -779,13 +777,14 @@
     <!-- fullscreen modal -->
     <div id="fullscreen-modal" class="modal">
       <div
-      data-bg-color="purple"
-      data-bg-color-opacity="1"
-      data-bg-image="assets/2.jpg"
-      data-bg-image-opacity="0.8"
+      data-bg-image="assets/6.jpg"
       data-bg-image-blend="multiply"
-      data-bg-gradient-start="red"
-      data-bg-gradient-opacity=".7"
+      data-bg-color="blue"
+      data-bg-color-opacity=".7"
+      data-bg-gradient-rotation="45"
+      data-bg-gradient-start="black"
+      data-bg-gradient-end="purple"
+      data-bg-gradient-opacity=".4"
       class="padding--x2 full-height full-width position-relative">
         <div class="transform-center-y text-shadow">
           <div class="max-width--thin align-center">
@@ -798,64 +797,78 @@
     </div>
 
     <!-- inject:js -->
-    <script src="/modules/jquery.min.js"></script>
     <script src="/js/main.js"></script>
     <!-- endinject -->
 
     <script type="text/javascript">
-      console.log('custom loaded');
-      jQuery(document).ready(function($){
+      document.addEventListener("DOMContentLoaded", function(event) {
 
-        // handle background form inputs
-        $(document).on('keyup','input[name*="data-bg-"]', function(e){
-          console.log(e);
-          const attr = $(this).attr('name');
-          $('#background-demo').attr(attr, $(this).val() );
-        });
-        $(document).on('change','select[name*="data-bg-"]', function(e){
-          const attr = $(this).attr('name');
-          $('#background-demo').attr(attr, $(this).val() );
+        /*
+        Dynamic background change coolness
+         */
+        let background = document.querySelector('#background-demo')
+        let inputs = document.querySelectorAll('input[name*="data-bg-"]');
+        let selects = document.querySelectorAll('select[name*="data-bg-"]');
+        // handle inputs
+        inputs.forEach(function(el, index) {
+          el.addEventListener('keyup', function(e){
+            let attr = el.getAttribute('name');
+            background.setAttribute(attr, e.target.value );
+          });
         });
 
+        // handle selects
+        selects.forEach(function(el, index) {
+          el.addEventListener('change', function(e){
+            let attr = el.getAttribute('name');
+            background.setAttribute(attr, e.target.value );
+          });
+        });
+
+        /*
+        Resize component coolness
+         */
         // handle compenent resize events
         function handleResizeComponent() {
-          let object = $('#responsive-component');
-          if (object.hasClass('isTall')) {
-            object.attr('data-bg-image','assets/1.jpg')
-                  .attr('data-bg-image-blend','luminosity')
-                  .attr('data-bg-color','purple')
-                  .attr('data-bg-color-opacity','1')
-                  .attr('data-bg-gradient-rotation','0')
-                  .attr('data-bg-gradient-start','pink')
-                  .attr('data-bg-gradient-end','red')
-                  .attr('data-bg-gradient-opacity','0.4')
+          let object = document.querySelector('#responsive-component');
+          if ( bloxHasClass(object, 'isTall') ) {
+            object.setAttribute('data-bg-image','assets/1.jpg')
+            object.setAttribute('data-bg-image-blend','luminosity')
+            object.setAttribute('data-bg-color','purple')
+            object.setAttribute('data-bg-color-opacity','1')
+            object.setAttribute('data-bg-gradient-rotation','0')
+            object.setAttribute('data-bg-gradient-start','pink')
+            object.setAttribute('data-bg-gradient-end','red')
+            object.setAttribute('data-bg-gradient-opacity','0.4')
 
-          } else if (object.hasClass('isWide')) {
-            object.attr('data-bg-image','assets/6.jpg')
-                  .attr('data-bg-image-blend','multiply')
-                  .attr('data-bg-color','blue')
-                  .attr('data-bg-color-opacity','.7')
-                  .attr('data-bg-gradient-rotation','45')
-                  .attr('data-bg-gradient-start','black')
-                  .attr('data-bg-gradient-end','purple')
-                  .attr('data-bg-gradient-opacity','0.4')
+          } else if ( bloxHasClass(object, 'isWide') ) {
+            object.setAttribute('data-bg-image','assets/6.jpg')
+            object.setAttribute('data-bg-image-blend','multiply')
+            object.setAttribute('data-bg-color','blue')
+            object.setAttribute('data-bg-color-opacity','.7')
+            object.setAttribute('data-bg-gradient-rotation','45')
+            object.setAttribute('data-bg-gradient-start','black')
+            object.setAttribute('data-bg-gradient-end','purple')
+            object.setAttribute('data-bg-gradient-opacity','0.4')
 
           } else {
-            object.attr('data-bg-image','assets/2.jpg')
-                  .attr('data-bg-image-blend','multiply')
-                  .attr('data-bg-color','red')
-                  .attr('data-bg-color-opacity','.4')
-                  .attr('data-bg-gradient-rotation','180')
-                  .attr('data-bg-gradient-start','red')
-                  .attr('data-bg-gradient-end','purple')
-                  .attr('data-bg-gradient-opacity','0.6')
+            object.setAttribute('data-bg-image','assets/2.jpg')
+            object.setAttribute('data-bg-image-blend','multiply')
+            object.setAttribute('data-bg-color','red')
+            object.setAttribute('data-bg-color-opacity','.4')
+            object.setAttribute('data-bg-gradient-rotation','180')
+            object.setAttribute('data-bg-gradient-start','red')
+            object.setAttribute('data-bg-gradient-end','purple')
+            object.setAttribute('data-bg-gradient-opacity','0.6')
           }
         }
         handleResizeComponent();
-        $(window).on('component-resized:responsive-component', function(){
+        window.addEventListener('component-resized:responsive-component', function(event) {
           handleResizeComponent();
         });
 
+
+        /*
         // toggle night mode classes
         $(document).on('click', '#nightmode', function(e){
           let b = $('body');
@@ -870,6 +883,7 @@
             n.text('Night Mode Off');
           }
         });
+        */
 
       });
     </script>

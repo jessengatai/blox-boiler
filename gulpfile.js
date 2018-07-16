@@ -28,7 +28,6 @@ gulp.task('watch', function () {
 gulp.task('public:inject', function () {
   var target = gulp.src('./index.html');
   var sources = gulp.src([
-    './public/modules/jquery.min.js', // make sure jquery comes first
     './public/modules/**/*.js',
     './public/modules/**/*.css',
     './public/css/**/*.css',
@@ -82,7 +81,8 @@ gulp.task('public:clean', function() {
 // copy all node_module assets we might need copied into the public folder
 gulp.task('public:mods', function() {
   sources = [
-    './node_modules/jquery/dist/jquery.min.js'
+    //'./node_modules/jquery/dist/jquery.min.js'
+    // no more mods needed! yaya. clean this up tho.. god damn.
   ]
   return gulp.src( sources ).pipe(gulp.dest('./public/modules/'));
 });
@@ -149,7 +149,6 @@ gulp.task('dist:clean', function() {
 const injectPubIndexHTML = () => {
   var target = gulp.src('./index.html');
   var sources = gulp.src([
-    './public/modules/jquery.min.js', // make sure jquery comes first
     './public/modules/**/*.js',
     './public/modules/**/*.css',
     './public/css/**/*.css',

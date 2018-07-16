@@ -1319,7 +1319,9 @@ document.addEventListener("DOMContentLoaded", function (event) {
     // fire the event trigger for this component
     var fireUp = function fireUp() {
       if (bloxIsset(componentId)) {
-        return $(window).trigger('component-resized:' + componentId);
+        // notify
+        var _event = new CustomEvent('component-resized:' + componentId);
+        return window.dispatchEvent(_event);
       }
     };
 
@@ -1784,24 +1786,24 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
     // callcback to run when sticking
     if (sticking === true && bloxIsset(stickyEventOn)) {
-      var _event = new CustomEvent(stickyEventOn, {
-        detail: {
-          target: object,
-          sticking: sticking
-        }
-      });
-      document.dispatchEvent(_event);
-    }
-
-    // callcback to run when not sticking
-    if (sticking === false && bloxIsset(stickyEventOff)) {
-      var _event2 = new CustomEvent(stickyEventOff, {
+      var _event2 = new CustomEvent(stickyEventOn, {
         detail: {
           target: object,
           sticking: sticking
         }
       });
       document.dispatchEvent(_event2);
+    }
+
+    // callcback to run when not sticking
+    if (sticking === false && bloxIsset(stickyEventOff)) {
+      var _event3 = new CustomEvent(stickyEventOff, {
+        detail: {
+          target: object,
+          sticking: sticking
+        }
+      });
+      document.dispatchEvent(_event3);
     }
   };
 
