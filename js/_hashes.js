@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", function(event) {
 
   /**
-   * Run through the hash functionalty when url hash changes
+   * Run through the hash functionality when url hash changes
    */
   const runHashes = bloxDebounce(function() {
 

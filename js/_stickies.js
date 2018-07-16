@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", function(event) {
 
-  // Props and thanks for this functionalty goes to Eric Bidelman
+  // Props and thanks for this functionality goes to Eric Bidelman
   // https://developers.google.com/web/updates/2017/09/sticky-headers
   const bottomClasses = [
     'sticky-bottom',

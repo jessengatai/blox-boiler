@@ -121,7 +121,7 @@
             <div id="backgrounds" class="box  margin-bottom--x4">
               <h2 class="size--x2">Backgrounds</h2>
 
-              <p>Working with images, gradients and color is my favourite part of front-end development. Blox let's us make quick work of such matters by providing a robust set of data attributes to utilise. Let's take a closer look at the background from the above "left modal" example.</p>
+              <p>Working with images, gradients and color is my favorite part of front-end development. Blox let's us make quick work of such matters by providing a robust set of data attributes to utilize. Let's take a closer look at the background from the above "left modal" example.</p>
 
               <div class="boxes" data-gutters="nested">
                 <div class="box"
@@ -142,7 +142,7 @@
                   data-bg-gradient-rotation="0"
                   data-bg-gradient-opacity="0.4"
                   >
-                    <h4 class="size--x2 weight-200 text-shadow">Woah.</h4>
+                    <h4 class="size--x2 weight-200 text-shadow">Whoah.</h4>
                     <h6 class="margin-bottom--x2">Just a little text and some data-bg attribute goodness.</h6>
                     <label for="username">Username</label>
                     <input class="bg-white" type="text" name="" value="">
@@ -261,7 +261,7 @@
             <div id="classes" class="box margin-bottom--x4">
               <h2 class="size--x2">Responsive Classes</h2>
 
-              <p>Blox has two types of responsive class systems; Viewport and Component. Viewport responsive classes relate to the window dimensions and component classes relate to the dimensions of an indivual element.</p>
+              <p>Blox has two types of responsive class systems; Viewport and Component. Viewport responsive classes relate to the window dimensions and component classes relate to the dimensions of an individual element.</p>
 
               <h3>Component Resize</h3>
               <div id="responsive-component"
@@ -293,7 +293,7 @@
               <h6>data-responsive-compenent</h6>
               <p>Adding <code>data-responsive</code> to an element will enable base utility classes (.isWide, .isTall, .isSquare) and trigger events when the element changes state.</p>
               <h6>data-classes-x=""</h6>
-              <p>Alternatively, if you want to add classes to the element for certain states, any one of the following attributes will trigger the base functionalty plus add your classes for appropriate states: <code>data-classes-wide=""</code>, <code>data-classes-tall=""</code> and <code>data-classes-square=""</code>.</p>
+              <p>Alternatively, if you want to add classes to the element for certain states, any one of the following attributes will trigger the base functionality plus add your classes for appropriate states: <code>data-classes-wide=""</code>, <code>data-classes-tall=""</code> and <code>data-classes-square=""</code>.</p>
 
               <div class="deboss margin-bottom--x2">
                 <table class="full-width">
@@ -317,10 +317,10 @@
                   </tr>
                   <tr>
                     <td>data-responsive</td>
-                    <td>Adds utilility classes (.isTall, .isWide, .isSquare) and triggers events on the document.<br>
+                    <td>Adds utility classes (.isTall, .isWide, .isSquare) and triggers events on the document.<br>
                       <small class="color-red--lighter-1">1) Events are named "component-resized:ID", where ID is the id of the resized element.</small>
                       <small class="color-red--lighter-1">2) You can access the current element and it's state using e.detail within your event listener.</small>
-                      <small class="color-red--lighter-1">3) This attribute is not nessecary if your using data-classes-wide (tall, square etc) already.</small>
+                      <small class="color-red--lighter-1">3) This attribute is not necessary if your using data-classes-wide (tall, square etc) already.</small>
                     </td>
                   </tr>
                 </table>
@@ -358,7 +358,7 @@
             <div id="boxes" class="box margin-bottom--x4">
               <h2 class="size--x2">Boxes</h2>
 
-              <p>Blox uses flexbox to create layouts quickly. All that's needed is for a parent element to have a class of <code>.boxes</code> and it's direct children to have classes of <code>.box</code>. Then we simply apply widths and heights via data-attributes for each box.</p>
+              <p>Blox uses flex-box to create layouts quickly. All that's needed is for a parent element to have a class of <code>.boxes</code> and it's direct children to have classes of <code>.box</code>. Then we simply apply widths and heights via data-attributes for each box.</p>
 
               <h3>Horizontal</h3>
               <p>The default direction for boxes is left to right and the default column count is 12 (changeable via variables.scss). Also, these data-attributes run from the bottom up, meaning if you <strong>only</strong> set <code>data-span-med="6"</code> the box will be 6/12 on all screen sizes from medium up and 12/12 for everything below.</p>
@@ -494,7 +494,7 @@
               <h6>Default</h6>
               <div class="boxes margin-bottom">
                 <div class="box rounded padding bg-white--darker-1" data-span-tny="6">
-                  <p class="tight">Boxes will sit unnested and have internal gutters.</p>
+                  <p class="tight">Boxes will sit un-nested and have internal gutters.</p>
                 </div>
                 <div class="box rounded padding bg-white--darker-1" data-span-tny="6">
                 </div>
@@ -521,7 +521,7 @@
                     <tr>
                       <td>data-rowclasses</td>
                       <td><code>.boxes</code></td>
-                      <td>Add's row classes to each box. <br>For exmaple <code>.row-1</code>, <code>.row-2</code>, <code>.row-last</code> etc.</td>
+                      <td>Add's row classes to each box. <br>For example <code>.row-1</code>, <code>.row-2</code>, <code>.row-last</code> etc.</td>
                     </tr>
                     <tr>
                       <td>data-span-X="..."</td>
@@ -647,7 +647,7 @@
                 <div class="box" data-span-med="6">
                   <h5>Recommendations</h5>
                   <ol type="1" class="margin-bottom--x2">
-                    <li>Adding padding or changing the sticky height will result in some touchy functionalty. This is because the IntersectionObserver watches for hidden divs entering and leaving the viewport, these divs are positioned based on the sticky elements height, margins and offsets.</li>
+                    <li>Adding padding or changing the sticky height will result in some touchy functionality. This is because the IntersectionObserver watches for hidden divs entering and leaving the viewport, these divs are positioned based on the sticky elements height, margins and offsets.</li>
                   </ol>
                 </div>
               </div>
@@ -686,7 +686,7 @@
             <!-- BUTTONS -->
             <div id="buttons" class="box margin-bottom--x4">
               <h2 class="size--x2">Buttons</h2>
-              <p>Nothing revolutionary here, just add <code>.button</code> to an element (not required for button tags). It should be noted you are not locked into these colors shown, you can add as many (or as little) colors to your pallete in the blox.scss file color array. I'd try and keep your color array below 4-5 colors as each color in your pallete will increase the final .css filesize considerabely due to color utility classes.</p>
+              <p>Nothing revolutionary here, just add <code>.button</code> to an element (not required for button tags). It should be noted you are not locked into these colors shown, you can add as many (or as little) colors to your pallet in the blox.scss file color array. I'd try and keep your color array below 4-5 colors as each color in your pallet will increase the final .css file-size considerably due to color utility classes.</p>
 
               <div class="boxes" data-gutters="nested">
                 <div class="box" data-span-tny="6">
@@ -718,7 +718,7 @@
               <h2 class="size--x2"># States</h2>
 
               <p>If you have an anchor tag that links to #foo and either moves to the matching element or simply updates the hash in the URL, when that hash is active we might want to add a class to our button or some other element on the page. We can achieve this using hash data attributes.</p>
-              <p>A noteable downside to managing element states via the URL hash is that you can only have one state for the entire page. However, being able to change the state of elements via the browsers native forwards and back buttons make up for it, especially for simple static HTML sites.</p>
+              <p>A notable downside to managing element states via the URL hash is that you can only have one state for the entire page. However, being able to change the state of elements via the browsers native forwards and back buttons make up for it, especially for simple static HTML sites.</p>
 
               <a href="#foo" data-hash="#foo" data-classes-onhash="purple"class="button">#foo on</a>
               <a href="#bar" class="button">#foo off</a>
