@@ -1804,7 +1804,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
    * @param  {element} object   The sticky header elements
    * @param  {bool} sticking    True or false representation of the sticky states
    */
-  var stickyCallback = function stickyCallback(object, sticking) {
+  var stickyEvent = function stickyEvent(object, sticking) {
 
     // setup sticky classes
     var stickyEventOn = bloxDataString(object, 'data-event-onstick');
@@ -1875,6 +1875,6 @@ document.addEventListener("DOMContentLoaded", function (event) {
     // add classes on stick / unstick
     stickyClasses(header, sticking);
     // fire function on stick / unstick
-    stickyCallback(header, sticking);
+    stickyEvent(header, sticking);
   });
 });
