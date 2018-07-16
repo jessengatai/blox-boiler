@@ -23,11 +23,16 @@ document.addEventListener("DOMContentLoaded", function(event) {
     }
 
     // fire the event trigger for this component
-    const fireUp = bloxDebounce(function() {
+    const fireUp = bloxDebounce(function(state) {
       if ( bloxIsset(componentId) ) {
         // notify
-        let event = new CustomEvent(`component-resized:${componentId}`);
-        return window.dispatchEvent(event);
+        let event = new CustomEvent(`component-resized:${componentId}`, {
+          detail: {
+            target: object,
+            state: state
+          }
+        });
+        return document.dispatchEvent(event);
       }
     }, bloxDebounceTiming() );
 
@@ -36,7 +41,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
      */
     if ( size=='wide' && !bloxHasClass(object,'isWide') ){
       cleanUp().classList.add('isWide');
-      fireUp();
+      fireUp('wide');
       // handle custom classes
       if( bloxIsset( classesWide ) ) {
         object.classList.add(...classesWide);
@@ -47,7 +52,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
      */
     } else if ( size=='tall' && !bloxHasClass(object,'isTall') ){
       cleanUp().classList.add('isTall');
-      fireUp();
+      fireUp('tall');
       // handle custom classes
       if( bloxIsset( classesTall ) ) {
         object.classList.add(...classesTall);
@@ -56,7 +61,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
     // square
     } else if ( size=='square' && !bloxHasClass(object,'isSquare') ){
       cleanUp().classList.add('isSquare');
-      fireUp();
+      fireUp('square');
       // handle custom classes
       if( bloxIsset( classesSquare ) ) {
         object.classList.add(...classesSquare);

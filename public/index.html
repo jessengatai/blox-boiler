@@ -299,8 +299,10 @@
               <div class="deboss margin-bottom--x2">
                 <table class="full-width">
                   <thead>
-                    <th>Attribute</th>
-                    <th>Description</th>
+                    <tr>
+                      <th style="width: 30%;">Attribute</th>
+                      <th>Description</th>
+                    </tr>
                   </thead>
                   <tr>
                     <td>data-classes-wide="..."</td>
@@ -316,9 +318,10 @@
                   </tr>
                   <tr>
                     <td>data-responsive</td>
-                    <td>Adds utilility classes (.isTall, .isWide, .isSquare) and triggers events on window.<br>
-                      <small class="color-red--lighter-1">Events are named "component-resized:ID", where ID is the id of the resized element.</small>
-                      <small class="color-red--lighter-1">This attribute is not nessecary if your using data-classes-wide (tall, square etc) already.</small>
+                    <td>Adds utilility classes (.isTall, .isWide, .isSquare) and triggers events on the document.<br>
+                      <small class="color-red--lighter-1">1) Events are named "component-resized:ID", where ID is the id of the resized element.</small>
+                      <small class="color-red--lighter-1">2) You can access the current element and it's state using e.detail within your event listener.</small>
+                      <small class="color-red--lighter-1">3) This attribute is not nessecary if your using data-classes-wide (tall, square etc) already.</small>
                     </td>
                   </tr>
                 </table>
@@ -755,7 +758,7 @@
                   <tr>
                     <td>data-event-onhash="..."</td>
                     <td>Event to trigger the when hash is made active.<br>
-                      <small class="color-red--lighter-1">You can access the currenct element with e.detail.target within your event listener.</small>
+                      <small class="color-red--lighter-1">You can access the current element with e.detail.target within your event listener.</small>
                     </td>
                   </tr>
                   <tr>
@@ -914,7 +917,7 @@
           }
         }
         handleResizeComponent();
-        window.addEventListener('component-resized:responsive-component', function(event) {
+        document.addEventListener('component-resized:responsive-component', function(event) {
           handleResizeComponent();
         });
 
