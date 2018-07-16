@@ -23,13 +23,13 @@ document.addEventListener("DOMContentLoaded", function(event) {
     }
 
     // fire the event trigger for this component
-    const fireUp = () => {
+    const fireUp = bloxDebounce(function() {
       if ( bloxIsset(componentId) ) {
         // notify
         let event = new CustomEvent(`component-resized:${componentId}`);
         return window.dispatchEvent(event);
       }
-    }
+    }, bloxDebounceTiming() );
 
     /*
     WIDE CLASSES
@@ -102,7 +102,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
    * Our responsive viewport wrapper function
    * - sets up viewport repsonsive classes and listens for changes
    */
-  const runViewportClasses = () => {
+  const runViewportClasses = bloxDebounce(function() {
 
     // setup some big scope variables
     const ww = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
@@ -160,7 +160,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
       })
     } // end responsiveClasses.length check
-  }
+  }, bloxDebounceTiming() );
 
   /**
    * Handle responsive changes

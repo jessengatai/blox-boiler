@@ -5,6 +5,36 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
 
 /**
+ * The timing used for the debounce of functions within blox events
+ * @return {int} the timing in milliseconds
+ */
+var bloxDebounceTiming = function bloxDebounceTiming() {
+  return 50;
+};
+
+/**
+ * Debounce a function
+ * - Courtesy of Mr Walsh - https://davidwalsh.name/javascript-debounce-function
+ * @param  {Function} callback [description]
+ * @return {[type]}            [description]
+ */
+function bloxDebounce(func, wait, immediate) {
+  var timeout;
+  return function () {
+    var context = this,
+        args = arguments;
+    var later = function later() {
+      timeout = null;
+      if (!immediate) func.apply(context, args);
+    };
+    var callNow = immediate && !timeout;
+    clearTimeout(timeout);
+    timeout = setTimeout(later, wait);
+    if (callNow) func.apply(context, args);
+  };
+};
+
+/**
  * Get classes from a data attribute
  * @param  {string} attr The name of the attribute
  * @return {mixed}       An array or null
@@ -1059,7 +1089,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
   /**
    * Adds row classes to our .boxes
    */
-  var runBoxRowClasses = function runBoxRowClasses() {
+  var runBoxRowClasses = bloxDebounce(function () {
 
     // setup some big scope variables
     var ww = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
@@ -1107,7 +1137,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
         } // end each .box
       }); // end each .boxes
     } // end .boxes exist check
-  }; // end runBoxRowClasses()
+  }, bloxDebounceTiming()); // end runBoxRowClasses()
 
   /**
    * Handle responsive changes
@@ -1122,7 +1152,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
   /**
    * Run through the hash functionalty when url hash changes
    */
-  var runHashes = function runHashes() {
+  var runHashes = bloxDebounce(function () {
 
     // setup some big scope variables
     var hash = window.location.hash;
@@ -1193,7 +1223,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
         }
       });
     }
-  };
+  }, bloxDebounceTiming());
 
   /**
    * Handle hash changes
@@ -1210,7 +1240,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
    * @param  {object} modal The modal object that we are opening
    * @return {function}     Returns a window trigger that notifies the modal has opened
    */
-  var openModal = function openModal(modal) {
+  var openModal = bloxDebounce(function (modal) {
     // setup our modal vars
     var modalId = modal.id;
     var wraps = document.querySelectorAll('html,body');
@@ -1223,14 +1253,14 @@ document.addEventListener("DOMContentLoaded", function (event) {
     // notify
     var event = new CustomEvent('modal-opened:' + modalId);
     return window.dispatchEvent(event);
-  };
+  }, bloxDebounceTiming());
 
   /**
    * Close a modal
    * @param  {object} modal The modal object that we are closing
    * @return {function}     Returns a window trigger that notifies the modal has closed
    */
-  var closeModal = function closeModal(modal) {
+  var closeModal = bloxDebounce(function (modal) {
     // setup our modal vars
     var modalId = modal.id;
     var wraps = document.querySelectorAll('html,body');
@@ -1243,7 +1273,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
     // notify
     var event = new CustomEvent('modal-closed:' + modalId);
     return window.dispatchEvent(event);
-  };
+  }, bloxDebounceTiming());
 
   // open a modal via click
   var openClicks = document.querySelectorAll('[data-open-modal]');
@@ -1315,13 +1345,13 @@ document.addEventListener("DOMContentLoaded", function (event) {
     };
 
     // fire the event trigger for this component
-    var fireUp = function fireUp() {
+    var fireUp = bloxDebounce(function () {
       if (bloxIsset(componentId)) {
         // notify
         var _event3 = new CustomEvent('component-resized:' + componentId);
         return window.dispatchEvent(_event3);
       }
-    };
+    }, bloxDebounceTiming());
 
     /*
     WIDE CLASSES
@@ -1400,7 +1430,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
    * Our responsive viewport wrapper function
    * - sets up viewport repsonsive classes and listens for changes
    */
-  var runViewportClasses = function runViewportClasses() {
+  var runViewportClasses = bloxDebounce(function () {
 
     // setup some big scope variables
     var ww = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
@@ -1471,7 +1501,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
         }
       });
     } // end responsiveClasses.length check
-  };
+  }, bloxDebounceTiming());
 
   /**
    * Handle responsive changes

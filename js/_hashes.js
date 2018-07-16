@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
   /**
    * Run through the hash functionalty when url hash changes
    */
-  const runHashes = () => {
+  const runHashes = bloxDebounce(function() {
 
     // setup some big scope variables
     let hash = window.location.hash;
@@ -67,7 +67,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
       });
     }
-  }
+  }, bloxDebounceTiming() );
 
   /**
    * Handle hash changes

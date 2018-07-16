@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
    * @param  {object} modal The modal object that we are opening
    * @return {function}     Returns a window trigger that notifies the modal has opened
    */
-  const openModal = (modal) => {
+  const openModal = bloxDebounce(function(modal) {
     // setup our modal vars
     let modalId = modal.id;
     let wraps = document.querySelectorAll('html,body');
@@ -18,14 +18,14 @@ document.addEventListener("DOMContentLoaded", function(event) {
     // notify
     let event = new CustomEvent(`modal-opened:${modalId}`);
     return window.dispatchEvent(event);
-  }
+  }, bloxDebounceTiming() );
 
   /**
    * Close a modal
    * @param  {object} modal The modal object that we are closing
    * @return {function}     Returns a window trigger that notifies the modal has closed
    */
-  const closeModal = (modal) => {
+  const closeModal = bloxDebounce(function(modal) {
     // setup our modal vars
     let modalId = modal.id;
     let wraps = document.querySelectorAll('html,body');
@@ -38,7 +38,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
     // notify
     let event = new CustomEvent(`modal-closed:${modalId}`);
     return window.dispatchEvent(event);
-  }
+  }, bloxDebounceTiming() );
 
   // open a modal via click
   let openClicks = document.querySelectorAll('[data-open-modal]')

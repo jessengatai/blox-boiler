@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
   /**
    * Adds row classes to our .boxes
    */
-  const runBoxRowClasses = () => {
+  const runBoxRowClasses = bloxDebounce(function() {
 
     // setup some big scope variables
     const ww = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
@@ -54,7 +54,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
       }) // end each .boxes
     }// end .boxes exist check
-  } // end runBoxRowClasses()
+  }, bloxDebounceTiming() ); // end runBoxRowClasses()
 
   /**
    * Handle responsive changes

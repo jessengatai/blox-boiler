@@ -1,3 +1,33 @@
+
+/**
+ * The timing used for the debounce of functions within blox events
+ * @return {int} the timing in milliseconds
+ */
+const bloxDebounceTiming = () => {
+  return 50;
+}
+
+/**
+ * Debounce a function
+ * - Courtesy of Mr Walsh - https://davidwalsh.name/javascript-debounce-function
+ * @param  {Function} callback [description]
+ * @return {[type]}            [description]
+ */
+ function bloxDebounce(func, wait, immediate) {
+ 	var timeout;
+ 	return function() {
+ 		var context = this, args = arguments;
+ 		var later = function() {
+ 			timeout = null;
+ 			if (!immediate) func.apply(context, args);
+ 		};
+ 		var callNow = immediate && !timeout;
+ 		clearTimeout(timeout);
+ 		timeout = setTimeout(later, wait);
+ 		if (callNow) func.apply(context, args);
+ 	};
+ };
+
 /**
  * Get classes from a data attribute
  * @param  {string} attr The name of the attribute
