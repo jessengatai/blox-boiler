@@ -2,6 +2,8 @@
 
 var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
 
+function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
+
 /**
  * Quickly change the styles of an element
  * @param  {[type]} element   The element we are going to change
@@ -1091,7 +1093,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
   runBoxRowClasses();
 });
 
-jQuery(document).ready(function ($) {
+document.addEventListener("DOMContentLoaded", function (event) {
 
   /**
    * Run through the hash functionalty when url hash changes
@@ -1100,35 +1102,68 @@ jQuery(document).ready(function ($) {
 
     // setup some big scope variables
     var hash = window.location.hash;
-    var objectsAll = $('[data-hash]');
+    var objectsAll = document.querySelectorAll('[data-hash]');
 
     // run through hash bound elements
     if (objectsAll.length) {
-      $.each(objectsAll, function (index, object) {
+      objectsAll.forEach(function (object, index) {
 
         // bound hash
-        var hashBound = $(object).attr('data-hash');
+        var hashBound = object.getAttribute('data-hash');
+
+        /**
+         * Get classes from a data attribute
+         * @param  {string} attr The name of the attribute
+         * @return {mixed}       An array or null
+         */
+        var dataClasses = function dataClasses(attr) {
+          var classes = object.getAttribute(attr);
+          return bloxIsset(classes) ? classes.split(' ') : null;
+        };
+
+        /**
+         * Get callback from a data attribute
+         * @param  {string} attr The name of the attribute
+         * @return {mixed}       A string or null
+         */
+        var dataCallback = function dataCallback(attr) {
+          var callback = object.getAttribute(attr);
+          return bloxIsset(callback) ? callback : null;
+        };
 
         // classes
-        var hashClassesOn = $(object).attr('data-classes-onhash');
-        var hashClassesOff = $(object).attr('data-classes-offhash');
+        var hashClassesOn = dataClasses('data-classes-onhash');
+        var hashClassesOff = dataClasses('data-classes-offhash');
 
         // callbacks
-        var hashCallbackOn = $(object).attr('data-callback-onhash');
-        var hashCallbackOff = $(object).attr('data-callback-offhash');
+        var hashCallbackOn = dataCallback('data-callback-onhash');
+        var hashCallbackOff = dataCallback('data-callback-offhash');
 
         // clean up the hashes
-        $(object).removeClass(hashClassesOn).removeClass(hashClassesOff);
+        if (bloxIsset(hashClassesOn)) {
+          var _object$classList;
+
+          (_object$classList = object.classList).remove.apply(_object$classList, _toConsumableArray(hashClassesOn));
+        }
+        if (bloxIsset(hashClassesOff)) {
+          var _object$classList2;
+
+          (_object$classList2 = object.classList).remove.apply(_object$classList2, _toConsumableArray(hashClassesOff));
+        }
 
         /*
         HASH CLASSES
          */
         // hash unmatched and classes off
         if (hash !== hashBound && bloxIsset(hashClassesOff)) {
-          $(object).addClass(hashClassesOff);
+          var _object$classList3;
+
+          (_object$classList3 = object.classList).add.apply(_object$classList3, _toConsumableArray(hashClassesOff));
           // hash matched and classes on
         } else if (hash === hashBound && bloxIsset(hashClassesOn)) {
-          $(object).addClass(hashClassesOn);
+          var _object$classList4;
+
+          (_object$classList4 = object.classList).add.apply(_object$classList4, _toConsumableArray(hashClassesOn));
         }
 
         /*
@@ -1140,7 +1175,7 @@ jQuery(document).ready(function ($) {
           hashCallbackOff = eval(bloxSanitize(hashCallbackOff));
           // if the function exists, run it
           if (typeof hashCallbackOff === "function") {
-            hashCallbackOff($(object));
+            hashCallbackOff(object);
           }
 
           // has matched and function callback on
@@ -1149,7 +1184,7 @@ jQuery(document).ready(function ($) {
           hashCallbackOn = eval(bloxSanitize(hashCallbackOn));
           // if the function exists, run it
           if (typeof hashCallbackOn === "function") {
-            hashCallbackOn($(object));
+            hashCallbackOn(object);
           }
         }
       });
@@ -1158,11 +1193,9 @@ jQuery(document).ready(function ($) {
 
   /**
    * Handle hash changes
-   * @param  {object} e the event
+   * @param  {object} event the event
    */
-  $(window).on('hashchange', function (e) {
-    runHashes();
-  });
+  window.addEventListener('hashchange', runHashes);
   runHashes();
 });
 
