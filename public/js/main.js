@@ -5,6 +5,26 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
 
 /**
+ * Get classes from a data attribute
+ * @param  {string} attr The name of the attribute
+ * @return {mixed}       An array or null
+ */
+var bloxDataClasses = function bloxDataClasses(object, attr) {
+  var classes = object.getAttribute(attr);
+  return bloxIsset(classes) ? classes.split(' ') : null;
+};
+
+/**
+ * Get callback from a data attribute
+ * @param  {string} attr The name of the attribute
+ * @return {mixed}       A string or null
+ */
+var bloxDataCallback = function bloxDataCallback(object, attr) {
+  var callback = object.getAttribute(attr);
+  return bloxIsset(callback) ? callback : null;
+};
+
+/**
  * Quickly change the styles of an element
  * @param  {[type]} element   The element we are going to change
  * @param  {[type]} styles    The styles we are adding to the element
@@ -30,13 +50,19 @@ var bloxIsset = function bloxIsset(value) {
  * @param  {array} array    The array of classes to check for
  * @return {bool}           A boolean of true or false if classes were / were not found
  */
-var bloxHasClass = function bloxHasClass(element, array) {
+var bloxHasClass = function bloxHasClass(element, arr) {
   var bool = false;
-  array.every(function (c) {
-    if (element.classList.contains(c)) {
-      bool = true;
-    }
-  });
+  // array
+  if (Array.isArray(arr)) {
+    arr.every(function (c) {
+      if (element.classList.contains(c)) {
+        bool = true;
+      }
+    });
+    // string
+  } else if (element.classList.contains(arr)) {
+    bool = true;
+  }
   return bool;
 };
 
@@ -1085,7 +1111,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
   /**
    * Handle responsive changes
-   * @param  {object} e the event
+   * @param  {object} event the event
    */
   window.onresize = function (event) {
     runBoxRowClasses();
@@ -1111,33 +1137,13 @@ document.addEventListener("DOMContentLoaded", function (event) {
         // bound hash
         var hashBound = object.getAttribute('data-hash');
 
-        /**
-         * Get classes from a data attribute
-         * @param  {string} attr The name of the attribute
-         * @return {mixed}       An array or null
-         */
-        var dataClasses = function dataClasses(attr) {
-          var classes = object.getAttribute(attr);
-          return bloxIsset(classes) ? classes.split(' ') : null;
-        };
-
-        /**
-         * Get callback from a data attribute
-         * @param  {string} attr The name of the attribute
-         * @return {mixed}       A string or null
-         */
-        var dataCallback = function dataCallback(attr) {
-          var callback = object.getAttribute(attr);
-          return bloxIsset(callback) ? callback : null;
-        };
-
         // classes
-        var hashClassesOn = dataClasses('data-classes-onhash');
-        var hashClassesOff = dataClasses('data-classes-offhash');
+        var hashClassesOn = bloxDataClasses(object, 'data-classes-onhash');
+        var hashClassesOff = bloxDataClasses(object, 'data-classes-offhash');
 
         // callbacks
-        var hashCallbackOn = dataCallback('data-callback-onhash');
-        var hashCallbackOff = dataCallback('data-callback-offhash');
+        var hashCallbackOn = bloxDataCallback(object, 'data-callback-onhash');
+        var hashCallbackOff = bloxDataCallback(object, 'data-callback-offhash');
 
         // clean up the hashes
         if (bloxIsset(hashClassesOn)) {
@@ -1390,51 +1396,82 @@ jQuery(document).ready(function ($) {
 
     // setup some big scope variables
     var ww = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
-    var responsiveClasses = $('[data-classes-tny], [data-classes-sml], [data-classes-med], [data-classes-lrg], [data-classes-xl]');
+    var responsiveClasses = document.querySelectorAll('[data-classes-tny], [data-classes-sml], [data-classes-med], [data-classes-lrg], [data-classes-xl]');
 
     // run through each element that uses responsive classes
     if (responsiveClasses.length) {
-      $.each(responsiveClasses, function (index, object) {
+      responsiveClasses.forEach(function (object, index) {
 
         // get all the classes this element has
-        var classesTny = $(object).attr('data-classes-tny');
-        var classesSml = $(object).attr('data-classes-sml');
-        var classesMed = $(object).attr('data-classes-med');
-        var classesLrg = $(object).attr('data-classes-lrg');
-        var classesXl = $(object).attr('data-classes-xl');
-        var allClasses = [classesTny, classesSml, classesMed, classesLrg, classesXl].join(' ');
+        var classesTny = bloxDataClasses(object, 'data-classes-tny');
+        var classesSml = bloxDataClasses(object, 'data-classes-sml');
+        var classesMed = bloxDataClasses(object, 'data-classes-med');
+        var classesLrg = bloxDataClasses(object, 'data-classes-lrg');
+        var classesXl = bloxDataClasses(object, 'data-classes-xl');
+        var allClasses = [].concat(classesTny, classesSml, classesMed, classesLrg, classesXl).filter(function (n) {
+          return n != undefined;
+        });
+
+        var cleanUpClasses = function cleanUpClasses() {
+          var _object$classList5;
+
+          console.log('classes cleaned up');
+          (_object$classList5 = object.classList).remove.apply(_object$classList5, _toConsumableArray(allClasses));
+        };
 
         // tny classes on
-        if (ww <= 599 && classesTny !== '' && !$(object).hasClass(classesTny)) {
-          $(object).removeClass(allClasses).addClass(classesTny);
-        }
-        // sml classes on
-        else if (ww >= 600 && ww <= 879 && classesSml !== '' && !$(object).hasClass(classesSml)) {
-            $(object).removeClass(allClasses).addClass(classesSml);
+        if (ww <= 599 && !bloxHasClass(object, classesTny)) {
+          cleanUpClasses();
+          if (bloxIsset(classesTny)) {
+            var _object$classList6;
+
+            (_object$classList6 = object.classList).add.apply(_object$classList6, _toConsumableArray(classesTny));
+          }
+
+          // sml classes on
+        } else if (ww >= 600 && ww <= 879 && !bloxHasClass(object, classesSml)) {
+          cleanUpClasses();
+          if (bloxIsset(classesSml)) {
+            var _object$classList7;
+
+            (_object$classList7 = object.classList).add.apply(_object$classList7, _toConsumableArray(classesSml));
           }
           // med classes on
-          else if (ww >= 880 && ww <= 1099 && classesMed !== '' && !$(object).hasClass(classesMed)) {
-              $(object).removeClass(allClasses).addClass(classesMed);
-            }
-            // lrg classes on
-            else if (ww >= 1100 && ww <= 1499 && classesLrg !== '' && !$(object).hasClass(classesLrg)) {
-                $(object).removeClass(allClasses).addClass(classesLrg);
-              }
-              // xl classes on
-              else if (ww > 1500 && classesXl !== '' && !$(object).hasClass(classesXl)) {
-                  $(object).removeClass(allClasses).addClass(classesXl);
-                }
+        } else if (ww >= 880 && ww <= 1099 && !bloxHasClass(object, classesMed)) {
+          cleanUpClasses();
+          if (bloxIsset(classesMed)) {
+            var _object$classList8;
+
+            (_object$classList8 = object.classList).add.apply(_object$classList8, _toConsumableArray(classesMed));
+          }
+          // lrg classes on
+        } else if (ww >= 1100 && ww <= 1499 && !bloxHasClass(object, classesLrg)) {
+          cleanUpClasses();
+          if (bloxIsset(classesLrg)) {
+            var _object$classList9;
+
+            (_object$classList9 = object.classList).add.apply(_object$classList9, _toConsumableArray(classesLrg));
+          }
+          // xl classes on
+        } else if (ww > 1500 && !bloxHasClass(object, classesXl)) {
+          cleanUpClasses();
+          if (bloxIsset(classesXl)) {
+            var _object$classList10;
+
+            (_object$classList10 = object.classList).add.apply(_object$classList10, _toConsumableArray(classesXl));
+          }
+        }
       });
     } // end responsiveClasses.length check
   };
 
   /**
    * Handle responsive changes
-   * @param  {object} e the event
+   * @param  {event} event the event
    */
-  $(window).on('resize', function (e) {
+  window.onresize = function (event) {
     runViewportClasses();
-  });
+  };
   runViewportClasses();
 });
 

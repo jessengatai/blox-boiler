@@ -16,33 +16,13 @@ document.addEventListener("DOMContentLoaded", function(event) {
         // bound hash
         let hashBound = object.getAttribute('data-hash');
 
-        /**
-         * Get classes from a data attribute
-         * @param  {string} attr The name of the attribute
-         * @return {mixed}       An array or null
-         */
-        const dataClasses = (attr) => {
-          let classes = object.getAttribute(attr);
-          return (bloxIsset(classes)) ? classes.split(' ') : null ;
-        }
-
-        /**
-         * Get callback from a data attribute
-         * @param  {string} attr The name of the attribute
-         * @return {mixed}       A string or null
-         */
-        const dataCallback = (attr) => {
-          let callback = object.getAttribute(attr);
-          return (bloxIsset(callback)) ? callback : null ;
-        }
-
         // classes
-        let hashClassesOn = dataClasses('data-classes-onhash');
-        let hashClassesOff = dataClasses('data-classes-offhash');
+        let hashClassesOn = bloxDataClasses(object, 'data-classes-onhash');
+        let hashClassesOff = bloxDataClasses(object, 'data-classes-offhash');
 
         // callbacks
-        let hashCallbackOn = dataCallback('data-callback-onhash');
-        let hashCallbackOff = dataCallback('data-callback-offhash');
+        let hashCallbackOn = bloxDataCallback(object, 'data-callback-onhash');
+        let hashCallbackOff = bloxDataCallback(object, 'data-callback-offhash');
 
         // clean up the hashes
         if (bloxIsset(hashClassesOn)) {

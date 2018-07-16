@@ -58,7 +58,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
   /**
    * Handle responsive changes
-   * @param  {object} e the event
+   * @param  {object} event the event
    */
   window.onresize = function(event) {
     runBoxRowClasses();

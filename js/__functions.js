@@ -1,3 +1,22 @@
+/**
+ * Get classes from a data attribute
+ * @param  {string} attr The name of the attribute
+ * @return {mixed}       An array or null
+ */
+const bloxDataClasses = (object, attr) => {
+  let classes = object.getAttribute(attr);
+  return (bloxIsset(classes)) ? classes.split(' ') : null ;
+}
+
+/**
+ * Get callback from a data attribute
+ * @param  {string} attr The name of the attribute
+ * @return {mixed}       A string or null
+ */
+const bloxDataCallback = (object, attr) => {
+  let callback = object.getAttribute(attr);
+  return (bloxIsset(callback)) ? callback : null ;
+}
 
 /**
  * Quickly change the styles of an element
@@ -25,13 +44,19 @@ const bloxIsset = (value) => {
  * @param  {array} array    The array of classes to check for
  * @return {bool}           A boolean of true or false if classes were / were not found
  */
-const bloxHasClass = (element, array) => {
+const bloxHasClass = (element, arr) => {
   let bool = false;
-  array.every( function( c ) {
-    if( element.classList.contains( c ) ) {
-      bool = true;
-    }
-  });
+  // array
+  if (Array.isArray(arr)) {
+    arr.every( function( c ) {
+      if( element.classList.contains( c ) ) {
+        bool = true;
+      }
+    });
+  // string
+  } else if( element.classList.contains( arr ) ) {
+    bool = true;
+  }
   return bool;
 }
 

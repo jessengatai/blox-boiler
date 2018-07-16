@@ -110,58 +110,56 @@ jQuery(document).ready(function($){
 
     // setup some big scope variables
     const ww = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
-    const responsiveClasses = $(`[data-classes-tny], [data-classes-sml], [data-classes-med], [data-classes-lrg], [data-classes-xl]`);
+    const responsiveClasses = document.querySelectorAll(`[data-classes-tny], [data-classes-sml], [data-classes-med], [data-classes-lrg], [data-classes-xl]`);
 
     // run through each element that uses responsive classes
     if (responsiveClasses.length) {
-      $.each(responsiveClasses, function(index,object){
+      responsiveClasses.forEach(function(object, index){
 
         // get all the classes this element has
-        const classesTny = $(object).attr(`data-classes-tny`);
-        const classesSml = $(object).attr(`data-classes-sml`);
-        const classesMed = $(object).attr(`data-classes-med`);
-        const classesLrg = $(object).attr(`data-classes-lrg`);
-        const classesXl = $(object).attr(`data-classes-xl`);
-        const allClasses = [classesTny, classesSml, classesMed, classesLrg, classesXl].join(' ');
+        const classesTny = bloxDataClasses(object, `data-classes-tny`);
+        const classesSml = bloxDataClasses(object, `data-classes-sml`);
+        const classesMed = bloxDataClasses(object, `data-classes-med`);
+        const classesLrg = bloxDataClasses(object, `data-classes-lrg`);
+        const classesXl = bloxDataClasses(object, `data-classes-xl`);
+        const allClasses = [].concat(classesTny, classesSml, classesMed, classesLrg, classesXl).filter(function(n){ return n != undefined });
+
+        const cleanUpClasses = () => {
+          console.log('classes cleaned up');
+          object.classList.remove(...allClasses);
+        }
 
         // tny classes on
-        if(
-          ww <= 599
-          && classesTny!==''
-          && !$(object).hasClass(classesTny)
-        ) {
-            $(object).removeClass(allClasses).addClass( classesTny );
-        }
+        if( ww <= 599 && !bloxHasClass(object, classesTny) ) {
+          cleanUpClasses();
+          if (bloxIsset(classesTny)) {
+            object.classList.add(...classesTny);
+          }
+
         // sml classes on
-        else if(
-          (ww >= 600 && ww <= 879)
-          && classesSml!==''
-          && !$(object).hasClass(classesSml)
-        ) {
-            $(object).removeClass(allClasses).addClass( classesSml );
-        }
+        } else if( (ww >= 600 && ww <= 879) && !bloxHasClass(object, classesSml) ) {
+          cleanUpClasses();
+          if (bloxIsset(classesSml)) {
+            object.classList.add(...classesSml);
+          }
         // med classes on
-        else if(
-          (ww >= 880 && ww <= 1099)
-          && classesMed!==''
-          && !$(object).hasClass(classesMed)
-        ) {
-            $(object).removeClass(allClasses).addClass( classesMed );
-        }
+        } else if( (ww >= 880 && ww <= 1099) && !bloxHasClass(object, classesMed) ) {
+          cleanUpClasses();
+          if (bloxIsset(classesMed)) {
+            object.classList.add(...classesMed);
+          }
         // lrg classes on
-        else if(
-          (ww >= 1100 && ww <= 1499)
-          && classesLrg!==''
-          && !$(object).hasClass(classesLrg)
-        ) {
-            $(object).removeClass(allClasses).addClass( classesLrg );
-        }
+        } else if( (ww >= 1100 && ww <= 1499) && !bloxHasClass(object, classesLrg) ) {
+          cleanUpClasses();
+          if (bloxIsset(classesLrg)) {
+            object.classList.add(...classesLrg);
+          }
         // xl classes on
-        else if(
-          ww > 1500 && classesXl!==''
-          && !$(object).hasClass(classesXl)
-        ) {
-            $(object).removeClass(allClasses).addClass( classesXl );
+        } else if( ww > 1500 && !bloxHasClass(object, classesXl) ) {
+          cleanUpClasses();
+          if (bloxIsset(classesXl)) {
+            object.classList.add(...classesXl);
+          }
         }
 
       })
@@ -170,11 +168,11 @@ jQuery(document).ready(function($){
 
   /**
    * Handle responsive changes
-   * @param  {object} e the event
+   * @param  {event} event the event
    */
-  $(window).on('resize', function(e) {
+  window.onresize = function(event) {
     runViewportClasses();
-  });
+  };
   runViewportClasses();
 
 });
