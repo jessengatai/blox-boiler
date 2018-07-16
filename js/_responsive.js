@@ -1,4 +1,4 @@
-jQuery(document).ready(function($){
+document.addEventListener("DOMContentLoaded", function(event) {
 
   /**
    * Update classes on componenent resize elements
@@ -6,21 +6,20 @@ jQuery(document).ready(function($){
    * @param {string} size   The size we are updating to (wide, tall, square)
    */
   const setComponentClasses = (object, size) => {
-    const componentId = $(object).attr('id');
-    const classesWide = $(object).attr('data-classes-wide');
-    const classesTall = $(object).attr('data-classes-tall');
-    const classesSquare = $(object).attr('data-classes-square');
-    const allClasses = [classesWide, classesTall, classesSquare].join(' ');
-    const utilClasses = 'isTall isWide isSquare';
 
-    // clean up all the classes on the object
+    // setup components
+    const componentId = object.id
+    const classesWide = bloxDataClasses(object, 'data-classes-wide');
+    const classesTall = bloxDataClasses(object, 'data-classes-tall');
+    const classesSquare = bloxDataClasses(object, 'data-classes-square');
+    const allClasses = [].concat(classesWide, classesTall, classesSquare).filter(function(n){ return n != undefined });
+    const utilClasses = ['isTall', 'isWide', 'isSquare'];
+
+    // clean up all the classes on the object and return it
     const cleanUp = () => {
-      // handle the util classes
-      $(object).removeClass(utilClasses);
-      // clean up the custom classes
-      $(object).removeClass(allClasses);
-      // return the object
-      return $(object);
+      object.classList.remove(...utilClasses);
+      object.classList.remove(...allClasses);
+      return object;
     }
 
     // fire the event trigger for this component
@@ -33,32 +32,32 @@ jQuery(document).ready(function($){
     /*
     WIDE CLASSES
      */
-    if ( size=='wide' && !$(object).hasClass('isWide') ){
-      cleanUp().addClass('isWide');
+    if ( size=='wide' && !bloxHasClass(object,'isWide') ){
+      cleanUp().classList.add('isWide');
       fireUp();
       // handle custom classes
       if( bloxIsset( classesWide ) ) {
-        $(object).addClass( classesWide );
+        object.classList.add(...classesWide);
       }
 
     /*
     TALL CLASSES
      */
-    } else if ( size=='tall' && !$(object).hasClass('isTall') ){
-      cleanUp().addClass('isTall');
+    } else if ( size=='tall' && !bloxHasClass(object,'isTall') ){
+      cleanUp().classList.add('isTall');
       fireUp();
-      // handle the custom classes
+      // handle custom classes
       if( bloxIsset( classesTall ) ) {
-        $(object).addClass( classesTall );
+        object.classList.add(...classesTall);
       }
 
     // square
-      } else if ( size=='square' && !$(object).hasClass('isSquare') ){
-      cleanUp().addClass('isSquare');
+    } else if ( size=='square' && !bloxHasClass(object,'isSquare') ){
+      cleanUp().classList.add('isSquare');
       fireUp();
-      // handle the custom classes
+      // handle custom classes
       if( bloxIsset( classesSquare ) ) {
-        $(object).addClass( classesSquare );
+        object.classList.add(...classesSquare);
       }
     }
   }
@@ -72,24 +71,21 @@ jQuery(document).ready(function($){
 
     // setup the smart backgrounds
     const nodes = document.querySelectorAll('[data-classes-tall], [data-classes-wide], [data-classes-square], [data-responsive]');
-    const objects = $(nodes);
 
     // listen for resize changes and update the classes accordingly
     var ro = new ResizeObserver(function(elements) {
       elements.forEach(function(element) {
-
         let width = element.contentRect.width;
         let height = element.contentRect.height;
-
+        // wide (is 1.04 times wider than tall)
         if( width > Math.pow(height, 1.04) ) {
           setComponentClasses(element.target, 'wide');
-
+        // tall (is 1.03 times taller than wide)
         } else if( height > Math.pow(width, 1.03) ) {
           setComponentClasses(element.target, 'tall');
-
+        // square (tall and wide are too close)
         } else {
           setComponentClasses(element.target, 'square');
-
         }
       });
     });
@@ -98,9 +94,7 @@ jQuery(document).ready(function($){
     for (var i = 0; i < nodes.length; i++) {
       ro.observe(nodes[i]);
     }
-
   }
-  runComponentClasses();
 
   /**
    * Our responsive viewport wrapper function
@@ -124,8 +118,8 @@ jQuery(document).ready(function($){
         const classesXl = bloxDataClasses(object, `data-classes-xl`);
         const allClasses = [].concat(classesTny, classesSml, classesMed, classesLrg, classesXl).filter(function(n){ return n != undefined });
 
+        // clean up all classes on the object that have been specified
         const cleanUpClasses = () => {
-          console.log('classes cleaned up');
           object.classList.remove(...allClasses);
         }
 
@@ -174,5 +168,10 @@ jQuery(document).ready(function($){
     runViewportClasses();
   };
   runViewportClasses();
+
+  /**
+   * Handle responsive component changes
+   */
+  runComponentClasses();
 
 });
