@@ -25,6 +25,26 @@
         transform: rotate(45deg);
         z-index: -1;
       }
+
+      *[class*="row-"] {
+        border-bottom: 2px solid !important;
+      }
+      .row-1 {
+        border-bottom-color: #EF3555 !important;
+      }
+      .row-2 {
+        border-bottom-color: #F4E829 !important;
+      }
+      .row-3 {
+        border-bottom-color: #00FF8D !important;
+      }
+      .row-4 {
+        border-bottom-color: #1642D1 !important;
+      }
+      .row-last {
+        border-bottom-color: white !important;
+      }
+
     </style>
 
   </head>
@@ -324,22 +344,32 @@
               <h6>Hints</h6>
               <ol>
                 <li>If you're using <code>fill</code>, the column will expand to a new row if your content is too long.</li>
-                <li>Columns start at <code>0</code>, so if you set <code>data-span-med="0"</code>, that box will be hidden on medium sized screens.</li>
+                <li>Spans start at <code>0</code> and you can use <code>0</code> to hide boxes for specific screen sizes.</li>
+                <li>Add <code>data-rowclasses</code> to the <code>.boxes</code> element for <code>.row-x</code> and <code>.row-last</code> to be added appropriately to each box.</li>
               </ol>
+
+              <p>
+                Legend:
+                <small class="border-bottom--red padding--half">.row-1</small>
+                <small class="border-bottom--yellow padding--half">.row-2</small>
+                <small class="border-bottom--green padding--half">.row-3</small>
+                <small class="border-bottom--blue padding--half">.row-4</small>
+                <small class="border-bottom--white padding--half">.row-last</small>
+              </p>
 
               <!-- horizontal boxes -->
               <div class="boxes color-white--darker-8" data-rowclasses data-gutters="nested">
 
                 <!-- box 1 -->
                 <div class="box deboss"
-                data-span-xl="auto"
+                data-span-xl="12"
                 data-span-lrg="6"
-                data-span-med="auto"
+                data-span-med="12"
                 data-span-sml="6"
                 data-span-tny="12">
-                  <p class="tight show-xl">data-span-xl="auto"</p>
+                  <p class="tight show-xl">data-span-xl="12"</p>
                   <p class="tight show-lrg">data-span-lrg="6"</p>
-                  <p class="tight show-med">data-span-med="auto"</p>
+                  <p class="tight show-med">data-span-med="12"</p>
                   <p class="tight show-sml">data-span-sml="6"</p>
                   <p class="tight show-tny">data-span-tny="12"</p>
                 </div>
@@ -362,25 +392,26 @@
                 <div class="box deboss"
                 data-span-xl="8"
                 data-span-lrg="fill"
-                data-span-med="fill"
+                data-span-med="6"
                 data-span-sml="auto"
-                data-span-tny="0">
+                data-span-tny="12">
                   <p class="tight show-xl">data-span-xl="8"</p>
                   <p class="tight show-lrg">data-span-lrg="fill"</p>
-                  <p class="tight show-med">data-span-med="fill"</p>
+                  <p class="tight show-med">data-span-med="6"</p>
                   <p class="tight show-sml">data-span-sml="auto"</p>
+                  <p class="tight show-tny">data-span-sml="12"</p>
                 </div>
 
                 <!-- box 4 -->
                 <div class="box deboss"
                 data-span-xl="4"
                 data-span-lrg="5"
-                data-span-med="fill"
+                data-span-med="12"
                 data-span-sml="fill"
                 data-span-tny="12">
                   <p class="tight show-xl">data-span-xl="4"</p>
                   <p class="tight show-lrg">data-span-lrg="5"</p>
-                  <p class="tight show-med">data-span-med="fill"</p>
+                  <p class="tight show-med">data-span-med="12"</p>
                   <p class="tight show-sml">data-span-sml="fill"</p>
                   <p class="tight show-tny">data-span-tny="12"</p>
                 </div>
