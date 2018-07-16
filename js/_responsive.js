@@ -166,9 +166,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
    * Handle responsive changes
    * @param  {event} event the event
    */
-  window.onresize = function(event) {
-    runViewportClasses();
-  };
+  window.addEventListener('resize', runViewportClasses);
   runViewportClasses();
 
   /**

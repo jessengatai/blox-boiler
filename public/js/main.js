@@ -1075,13 +1075,13 @@ document.addEventListener("DOMContentLoaded", function (event) {
         var rowCount = 0;
 
         // clean up the .row-x classes
-        for (var i = 0; i < children.length; i++) {
+        children.forEach(function (box, index) {
           var prefix = "row-";
-          var classes = children[i].className.split(" ").filter(function (c) {
+          var classes = box.className.split(" ").filter(function (c) {
             return c.lastIndexOf(prefix, 0) !== 0;
           });
-          children[i].className = classes.join(" ").trim();
-        }
+          box.className = classes.join(" ").trim();
+        });
 
         // run through each box and apply row class
         for (var i = 0; i < children.length; i++) {
@@ -1113,9 +1113,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
    * Handle responsive changes
    * @param  {object} event the event
    */
-  window.onresize = function (event) {
-    runBoxRowClasses();
-  };
+  window.addEventListener('resize', runBoxRowClasses);
   runBoxRowClasses();
 });
 
@@ -1479,9 +1477,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
    * Handle responsive changes
    * @param  {event} event the event
    */
-  window.onresize = function (event) {
-    runViewportClasses();
-  };
+  window.addEventListener('resize', runViewportClasses);
   runViewportClasses();
 
   /**
