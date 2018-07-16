@@ -814,8 +814,7 @@
           $('#background-demo').attr(attr, $(this).val() );
         });
 
-        // handle compenent resize events
-        $(window).on('component-resized:responsive-component', function(){
+        function handleResizeComponent() {
           let object = $('#responsive-component');
           if (object.hasClass('isTall')) {
             object.attr('data-bg-image','assets/1.jpg')
@@ -847,6 +846,12 @@
                   .attr('data-bg-gradient-end','purple')
                   .attr('data-bg-gradient-opacity','0.6')
           }
+        }
+        handleResizeComponent();
+
+        // handle compenent resize events
+        $(window).on('component-resized:responsive-component', function(){
+          handleResizeComponent();
         });
 
         // toggle night mode classes
