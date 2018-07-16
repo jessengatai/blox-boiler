@@ -264,7 +264,7 @@
 
               <p>Blox has two types of responsive class systems; Viewport and Component. Viewport responsive classes relate to the window dimensions and component classes relate to the dimensions of an indivual element.</p>
 
-              <h3>Component</h3>
+              <h3>Component Resize</h3>
               <div id="responsive-component"
               style="max-width: 100%; min-width: 150px; min-height: 100px; width: 100%; height: 400px;"
               class="rounded border padding shadow-lrg margin-bottom--x2 resize text-center color-white headers-white"
@@ -291,19 +291,12 @@
 
               <h5>Methods</h5>
               <p>Select either of the two methods below to get responsive components working.</p>
+              <h6>data-responsive-compenent</h6>
+              <p>Adding <code>data-responsive</code> to an element will enable base utility classes (.isWide, .isTall, .isSquare) and trigger events when the element changes state.</p>
+              <h6>data-classes-x=""</h6>
+              <p>Alternatively, if you want to add classes to the element for certain states, any one of the following attributes will trigger the base functionalty plus add your classes for appropriate states: <code>data-classes-wide=""</code>, <code>data-classes-tall=""</code> and <code>data-classes-square=""</code>.</p>
 
-              <div class="boxes" data-gutters="nested">
-                <div class="box" data-span-lrg="6">
-                  <h6>data-responsive-compenent</h6>
-                  <p>Adding <code>data-responsive</code> to an element will enable base utility classes (.isWide, .isTall, .isSquare) and trigger events when the element changes state.</p>
-                </div>
-                <div class="box" data-span-lrg="6">
-                  <h6>data-classes-x=""</h6>
-                  <p>Alternatively, if you want to add classes to the element for certain states, any one of the following attributes will trigger the base functionalty plus add your classes for appropriate states: <code>data-classes-wide=""</code>, <code>data-classes-tall=""</code> and <code>data-classes-square=""</code>.</p>
-                </div>
-              </div>
-
-              <div class="deboss">
+              <div class="deboss margin-bottom--x2">
                 <table class="full-width">
                   <thead>
                     <th>Attribute</th>
@@ -330,6 +323,33 @@
                   </tr>
                 </table>
               </div>
+
+              <h3>Viewport Resize</h3>
+              <p>We can also apply classes for specific viewport widths on elements using data attributes. Keep in mind, it's much more performant to simply use standard media query classes where possible.</p>
+
+              <div class="rounded padding margin-bottom"
+              data-span-lrg="6"
+              data-classes-tny="bg-blue color-blue--contrast"
+              data-classes-sml="bg-orange color-orange--contrast"
+              data-classes-med="bg-purple color-purple--contrast"
+              data-classes-lrg="bg-red color-red--contrast"
+              data-classes-xl="bg-green color-green--contrast">
+                <p class="tight">Hey, give the window a resize and watch the classes on this box change</p>
+              </div>
+
+              <div class="deboss">
+                <table class="full-width">
+                  <thead>
+                    <th>Attribute</th>
+                    <th>Description</th>
+                  </thead>
+                  <tr>
+                    <td>data-classes-X="..."</td>
+                    <td>X being <code>tny</code>, <code>sml</code>, <code>med</code>, <code>lrg</code>, <code>xl</code> screen sizes <br><small class="color-red">Resolution breakpoints are changeable in variables.scss</small></td>
+                  </tr>
+                </table>
+              </div>
+
             </div>
 
             <!-- BOXES -->
@@ -481,34 +501,34 @@
               <div class="deboss">
                 <table class="full-width">
                   <thead>
-                    <th>For Element</th>
                     <th>Attribute</th>
+                    <th>For Element</th>
                     <th>Description</th>
                   </thead>
                   <tbody>
                     <tr>
-                      <td><code>.boxes</code></td>
                       <td>data-gutters="X"</td>
+                      <td><code>.boxes</code></td>
                       <td>X being <code>nested</code> or <code>tight</code> <br><small class="color-red">Attribute is optional</small></td>
                     </tr>
                     <tr>
-                      <td><code>.boxes</code></td>
                       <td>data-direction="X"</td>
+                      <td><code>.boxes</code></td>
                       <td>X being <code>vertical</code> or <code>horizontal</code> <br><small class="color-red">Attribute is optional and will default to horizontal</small></td>
                     </tr>
                     <tr>
-                      <td><code>.boxes</code></td>
                       <td>data-rowclasses</td>
+                      <td><code>.boxes</code></td>
                       <td>Add's row classes to each box. <br>For exmaple <code>.row-1</code>, <code>.row-2</code>, <code>.row-last</code> etc.</td>
                     </tr>
                     <tr>
-                      <td><code>.box</code></td>
                       <td>data-span-X="..."</td>
+                      <td><code>.box</code></td>
                       <td>X being <code>tny</code>, <code>sml</code>, <code>med</code>, <code>lrg</code>, <code>xl</code> screen sizes <br><small class="color-red">Resolution breakpoints are changeable in variables.scss</small></td>
                     </tr>
                     <tr>
-                      <td><code>.box</code></td>
                       <td>data-span-tny="X"</td>
+                      <td><code>.box</code></td>
                       <td>X being <code>auto</code>, <code>fill</code> and columns <code>1</code> through <code>12</code> <br><small class="color-red">Column count is changeable in variables.scss</small></td>
                     </tr>
                   </tbody>
