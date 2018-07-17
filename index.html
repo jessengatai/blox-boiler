@@ -49,6 +49,7 @@
   </head>
   <body night-mode="on" class="inverted bg-black color-black--lighter-10 headers-white">
 
+
     <div id="header"
     data-bg-color="#17191f"
     data-bg-gradient-start="black"
@@ -56,7 +57,7 @@
     data-bg-gradient-rotation="0"
     data-bg-gradient-opacity="1"
     class="padding-y--x4 margin-bottom--x2">
-      <div class="padding-y--x4 max-width align-center text-center color-white headers-white text-shadow">
+      <div class="padding-y--x4 max-width align-center text-center">
         <h1 class="margin-top--x2 size--x3">Blox.</h1>
         <h4 class="margin-top--x3">A function over form, front-end boiler
           <br>
@@ -64,9 +65,9 @@
           <span class="weight-200">..that still looks badass 🤞 </span>
         </h4>
         <div class="margin-top--x2">
-          <a data-classes-tny="full-width" class="button black circular big" href="https://github.com/jessengatai/blox-boiler">👨🏽‍💻 GitHub</a>
-          <a data-classes-tny="full-width" class="button black circular big" href="https://www.npmjs.com/package/blox-boiler">👩🏼‍💻 NPM</a>
-          <a data-classes-tny="full-width" class="button black circular big" href="https://github.com/jessengatai">🐨 Mr. Jesse</a>
+          <a data-classes-tny="full-width" class="button circular big" href="https://github.com/jessengatai/blox-boiler">👨🏽‍💻 GitHub</a>
+          <a data-classes-tny="full-width" class="button circular big" href="https://www.npmjs.com/package/blox-boiler">🔧 NPM</a>
+          <a data-classes-tny="full-width" class="button circular big" href="https://github.com/jessengatai">🐨 Mr. Jesse</a>
         </div>
       </div>
     </div>
@@ -90,6 +91,7 @@
               <li><a data-classes-onhash="green" class="button off full-width text-left" data-hash="#stickies" href="#stickies">Stickies</a></li>
               <li><a data-classes-onhash="green" class="button off full-width text-left" data-hash="#buttons" href="#buttons">Buttons</a></li>
               <li><a data-classes-onhash="green" class="button off full-width text-left" data-hash="#hash" href="#hash">Hash States</a></li>
+              <li><button id="nightmode"         class="button off full-width text-left"><span style="margin-right: .3vw;">🌙</span> Toggle Lights</button></li>
             </ul>
           </nav>
         </div>
@@ -782,7 +784,7 @@
       <div class="bg-white headers-white--contrast padding--x3 rounded shadow-lrg max-width--thin align-center">
         <h2>Standard Modal</h2>
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-        <button data-close-modal="standard-modal" class="big circular white shadow">Okay got it!</button>
+        <button data-close-modal="standard-modal" class="white shadow">Okay got it!</button>
       </div>
     </div>
 
@@ -804,9 +806,9 @@
       data-bg-gradient-rotation="45"
       data-bg-gradient-opacity="0.7"
 
-      class="color-white padding-y--x4 padding-x--x2 rounded--lrg overflow-hidden shadow-lrg max-width--tny full-height float-left">
+      class="color-white headers-white padding-y--x4 padding-x--x2 rounded--lrg overflow-hidden shadow-lrg max-width--tny full-height float-left">
         <h2 class="size--x2 text-shadow margin-bottom--x2">Left <br>Modal.</h2>
-        <p class="color-white">With some text and some data-bg attribute goodness.</p>
+        <p>With some text and some data-bg attribute goodness.</p>
         <label for="username">Username</label>
         <input class="bg-white" type="text" name="" value="">
         <label for="username">Password</label>
@@ -840,9 +842,9 @@
       data-bg-gradient-opacity=".4"
       class="padding--x2 full-height full-width position-relative">
         <div class="transform-center-y text-shadow">
-          <div class="max-width--thin align-center">
+          <div class="max-width--thin align-center color-white--darker-3 headers-white">
             <h2 class="size--x2">Fullscreen Modal</h2>
-            <p class="color-white--darker-3">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            <p class="">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
             <button data-close-modal="fullscreen-modal" class="big orange">I agree. Enter the site.</button>
           </div>
         </div>
@@ -919,23 +921,52 @@
           handleResizeComponent();
         });
 
-
-        /*
         // toggle night mode classes
-        $(document).on('click', '#nightmode', function(e){
-          let b = $('body');
-          let n = $('#nightmode');
+        let n = document.querySelector('#nightmode');
+        let b = document.getElementsByTagName('BODY')[0];
+        let h = document.querySelector('#header');
+        let colorSwaps = document.querySelectorAll('#stickies .color-black--lighter-1');
+        let bgSwaps = document.querySelectorAll('#stickies .bg-black--lighter-1');
+
+        const hardSwaps = (str) => {
+          if (str=='off') {
+            for (var i = 0; i < colorSwaps.length; i++) {
+              colorSwaps[i].classList.remove('color-black--lighter-1');
+              colorSwaps[i].classList.add('color-white--darker-1');
+            }
+            for (var i = 0; i < bgSwaps.length; i++) {
+              bgSwaps[i].classList.remove('bg-black--lighter-1');
+              bgSwaps[i].classList.add('bg-white--darker-1');
+            }
+          } else {
+            for (var i = 0; i < colorSwaps.length; i++) {
+              colorSwaps[i].classList.add('color-black--lighter-1');
+              colorSwaps[i].classList.remove('color-white--darker-1');
+            }
+            for (var i = 0; i < bgSwaps.length; i++) {
+              bgSwaps[i].classList.add('bg-black--lighter-1');
+              bgSwaps[i].classList.remove('bg-white--darker-1');
+            }
+          }
+        }
+
+        n.addEventListener('click', function(e){
           // turn off
-          if(b.attr('night-mode')==='on'){
-            b.attr('night-mode','off').removeClass('inverted bg-black color-black--lighter-10 headers-white');
-            n.text('Night Mode On');
+          if(b.getAttribute('night-mode')==='on'){
+            b.setAttribute('night-mode','off')
+            b.classList.remove('inverted','bg-black','color-black--lighter-10','headers-white');
+            h.setAttribute('data-bg-color','#ffffff')
+            h.setAttribute('data-bg-gradient-start','#f0f0f0')
+            hardSwaps('off');
           // turn on
           } else {
-            b.attr('night-mode','on').addClass('inverted bg-black color-black--lighter-10 headers-white');
-            n.text('Night Mode Off');
+            b.setAttribute('night-mode','on')
+            b.classList.add('inverted','bg-black','color-black--lighter-10','headers-white');
+            h.setAttribute('data-bg-color','#17191f')
+            h.setAttribute('data-bg-gradient-start','black')
+            hardSwaps('on');
           }
         });
-        */
 
       });
     </script>
