@@ -52,14 +52,14 @@ table {
   border-collapse: collapse;
   border-color: #fafafa; }
   table thead, table tfoot, table tr {
-    border-color: #f7f7f7; }
+    border-color: #f2f2f2; }
     .inverted table thead, .inverted table tfoot, .inverted table tr {
       border-color: #22252e; }
   table thead {
     border-bottom-style: solid;
     border-bottom-width: 1px; }
     table thead th {
-      padding-bottom: 10px; }
+      padding-top: 0px; }
   table tfoot {
     border-top-style: solid;
     border-top-width: 1px; }
@@ -68,9 +68,17 @@ table {
     border-bottom-width: 1px; }
     table tr:last-child {
       border-bottom: none; }
-  table td {
+    thead table tr {
+      padding-top: 0px; }
+  table th, table td {
     padding-top: 10px;
-    padding-bottom: 10px; }
+    padding-bottom: 10px;
+    padding-left: 20px;
+    padding-right: 20px; }
+    table th:first-child, table td:first-child {
+      padding-left: 0px; }
+    table th:last-child, table td:last-child {
+      padding-right: 0px; }
 
 /* LISTS */
 ol {
