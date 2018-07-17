@@ -78,10 +78,11 @@
 
         <!-- table of contents -->
         <div id="contents"
-        class="box sticky-top--med-up offset-top transition-all padding-y"
-        data-classes-onstick="bg-white--darker-1 rounded--lrg padding"
+        class="box sticky-top--med-up offset-top rounded--lrg transition-all padding-y"
         data-span-tny="0"
-        data-span-med="3">
+        data-span-med="3"
+        data-classes-onstick="bg-white--darker-1 padding"
+        >
           <nav>
             <ul>
               <li><a data-classes-onhash="green" class="button off full-width text-left" data-hash="#setup" href="#setup">Setup</a></li>
@@ -860,7 +861,7 @@
       document.addEventListener("DOMContentLoaded", function(event) {
 
         /*
-        Dynamic background change coolness
+        Dynamic background changes for the background form section
          */
         let background = document.querySelector('#background-demo')
         let inputs = document.querySelectorAll('input[name*="data-bg-"]');
@@ -872,7 +873,6 @@
             background.setAttribute(attr, e.target.value );
           });
         });
-
         // handle selects
         selects.forEach(function(el, index) {
           el.addEventListener('change', function(e){
@@ -881,10 +881,10 @@
           });
         });
 
-        /*
-        Resize component coolness
+        /**
+         * Dynamic background changes for the resizing demo
          */
-        // handle compenent resize events
+        // handle component resize events
         function handleResizeComponent() {
           let object = document.querySelector('#responsive-component');
           if ( bloxHasClass(object, 'isTall') ) {
@@ -923,13 +923,14 @@
           handleResizeComponent();
         });
 
-        // toggle night mode classes
+        /*
+        All the night mode goodness
+         */
         let n = document.querySelector('#nightmode');
         let b = document.getElementsByTagName('BODY')[0];
         let h = document.querySelector('#header');
         let colorSwaps = document.querySelectorAll('#stickies .color-black--lighter-1');
         let bgSwaps = document.querySelectorAll('#stickies .bg-black--lighter-1');
-
         const hardSwaps = (str) => {
           if (str=='off') {
             for (var i = 0; i < colorSwaps.length; i++) {
@@ -951,7 +952,6 @@
             }
           }
         }
-
         n.addEventListener('click', function(e){
           // turn off
           if(b.getAttribute('night-mode')==='on'){

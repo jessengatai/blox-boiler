@@ -1,6 +1,33 @@
 document.addEventListener("DOMContentLoaded", function(event) {
 
   /**
+   * Check to see if an element is position relative (or equiv, aboslute, fixed etc)
+   * @param  {object}  object The element to check
+   * @return {Boolean}        Wether or not this element is position relative
+   */
+  const isRelative = (object) => {
+
+    let style = object.style.position;
+    let classes = object.classList;
+    let goodPositions = [
+      'relative',
+      'sticky',
+      'fixed',
+      'absolute'
+    ]
+    const hasStickyClass = () => {
+      for (var i = 0; i < classes.length; i++) {
+        if (classes[i].startsWith("sticky-") ) {
+          return true;
+        }
+      }
+    }
+    // if the direct style is a relative position return true
+    // if the object has a sticky classes return true
+    return ( goodPositions.indexOf(style)==true || hasStickyClass() ) ? true : false ;
+  }
+
+  /**
    * Setup the base markup needed for our data-attr backgrounds
    * @param  {object} object The background parent
    */
@@ -16,9 +43,16 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
     // prepend new divs
     object.prepend( divColor, divImage, divGradient );
-    // force position
-    // note: only make this happen if it's static (not absolute, fixed etc)
-    object.className += ' position-relative overflow-hidden';
+
+    // check and make sure the position is usable for smart backgrounds (fixed, absolute, sticky, relative etc)
+    if( isRelative(object) ){
+      object.className += ' overflow-hidden';
+      console.log('is relative position already');
+    } else {
+      object.className += ' position-relative overflow-hidden';
+      console.log('is NOT relative position');
+    }
+
     // if this is a modal, remove the background style
     if ( object.classList.contains('modal') ) {
       object.style.backgroundColor = 'transparent';
@@ -106,7 +140,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
       }
 
       // if blend is normal apply background color to the bg-color div so image opacity still works
-      if( imageBlend==='normal' ) {
+      if( imageBlend==='normal' && imageOpacity!==0 ) {
         divColor.style.backgroundColor = colorRGBA;
       } else {
         divColor.style.backgroundColor = '';
