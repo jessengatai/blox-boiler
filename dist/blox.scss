@@ -513,39 +513,50 @@ table {
   text-align: left;
   border-collapse:collapse;
   border-color: darken($white,2);
-
-
+  // borders
   thead, tfoot, tr {
-    border-color: darken($white,3);
+    border-color: darken($white,5);
     .inverted & {
       border-color: $inverted-border-color;
     }
   }
-
+  // table head
   thead {
     border-bottom-style: solid;
     border-bottom-width: 1px;
     th {
-      padding-bottom: ($paddingY / 2);
+      padding-top: 0px;
     }
   }
+  // table footer
   tfoot {
     border-top-style: solid;
     border-top-width: 1px;
   }
+  // table rows
   tr {
     border-bottom-style: solid;
     border-bottom-width: 1px;
     &:last-child {
       border-bottom: none;
     }
+    thead & {
+      padding-top: 0px;
+    }
   }
-  td {
+  // table cells
+  th, td {
     padding-top: ($paddingY / 2);
     padding-bottom: ($paddingY / 2);
+    padding-left: $paddingX;
+    padding-right: $paddingX;
+    &:first-child {
+      padding-left: 0px;
+    }
+    &:last-child {
+      padding-right: 0px;
+    }
   }
-
-
 
 }
 
@@ -977,15 +988,17 @@ BOX ROWS
 BOX COLUMNS
  */
 .boxes {
-
-  // horizontal layout (default)
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
   margin-left: calc( #{$gutterX} / 2 );
   margin-right: calc( #{$gutterX} / 2 );
 
-  // nester negative margins
+  // default layout
+  &:not([data-layout="masonry"]) {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  // nested negative margins
   &[data-gutters="nested"] {
     margin-left: calc( -#{$gutterX} / 2 );
     margin-right: calc( -#{$gutterX} / 2 );
@@ -1017,6 +1030,19 @@ BOX COLUMNS
         width: 100%;
         max-width: 100%;
       }
+    }
+  }
+
+  // masonry layout
+  &[data-layout="masonry"] {
+    // clear the boxes afterwards
+    &:after {
+      content: "";
+      display: block;
+      clear: both;
+    }
+    > .box {
+      float: left;
     }
   }
 
@@ -1870,4 +1896,10 @@ INVERTED LOGIC
  */
 .inverted .bg-white--darker-1 {
   background: darken($black,2);
+}
+
+.clear {
+  display: block;
+  width: 100%;
+  clear: both;
 }

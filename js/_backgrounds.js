@@ -47,10 +47,8 @@ document.addEventListener("DOMContentLoaded", function(event) {
     // check and make sure the position is usable for smart backgrounds (fixed, absolute, sticky, relative etc)
     if( isRelative(object) ){
       object.className += ' overflow-hidden';
-      console.log('is relative position already');
     } else {
       object.className += ' position-relative overflow-hidden';
-      console.log('is NOT relative position');
     }
 
     // if this is a modal, remove the background style

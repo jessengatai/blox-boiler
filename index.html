@@ -26,7 +26,7 @@
       }
 
       *[class*="row-"] {
-        border-left: 8px solid !important;
+        border-left: 5px solid !important;
       }
       .row-1 {
         border-left-color: #EF3555 !important;
@@ -41,14 +41,13 @@
         border-left-color: #1642D1 !important;
       }
       .row-last {
-        border-left-color: white !important;
+        border-left-color: #4b11c3 !important;
       }
 
     </style>
 
   </head>
   <body night-mode="on" class="inverted bg-black color-black--lighter-10 headers-white">
-
 
     <div id="header"
     data-bg-color="#17191f"
@@ -359,26 +358,18 @@
             <!-- BOXES -->
             <div id="boxes" class="box margin-bottom--x4">
               <h2 class="size--x2">Boxes</h2>
-
               <p>Blox uses flex-box to create layouts quickly. All that's needed is for a parent element to have a class of <code>.boxes</code> and it's direct children to have classes of <code>.box</code>. Then we simply apply widths and heights via data-attributes for each box.</p>
 
               <h3>Horizontal</h3>
               <p>The default direction for boxes is left to right and the default column count is 12 (changeable via variables.scss). Also, these data-attributes run from the bottom up, meaning if you <strong>only</strong> set <code>data-span-med="6"</code> the box will be 6/12 on all screen sizes from medium up and 12/12 for everything below.</p>
 
-              <h6>Hints</h6>
-              <ol>
-                <li>If you're using <code>fill</code>, the column will expand to a new row if your content is too long.</li>
-                <li>Spans start at <code>0</code> and you can use <code>0</code> to hide boxes for specific screen sizes.</li>
-                <li>Add <code>data-rowclasses</code> to the <code>.boxes</code> element for <code>.row-x</code> and <code>.row-last</code> to be added appropriately to each box.</li>
-              </ol>
-
               <p>
                 Legend:
-                <small class="border-bottom--red padding--half">.row-1</small>
-                <small class="border-bottom--yellow padding--half">.row-2</small>
-                <small class="border-bottom--green padding--half">.row-3</small>
-                <small class="border-bottom--blue padding--half">.row-4</small>
-                <small class="border-bottom--white padding--half">.row-last</small>
+                <small style="padding: 0px 8px;" class="rounded color-red--contrast bg-red">.row-1</small>
+                <small style="padding: 0px 8px;" class="rounded color-yellow--contrast bg-yellow">.row-2</small>
+                <small style="padding: 0px 8px;" class="rounded color-green--contrast bg-green">.row-3</small>
+                <small style="padding: 0px 8px;" class="rounded color-blue--contrast bg-blue">.row-4</small>
+                <small style="padding: 0px 8px;" class="rounded color-purple--contrast bg-purple">.row-last</small>
               </p>
 
               <!-- horizontal boxes -->
@@ -442,17 +433,48 @@
 
                 <!-- box 5 -->
                 <div class="box deboss"
-                data-span-xl="12"
+                data-span-xl="6"
                 data-span-lrg="12"
                 data-span-med="fill"
                 data-span-tny="12">
-                  <p class="tight show-xl">data-span-xl="12"</p>
+                  <p class="tight show-xl">data-span-xl="6"</p>
                   <p class="tight show-lrg">data-span-lrg="12"</p>
                   <p class="tight show-med">data-span-med="fill"</p>
                   <p class="tight show-sml">SML Inheriting From TNY (which spans 12)</p>
                   <p class="tight show-tny">data-span-tny="12"</p>
                 </div>
 
+              </div>
+
+              <h6>Hints</h6>
+              <ol class="margin-bottom--x2">
+                <li>If you're using <code>fill</code>, the column will expand to a new row if your content is too long.</li>
+                <li>Spans start at <code>0</code> and you can use <code>0</code> to hide boxes for specific screen sizes.</li>
+                <li>Add <code>data-rowclasses</code> to the <code>.boxes</code> element for <code>.row-x</code> and <code>.row-last</code> to be added appropriately to each box.</li>
+              </ol>
+
+              <h3>Masonry</h3>
+              <p>A masonry layout is possible and works much the same as the horizontal layout, just add <code>data-layout="masonry"</code> to your <code>.boxes</code> element.</p>
+
+              <div class="boxes margin-bottom--x2" data-layout="masonry" data-gutters="nested">
+                <div class="box rounded padding bg-red color-red--contrast" data-span-tny="6" data-span-med="4">
+                  <p>I barely knew Philip, but as a clergyman I have no problem telling his most intimate friends all about him.</p>
+                </div>
+                <div class="box rounded padding bg-blue color-blue--contrast" data-span-tny="6" data-span-med="4">
+                  <p>For example, if you killed your grandfather, you'd cease to exist! Son, as your lawyer, I declare y'all are in a 12-piece bucket o' trouble. But I done struck you a deal.</p>
+                </div>
+                <div class="box rounded padding bg-yellow color-yellow--contrast" data-span-tny="6" data-span-med="4">
+                  <p>Now Fry, it's been a few years since medical school, so remind me. Disemboweling in your species: fatal or non-fatal?</p>
+                </div>
+                <div class="box rounded padding bg-purple color-purple--contrast" data-span-tny="6" data-span-med="4">
+                  <p>Our love isn't any different from yours, except it's hotter, because I'm involved. Leela's gonna kill me.</p>
+                </div>
+                <div class="box rounded padding bg-orange color-orange--contrast" data-span-tny="6" data-span-med="4">
+                  <p>The grasshopper kept burying acorns for winter, while the octopus mooched.</p>
+                </div>
+                <div class="box rounded padding bg-green color-green--contrast" data-span-tny="6" data-span-med="4">
+                  <p>Spare me your space age technobabble, Attila the Hun!</p>
+                </div>
               </div>
 
               <h3>Vertical</h3>
@@ -505,9 +527,11 @@
               <div class="deboss">
                 <table class="full-width">
                   <thead>
-                    <th>Attribute</th>
-                    <th>For Element</th>
-                    <th>Description</th>
+                    <tr>
+                      <th style="width: 25%">Attribute</th>
+                      <th>For Element</th>
+                      <th>Description</th>
+                    </tr>
                   </thead>
                   <tbody>
                     <tr>
@@ -519,6 +543,11 @@
                       <td>data-direction="X"</td>
                       <td><code>.boxes</code></td>
                       <td>X being <code>vertical</code> or <code>horizontal</code> <br><small class="color-red">Attribute is optional and will default to horizontal</small></td>
+                    </tr>
+                    <tr>
+                      <td>data-layout="masonry"</td>
+                      <td><code>.boxes</code></td>
+                      <td>Does what it says on the box; magically arranges your boxes.</td>
                     </tr>
                     <tr>
                       <td>data-rowclasses</td>

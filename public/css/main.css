@@ -482,11 +482,12 @@ BOX ROWS
 BOX COLUMNS
  */
 .boxes {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
   margin-left: calc( 30px / 2);
   margin-right: calc( 30px / 2); }
+  .boxes:not([data-layout="masonry"]) {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap; }
   .boxes[data-gutters="nested"] {
     margin-left: calc( -30px / 2);
     margin-right: calc( -30px / 2); }
@@ -1589,6 +1590,12 @@ BOX COLUMNS
     .boxes[data-direction="vertical"][data-gutters="tight"] > .box {
       width: 100%;
       max-width: 100%; }
+  .boxes[data-layout="masonry"]:after {
+    content: "";
+    display: block;
+    clear: both; }
+  .boxes[data-layout="masonry"] > .box {
+    float: left; }
 
 .box {
   margin-left: calc( 30px / 2);
@@ -6206,3 +6213,8 @@ INVERTED LOGIC
  */
 .inverted .bg-white--darker-1 {
   background: #131419; }
+
+.clear {
+  display: block;
+  width: 100%;
+  clear: both; }

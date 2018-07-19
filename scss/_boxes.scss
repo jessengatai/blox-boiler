@@ -73,15 +73,17 @@ BOX ROWS
 BOX COLUMNS
  */
 .boxes {
-
-  // horizontal layout (default)
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
   margin-left: calc( #{$gutterX} / 2 );
   margin-right: calc( #{$gutterX} / 2 );
 
-  // nester negative margins
+  // default layout
+  &:not([data-layout="masonry"]) {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  // nested negative margins
   &[data-gutters="nested"] {
     margin-left: calc( -#{$gutterX} / 2 );
     margin-right: calc( -#{$gutterX} / 2 );
@@ -113,6 +115,19 @@ BOX COLUMNS
         width: 100%;
         max-width: 100%;
       }
+    }
+  }
+
+  // masonry layout
+  &[data-layout="masonry"] {
+    // clear the boxes afterwards
+    &:after {
+      content: "";
+      display: block;
+      clear: both;
+    }
+    > .box {
+      float: left;
     }
   }
 

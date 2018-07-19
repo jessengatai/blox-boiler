@@ -961,10 +961,8 @@ document.addEventListener("DOMContentLoaded", function (event) {
     // check and make sure the position is usable for smart backgrounds (fixed, absolute, sticky, relative etc)
     if (isRelative(object)) {
       object.className += ' overflow-hidden';
-      console.log('is relative position already');
     } else {
       object.className += ' position-relative overflow-hidden';
-      console.log('is NOT relative position');
     }
 
     // if this is a modal, remove the background style
@@ -1174,6 +1172,150 @@ document.addEventListener("DOMContentLoaded", function (event) {
    */
   window.addEventListener('resize', runBoxRowClasses);
   runBoxRowClasses();
+
+  /**
+   * Find the margin left of an element
+   * @param  {object} box The element in question
+   * @return {integer}    The left margin of the element
+   */
+  var getMarginLeft = function getMarginLeft(box) {
+    var style = box.currentStyle || window.getComputedStyle(box);
+    return parseInt(style.marginLeft, 10);
+  };
+
+  /**
+   * Figure out the fullwidth of an element inclusive of margins
+   * @param  {object} box The element in question
+   * @return {integer}    The total width in integer format
+   */
+  var getFullWidth = function getFullWidth(box) {
+    var width = box.getBoundingClientRect().width;
+    var style = window.getComputedStyle(box);
+    // add top and bottom margins to height total
+    var fullwidth = ["left", "right"].map(function (side) {
+      return parseInt(style['margin-' + side], 10);
+    }).reduce(function (total, side) {
+      return total + side;
+    }, width);
+    return parseInt(fullwidth);
+  };
+
+  /**
+   * Return the fullheight of an element including the top and bottom margins
+   * @param  {object} box The element in question
+   * @return {integer}    The total height
+   */
+  var getFullHeight = function getFullHeight(box) {
+    var height = box.getBoundingClientRect().height;
+    var style = window.getComputedStyle(box);
+    // add top and bottom margins to height total
+    var fullheight = ["top", "bottom"].map(function (side) {
+      return parseInt(style['margin-' + side], 10);
+    }).reduce(function (total, side) {
+      return total + side;
+    }, height);
+    return parseInt(fullheight);
+  };
+
+  /**
+   * Find the box sibling that has the highest bottom offset
+   * @param  {[type]} array [description]
+   * @return {[type]}       [description]
+   */
+  var findHeighestBottom = function findHeighestBottom(array) {
+    return array.reduce(function (prev, current) {
+      return prev.bottom < current.bottom ? prev : current;
+    });
+  };
+
+  /**
+   * Get the boxes container height by using the offest of the lowest box in the set
+   * @param  {array} boxes  The boxes of the container
+   * @return {integer}      The height of the container
+   */
+  var getContainerHeight = function getContainerHeight(boxes) {
+    var lowest = boxes.reduce(function (prev, current) {
+      return Math.floor(prev.offsetTop + prev.getBoundingClientRect().height) > Math.floor(current.offsetTop + current.getBoundingClientRect().height) ? prev : current;
+    });
+    return Math.floor(lowest.offsetTop + getFullHeight(lowest));
+  };
+
+  /**
+   * Setup and handle the masonry boxes
+   */
+  var setupMasonry = bloxDebounce(function () {
+
+    // loop through each container
+    document.querySelectorAll('.boxes[data-layout="masonry"]').forEach(function (container) {
+
+      // setup positional nodes
+      var left = 0;
+      var boxes = [];
+      var available = [];
+      var children = container.children;
+
+      // maintain dimensions of the container
+      container.classList.add('position-relative');
+      container.style.height = container.getBoundingClientRect().height + 'px';
+
+      // setup the boxes array
+      // - this is to target only the immediate .box children of the container
+      for (var i = 0, l = children.length; i < l; ++i) {
+        var child = children[i];
+        if (child.nodeType === 1 && child.classList.contains('box')) {
+          boxes.push(child);
+        }
+      }
+
+      // figure out how many columns are in this container
+      var columnCount = function columnCount() {
+        return parseInt(container.getBoundingClientRect().width / boxes[0].getBoundingClientRect().width);
+      };
+
+      // loop through each box for positioning
+      boxes.forEach(function (box, index, initial) {
+
+        // set position relative for this
+        box.style.position = 'absolute';
+
+        // first row boxes
+        if (index <= columnCount() - 1) {
+          box.style.left = index != 0 ? left + 'px' : 0;
+          left += getFullWidth(box);
+
+          // masonry boxes
+        } else {
+          // find the highest point sibling
+          var chosen = findHeighestBottom(available);
+          // position this box under the chosen box
+          box.style.top = chosen.bottom + 'px';
+          box.style.left = chosen.left + 'px';
+          // remove the chosen sibling from the available array
+          available = available.filter(function (obj) {
+            return obj.box !== chosen.box;
+          });
+        }
+
+        // push current box to the list of available boxes to use for next sibling
+        available.push({
+          box: index,
+          bottom: box.offsetTop + getFullHeight(box),
+          left: box.offsetLeft - getMarginLeft(box)
+        });
+      });
+
+      // update the height of the container
+      var containerHeight = getContainerHeight(boxes);
+      container.style.height = containerHeight + 'px';
+    });
+  }, bloxDebounce() + 100); // end setupMasonry() using a hard 100ms debounce here, 50 is too small
+
+  /**
+   * Handle responsive changes to the masonry boxes
+   * @param  {object} event the event
+   */
+  window.addEventListener('resize', setupMasonry);
+  setupMasonry();
 });
 
 document.addEventListener("DOMContentLoaded", function (event) {
