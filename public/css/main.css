@@ -3188,6 +3188,9 @@ TEXT COLORS (needs to be cleaned up a lot, not good for final css filesize)
 [class*="color-"] {
   color: inherit; }
 
+.color-transparent {
+  color: transparent; }
+
 .color-white {
   color: #ffffff; }
 
